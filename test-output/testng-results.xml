@@ -2,35 +2,33 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="com.mycompany_QMS2.0_jar_1.0-SNAPSHOT" duration-ms="60207" started-at="2022-03-21T18:25:40 IST" finished-at="2022-03-21T18:26:41 IST">
+  <suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT" duration-ms="272" started-at="2022-05-13T10:26:20 IST" finished-at="2022-05-13T10:26:20 IST">
     <groups>
     </groups>
-    <test name="QMSTestSuites suite" duration-ms="60207" started-at="2022-03-21T18:25:40 IST" finished-at="2022-03-21T18:26:41 IST">
-      <class name="com.pss.qms.ChangeControlModule.CCClosureApprove">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.pss.qms.ChangeControlModule.CCClosureApprove@2d8f65a4]" name="setUp" is-config="true" duration-ms="5844" started-at="2022-03-21T18:25:40 IST" finished-at="2022-03-21T18:25:46 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="toCCClosureApprove()[pri:0, instance:com.pss.qms.ChangeControlModule.CCClosureApprove@2d8f65a4]" name="toCCClosureApprove" duration-ms="53418" started-at="2022-03-21T18:25:46 IST" finished-at="2022-03-21T18:26:40 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- toCCClosureApprove -->
-        <test-method status="PASS" signature="testIT(org.testng.ITestResult)[pri:0, instance:com.pss.qms.ChangeControlModule.CCClosureApprove@2d8f65a4]" name="testIT" is-config="true" duration-ms="3" started-at="2022-03-21T18:26:40 IST" finished-at="2022-03-21T18:26:40 IST">
+    <test name="URLUpdateinPropertiesfile" duration-ms="272" started-at="2022-05-13T10:26:20 IST" finished-at="2022-05-13T10:26:20 IST">
+      <class name="com.pss.qms.PropertiesFileUpdate.UpdateURLinPropertiesFile">
+        <test-method status="PASS" signature="main(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.pss.qms.PropertiesFileUpdate.UpdateURLinPropertiesFile@74650e52]" name="main" duration-ms="230" started-at="2022-05-13T10:26:20 IST" finished-at="2022-05-13T10:26:20 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=toCCClosureApprove status=SUCCESS method=CCClosureApprove.toCCClosureApprove()[pri:0, instance:com.pss.qms.ChangeControlModule.CCClosureApprove@2d8f65a4] output={null}]]]>
+                <![CDATA[http://192.168.0.115:8096/ADMIN]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[http://192.168.0.117:8098/QMS]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[http://192.168.0.115:8096/REGISTRATION/Login.do]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testIT -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.pss.qms.ChangeControlModule.CCClosureApprove@2d8f65a4]" name="tearDown" is-config="true" duration-ms="826" started-at="2022-03-21T18:26:40 IST" finished-at="2022-03-21T18:26:41 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.pss.qms.ChangeControlModule.CCClosureApprove -->
-    </test> <!-- QMSTestSuites suite -->
-  </suite> <!-- com.mycompany_QMS2.0_jar_1.0-SNAPSHOT -->
+        </test-method> <!-- main -->
+      </class> <!-- com.pss.qms.PropertiesFileUpdate.UpdateURLinPropertiesFile -->
+    </test> <!-- URLUpdateinPropertiesfile -->
+  </suite> <!-- com.mycompany_QMSProject_jar_1.0-SNAPSHOT -->
 </testng-results>
