@@ -2,14 +2,24 @@ package com.pss.qms.DeviationWithInvAndCAPARejection;
 
 import java.awt.Desktop;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.Set;
+import java.util.TreeMap;
 
 import org.apache.commons.configuration.PropertiesConfiguration;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -33,10 +43,9 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
  
 import com.pss.qms.login.DeviationLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
-import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
-public class DeviationInitiation extends DeviationLoginDetails {
+public class DeviationInitiationManualSource extends DeviationLoginDetails {
   
 	@Test
 	public void toDeviationInitiation() throws InterruptedException, IOException, DocumentException, Exception {
@@ -59,8 +68,9 @@ public class DeviationInitiation extends DeviationLoginDetails {
 			Select module= new Select(driver.findElement(By.id("qmsModule")));
 			module.selectByIndex(1);
 			input = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-			Thread.sleep(5000);		
+			Thread.sleep(5000);
 			driver.findElement(By.xpath("//*[@id=\"loginform\"]/div[7]/button[1]")).click();
+			
 			im = Image.getInstance(input);
 			im.scaleToFit((PageSize.A4.getWidth() - (PageSize.A4.getWidth() / 8)),
 					(PageSize.A4.getHeight() - (PageSize.A4.getHeight() / 8)));
@@ -141,7 +151,7 @@ driver.findElement(By.id("devOccureInDevInit")).sendKeys(todaysDate);
          document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter Current Status",sno,false);
          sno++;
          JavascriptExecutor js = ((JavascriptExecutor) driver);
-         js.executeScript("window.scrollTo(0, 600)");
+         js.executeScript("window.scrollTo(0, 400)");
          Thread.sleep(3000);
          driver.findElement(By.xpath("//*[@id=\"content\"]/div[15]/div[1]/div[2]/label")).click();
          document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Yes radio button",sno,false);
@@ -216,84 +226,60 @@ driver.findElement(By.id("devOccureInDevInit")).sendKeys(todaysDate);
        driver.findElement(By.id("submitBtnInSrcAddingDlg")).click();
        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Submit Button",sno,false);
        sno++;     
-       driver.findElement(By.id("addProductsInDevInit")).click();
+       driver.findElement(By.xpath("//*[@id=\"productJtableInDevInit\"]/div/div[3]/div[2]/span/span[2]")).click();
        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Product Button",sno,false);
        sno++;
-       Helper.waitLoadRecords(driver, By.cssSelector("#productDetialsTableContainer > div > div.jtable-busy-message[style='display: none;']"));
-        driver.findElement(By.xpath("//*[@id=\"productDetialsTableContainer\"]/div/table/tbody/tr[1]/td[2]")).click();
-        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select Product",sno,false);
-        sno++;       
-        driver.findElement(By.id("addBtnInProductAdd")).click();
+        driver.findElement(By.id("prodNameInDevProdDlg")).sendKeys(properties.getProperty("Description_Of_Deviation_100"));
+        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter Product Name",sno,false);
+        sno++;
+        Select producttype= new Select(driver.findElement(By.id("prodTypeInDevProdDlg")));
+        producttype.selectByIndex(1);
+        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select Manufacturing Process",sno,false);
+        sno++;
+        driver.findElement(By.id("addBtnInDevProdDlg")).click();
         document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Button",sno,false);
         sno++;
-         driver.findElement(By.id("addDocumentsInDevInit")).click();
+         driver.findElement(By.cssSelector("#documentJtableInDevInit > div > div.jtable-title > div.jtable-toolbar > span > span.jtable-toolbar-item-text")).click();
          document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Document",sno,false);
          sno++;
-         driver.findElement(By.id("locTreeForAddDocuments_2_switch")).click();
-         Thread.sleep(3000);
-         driver.findElement(By.id("locTreeForAddDocuments_3_span")).click();
-     document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select Location in Document Tree",sno,false);
+     driver.findElement(By.id("docTitleInDevDocDlg")).sendKeys(properties.getProperty("Description_Of_Deviation_100"));
+     document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter Document Title",sno,false);
      sno++;
-     Helper.waitLoadRecords(driver, By.cssSelector("#documentsWidowDetialsTableContainer > div > div.jtable-busy-message[style='display: none;']"));
-        driver.findElement(By.xpath("//*[@id=\"documentsWidowDetialsTableContainer\"]/div/table/tbody/tr/td[2]")).click();
-        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select Document",sno,false);
+        driver.findElement(By.id("addDetailsInDevDocDlg")).sendKeys(properties.getProperty("Additional_Details_1500"));
+        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Add Additional Details",sno,false);
         sno++;
-        driver.findElement(By.id("addBtnInDocumentAdd")).click();
+//        js.executeScript("window.scrollTo(0, 100)");
+        driver.findElement(By.id("addBtnInDevDocDlg")).click();
         document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Button",sno,false);
+      JavascriptExecutor jse1 = (JavascriptExecutor) driver;
+        WebElement element9 = driver.findElement(By.xpath("//*[@id=\"materialJtableInDevInit\"]/div/div[3]/div[2]/span/span[2]"));
+        jse1.executeScript("arguments[0].scrollIntoView(true);", element9);
         sno++;
-       Helper.scrollElement(driver, By.id("addEquipmentInDevInit"));        
-         driver.findElement(By.id("addEquipmentInDevInit")).click();
+      driver.findElement(By.xpath("//*[@id=\"materialJtableInDevInit\"]/div/div[3]/div[2]/span/span[2]")).click();
+      document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Material Button",sno,false);
+      sno++;
+     driver.findElement(By.id("materialNameInDevMaterDlg")).sendKeys(properties.getProperty("Description_Of_Deviation_100"));
+     document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter Material Name",sno,false);
+     sno++;
+      driver.findElement(By.id("addBtnInDevMaterDlg")).click();
+      document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Button",sno,false);
+       JavascriptExecutor jse2 = (JavascriptExecutor) driver;
+        WebElement element2 = driver.findElement(By.xpath("//*[@id=\"equipmentJtableInDevInit\"]/div/div[3]/div[2]/span/span[2]"));
+        jse2.executeScript("arguments[0].scrollIntoView(true);", element2);
+        sno++; 
+         driver.findElement(By.xpath("//*[@id=\"equipmentJtableInDevInit\"]/div/div[3]/div[2]/span/span[2]")).click();
          document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Equipment Button",sno,false);
          sno++;
-         driver.findElement(By.id("locTreeForAddEquipments_2_switch")).click();
-         Thread.sleep(2000);
-         driver.findElement(By.id("locTreeForAddEquipments_3_span")).click();
-         document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select Department from the Tree",sno,false);
-         sno++;
-         Helper.waitLoadRecords(driver, By.cssSelector("#equipmentWidowDetialsTableContainer > div > div.jtable-busy-message[style='display: none;']"));
-         driver.findElement(By.xpath("//*[@id=\"equipmentWidowDetialsTableContainer\"]/div/table/tbody/tr/td[2]")).click();
-         document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter Equipment Name",sno,false);
-         sno++;
-         driver.findElement(By.id("addBtnInEqptAdd")).click();
-         document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Button",sno,false);
-         Helper.scrollElement(driver, By.id("addInstrumentsInDevInit"));
-         driver.findElement(By.id("addInstrumentsInDevInit")).click();
-         document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Instrument Button",sno,false);
-         sno++;
-         driver.findElement(By.id("locTreeForAddInstruments_2_switch")).click();
-         driver.findElement(By.id("locTreeForAddInstruments_3_span")).click();
-       document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select Department from the tree ",sno,false);
-       sno++;
-       driver.findElement(By.xpath("//*[@id=\"instrumentWidowDetialsTableContainer\"]/div/table/tbody/tr/td[2]")).click();
-       document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select Instrument",sno,false);
-       sno++;
-        driver.findElement(By.id("addButtonInInstmtAdd")).click();
-        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Button",sno,false);
-        sno++;
-        Helper.scrollElement(driver, By.id("addSpecificationsInDevInit"));
-        driver.findElement(By.id("addSpecificationsInDevInit")).click();
-        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Specification Button",sno,false);
-        sno++;
-        Helper.waitLoadRecords(driver, By.cssSelector("#specificationDetialsTableContainer > div > div.jtable-busy-message[style='display: none;']"));
-        driver.findElement(By.xpath("//*[@id=\"specificationDetialsTableContainer\"]/div/table/tbody/tr[1]/td[2]")).click();
-        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select Specification",sno,false);
-        sno++;
-        driver.findElement(By.id("addBtnInSpecAdd")).click();
-        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Button",sno,false);
-        sno++;
-        Helper.scrollElement(driver, By.id("addMaterialsInDevInit"));         
-        driver.findElement(By.id("addMaterialsInDevInit")).click();
-        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Material Button",sno,false);
-        sno++;
-        driver.findElement(By.xpath("//*[@id=\"materialDetialsTableContainer\"]/div/table/tbody/tr[1]/td[2]")).click();
-     document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select Material",sno,false);
-     sno++;
-      driver.findElement(By.id("addBtnInMaterialAdd")).click();
-      document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Button",sno,false);
-      
+ driver.findElement(By.id("eqptNameInDevEqptDlg")).sendKeys(properties.getProperty("Description_Of_Deviation_100"));
+ document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter Equipment Name",sno,false);
+ sno++;
+    driver.findElement(By.id("addBtnInDevEqptDlg")).click();
+    document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Button",sno,false);
   JavascriptExecutor jse3 = (JavascriptExecutor) driver;
         WebElement element3 = driver.findElement(By.cssSelector("#facilityJtableInDevInit > div > div.jtable-title > div.jtable-toolbar > span > span.jtable-toolbar-item-text"));
-        jse3.executeScript("arguments[0].scrollIntoView(true);", element3);        
+        jse3.executeScript("arguments[0].scrollIntoView(true);", element3);
+        
+        
         sno++;
      driver.findElement(By.xpath("//*[@id=\"facilityJtableInDevInit\"]/div/div[3]/div[2]/span/span[2]")).click();
      document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Facility Button",sno,false);
@@ -303,7 +289,37 @@ driver.findElement(By.id("devOccureInDevInit")).sendKeys(todaysDate);
         sno++;
    driver.findElement(By.id("addBtnInDevFacilityDlg")).click();
    document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Button",sno,false);
-        JavascriptExecutor jse5 = (JavascriptExecutor) driver;
+  JavascriptExecutor jse4 = (JavascriptExecutor) driver;
+        WebElement element4 = driver.findElement(By.cssSelector("#specJtableInDevInit > div > div.jtable-title > div.jtable-toolbar > span > span.jtable-toolbar-item-text"));
+        jse4.executeScript("arguments[0].scrollIntoView(true);", element4);
+        sno++;
+ driver.findElement(By.xpath("//*[@id=\"specJtableInDevInit\"]/div/div[3]/div[2]/span")).click();
+ document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Specification Button",sno,false);
+ sno++;
+    driver.findElement(By.id("prodNameInDevSpecDlg")).sendKeys(properties.getProperty("Description_Of_Deviation_100"));
+    document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter Product/Material Name",sno,false);
+    sno++;
+       driver.findElement(By.id("strengthInDevSpecDlg")).sendKeys(properties.getProperty("Description_Of_Deviation_100"));
+       document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter Strength",sno,false);
+       sno++;
+   driver.findElement(By.id("addBtnInDevSpecDlg")).click();
+   document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Button",sno,false);
+   sno++;
+    driver.findElement(By.xpath("//*[@id=\"instrumentJTableInDevInit\"]/div/div[3]/div[2]/span/span[2]")).click();
+    document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Instrument Button",sno,false);
+    sno++;
+  driver.findElement(By.id("instrNoInCCInstrumentDlg")).sendKeys(properties.getProperty("Description_Of_Deviation_100"));
+  document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter Instrument No",sno,false);
+  sno++;
+  driver.findElement(By.id("instrNameInCCInstrumentDlg")).sendKeys(properties.getProperty("Description_Of_Deviation_100"));
+  document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter Instrument Name",sno,false);
+  sno++;
+       driver.findElement(By.id("instrLocInCCInstrumentDlg")).sendKeys(properties.getProperty("Description_Of_Deviation_100"));
+       document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter Instrument Location",sno,false);
+       sno++;
+   driver.findElement(By.id("addBtnInCCInstrmntDlg")).click();
+   document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Button",sno,false);
+      JavascriptExecutor jse5 = (JavascriptExecutor) driver;
         WebElement element5 = driver.findElement(By.xpath("//*[@id=\"analMethodJtableInDevInit\"]/div/div[3]/div[2]/span/span[2]"));
         jse5.executeScript("arguments[0].scrollIntoView(true);", element5);
         sno++;
@@ -374,11 +390,20 @@ driver.findElement(By.id("devOccureInDevInit")).sendKeys(todaysDate);
         String Deviation=driver.findElement(By.xpath("//*[@id='modal-window']/div/div/div[2]/center")).getText();
         String[] parts = Deviation.split(" : ");
         System.out.println(parts[1]);
-        String DeviationNo = parts[1].substring(0, 15);
+        String DeviationNo = parts[1].substring(0, 13);
         System.out.println(DeviationNo);
         PropertiesConfiguration properties = new PropertiesConfiguration("src/test/java/QMSUIProperties/Deviation.properties");
         properties.setProperty("DEVIATION_NUMBER", DeviationNo);
         properties.save();
+        Thread.sleep(2000);
+        
+//      XSSFWorkbook workbook = new XSSFWorkbook();
+// 		XSSFSheet spreadsheet= workbook.createSheet(" Deviation Number ");
+// 		
+         
+ 		
+ 		// Thread.sleep(5000);
+        
    driver.findElement(By.xpath(".//*[@id='modal-window']/div/div/div[3]/a")).click();
    document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On OK Button",sno,false); 
 sno++;
@@ -389,7 +414,9 @@ sno++;
 Thread.sleep(1000);
 driver.findElement(By.cssSelector("a[href='Logout.do']")).click();
 document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Logout",sno,true); 
-    }
+
+  }
+       
     @AfterMethod
     public void testIT(ITestResult result)
     {

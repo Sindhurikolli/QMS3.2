@@ -7,8 +7,8 @@
 </listeners> 
     <test name="BEDeviationWithInvAndCapa">
           <classes>
-              <class name="com.pss.qms.DeviationWithInvAndCAPA.DeviationInitiation"/>  
-              <class name="com.pss.qms.DeviationWithInvAndCAPA.DeptReviewerDev"/> 
+              <class name="com.pss.qms.DeviationWithInvAndCAPA.DeviationInitiation"/>   
+              <class name="com.pss.qms.DeviationWithInvAndCAPA.DeptReviewerDev"/>
               <class name="com.pss.qms.DeviationWithInvAndCAPA.QAReviewerDev"/> 
               <class name="com.pss.qms.DeviationWithInvAndCAPA.CFTReviewerDev"/>
               <class name="com.pss.qms.DeviationWithInvAndCAPA.RegReviewDev"/>
