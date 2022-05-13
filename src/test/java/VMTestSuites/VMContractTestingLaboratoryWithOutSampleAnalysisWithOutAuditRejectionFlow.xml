@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">  
+    
+    <test name="VMRegisterToApproval">
+        <classes>
+            <class name="com.pss.qms.VMContractTestingLaboratoryWithOutSampleAnalysisWithOutAuditRejetionFlow.ContractTestingLaboratoryRegistration"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryWithOutSampleAnalysisWithOutAuditRejetionFlow.ContractTestingLaboratoryRegistrationReject"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryWithOutSampleAnalysisWithOutAuditRejetionFlow.ContractTestingLaboratoryReRegister"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryWithOutSampleAnalysisWithOutAuditRejetionFlow.ContractTestingLaboratoryRegistrationApproval"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryWithOutSampleAnalysisWithOutAuditRejetionFlow.VendorIdentification"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryWithOutSampleAnalysisWithOutAuditRejetionFlow.VendorIdentificationReject"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryWithOutSampleAnalysisWithOutAuditRejetionFlow.VendorReIdentification"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryWithOutSampleAnalysisWithOutAuditRejetionFlow.VendorIdentificationApproval"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryWithOutSampleAnalysisWithOutAuditRejetionFlow.VendorEvaluation"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryWithOutSampleAnalysisWithOutAuditRejetionFlow.VendorEvaluationReject"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryWithOutSampleAnalysisWithOutAuditRejetionFlow.VendorReEvaluation"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryWithOutSampleAnalysisWithOutAuditRejetionFlow.VendorEvaluationApproval"/>
+        </classes>
+    </test>
+
+</suite>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+
+<suite-files>
+
+<suite-file path = "AMAdhocScheduleApproval.xml"></suite-file>
+<suite-file path = "AMAdhocScheduleRejectionFlow.xml"></suite-file>
+<suite-file path = "AMAdhocScheduleWithAIForwardFlow.xml"></suite-file>
+<suite-file path = "AMAdhocScheduleWithAIRejectionFlow.xml"></suite-file>
+<suite-file path = "AMExternalScheduleApprovalFlow.xml"></suite-file>
+<suite-file path = "AMExternalScheduleRejectionFlow.xml"></suite-file>
+<suite-file path = "AMExternalscheduleWithAIForwardFlow.xml"></suite-file>
+<suite-file path = "AMExternalScheduleWithAIRejectionFlow.xml"></suite-file>
+<suite-file path = "AMPlannedScheduleApprovalFlow.xml"></suite-file>
+<suite-file path = "AMPlannedScheduleRejectionFlow.xml"></suite-file>
+<suite-file path = "AMPlannedScheduleWithAIForwardFlow.xml"></suite-file>
+<suite-file path = "AMPlannedScheduleWithAIRejectionFlow.xml"></suite-file>
+
+</suite-files>
+
+</suite>

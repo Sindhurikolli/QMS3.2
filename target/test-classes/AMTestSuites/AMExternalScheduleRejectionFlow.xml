@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+<listeners>
+        <listener class-name="com.pss.qms.Listners.TestListenerAM"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+    
+    <test name="AuditManagementExternalScheduleRejection">
+    
+        <classes>
+        
+       <class name="com.pss.qms.AuditManagementExternalRejection.ExternalPlanAuditManagement"/>
+       <class name="com.pss.qms.AuditManagementExternalRejection.ExternalScheduleReject"/>
+       <class name="com.pss.qms.AuditManagementExternalRejection.ExternalScheduleRejectApprove"/>
+       <class name="com.pss.qms.AuditManagementExternalRejection.ExternalAuditApprove"/>
+       <class name="com.pss.qms.AuditManagementExternalRejection.AuditPlanExternalSchedule"/>
+       <class name="com.pss.qms.AuditManagementExternalRejection.ExternalObservationsAndResponse"/>
+       <class name="com.pss.qms.AuditManagementExternalRejection.ExternalObservationsAndResponseReviewReject"/>
+       <class name="com.pss.qms.AuditManagementExternalRejection.ExternalObsAndResponseRejectApprove"/>
+       <class name="com.pss.qms.AuditManagementExternalRejection.ExternalObservationsAndResponseReview"/>
+       <class name="com.pss.qms.AuditManagementExternalRejection.ExternalObsAndResponseApproveReject"/>
+       
+  </classes>
+
+    </test>
+    <test name="AuditManagementExternalScheduleRejection1">
+    
+        <classes>       
+       <class name="com.pss.qms.AuditManagementExternalRejection.ExternalObsAndResponseRejectApprove"/>
+       <class name="com.pss.qms.AuditManagementExternalRejection.ExternalObservationsAndResponseReview"/>
+       <class name="com.pss.qms.AuditManagementExternalRejection.ExternalObservationsAndResponseApproval"/>
+       <class name="com.pss.qms.AuditManagementExternalRejection.CloseAuditExternalSchedule"/>
+       
+</classes>
+
+    </test>
+
+</suite>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMS2.0_jar_1.0-SNAPSHOT">
+
+    <test name="BEDevWithCFTWithCAPA">
+          <classes>
+              <class name="com.pss.qms.DeviationWithCFTWithCAPA.DeviationInitiation"/> 
+              <class name="com.pss.qms.DeviationWithCFTWithCAPA.DeptReviewerDev"/>
+              <class name="com.pss.qms.DeviationWithCFTWithCAPA.QAReviewerDev"/>
+              <class name="com.pss.qms.DeviationWithCFTWithCAPA.CFTReviewerDev"/>
+              <class name="com.pss.qms.DeviationWithCFTWithCAPA.QAApproverDev"/>
+              <class name="com.pss.qms.DeviationWithCFTWithCAPA.PostApprovalActionsInitiation"/>   
+              <class name="com.pss.qms.DeviationWithCFTWithCAPA.PostApprovalActionsReview"/>
+              <class name="com.pss.qms.DeviationWithCFTWithCAPA.DeviationClosure"/>
+          </classes>
+   </test>
+
+</suite>
+
+
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">  
+    
+    <test name="VMRegisterToCloser">
+        <classes>
+             <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.VendorRegistration"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.VendorRegistrationReject"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.VendorReRegister"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.VendorRegistrationApproval"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.VendorIdentification"/> 
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.VendorIdentificationReject"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.VendorReIdentification"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.VendorIdentificationApproval"/
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.VendorEvaluation"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.VendorEvaluationReject"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.VendorReEvaluation"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.VendorEvaluationApproval"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.AnalyseSample"/>
+             <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.AnalyseSampleReject"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.ReAnalyseSample"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.AnalyseSampleApproval"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.VendorInspectionPlan"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.VendorInspectionPlanReject"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.VendorResubmittedRejectedInspectionPlan"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.VendorInspectionPlanApproval"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.CheckListPerformAudit"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.VendorQuestionnarieAuditApproval"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.VendorNotification"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.VendorResponse"/>
+            <class name="com.pss.qms.VendorManagementManufacturerRegistrationApprovalRejectionFlow.CloseVendor"/> 
+            
+        </classes>
+    </test>
+
+</suite>

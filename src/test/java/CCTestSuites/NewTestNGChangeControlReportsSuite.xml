@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMS2.0_jar_1.0-SNAPSHOT">
+
+    <test name="QMSCCTestSuiteReports">
+       <classes>
+              <class name="com.pss.qms.ChangeControlReports.ChangeControlReport"/> 
+              <class name="com.pss.qms.ChangeControlReports.ChangeControlRefDocs"/>   
+              <class name="com.pss.qms.ChangeControlReports.ChangeControlFinalReport"/>
+              <class name="com.pss.qms.ChangeControlReports.RoleBaseEmployeeList"/>
+              <class name="com.pss.qms.ChangeControlReports.PeriodicReviewReport"/>              
+              <class name="com.pss.qms.ChangeControlReports.CCSharedToCustomerReport"/>
+              <class name="com.pss.qms.ChangeControlReports.CCHistoryReport"/>
+              <class name="com.pss.qms.ChangeControlReports.CCClosedHistoryReportViewPDF"/>
+              <class name="com.pss.qms.ChangeControlReports.CCClosedHistoryReportPrintPDF"/>
+              <class name="com.pss.qms.ChangeControlReports.CCBarTrends"/>
+              <class name="com.pss.qms.ChangeControlReports.CCBarViewTrend"/>
+              <class name="com.pss.qms.ChangeControlReports.CCPieTrendViewDetails"/>
+              <class name="com.pss.qms.ChangeControlReports.ChangeControlReportsExcel"/>
+              <class name="com.pss.qms.ChangeControlReports.CCClosedHistoryReportSaveAsExcel"/>
+              <class name="com.pss.qms.ChangeControlReports.CCPieViewTrends"/>
+       </classes>
+    </test>
+
+</suite>
+

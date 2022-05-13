@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMS2.0_jar_1.0-SNAPSHOT">
+   <listeners> 
+        <listener class-name="com.pss.qms.Listners.TestListenerDeviation"/>
+</listeners> 
+    <test name="BEDeviationWithInvAndCapa">
+          <classes>
+             <!--   <class name="com.pss.qms.DeviationWithAiInvAndCAPA.DeviationInitiation"/>
+               <class name="com.pss.qms.DeviationWithAiInvAndCAPA.DeptReviewerDev"/>   -->
+              <class name="com.pss.qms.DeviationWithAiInvAndCAPA.QAReviewerDevWithAI"/>
+             <class name="com.pss.qms.DeviationWithAiInvAndCAPA.CFTReviewerDev"/>
+              <class name="com.pss.qms.DeviationWithAiInvAndCAPA.RegReviewDev"/>
+               <class name="com.pss.qms.DeviationWithAiInvAndCAPA.QAReviewNotifyCustomerDev"/>
+              <class name="com.pss.qms.DeviationWithAiInvAndCAPA.QAReviewCustomerResponseDev"/>
+             <class name="com.pss.qms.DeviationWithAiInvAndCAPA.QAApproverDevWithAI"/>
+            </classes>
+   </test> 
+   <test name="BEDeviationWithInvAndCapa1">
+          <classes>
+              <class name="com.pss.qms.DeviationWithAiInvAndCAPA.PostApprovalActionsInitiateWithCAorPA"/>  
+              <class name="com.pss.qms.DeviationWithAiInvAndCAPA.PostApprovalActionsReview"/>
+              <class name="com.pss.qms.DeviationWithAiInvAndCAPA.ActionItemPerformAssignedByQMSCoordinator"/>
+               <class name="com.pss.qms.DeviationWithAiInvAndCAPA.ActionItemPerformAssignedByQAHOD"/> 
+                <class name="com.pss.qms.DeviationWithAiInvAndCAPA.ActionItemApproveAssignedByQMSCoordinator"/> 
+                <class name="com.pss.qms.DeviationWithAiInvAndCAPA.ActionItemApproveAssignedByQAHOD"/> 
+            </classes>
+   </test>
+    <test name="BEDeviationWithInvAndCapa2">
+          <classes>
+              <class name="com.pss.qms.DeviationWithAiInvAndCAPA.PlanExistingCAPA"/>
+              <class name="com.pss.qms.DeviationWithAiInvAndCAPA.DeptHODReviewCAPACAorPA"/> 
+              <class name="com.pss.qms.DeviationWithAiInvAndCAPA.QAReviewerCAPACAorPA"/>
+              <class name="com.pss.qms.DeviationWithAiInvAndCAPA.QAApproverCAPA"/>
+              <class name="com.pss.qms.DeviationWithAiInvAndCAPA.CloseDeviation"/>
+          </classes>
+   </test>
+
+</suite>

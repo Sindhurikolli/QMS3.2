@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMS2.0_jar_1.0-SNAPSHOT">
+   <listeners> 
+        <listener class-name="com.pss.qms.Listners.TestListenerDeviation"/>
+</listeners> 
+  <!--   <test name="BEDeviationWithInvAndCapa">
+          <classes>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.DeviationInitiation"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.DeptReviewerReject"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.ReInitiateDeviation"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.DeptReviewerApprove"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.QAReviewReject"/> 
+           </classes>
+    </test> 
+    <test name="BEDeviationWithInvAndCapa1">
+    	 <classes>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.ReInitiateDeviation"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.DeptReviewerApprove"/>  
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.QAReviewerApprove"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.CFTReviewReject"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.RegReviewerReject"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.CustomerNotification"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.CustomerResponseReject"/>
+          </classes>
+    </test>   -->
+     <test name="BEDeviationWithInvAndCapa2">
+    	 <classes>    
+         <!--      <class name="com.pss.qms.DeviationWithInvAndCAPARejection.QAReReviewAfterCFTReject"/> 
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.CFTReviewApprove"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.RegReviewerApprove"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.CustomerNotification"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.CustomerResponse"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.QAApproverRejectDev"/>-->
+         </classes>
+    </test>   
+   <test name="BEDeviationWithInvAndCapa3">
+    	 <classes>  
+           <!--    <class name="com.pss.qms.DeviationWithInvAndCAPARejection.QAReReviewerDev"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.QAApproverDev"/> 
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.PostApprovalActionsInitiateWithCAorPA"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.PostApprovalActionReviewRevert"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.PostApprovalActionReInitate"/> 
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.PostApprovalActionReview"/>-->
+          </classes>
+    </test>   
+    <test name="BEDeviationWithInvAndCapa4">
+    	 <classes>       
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.PlanExistingCAPA"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.DeptHODReviewCAPACAorPA"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.QAReviewerCAPACAorPA"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPARejection.QAApproverCAPA"/>
+         </classes>
+    </test>   
+    <test name="BEDeviationWithInvAndCapa5">
+    	 <classes> 
+    	 <class name="com.pss.qms.DeviationWithInvAndCAPARejection.CloseDeviation"/>
+         </classes>
+   </test> 
+   
+
+</suite>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+   <listeners> 
+        <listener class-name="com.pss.qms.Listners.TestListenerINC"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners> 
+    
+    <test name="IncidentCreationAndApproval">
+        <classes>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.IncidentInitiation"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.DeptReviewerInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.QAReviewerInc"/>
+         </classes>
+    </test> 
+      
+     <test name="IncidentReview">   
+     <classes>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.CFTReviewerInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.RegReviewInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.QAReviewNotifyCustomerInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.QAReviewCustomerResponseInc"/> 
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.QAApproverInc"/>
+     </classes>
+    </test>
+    
+   <test name="IncidentInvestigation">
+        <classes>
+       		  <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.InvestigationPlanInc"/> 
+              <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.InvPerformInc"/>  
+              <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.InvReviewInc"/>
+              <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.CFTInvReviewInc"/>
+              <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.QAReReviewInc"/>
+              <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.QAReApproveInc"/>
+                   
+         </classes>
+    </test>
+    
+    <test name="IncidentClose">
+        <classes>
+       		   
+              <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.CloseIncident"/> 
+     
+         </classes>
+    </test>
+
+
+</suite>

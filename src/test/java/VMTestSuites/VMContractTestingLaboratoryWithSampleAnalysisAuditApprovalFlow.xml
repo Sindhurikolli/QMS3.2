@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">  
+    
+    <test name="VMSupRegisterToCloser">
+        <classes>
+            <class name="com.pss.qms.VendorManagementContractTestingLaboratoryForwardFlow.ContractTestingLaboratoryregistration"/>
+            <class name="com.pss.qms.VendorManagementContractTestingLaboratoryForwardFlow.ContractTestingLaboratoryRegistrationApproval"/>
+            <class name="com.pss.qms.VendorManagementContractTestingLaboratoryForwardFlow.VendorIdentification"/>
+            <class name="com.pss.qms.VendorManagementContractTestingLaboratoryForwardFlow.VendorIdentificationApproval"/>
+            <class name="com.pss.qms.VendorManagementContractTestingLaboratoryForwardFlow.VendorEvaluation"/>
+            <class name="com.pss.qms.VendorManagementContractTestingLaboratoryForwardFlow.VendorEvaluationApproval"/>
+            <class name="com.pss.qms.VendorManagementContractTestingLaboratoryForwardFlow.AnalyseSample"/>
+            <class name="com.pss.qms.VendorManagementContractTestingLaboratoryForwardFlow.AnalyseSampleApproval"/>
+            <class name="com.pss.qms.VendorManagementContractTestingLaboratoryForwardFlow.VendorInspectionPlan"/>
+            <class name="com.pss.qms.VendorManagementContractTestingLaboratoryForwardFlow.VendorInspectionPlanApproval"/>
+            <class name="com.pss.qms.VendorManagementContractTestingLaboratoryForwardFlow.ChecklistPerformAudit"/>
+            <class name="com.pss.qms.VendorManagementContractTestingLaboratoryForwardFlow.VendorQuestionnarieAuditApproval"/>
+            <class name="com.pss.qms.VendorManagementContractTestingLaboratoryForwardFlow.VendorNotification"/>
+            <class name="com.pss.qms.VendorManagementContractTestingLaboratoryForwardFlow.VendorResponse"/>
+            <class name="com.pss.qms.VendorManagementContractTestingLaboratoryForwardFlow.CloseVendor"/>
+        </classes>
+    </test>
+
+</suite>

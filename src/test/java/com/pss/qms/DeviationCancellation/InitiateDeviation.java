@@ -1,0 +1,276 @@
+package com.pss.qms.DeviationCancellation;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+
+import com.pss.qms.ExtentTestNGPkg.Utility;
+ 
+import com.pss.qms.login.DeviationLoginDetails;
+
+public class InitiateDeviation extends DeviationLoginDetails {
+  
+	
+	@Test
+    public void methodtoinitiatedocument() throws InterruptedException {
+        Thread.sleep(8000);
+        driver.findElement(By.xpath("//*[@id=\"deviation_tile_Id\"]/div/div/div/h2")).click();
+        Thread.sleep(6000);
+        driver.findElement(By.id("deviationInDev")).click();
+        Thread.sleep(8000);
+        toinitiatedocument();
+    }
+
+    private void toinitiatedocument() throws InterruptedException {
+        Thread.sleep(5000);
+//        Date date = new Date();
+//        String todaysDate = new SimpleDateFormat("dd/MM/yyyy").format(date);
+//        Thread.sleep(5000);
+//        driver.findElement(By.id("devOccureInDevInit")).sendKeys(todaysDate);
+//        Thread.sleep(5000);
+         //driver.findElement(By.name("devOccureInDevInit")).click();
+        Thread.sleep(5000);
+//        JavascriptExecutor javascript = (JavascriptExecutor) driver;
+//        String toenable = "date.getElementsByName('devOccureInDevInit')[0].removeAttribute('disabled');";
+        ((JavascriptExecutor)driver).executeScript ("document.getElementById('devOccureInDevInit').removeAttribute('readonly',0);"); 
+        WebElement identifiedDate= driver.findElement(By.id("devOccureInDevInit")); 
+        identifiedDate.clear(); 
+//        identifiedDate.sendKeys("");
+         Date date = new Date();
+        String todaysDate = new SimpleDateFormat("dd/MM/yyyy").format(date);
+        Thread.sleep(3000);
+        driver.findElement(By.id("devOccureInDevInit")).sendKeys(todaysDate);
+        Thread.sleep(3000);
+        //javascript.executeScript(toenable);
+//        Thread.sleep(3000);
+//        driver.findElement(By.id("devOccureInDevInit")).click();
+//        Thread.sleep(3000);
+//        driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[4]/td[3]/a")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.id("iniOrgintr")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.id("descDeviationInDevInit")).sendKeys(properties.getProperty("Description_Of_Deviation"));
+        Thread.sleep(3000);
+//        driver.findElement(By.id("5WhysQsnCheckInDevInit")).click();
+//        Thread.sleep(8000);
+//        driver.findElement(By.id("answerForDev5WhysQsnInDevInit_1")).sendKeys(properties.getProperty("Description_Of_Deviation"));
+//        Thread.sleep(8000);
+//        driver.findElement(By.id("answerForDev5WhysQsnInDevInit_2")).sendKeys(properties.getProperty("Description_Of_Deviation"));
+//        Thread.sleep(5000);
+//        driver.findElement(By.id("answerForDev5WhysQsnInDevInit_3")).sendKeys(properties.getProperty("Description_Of_Deviation"));
+//        Thread.sleep(5000);
+//        driver.findElement(By.id("answerForDev5WhysQsnInDevInit_4")).sendKeys(properties.getProperty("Description_Of_Deviation"));
+//        Thread.sleep(5000);
+//        driver.findElement(By.id("answerForDev5WhysQsnInDevInit_5")).sendKeys(properties.getProperty("Description_Of_Deviation"));
+//        Thread.sleep(5000);
+        driver.findElement(By.id("suspctedCauseInDevInit")).sendKeys(properties.getProperty("Description_Of_Deviation"));
+        Thread.sleep(3000);
+//        driver.findElement(By.id("rationaleInDevInit")).sendKeys(properties.getProperty("Description_Of_Deviation"));
+//        Thread.sleep(5000);
+        driver.findElement(By.id("impactAssessmentInDevInit")).sendKeys(properties.getProperty("Description_Of_Deviation"));
+        Thread.sleep(3000);
+        driver.findElement(By.id("currStatusBatchInDevInit")).sendKeys(properties.getProperty("Description_Of_Deviation"));
+        Thread.sleep(3000);
+//        driver.findElement(By.id("suppDocYesInDevInit")).click();
+//        Thread.sleep(3000);
+//        driver.findElement(By.id("ccAddSuppDocs")).click();
+        Thread.sleep(3000);
+//        driver.findElement(By.id("uploadSuppDoc_1")).sendKeys(properties.getProperty("Document-1"));
+//        Thread.sleep(3000);
+//        driver.findElement(By.xpath(".//*[@id='impactedMarketTableInInitiation']/div/div[3]/div[2]/span/span[2]")).click();
+//        Thread.sleep(5000);
+//        driver.findElement(By.id("searchBtnInAddMarketWin")).click();
+//        Thread.sleep(5000);
+//        driver.findElement(By.xpath(".//*[@id='marketTableInAddMarketWindow']/div/table/tbody/tr/td[1]/input")).click();
+//        Thread.sleep(5000);
+//        driver.findElement(By.id("selBtnInAddMarketWin")).click();
+//        Thread.sleep(5000);
+//        driver.findElement(By.xpath(".//*[@id='impactedCustomerTableInInitiation']/div/div[3]/div[2]/span/span[2]")).click();
+//        Thread.sleep(5000);
+//        driver.findElement(By.id("searchBtnInAddCustomerWin")).click();
+//        Thread.sleep(5000);
+//        driver.findElement(By.xpath(".//*[@id='CustomersTableInAddCustomerWindow']/div/table/tbody/tr/td[1]/input")).click();
+//        Thread.sleep(5000);
+//        driver.findElement(By.id("selBtnInAddCustomerWin")).click();
+        //Thread.sleep(5000);
+        driver.findElement(By.id("justificationForImmadAct")).sendKeys(properties.getProperty("Description_Of_Deviation"));
+        Thread.sleep(3000);
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        WebElement element = driver.findElement(By.id("productChkInDevInit"));
+        jse.executeScript("arguments[0].scrollIntoView(true);", element);
+        Thread.sleep(3000);
+        driver.findElement(By.cssSelector("#productChkInDevInit")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.id("documentChkInDevInit")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("materialChkInDevInit")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("instrumentChkInDevInit")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("equipmentChkInDevInit")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("facilityChkInDevInit")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("specificationChkInDevInit")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("methodChkInDevInit")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("auditChkInDevInit")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("othersChkInDevInit")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("continueBtnId")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//*[@id=\"sourcesGridForDeviationInit\"]/div/div[3]/div[2]/span/span[2]")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("textAreaForBatchNumSrc")).sendKeys(properties.getProperty("Description_Of_Deviation"));
+        Thread.sleep(3000);
+        driver.findElement(By.id("textAreaForPrdctOrMatCodeSrc")).sendKeys(properties.getProperty("Description_Of_Deviation"));
+        Thread.sleep(3000);
+        driver.findElement(By.id("textAreaForArNumSrc")).sendKeys(properties.getProperty("Description_Of_Deviation"));
+        Thread.sleep(3000);
+        driver.findElement(By.id("textAreaForOthersSrc")).sendKeys(properties.getProperty("Description_Of_Deviation"));
+        Thread.sleep(3000);
+        driver.findElement(By.id("submitBtnInSrcAddingDlg")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//*[@id=\"productJtableInDevInit\"]/div/div[3]/div[2]/span/span[2]")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("prodNameInDevProdDlg")).sendKeys(properties.getProperty("PRODUCT_NAME"));;
+        Thread.sleep(5000);
+        Select producttype= new Select(driver.findElement(By.id("prodTypeInDevProdDlg")));
+        producttype.selectByIndex(1);
+        Thread.sleep(3000);
+        driver.findElement(By.id("addBtnInDevProdDlg")).click();
+        Thread.sleep(5000);
+         driver.findElement(By.cssSelector("#documentJtableInDevInit > div > div.jtable-title > div.jtable-toolbar > span > span.jtable-toolbar-item-text")).click();
+        Thread.sleep(5000);
+         driver.findElement(By.id("docTitleInDevDocDlg")).sendKeys(properties.getProperty("Document_Name"));;
+        Thread.sleep(5000);
+         driver.findElement(By.id("addDetailsInDevDocDlg")).sendKeys(properties.getProperty("CHANGE_CONTROL_SHORT_DESC"));
+        Thread.sleep(5000);
+//         driver.findElement(By.xpath("//*[@id=\"documentsWidowDetialsTableContainer\"]/div/table/tbody/tr/td[2]")).click();
+//        Thread.sleep(5000);
+        driver.findElement(By.id("addBtnInDevDocDlg")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//*[@id=\"materialJtableInDevInit\"]/div/div[3]/div[2]/span/span[2]")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("materialNameInDevMaterDlg")).sendKeys(properties.getProperty("MATERIAL_NAME"));;
+        Thread.sleep(5000);
+        driver.findElement(By.id("addBtnInDevMaterDlg")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//*[@id=\"equipmentJtableInDevInit\"]/div/div[3]/div[2]/span/span[2]")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("eqptNameInDevEqptDlg")).sendKeys(properties.getProperty("EQUIPMENT_NAME"));;
+        Thread.sleep(5000);
+        driver.findElement(By.id("addBtnInDevEqptDlg")).click();
+        Thread.sleep(5000);
+        JavascriptExecutor jse1 = (JavascriptExecutor) driver;
+        WebElement element1 = driver.findElement(By.cssSelector("#facilityJtableInDevInit > div > div.jtable-title > div.jtable-toolbar > span > span.jtable-toolbar-item-text"));
+        jse1.executeScript("arguments[0].scrollIntoView(true);", element1);
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//*[@id=\"facilityJtableInDevInit\"]/div/div[3]/div[2]/span/span[2]")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("areaNameInDevFacilityDlg")).sendKeys(properties.getProperty("INSTRUMENT_LOCATION"));;
+        Thread.sleep(5000);
+        driver.findElement(By.id("addBtnInDevFacilityDlg")).click();
+        Thread.sleep(5000);
+        JavascriptExecutor jse2 = (JavascriptExecutor) driver;
+        WebElement element2 = driver.findElement(By.cssSelector("#specJtableInDevInit > div > div.jtable-title > div.jtable-toolbar > span > span.jtable-toolbar-item-text"));
+        jse2.executeScript("arguments[0].scrollIntoView(true);", element2);
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//*[@id=\"specJtableInDevInit\"]/div/div[3]/div[2]/span")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("prodNameInDevSpecDlg")).sendKeys(properties.getProperty("PRODUCT_NAME"));;
+        Thread.sleep(5000);
+        driver.findElement(By.id("strengthInDevSpecDlg")).sendKeys(properties.getProperty("STRENGTHS"));;
+        Thread.sleep(5000);
+        driver.findElement(By.id("addBtnInDevSpecDlg")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//*[@id=\"instrumentJTableInDevInit\"]/div/div[3]/div[2]/span/span[2]")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("instrNoInCCInstrumentDlg")).sendKeys(properties.getProperty("INSTRUMENT_ID"));;
+        Thread.sleep(5000);
+        driver.findElement(By.id("instrNameInCCInstrumentDlg")).sendKeys(properties.getProperty("INSTRUMENT_NAME"));;
+        Thread.sleep(5000);
+        Select instrumenttype = new Select(driver.findElement(By.id("instrTypeInCCInstrumentDlg")));
+        instrumenttype.selectByIndex(2);
+        Thread.sleep(3000);
+        driver.findElement(By.id("instrLocInCCInstrumentDlg")).sendKeys(properties.getProperty("INSTRUMENT_LOCATION"));;
+        Thread.sleep(5000);
+        driver.findElement(By.id("addBtnInCCInstrmntDlg")).click();
+        Thread.sleep(5000);
+        JavascriptExecutor jse3 = (JavascriptExecutor) driver;
+        WebElement element3 = driver.findElement(By.xpath("//*[@id=\"analMethodJtableInDevInit\"]/div/div[3]/div[2]/span/span[2]"));
+        jse3.executeScript("arguments[0].scrollIntoView(true);", element3);
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//*[@id=\"analMethodJtableInDevInit\"]/div/div[3]/div[2]/span/span[2]")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("prodNameInDevAnalMethDlg")).sendKeys(properties.getProperty("PRODUCT_NAME"));;
+        Thread.sleep(5000);
+        driver.findElement(By.id("addBtnInDevAnalMethDlg")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//*[@id=\"auditJtableInDevInit\"]/div/div[3]/div[2]/span/span[2]")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("auditNumInDevAuditDlg")).sendKeys(properties.getProperty("AUD_NO_CC_INIT"));;
+        Thread.sleep(5000);
+        driver.findElement(By.id("observationsInDevAuditDlg")).sendKeys(properties.getProperty("OBSERVATIONS"));;
+        Thread.sleep(5000);
+        driver.findElement(By.id("addBtnInDevAuditDlg")).click();
+        Thread.sleep(5000);  
+        driver.findElement(By.xpath("//*[@id=\"othersJtableInDevInit\"]/div/div[3]/div[2]/span/span[2]")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.id("otherDetailsInDevOthersDlg")).sendKeys(properties.getProperty("CHANGE_CONTROL_SHORT_DESC"));;
+        Thread.sleep(5000);
+        driver.findElement(By.id("addBtnInDevOthersDlg")).click();
+        Thread.sleep(5000);
+        JavascriptExecutor jse4 = (JavascriptExecutor) driver;
+        WebElement element4 = driver.findElement(By.id("submitBtnInDevInitWin"));
+        jse4.executeScript("arguments[0].scrollIntoView(true);", element4);
+        Thread.sleep(1000);
+        String deviationString="";
+        driver.findElement(By.id("submitBtnInDevInitWin")).click();
+        Thread.sleep(3000);
+        WebDriverWait wait = new WebDriverWait(driver, 60);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("eSignPwdInDevWnd"))).sendKeys(properties.getProperty("Esign_Password"));
+        Thread.sleep(5000);
+        driver.findElement(By.id("subBtnInValESignInDev")).click();
+        Thread.sleep(5000);
+//        WebDriverWait wait2 = new WebDriverWait(driver, 60);
+//        wait2.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"modal-window\"]/div/div/div[2]/center/text()[2]")));
+
+        Thread.sleep(4000);
+        deviationString = driver.findElement(By.cssSelector("#modal-window > div > div > div.modal-text > center")).getText();
+//        WebElement element2 = driver.findElement(By.xpath("//*[@id=\"modal-window\"]/div/div/div[2]/center/text()[2]"));
+        Thread.sleep(2000);
+        String separateDeviationNumber[] = deviationString.split(" ");
+        System.out.println("separateDeviationNumber: "+separateDeviationNumber[4]);
+        String deviationNo = separateDeviationNumber[4]; 
+        Thread.sleep(2000);
+//        deviationNo = deviationNo.replace(")", ""); 
+//        finalDeviationNumber = deviationNo.trim();
+//        System.out.println("finalDeviationNumber: "+finalDeviationNumber);
+        Thread.sleep(5000);
+        driver.findElement(By.xpath(".//*[@id='modal-window']/div/div/div[3]/a")).click();
+        Thread.sleep(5000);
+
+    }
+    @AfterMethod
+    public void testIT(ITestResult result)
+    {
+    	if(ITestResult.FAILURE==result.getStatus())
+    	{
+    		Utility.captureScreenshot(driver, result.getName());
+    	}
+    	
+    }
+    } 
+

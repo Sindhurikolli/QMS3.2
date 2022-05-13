@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+<listeners>
+        <listener class-name="com.pss.qms.Listners.TestListenerAM"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+    
+     <parameter name="PLAN_NAME_IN_AI_REJECT_FLOW" value="PlnShAIRej"/>
+	
+	
+    <test name="AMPropertiesfileupdate">
+        <classes>
+      <class name="com.pss.qms.PropertiesFileUpdate.UpdateAMProperties">
+      <methods>
+		<include name="PlannedScheduleAIPlannameRej"/>
+	  </methods>   
+      </class> 
+        </classes>
+    </test>
+    <test name="PlannedAuditManagementWithAI">
+        <classes>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.PlanSchedule"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.PlanScheduleReject"/> 
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.PlanScheduleRejectedApprove"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.PlanScheduleApprove"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditPlan"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.InternalAuditObservations"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ReviewAuditObservationsReject"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.InternalAuditObservationsRejectedApprove"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ReviewAuditObservations"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditObservationsApprovalReject"/>
+       
+        </classes>
+    </test>
+     <test name="PlannedAuditManagementWithAI1">
+        <classes>  
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.InternalAuditObservationsRejectedApprove"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ReviewAuditObservations"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ApproveAuditObservations"/> 
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponse"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseReviewReject"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseRejectedApprove"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseReview"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseApproveReject"/>
+        </classes>
+    </test>
+     <test name="PlannedAuditManagementWithAI2">
+        <classes>  
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseRejectedApprove"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseReview"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseApproval"/> 
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ActionItemPerform"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ActionItemPerform2"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ActionItemApproveRevert"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ActionItemApproveRevert2"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ActionItemRePerform"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ActionItemRePerform2"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ActionItemApprove"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ActionItemApprove2"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.CloseAudit"/>
+       
+       </classes>
+    </test>
+
+</suite>

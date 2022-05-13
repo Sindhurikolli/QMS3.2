@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+
+<listeners> 
+         <listener class-name="com.pss.qms.Listners.TestListenerCAPA"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+    
+    <test name="CAPAInitiationToCloser1"> 
+               
+            <classes>
+            
+            <class name="com.pss.qms.CAPACAorPARejFlow.CAPANewPlanCAorPA"/> 
+            <class name="com.pss.qms.CAPACAorPARejFlow.DeptHODCAPAReject"/>
+            <class name="com.pss.qms.CAPACAorPARejFlow.CAPARejectInitiate"/>
+            <class name="com.pss.qms.CAPACAorPARejFlow.DeptHODCAPAModuleCAorPA"/>
+            
+            </classes>
+             
+             </test>
+             
+             
+            <test name="CAPAInitiationToCloser2">   
+                     
+            <classes>
+            
+            <class name="com.pss.qms.CAPACAorPARejFlow.QAreviewerCAPAReject"/>                        
+            <class name="com.pss.qms.CAPACAorPARejFlow.CAPAinitiateAfterQAreviewerReject"/> 
+            <class name="com.pss.qms.CAPACAorPARejFlow.DepthodAfterRejectQAReviewer"/>
+            <class name="com.pss.qms.CAPACAorPARejFlow.QAReviewerCAPACaorPA"/>            
+            <class name="com.pss.qms.CAPACAorPARejFlow.QAApproverCAPAReject"/>            
+            <class name="com.pss.qms.CAPACAorPARejFlow.QAReviewerAfterReject"/>            
+            <class name="com.pss.qms.CAPACAorPARejFlow.QAApproverCAPACAorPA"/>  
+            <class name="com.pss.qms.CAPACAorPARejFlow.CAPAPerformTaskCA"/> 
+            <class name="com.pss.qms.CAPACAorPARejFlow.CAPAPerformTaskPA"/>              
+            <class name="com.pss.qms.CAPACAorPARejFlow.CARejectCAPA"/>  
+            <class name="com.pss.qms.CAPACAorPARejFlow.PARejectCAPA"/>         
+            <class name="com.pss.qms.CAPACAorPARejFlow.CAPerformAfterReject"/>
+            <class name="com.pss.qms.CAPACAorPARejFlow.PAPerformAfterReject"/> 
+            
+            </classes>
+             
+             </test>
+            
+            
+             <test name="CAPAInitiationToCloser3"> 
+                        
+            <classes>  
+                    
+            <class name="com.pss.qms.CAPACAorPARejFlow.CAPAApproveTaskCA"/>     
+            <class name="com.pss.qms.CAPACAorPARejFlow.CAPAApproveTaskPA"/>        
+            <class name="com.pss.qms.CAPACAorPARejFlow.CAPACompletion"/>
+            <class name="com.pss.qms.CAPACAorPARejFlow.CAPACompletionReject"/>
+            <class name="com.pss.qms.CAPACAorPARejFlow.CAPACompletionAfterReject"/>                                  
+             
+            
+            </classes>
+             
+            </test> 
+             
+              <test name="CAPAInitiationToCloser4"> 
+                        
+            <classes> 
+                   
+            <class name="com.pss.qms.CAPACAorPARejFlow.CAPACompletionApproval"/> 
+            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckInitiateCAorPA"/>  
+            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckInitiateReviewReject"/> 
+            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckInitiateAfterReject"/> 
+            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckInitiateReview"/>
+            
+            </classes>
+             
+             </test>
+                             
+</suite>

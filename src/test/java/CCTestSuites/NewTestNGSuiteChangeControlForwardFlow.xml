@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMS2.0_jar_1.0-SNAPSHOT">
+
+<listeners> 
+        <listener class-name="com.pss.qms.Listners.TestListenerCC"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+    <test name="QMSTestSuites suite">
+    
+       <classes>
+       
+             <class name="com.pss.qms.ChangeControlModule.CCInitiation"/>  
+             <class name="com.pss.qms.ChangeControlModule.DeptReviewerCC"/>     
+             <class name="com.pss.qms.ChangeControlModule.QAReviewerCC"/>    
+             <class name="com.pss.qms.ChangeControlModule.CFTReviewCC"/> 
+             <class name="com.pss.qms.ChangeControlModule.RegulatoryReviewCC"/>
+             <class name="com.pss.qms.ChangeControlModule.QAReviewCustomerNotification"/>
+             <class name="com.pss.qms.ChangeControlModule.QAReviewerCustomerResponse"/>     
+              <class name="com.pss.qms.ChangeControlModule.QAReReviewCC"/>     
+             <class name="com.pss.qms.ChangeControlModule.QAApproverCC"/> 
+             <class name="com.pss.qms.ChangeControlModule.PostApprovalActionInitiate"/>
+             <class name="com.pss.qms.ChangeControlModule.PostApprovalActionReview"/>
+              <class name="com.pss.qms.ChangeControlModule.PostApprovalActionApproval"/>    
+             <class name="com.pss.qms.ChangeControlModule.ActionItemPerform"/>
+              <class name="com.pss.qms.ChangeControlModule.ActionItemReview"/>
+             <class name="com.pss.qms.ChangeControlModule.ActionItemApprove"/>
+             <class name="com.pss.qms.ChangeControlModule.CCClosureReview"/>
+             <class name="com.pss.qms.ChangeControlModule.CCClosureApprove"/>
+          
+       </classes>
+    </test>
+
+</suite>

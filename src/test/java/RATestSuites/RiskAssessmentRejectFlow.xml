@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+<listeners> 
+        <listener class-name="com.pss.qms.Listners.TestListenerRA"/>
+         <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+    
+    <test name="RARejectionInitiationToCloser">
+    
+        <classes>
+        
+           <class name="com.pss.qms.RiskAssessmentRejection.RiskIdentification"/>  
+            <class name="com.pss.qms.RiskAssessmentRejection.RiskIdentificationReject"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.RiskAssessmentRejectedApprove"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.RiskIdentificationApprove"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.RiskAnalysisRAModule"/> 
+            <class name="com.pss.qms.RiskAssessmentRejection.RiskMitigationRAModule"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.DeptReviewRejectRA"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.ReInitiateRejected"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.DeptReviewerRAModule"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.QAReviewRejectRA"/>
+          
+          </classes>
+         
+          </test>
+          
+          <test name="RARejectionInitiationToCloser1">
+          
+        <classes>  
+            
+            <class name="com.pss.qms.RiskAssessmentRejection.ReInitiateRejected"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.DeptReviewerRAModule"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.QAReviewerRAModule"/> 
+            <class name="com.pss.qms.RiskAssessmentRejection.CFTReviewRejectRA"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.QAReviewerAfterCFTReject"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.CFTReviewerRAModule"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.QAReReviewRAModule"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.QAApproverRejectRA"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.QAReReviewAfterApproveReject"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.QAApproverRAModule"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.CQAApproveRejectRA"/>
+          
+          </classes>
+         
+          </test>
+          
+          <test name="RARejectionInitiationToCloser2">
+       
+        <classes>         
+                
+            <class name="com.pss.qms.RiskAssessmentRejection.QAReReviewAfterApproveReject"/> 
+            <class name="com.pss.qms.RiskAssessmentRejection.QAApproverRAModule"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.CQAApproverRAModule"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.QAReviewerNotifyCustomer"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.CustomerResponseRejectRA"/>
+              
+              </classes>
+          
+          </test>
+          
+          <test name="RARejectionInitiationToCloser3">
+       
+        <classes> 
+        
+            <class name="com.pss.qms.RiskAssessmentRejection.ReInitiateRejected"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.DeptReviewerRAModule"/> 
+            <class name="com.pss.qms.RiskAssessmentRejection.QAReReviewAfterCustomerResponseReject"/>
+           
+            <class name="com.pss.qms.RiskAssessmentRejection.QAApproverRAModule"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.CQAApproverRAModule"/> 
+            <class name="com.pss.qms.RiskAssessmentRejection.QAReviewerNotifyCustomer"/> 
+            <class name="com.pss.qms.RiskAssessmentRejection.CustomerResponseApproveRA"/>
+             
+              </classes>
+         
+          </test>
+          
+          <test name="RARejectionInitiationToCloser4">
+       
+        <classes> 
+          	 <class name="com.pss.qms.RiskAssessmentRejection.QAApproverRAModule"/> 
+            <class name="com.pss.qms.RiskAssessmentRejection.ActionItemPerformRAModule"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.ActionItemReject"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.ActionItemPerformRejected"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.ActionItemApproveRAModule"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.ReEvaluationInitiation"/>
+            <class name="com.pss.qms.RiskAssessmentRejection.ReEvaluationReview"/> 
+			<class name="com.pss.qms.RiskAssessmentRejection.RiskAcceptanceRAModule"/>
+                    
+        </classes> 
+   
+                      
+    </test>
+
+</suite>

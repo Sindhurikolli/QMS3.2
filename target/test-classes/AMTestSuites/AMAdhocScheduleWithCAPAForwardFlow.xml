@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+<listeners>
+        <listener class-name="com.pss.qms.Listners.TestListenerAM"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+<test name="AdhocSCheduleWithCAPAForwardFlowTestSuite">
+
+<classes>
+
+<class name = "com.pss.qms.AuditManagementAdhocScheduleWithCAPAForwardFlow.AdhocSchedule"/>
+<class name = "com.pss.qms.AuditManagementAdhocScheduleWithCAPAForwardFlow.AdhocScheduleApproval"/>
+<class name = "com.pss.qms.AuditManagementAdhocScheduleWithCAPAForwardFlow.AuditPlan"/>  
+<class name = "com.pss.qms.AuditManagementAdhocScheduleWithCAPAForwardFlow.InternalAuditObservations"/>
+<class name = "com.pss.qms.AuditManagementAdhocScheduleWithCAPAForwardFlow.AuditObservationsReview"/>
+<class name = "com.pss.qms.AuditManagementAdhocScheduleWithCAPAForwardFlow.AuditObservationsApprove"/>
+<class name = "com.pss.qms.AuditManagementAdhocScheduleWithCAPAForwardFlow.AuditeeResponse"/>
+<class name = "com.pss.qms.AuditManagementAdhocScheduleWithCAPAForwardFlow.AuditeeResponseReview"/>
+<class name = "com.pss.qms.AuditManagementAdhocScheduleWithCAPAForwardFlow.AuditeeResponseApprove"/> 
+<class name="com.pss.qms.AuditManagementAdhocScheduleWithCAPAForwardFlow.ActionItemPerform"/>
+<class name="com.pss.qms.AuditManagementAdhocScheduleWithCAPAForwardFlow.ActionItemApprove"/>
+<class name="com.pss.qms.AuditManagementAdhocScheduleWithCAPAForwardFlow.CLoseAudit"/>
+
+</classes>
+
+</test>
+
+</suite>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+
+<listeners> 
+         <listener class-name="com.pss.qms.Listners.TestListenerCAPA"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+                         
+       <test name = "CAPAInitiationToCloser4"> 
+                  
+          <classes>  
+     
+            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckPerformCA"/>
+            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckPerformPA"/> 
+            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckReviewDepthodRejectCA"/> 
+            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckReviewDepthodRejectPA"/>
+            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckPerformAfterRejectByDepthodCA"/>
+          
+          </classes>
+             
+        </test>
+             
+            <test name = "CAPAInitiationToCloser5"> 
+                       
+            <classes>
+            
+            <class name="com.pss.qms.CAPACAorPARejFlow.EffectiveCheckPerformAfterRejectByDepthodPA"/> 
+            <class name="com.pss.qms.CAPACAorPARejFlow.DepthodEffectiveCheckReviewCA"/>
+            <class name="com.pss.qms.CAPACAorPARejFlow.DepthodEffectiveCheckReviewPA"/>
+            <class name="com.pss.qms.CAPACAorPARejFlow.EffectiveCheckReviewQAReviewerRejectCA"/>  
+            <class name="com.pss.qms.CAPACAorPARejFlow.EffectiveCheckReviewQAReviewerRejectPA"/>
+           
+            </classes>
+             
+             </test>
+             
+            <test name = "CAPAInitiationToCloser6">    
+                    
+            <classes>
+            
+            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckPerformAfterRejectByQMSCoordinatorCA"/>  
+            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckPerformAfterRejectByQMSCoordinatorPA"/>
+            <class name = "com.pss.qms.CAPACAorPARejFlow.DepthodEffectiveCheckReviewCA"/>
+            <class name = "com.pss.qms.CAPACAorPARejFlow.DepthodEffectiveCheckReviewPA"/>
+            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckReviewQAReviewerCA"/>
+            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckReviewQAReviewerPA"/>
+            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckQAApproverRejectCA"/>  
+            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckQAApproverRejectPA"/>
+          
+            </classes>
+             
+             </test>
+             
+            <test name = "CAPAInitiationToCloser7"> 
+                       
+            <classes>
+            
+            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckReviewQAReviewerCA"/>
+            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckReviewQAReviewerPA"/> 
+            <class name = "com.pss.qms.CAPACAorPARejFlow.QahodEffectiveCheckReviewCA"/>
+            <class name = "com.pss.qms.CAPACAorPARejFlow.QahodEffectiveCheckReviewPA"/>
+            
+             </classes>
+             
+             </test>
+</suite>

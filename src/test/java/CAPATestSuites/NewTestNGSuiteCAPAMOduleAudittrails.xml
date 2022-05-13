@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+
+    <test name="CAPAInitiationToCloser">
+        <classes>
+            <class name="com.pss.qms.CAPAModuleAudittrails.RoleAudittrails"/>            
+            <class name="com.pss.qms.CAPAModuleAudittrails.WorkFlowUsers"/>           
+            <class name="com.pss.qms.CAPAModuleAudittrails.ExtendedDueDate"/>
+            <class name="com.pss.qms.CAPAModuleAudittrails.CAPAReAssign"/>
+            <class name="com.pss.qms.CAPAModuleAudittrails.CAPAOverDue"/>
+            <class name="com.pss.qms.CAPAModuleAudittrails.CancelledCAPA"/>
+            <class name="com.pss.qms.CAPAModuleAudittrails.CAPAstatus"/>
+            
+             <!-- <class name="com.pss.qms.CAPAModuleAudittrails.ReAssignCAPA"/> -->
+            
+            
+            </classes>
+    </test>
+
+</suite>

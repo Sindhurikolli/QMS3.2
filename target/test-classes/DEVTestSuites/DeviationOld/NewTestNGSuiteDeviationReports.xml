@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMS2.0_jar_1.0-SNAPSHOT">
+
+    <test name="QMSTestSuitesReports">
+       <classes>
+              <class name="com.pss.qms.DeviationReports.DeviationHistoryPrintPDF"/> 
+              <class name="com.pss.qms.DeviationReports.DeviationHistoryViewPDF"/>   
+              <class name="com.pss.qms.DeviationReports.DeviationReport"/>
+              <class name="com.pss.qms.DeviationReports.DeviationTrendsBarChartViewDetails"/>
+              <class name="com.pss.qms.DeviationReports.DeviationTrendsBarChartViewTrend"/>              
+              <class name="com.pss.qms.DeviationReports.DeviationTrendsPieChartViewDetails"/>
+              <class name="com.pss.qms.DeviationReports.DeviationTrendsPieChartViewTrend"/>
+              <class name="com.pss.qms.DeviationReports.InvestigationReport"/>
+              <class name="com.pss.qms.DeviationReports.PeriodicReviewReport"/>
+              <class name="com.pss.qms.DeviationReports.RoleBaseEmployeeReport"/>
+              <class name="com.pss.qms.DeviationReports.ViewSupportingDocsDeviationReport"/>
+              <class name="com.pss.qms.DeviationReports.ViewSupportingDocsInvReport"/>
+              <class name="com.pss.qms.DeviationReports.DeviationHistorySaveAsExcel"/>
+              <class name="com.pss.qms.DeviationReports.DeviationReportSaveAsExcel"/>
+       </classes>
+    </test>
+
+</suite>
+

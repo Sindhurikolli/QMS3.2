@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">  
+ <listeners> 
+        <listener class-name="com.pss.qms.Listners.TestListenerMC"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+
+    <test name="MCInitiationToCloserRejectionFlow1">
+    
+        <classes>
+        
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.MCRegister"/> 
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.QAReviewRejectMC"/> 
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.MCReInitiate"/>
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.QAReviewerMCModule"/>
+            <class name ="com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvestigationPlanMC"/>
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvPerformMC"/>  
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvReviewMC"/>
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.QAReReviewMC"/>
+           
+         </classes>  
+         
+       </test>
+         
+          <test name="MCInitiationToCloserRejectionFlow2">
+    
+        <classes>
+        
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvestigationPlanMC"/>
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvSecondaryPerformMC"/>
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvReviewMC"/>  
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.CFTRejectMC"/> 
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.QAReReviewMC"/>
+                      
+         </classes>  
+         
+         </test> 
+         
+          <test name="MCInitiationToCloserRejectionFlow3">
+    
+        <classes>
+        
+             <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvestigationPlanMC"/>
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvSecondaryPerformMC"/>
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvReviewMC"/> 
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.CFTReviewMCModule"/>
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.QAReviewWithActionItems"/> 
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.ActionItemPerformMC"/>
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.ActionItemRevertMC"/>
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.ActionItemRePerformMC"/>
+           <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.ActionItemApproveMC"/> 
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.MCCompletion"/>
+                      
+         </classes>  
+         
+         </test>
+         
+         </suite> 

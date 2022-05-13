@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMS2.0_jar_1.0-SNAPSHOT">
+<listeners> 
+        <listener class-name="com.pss.qms.Listners.TestListenerCC"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+      <test name="QMSTestSuites suite1"> 
+      <classes>
+             <class name="com.pss.qms.ChangeControlRejection.CCInitiation"/> 
+              <class name="com.pss.qms.ChangeControlRejection.DeptReviewerReject"/>
+              <class name="com.pss.qms.ChangeControlRejection.ReInitiateDocument"/>  
+              <class name="com.pss.qms.ChangeControlRejection.DeptReviewerApprove"/>
+              <class name="com.pss.qms.ChangeControlRejection.QAReviewReject"/> 
+         </classes>    
+         </test>
+           
+     <test name="QMSTestSuites suite2"> 
+            <classes> 
+              <class name="com.pss.qms.ChangeControlRejection.ReInitiateDocument"/> 
+              <class name="com.pss.qms.ChangeControlRejection.DeptReReview"/>        
+              <class name="com.pss.qms.ChangeControlRejection.QAReviewApproveAfterReject"/>
+              <class name="com.pss.qms.ChangeControlRejection.CFTReviewReject"/>
+              <class name="com.pss.qms.ChangeControlRejection.QAReviewerAfterCFTReject"/> 
+              </classes>
+              </test>
+            
+         <test name="QMSTestSuites suite3"> 
+         <classes>     
+              <class name="com.pss.qms.ChangeControlRejection.CFTReviewApprove"/> 
+              <class name="com.pss.qms.ChangeControlRejection.RegReviewerReject"/>
+              <class name="com.pss.qms.ChangeControlRejection.QAReviewerAfterCFTReject"/>
+          </classes>
+          </test>
+          
+          <test name="QMSTestSuites suite4">  
+          <classes>    
+              <class name="com.pss.qms.ChangeControlRejection.CFTReviewApprove"/> 
+              <class name="com.pss.qms.ChangeControlRejection.RegReviewerApprove"/>
+              <class name="com.pss.qms.ChangeControlRejection.CustomerNotification"/>  
+              <class name="com.pss.qms.ChangeControlRejection.CustomerResponseReject"/>
+              <class name="com.pss.qms.ChangeControlRejection.QAReviewAfterCustomerReject"/>
+           </classes>   
+              </test> 
+               
+           <test name="QMSTestSuites suite5">    
+              <classes>
+              <class name="com.pss.qms.ChangeControlRejection.CFTReviewApprove"/>
+              <class name="com.pss.qms.ChangeControlRejection.RegReviewerApprove"/> 
+               <class name="com.pss.qms.ChangeControlRejection.CustomerNotification"/>
+              <class name="com.pss.qms.ChangeControlRejection.CustomerResponse"/> 
+              <class name="com.pss.qms.ChangeControlRejection.QAReviewWithoutCFT"/> 
+              <class name="com.pss.qms.ChangeControlRejection.QAApproveReject"/>
+             </classes>
+           </test> 
+           
+            <test name="QMSTestSuites suite6">    
+              <classes>
+             <class name="com.pss.qms.ChangeControlRejection.QAReviewAfterApproveReject"/>
+             <class name="com.pss.qms.ChangeControlRejection.QAApprover"/> 
+             <class name="com.pss.qms.ChangeControlRejection.PostApprovalActionsInitiate"/>
+     </classes>
+    </test>  
+    
+     <test name="QMSTestSuites suite7"> 
+         <classes> 
+       <class name="com.pss.qms.ChangeControlRejection.PostApprovalActionsReviewReject"/> 
+       <class name="com.pss.qms.ChangeControlRejection.PostApprovalActionsInitiateAfterReject"/>
+        <class name="com.pss.qms.ChangeControlRejection.PostApprovalActionReviewApprove"/>  
+           </classes>
+          </test>  
+         <test name="QMSTestSuites suite8">
+          <classes> 
+         <class name="com.pss.qms.ChangeControlRejection.PostApprovalActionRejectApproval"/>
+          <class name="com.pss.qms.ChangeControlRejection.ActionItemPerform"/>
+          </classes>
+          </test>
+            
+           <test name="QMSTestSuites suite9">  
+          <classes> 
+          <class name="com.pss.qms.ChangeControlRejection.ActionItemReject"/>
+          <class name="com.pss.qms.ChangeControlRejection.ActionItemRejectApprove"/>
+          <class name="com.pss.qms.ChangeControlRejection.ActionItemReview"/>
+          <class name="com.pss.qms.ChangeControlRejection.ActionItemApproveReject"/>
+          </classes>
+          </test>
+             
+          <test name="QMSTestSuites suite10"> 
+          <classes> 
+          <class name="com.pss.qms.ChangeControlRejection.ActionItemPerformAfterRejectAtApprove"/>
+          <class name="com.pss.qms.ChangeControlRejection.ActionItemReview"/>
+          <class name="com.pss.qms.ChangeControlRejection.ActionItemApprove"/> 
+          <class name="com.pss.qms.ChangeControlRejection.ClosureReview"/>
+          <class name="com.pss.qms.ChangeControlRejection.ClosureApproveReject"/>
+          </classes>
+          </test>
+             
+          <test name="QMSTestSuites suite11">  
+          <classes> 
+              
+          <class name="com.pss.qms.ChangeControlRejection.ClosureReview"/> 
+          <class name="com.pss.qms.ChangeControlRejection.ClosureApprove"/>
+          </classes>
+          </test> 
+    
+ 
+</suite>

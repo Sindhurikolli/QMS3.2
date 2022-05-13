@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMS2.0_jar_1.0-SNAPSHOT">
+
+    <test name="BEDevWithRAAndInvestigationWithoutCAPA">
+          <classes>
+              <class name="com.pss.qms.DeviationWithRAWithoutCAPA.DeviationInitiation"/> 
+              <class name="com.pss.qms.DeviationWithRAWithoutCAPA.DeptReviewerDev"/>
+              <class name="com.pss.qms.DeviationWithRAWithoutCAPA.QAReviewerDev"/>
+              <class name="com.pss.qms.DeviationWithRAWithoutCAPA.CustomerNotification"/>
+              <class name="com.pss.qms.DeviationWithRAWithoutCAPA.CustomerResponse"/>
+              <class name="com.pss.qms.DeviationWithRAWithoutCAPA.RegReviewerDev"/>   
+              <class name="com.pss.qms.DeviationWithRAWithoutCAPA.QAApproverDev"/>
+              <class name="com.pss.qms.DeviationWithRAWithoutCAPA.InvestigationPlan"/>
+              <class name="com.pss.qms.DeviationWithRAWithoutCAPA.InvestigationPerform"/> 
+              <class name="com.pss.qms.DeviationWithRAWithoutCAPA.InvestigationReview"/>
+              <class name="com.pss.qms.DeviationWithRAWithoutCAPA.QAReReviewerDev"/>
+              <class name="com.pss.qms.DeviationWithRAWithoutCAPA.SRManagementDev"/>
+              <class name="com.pss.qms.DeviationWithRAWithoutCAPA.QAReApproveDev"/>
+              <class name="com.pss.qms.DeviationWithRAWithoutCAPA.CloseDeviation"/>
+          </classes>
+   </test>
+
+</suite>
+
+
+

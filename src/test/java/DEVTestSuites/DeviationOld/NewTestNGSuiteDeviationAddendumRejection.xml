@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMS2.0_jar_1.0-SNAPSHOT">
+
+    
+    
+    <test name="QMSTestSuites suite">
+        <classes>
+          <class name="com.pss.qms.DeviationAddendum.AddendumRequest"/> 
+          <class name="com.pss.qms.DeviationAddendum.DeptReviewAddendumReject"/>
+          <class name="com.pss.qms.DeviationAddendum.ApproveRejectedAddendum"/>
+          <class name="com.pss.qms.DeviationAddendum.DeptReviewerAddendumApprove"/>
+          <class name="com.pss.qms.DeviationAddendum.QAReviewerAddendumReject"/>
+          <class name="com.pss.qms.DeviationAddendum.QAReviewerAddendumApprove"/>
+        </classes>
+    </test>
+
+</suite>

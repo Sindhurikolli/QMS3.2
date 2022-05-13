@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMS2.0_jar_1.0-SNAPSHOT">
+
+    <test name="QMSTestSuitesAdmin">
+       <classes>
+              <class name="com.pss.qms.DeviationAdminTab.CreateRoleDeviation"/> 
+              <class name="com.pss.qms.DeviationAdminTab.AssignRoleDeviation"/>
+              <class name="com.pss.qms.DeviationAdminTab.RoleBasePageAccess"/>   
+              <class name="com.pss.qms.DeviationAdminTab.ModifyRoleDeviation"/>      
+           
+          
+       </classes>
+    </test>
+
+</suite>
+

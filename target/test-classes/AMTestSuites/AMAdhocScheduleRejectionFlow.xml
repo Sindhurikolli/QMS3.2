@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+<listeners>
+        <listener class-name="com.pss.qms.Listners.TestListenerAM"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+      <parameter name="ADHOC_NAME_IN_ADHOC_SHCEDULE_REJECT_FLOW" value="Adhocrej"/>
+	
+	
+    <test name="AMPropertiesfileupdate">
+        <classes>
+      <class name="com.pss.qms.PropertiesFileUpdate.UpdateAMProperties">
+      <methods>
+		<include name="AdhocScheduleRej"/>
+	  </methods>   
+      </class> 
+        </classes>
+    </test>
+    <test name="AdhocAuditManagementRejection">
+    
+        <classes>
+        
+       <class name="com.pss.qms.AuditManagementAdhocRejection.AdhocSchAM"/> 
+       <class name="com.pss.qms.AuditManagementAdhocRejection.AdhocSchdReject"/>
+       <class name="com.pss.qms.AuditManagementAdhocRejection.AdhocSchdRejectApprove"/>
+       <class name="com.pss.qms.AuditManagementAdhocRejection.AdhocScheduleApprove"/>
+       <class name="com.pss.qms.AuditManagementAdhocRejection.AuditPlan"/>
+       <class name="com.pss.qms.AuditManagementAdhocRejection.InternalAuditObservations"/>
+       <class name="com.pss.qms.AuditManagementAdhocRejection.AuditObservationsReviewReject"/>
+       <class name="com.pss.qms.AuditManagementAdhocRejection.AuditObservationsRejectedApprove"/>
+       <class name="com.pss.qms.AuditManagementAdhocRejection.AuditObservationsReview"/>
+       <class name="com.pss.qms.AuditManagementAdhocRejection.AuditObservationsApproveReject"/>
+       </classes>        
+    </test> 
+     <test name="AdhocAuditManagementRejection1">
+       <classes>   
+       
+        <class name="com.pss.qms.AuditManagementAdhocRejection.AuditObservationsRejectedApprove"/>
+        <class name="com.pss.qms.AuditManagementAdhocRejection.AuditObservationsReview"/>
+        <class name="com.pss.qms.AuditManagementAdhocRejection.AuditObservationsApprove"/>       
+        <class name="com.pss.qms.AuditManagementAdhocRejection.AuditeeResponse"/> 
+        <class name="com.pss.qms.AuditManagementAdhocRejection.AuditeeResponseReviewReject"/> 
+        <class name="com.pss.qms.AuditManagementAdhocRejection.AuditeeResponseRejectedApprove"/> 
+        <class name="com.pss.qms.AuditManagementAdhocRejection.AuditeeResponseReview"/>            
+        <class name="com.pss.qms.AuditManagementAdhocRejection.AuditeeResponseApproveReject"/> 
+ 		</classes>        
+    </test>
+     <test name="AdhocAuditManagementRejection2">
+       <classes>         
+        
+          <class name="com.pss.qms.AuditManagementAdhocRejection.AuditeeResponseRejectedApprove"/> 
+          <class name="com.pss.qms.AuditManagementAdhocRejection.AuditeeResponseReview"/> 
+          <class name="com.pss.qms.AuditManagementAdhocRejection.AuditeeResponseApproval"/>
+          <class name="com.pss.qms.AuditManagementAdhocRejection.CloseAudit"/> 
+                                        
+        </classes>
+        
+    </test>
+
+</suite>

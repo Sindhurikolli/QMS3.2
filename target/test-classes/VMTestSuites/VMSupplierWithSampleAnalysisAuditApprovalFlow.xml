@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">  
+    
+    <test name="VMSupRegisterToCloser">
+        <classes>
+           <class name="com.pss.qms.VendorManagementSupplierForwardFlow.SupplierRegistration"/>
+            <class name="com.pss.qms.VendorManagementSupplierForwardFlow.SupplierRegistrationApproval"/>
+            <class name="com.pss.qms.VendorManagementSupplierForwardFlow.VendorIdentification"/>
+            <class name="com.pss.qms.VendorManagementSupplierForwardFlow.VendorIdentificationApproval"/>
+            <class name="com.pss.qms.VendorManagementSupplierForwardFlow.VendorEvaluation"/>
+            <class name="com.pss.qms.VendorManagementSupplierForwardFlow.VendorEvaluationApproval"/>
+            <class name="com.pss.qms.VendorManagementSupplierForwardFlow.AnalyseSample"/>
+            <class name="com.pss.qms.VendorManagementSupplierForwardFlow.AnalyseSampleApproval"/>
+            <class name="com.pss.qms.VendorManagementSupplierForwardFlow.VendorInspectionPlan"/>
+            <class name="com.pss.qms.VendorManagementSupplierForwardFlow.VendorInspectionPlanApproval"/>
+            <class name="com.pss.qms.VendorManagementSupplierForwardFlow.CheckListPerformAudit"/>
+            <class name="com.pss.qms.VendorManagementSupplierForwardFlow.VendorQuestionnarieAuditApproval"/>
+            <class name="com.pss.qms.VendorManagementSupplierForwardFlow.VendorNotification"/>
+            <class name="com.pss.qms.VendorManagementSupplierForwardFlow.VendorResponse"/>
+            <class name="com.pss.qms.VendorManagementSupplierForwardFlow.CloseVendor"/>
+        </classes>
+    </test>
+
+</suite>

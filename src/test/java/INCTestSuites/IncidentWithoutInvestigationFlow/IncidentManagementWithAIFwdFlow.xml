@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+   <listeners> 
+        <listener class-name="com.pss.qms.Listners.TestListenerINC"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners> 
+    
+    <test name="IncidentCreationAndApproval">
+        <classes>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRA.IncidentInitiation"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRA.DeptReviewerInc"/> 
+        <class name="com.pss.qms.IncidentManagementWithCustomerCftRA.QAReviewerIncWithAI"/>
+         </classes>
+    </test>   
+    <test name="IncidentReview">   
+     <classes>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRA.QAReviewNotifyCustomerInc"/> 
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRA.QAReviewCustomerResponseInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRA.CFTReviewerInc"/>
+        <class name="com.pss.qms.IncidentManagementWithCustomerCftRA.RegReviewInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRA.QAApproverInc"/>
+     </classes>
+    </test>
+    <test name="IncidentPostApprovalActions">
+        <classes>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRA.PostApprovalActionsInitiate"/>
+        <class name="com.pss.qms.IncidentManagementWithCustomerCftRA.PostApprovalActionsReview"/> 
+        <class name="com.pss.qms.IncidentManagementWithCustomerCftRA.ActionItemPerformAssignedByQMSCoordinator"/>
+        <class name="com.pss.qms.IncidentManagementWithCustomerCftRA.ActionItemPerformAssignedByQAHOD"/> 
+        <class name="com.pss.qms.IncidentManagementWithCustomerCftRA.ActionItemApproveAssignedByQMSCoordinator"/> 
+        <class name="com.pss.qms.IncidentManagementWithCustomerCftRA.ActionItemApproveAssignedByQAHOD"/>
+        <class name="com.pss.qms.IncidentManagementWithCustomerCftRA.CloseIncident"/>
+     
+         </classes>
+    </test>
+
+
+</suite>

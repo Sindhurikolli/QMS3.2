@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMS2.0_jar_1.0-SNAPSHOT">
+
+
+
+
+        <test name="QMSTestSuites suite1"> 
+         <classes> 
+       <class name="com.pss.qms.ChangeControlRejection.PostApprovalActionsReviewReject"/> 
+       <class name="com.pss.qms.ChangeControlRejection.PostApprovalActionsInitiateAfterReject"/>
+        <class name="com.pss.qms.ChangeControlRejection.PostApprovalActionReviewApprove"/>  
+           </classes>
+          </test> 
+          <test name="QMSTestSuites suite2">
+          <classes> 
+         <class name="com.pss.qms.ChangeControlRejection.PostApprovalActionRejectApproval"/>
+          <class name="com.pss.qms.ChangeControlRejection.PostApprovalActionsReview"/>
+          <class name="com.pss.qms.ChangeControlRejection.PostApprovalActionsApprove"/> 
+          <class name="com.pss.qms.ChangeControlRejection.ActionItemPerform"/>
+          </classes>
+          </test>
+            
+          <test name="QMSTestSuites suite3">  
+          <classes> 
+          <class name="com.pss.qms.ChangeControlRejection.ActionItemReject"/>
+          <class name="com.pss.qms.ChangeControlRejection.ActionItemRejectApprove"/>
+          <class name="com.pss.qms.ChangeControlRejection.ActionItemReview"/>
+          <class name="com.pss.qms.ChangeControlRejection.ActionItemApproveReject"/>
+          </classes>
+          </test>
+             
+          <test name="QMSTestSuites suite4"> 
+          <classes> 
+          <class name="com.pss.qms.ChangeControlRejection.ActionItemPerformAfterRejectAtApprove"/>
+          <class name="com.pss.qms.ChangeControlRejection.ActionItemReview"/>
+          <class name="com.pss.qms.ChangeControlRejection.ActionItemApprove"/>
+          <class name="com.pss.qms.ChangeControlRejection.ClosureReview"/>
+          <class name="com.pss.qms.ChangeControlRejection.ClosureApproveReject"/>
+          </classes>
+          </test>
+             
+          <test name="QMSTestSuites suite5">  
+          <classes> 
+              
+          <class name="com.pss.qms.ChangeControlRejection.ClosureReview"/> 
+          <class name="com.pss.qms.ChangeControlRejection.ClosureApprove"/>
+          </classes>
+          </test>  
+
+</suite>

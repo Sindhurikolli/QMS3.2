@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+<listeners>
+        <listener class-name="com.pss.qms.Listners.TestListenerAM"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+
+      <parameter name="ADHOC_NAME_IN_ADHOC_SCHEDULE" value="Adhoc"/>
+	
+	
+    <test name="AMPropertiesfileupdate">
+        <classes>
+      <class name="com.pss.qms.PropertiesFileUpdate.UpdateAMProperties">
+      <methods>
+		<include name="AdhocSchedule"/>
+	  </methods>   
+      </class> 
+        </classes>
+    </test>
+    <test name="AdhocAuditManagement">
+    
+        <classes>
+        
+       <class name="com.pss.qms.AuditManagementAdhocApproval.AdhocSchedule"/>
+       <class name="com.pss.qms.AuditManagementAdhocApproval.AdhocScheduleApproval"/>
+       <class name="com.pss.qms.AuditManagementAdhocApproval.AuditPlan"/> 
+       <class name="com.pss.qms.AuditManagementAdhocApproval.InternalAuditObservations"/>
+       <class name="com.pss.qms.AuditManagementAdhocApproval.AuditObservationsReview"/>
+       <class name="com.pss.qms.AuditManagementAdhocApproval.AuditObservationsApprove"/> 
+       <class name="com.pss.qms.AuditManagementAdhocApproval.AuditResponse"/>
+       <class name="com.pss.qms.AuditManagementAdhocApproval.AuditeeResponseReview"/>
+       <class name="com.pss.qms.AuditManagementAdhocApproval.AuditeeResponseApprove"/>
+       <class name="com.pss.qms.AuditManagementAdhocApproval.CloseAudit"/>
+       
+       </classes>
+       
+    </test>
+
+</suite>

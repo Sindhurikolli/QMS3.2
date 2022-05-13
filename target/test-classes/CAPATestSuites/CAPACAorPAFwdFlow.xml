@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+
+<listeners> 
+        <listener class-name="com.pss.qms.Listners.TestListenerCAPA"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+
+    <test name="CAPAInitiationToCloser1">
+    
+        <classes>
+        
+            <class name="com.pss.qms.CAPACAorPAFwd.CAPANewPlanCAorPA"/>
+            <class name="com.pss.qms.CAPACAorPAFwd.DeptHODCAPAModuleCAorPA"/> 
+            <class name="com.pss.qms.CAPACAorPAFwd.QAReviewerCAPACaorPA"/> 
+            <class name="com.pss.qms.CAPACAorPAFwd.QAApproverCAPACAorPA"/>  
+            <class name="com.pss.qms.CAPACAorPAFwd.CAPAPerformTaskCA"/>
+            <class name="com.pss.qms.CAPACAorPAFwd.CAPAPerformTaskPA"/>
+            <class name="com.pss.qms.CAPACAorPAFwd.CAPAApproveTaskCA"/>  
+            <class name="com.pss.qms.CAPACAorPAFwd.CAPAApproveTaskPA"/>
+            <class name="com.pss.qms.CAPACAorPAFwd.CAPACompletion"/>
+               
+          </classes>
+    </test>
+    
+     <test name="CAPAInitiationToCloser2">
+     
+        <classes>
+        
+            
+            <class name="com.pss.qms.CAPACAorPAFwd.CAPACompletionApproval"/> 
+            <class name="com.pss.qms.CAPACAorPAFwd.EffectiveCheckInitiateCAorPA"/>
+            <class name="com.pss.qms.CAPACAorPAFwd.EffectiveCheckInitiateReview"/>                 
+            <class name="com.pss.qms.CAPACAorPAFwd.EffectiveCheckPerformCA"/>
+            <class name="com.pss.qms.CAPACAorPAFwd.EffectiveCheckPerformPA"/>
+         
+         </classes>
+    
+    </test>
+    
+     <test name="CAPAInitiationToCloser3">
+       
+        <classes> 
+        
+            <class name="com.pss.qms.CAPACAorPAFwd.DepthodEffectiveCheckReviewCA"/>
+            <class name="com.pss.qms.CAPACAorPAFwd.DepthodEffectiveCheckReviewPA"/>
+            <class name="com.pss.qms.CAPACAorPAFwd.QAReviewerEffectiveCheckReviewCA"/>
+            <class name="com.pss.qms.CAPACAorPAFwd.QAReviewerEffectiveCheckReviewPA"/>
+            <class name="com.pss.qms.CAPACAorPAFwd.QahodEffectiveCheckReviewCA"/>
+            <class name="com.pss.qms.CAPACAorPAFwd.QahodEffectiveCheckReviewPA"/>
+            
+        </classes>
+        
+    </test>
+
+</suite>

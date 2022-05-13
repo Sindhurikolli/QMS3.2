@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [com.mycompany_QMS2.0_jar_1.0-SNAPSHOT]">
+  <listeners>
+    <listener class-name="com.pss.qms.Listners.TestListenerCC"/>
+    <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+  </listeners>
+  <test thread-count="5" name="QMSTestSuites suite(failed)">
+    <classes>
+      <class name="com.pss.qms.ChangeControlModule.CCClosureApprove">
+        <methods>
+          <include name="testIT"/>
+          <include name="tearDown"/>
+          <include name="toCCClosureApprove"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.pss.qms.ChangeControlModule.CCClosureApprove -->
+      <class name="com.pss.qms.ChangeControlModule.CCClosureReview">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="toCCClosureReview"/>
+          <include name="testIT"/>
+        </methods>
+      </class> <!-- com.pss.qms.ChangeControlModule.CCClosureReview -->
+    </classes>
+  </test> <!-- QMSTestSuites suite(failed) -->
+</suite> <!-- Failed suite [com.mycompany_QMS2.0_jar_1.0-SNAPSHOT] -->

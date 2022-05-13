@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+<listeners>
+        <listener class-name="com.pss.qms.Listners.TestListenerAM"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+    
+      <parameter name="ADHOC_NAME_IN_ADHOC_SCHEDULE_WITH_AI_REJECT_FLOW" value="AdhcAIRej"/>
+	
+	
+    <test name="AMPropertiesfileupdate">
+        <classes>
+      <class name="com.pss.qms.PropertiesFileUpdate.UpdateAMProperties">
+      <methods>
+		<include name="AdhocScheduleAIRej"/>
+	  </methods>   
+      </class> 
+        </classes>
+    </test>
+    <test name="AdhocAuditManagement">
+    
+        <classes>
+        
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AdhocSchedule"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AdhocSchdReject"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AdhocScheduleRejectApprove"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AdhocSchApprove"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditPlan"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.InternalAuditObservations"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditObservationsReviewReject"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditObservationsRejectedApprove"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditObservationsReview"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditObservationsApproveReject"/>
+    	</classes>
+    </test>
+   <test name="AdhocAuditManagement1">
+    
+        <classes>    
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditObservationsRejectedApprove"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditObservationsReview"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditObservationsApprove"/> 
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditeeResponse"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditeeResponseReviewReject"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditeeResponseRejectedApprove"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditeeResponseReview"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditeeResponseApproveReject"/>
+  </classes>
+    </test>
+   <test name="AdhocAuditManagement2">
+    
+        <classes>      
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditeeResponseRejectedApprove"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditeeResponseReview"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditeeResponseApproval"/>  
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.ActionItemPerform"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.ActionItemPerform2"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.ActionItemApproveReject"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.ActionItemApproveReject2"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.ActionItemRePerform"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.ActionItemRePerform2"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.ActionItemApprove"/> 
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.ActionItemApprove2"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.CloseAudit"/>
+              
+       </classes>
+    </test>
+
+</suite>

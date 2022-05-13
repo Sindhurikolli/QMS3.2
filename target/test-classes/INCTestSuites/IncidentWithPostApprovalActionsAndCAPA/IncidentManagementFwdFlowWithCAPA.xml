@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+
+ <listeners> 
+         <listener class-name="com.pss.qms.Listners.TestListenerINC"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners> 
+    <test name="IncidentCreationAndApproval">
+        <classes>
+        <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPA.IncidentInitiation"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPA.DeptReviewerInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPA.QAReviewerInc"/>
+         </classes> 
+    </test>   
+    <test name="IncidentReview">   
+     <classes>
+        <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPA.QAReviewNotifyCustomerInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPA.QAReviewCustomerResponseInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPA.CFTReviewerInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPA.RegReviewInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPA.QAApproverInc"/>
+     </classes>
+    </test>
+    <test name="IncidentPostApprovalActions">
+        <classes>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPA.PostApprovalActionsInitiateWithCAorPA"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPA.PostApprovalActionsReview"/> 
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPA.CloseIncident"/>
+         </classes>
+    </test>
+
+
+</suite>

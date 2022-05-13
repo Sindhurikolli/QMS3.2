@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+<listeners>
+        <listener class-name="com.pss.qms.Listners.TestListenerAM"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+    
+    <parameter name="PLAN_NAME_IN_AI_PLAN_SCHEDULE" value="PlanShAI"/>
+	
+	
+    <test name="AMPropertiesfileupdate">
+        <classes>
+      <class name="com.pss.qms.PropertiesFileUpdate.UpdateAMProperties">
+      <methods>
+		<include name="PlannedScheduleAIPlanname"/>
+	  </methods>   
+      </class> 
+        </classes>
+    </test>
+    
+    <test name="PlannedAuditManagementWithAI">
+        <classes>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.PlanSchedule"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.PlanSchdApproval"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.AuditPlan"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.EnterAuditObservations"/> 
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.ReviewAuditObservations"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.ApproveAuditObservations"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.AuditeeResponse"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.ReviewAuditeeResponse"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.ApproveAuditeeResponse"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.ActionItemPerform"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.ActionItemPerform2"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.ActionItemApprove"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.ActionItemApprove2"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.CLoseAudit"/>
+       
+       </classes>
+    </test>
+
+</suite>

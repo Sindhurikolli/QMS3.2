@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+
+    <listeners>
+        <listener class-name="com.pss.qms.Listners.TestListenerAM"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+
+<parameter name="PLAN_NAME_PLAN_SCHEDULE_IN_REJECT_FLOW" value="PlanShrej"/>
+	
+	
+    <test name="AMPropertiesfileupdate">
+        <classes>
+      <class name="com.pss.qms.PropertiesFileUpdate.UpdateAMProperties">
+      <methods>
+		<include name="PlannedSchedulePlannamerej"/>
+	  </methods>   
+      </class> 
+        </classes>
+    </test>
+   <test name="PlannedAuditManagementRejection">
+    
+        <classes>
+        
+        <class name="com.pss.qms.AuditManagementPlanSchdRejection.PlanSchedule"/>
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.PlanSheduleReject"/>
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.PlanScheduleRejectedApprove"/>
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.PlanScheduleApprove"/>
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.AuditPlan"/>
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.InternalAuditObservations"/>
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.ReviewAuditObseravtionsReject"/>
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.InternalAuditObservationsRejectedApprove"/>
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.ReviewAuditObservations"/>
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.AuditObservationsApprovalReject"/>
+           </classes>
+       
+    </test>
+    <test name="PlannedAuditManagementRejection2">
+    
+        <classes>
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.InternalAuditObservationsRejectedApprove"/>
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.ReviewAuditObservations"/>
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.ApproveAuditObservations"/>
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.AuditeeResponse"/> 
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.AuditeeResponseReviewReject"/>
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.AuditeeResponseRejectedApprove"/>
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.AuditeeResponseReview"/>
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.AuditeeResponseApproveReject"/>
+      </classes>
+       
+    </test> 
+    <test name="PlannedAuditManagementRejection3">
+    
+        <classes>  
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.AuditeeResponseRejectedApprove"/>
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.AuditeeResponseReview"/>
+       <class name="com.pss.qms.AuditManagementPlanSchdRejection.AuditeeResponseApproval"/>
+     <!--   <class name="com.pss.qms.AuditManagementPlanSchdRejection.CloseAudit"/> -->
+       
+       </classes>
+       
+    </test>
+
+</suite>
+       

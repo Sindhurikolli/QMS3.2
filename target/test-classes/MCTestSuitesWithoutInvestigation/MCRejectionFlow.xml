@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+<listeners> 
+        <listener class-name="com.pss.qms.Listners.TestListenerMC"/>
+</listeners>
+<test name="MCRejectionFlowTestSuite">
+
+<classes>
+
+ <class name = "com.pss.qms.MarketComplaintsWithoutInvestRejection.MCRegister"/>
+<class name = "com.pss.qms.MarketComplaintsWithoutInvestRejection.QAReviewRejectMC"/>
+<class name = "com.pss.qms.MarketComplaintsWithoutInvestRejection.MCReInitiate"/>
+<class name = "com.pss.qms.MarketComplaintsWithoutInvestRejection.QAReviewMC"/>
+<class name = "com.pss.qms.MarketComplaintsWithoutInvestRejection.CFTRejectMC"/>
+<class name = "com.pss.qms.MarketComplaintsWithoutInvestRejection.QAReReviewMC"/>
+<class name = "com.pss.qms.MarketComplaintsWithoutInvestRejection.CFTReviewMCModule"/>
+<class name = "com.pss.qms.MarketComplaintsWithoutInvestRejection.QAReviewerWithActionItems"/> 
+<class name = "com.pss.qms.MarketComplaintsWithoutInvestRejection.ActionItemPerformMC"/>
+<class name = "com.pss.qms.MarketComplaintsWithoutInvestRejection.ActionItemRejectMC"/>
+<class name = "com.pss.qms.MarketComplaintsWithoutInvestRejection.ActionItemPerformAfterReject"/>
+<class name = "com.pss.qms.MarketComplaintsWithoutInvestRejection.ActionItemApprove"/>
+<class name = "com.pss.qms.MarketComplaintsWithoutInvestRejection.CloseComplaint"/>
+
+</classes>
+
+</test>
+
+</suite>

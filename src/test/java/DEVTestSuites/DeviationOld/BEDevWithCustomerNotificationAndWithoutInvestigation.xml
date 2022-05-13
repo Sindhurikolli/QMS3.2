@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMS2.0_jar_1.0-SNAPSHOT">
+
+    <test name="BEDevWithCustomerNotificationAndWithoutInvestigation">
+          <classes>
+              <class name="com.pss.qms.DeviationWithInvAndCAPA.DeviationInitiation"/> 
+              <class name="com.pss.qms.DeviationWithInvAndCAPA.DeptReviewerDev"/>
+              <class name="com.pss.qms.DeviationWithCustNotWithoutInv.QAReviewerDev"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPA.QAReviewNotifyCustomerDev"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPA.QAReviewCustomerResponseDev"/>
+              <class name="com.pss.qms.DeviationWithCustNotWithoutInv.QAApproverDev"/>   
+              <class name="com.pss.qms.DeviationWithCustNotWithoutInv.PostApprovalActionsInitiate"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPA.PostApprovalActionsReview"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPA.DeptHODReviewCAPA"/> 
+              <class name="com.pss.qms.DeviationWithInvAndCAPA.QAApproverCAPA"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPA.CloseDeviation"/>
+          </classes>
+   </test>
+
+</suite>
+
+
+

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+<listeners> 
+        <listener class-name="com.pss.qms.Listners.TestListenerRA"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+    
+ <test name="RAInitiationToCloser">
+ 
+        <classes> 
+        
+            <class name="com.pss.qms.RiskAssessmentModule.RiskIdentification"/> 
+            <class name="com.pss.qms.RiskAssessmentModule.RAApproval"/>
+            <class name="com.pss.qms.RiskAssessmentModule.RiskAnalysisRAModule"/>  
+            <class name="com.pss.qms.RiskAssessmentModule.RiskMitigationRAModule"/>
+            <class name="com.pss.qms.RiskAssessmentModule.DeptReviewerRAModule"/>
+            <class name="com.pss.qms.RiskAssessmentModule.QAReviewerRAModule"/>
+            <class name="com.pss.qms.RiskAssessmentModule.CFTReviewerRAModule"/>
+            <class name="com.pss.qms.RiskAssessmentModule.QAReReviewRAModule"/>
+            <class name="com.pss.qms.RiskAssessmentModule.QAApproverRAModule"/> 
+            <class name="com.pss.qms.RiskAssessmentModule.CQAApproverRAModule"/> 
+            <class name="com.pss.qms.RiskAssessmentModule.QAReviewerNotifyCustomer"/>
+            <class name="com.pss.qms.RiskAssessmentModule.QAReviewerAfterNotifyCustomer"/>
+          
+           </classes>
+           
+           </test> 
+           
+           
+       <test name="RAInitiationToCloser1">
+       
+        <classes> 
+            
+            <class name="com.pss.qms.RiskAssessmentModule.QAApproverRAModule"/> 
+             <class name="com.pss.qms.RiskAssessmentModule.ActionItemPerformRAModule"/>
+            <class name="com.pss.qms.RiskAssessmentModule.ActionItemApproveRAModule"/>
+            <class name="com.pss.qms.RiskAssessmentModule.ReEvaluationInitiation"/>
+            <class name="com.pss.qms.RiskAssessmentModule.ReEvaluationReview"/>
+            <class name="com.pss.qms.RiskAssessmentModule.RiskAcceptanceRAModule"/> 
+
+        </classes> 
+   
+                      
+    </test> 
+
+</suite>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+<listeners>
+        <listener class-name="com.pss.qms.Listners.TestListenerAM"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+    
+     <parameter name="ADHOC_NAME_WITH_AI_IN_ADHOC_SCHEDULE" value="AdhocAI"/>
+	
+	
+    <test name="AMPropertiesfileupdate">
+        <classes>
+      <class name="com.pss.qms.PropertiesFileUpdate.UpdateAMProperties">
+      <methods>
+		<include name="AdhocScheduleAI"/>
+	  </methods>   
+      </class> 
+        </classes>
+    </test>
+    <test name="AdhocAuditManagementActionItem">
+      
+        <classes>
+      
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.AdhocSchedule"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.AdhocScheduleApproval"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.AuditPlan"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.InternalAuditObservations"/> 
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.AuditObservationsReview"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.AuditObservaionApprove"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.AuditeeResponse"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.AuditeeResponseReview"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.AuditeeResponseApprove"/> 
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.ActionItemPerform"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.ActionItemPerform2"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.ActionItemApprove"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.ActionItemApprove2"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.CLoseAudit"/>
+       
+        
+       
+       </classes>
+       
+    </test>
+
+</suite>

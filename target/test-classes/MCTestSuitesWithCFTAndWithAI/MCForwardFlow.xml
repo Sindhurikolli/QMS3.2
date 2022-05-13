@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+
+<listeners> 
+        <listener class-name="com.pss.qms.Listners.TestListenerMC"/>
+</listeners>
+
+	<test name="MCForwardFlowTestSuiteReport">
+
+		<classes>
+
+			<class name="com.pss.qms.MarketComplaintsWithCFTAndWithAIApprovalFlow.MCRegister"/> 
+			<class name="com.pss.qms.MarketComplaintsWithCFTAndWithAIApprovalFlow.RegisterReview"/>
+			<class name="com.pss.qms.MarketComplaintsWithCFTAndWithAIApprovalFlow.CFTReview"/>
+			<class name="com.pss.qms.MarketComplaintsWithCFTAndWithAIApprovalFlow.ReviewWithActionItems"/>
+			<class name="com.pss.qms.MarketComplaintsWithCFTAndWithAIApprovalFlow.ActionItemPerform"/>
+			<class name="com.pss.qms.MarketComplaintsWithCFTAndWithAIApprovalFlow.ActionItemApprove"/>
+			<class name="com.pss.qms.MarketComplaintsWithCFTAndWithAIApprovalFlow.ClosureRegister"/>
+
+		</classes>
+
+	</test>
+
+</suite>

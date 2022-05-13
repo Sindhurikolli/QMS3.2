@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+<listeners>
+        <listener class-name="com.pss.qms.Listners.TestListenerAM"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+
+ 	<parameter name="PLAN_NAME_PLAN_SCHEDULE" value="PlannedSh"/>
+	
+	
+    <test name="AMPropertiesfileupdate">
+        <classes>
+      <class name="com.pss.qms.PropertiesFileUpdate.UpdateAMProperties">
+      <methods>
+		<include name="PlannedSchedulePlanname"/>
+	  </methods>   
+      </class> 
+        </classes>
+    </test>
+
+	<test name="PlannedAuditManagementRejection">
+
+		<classes>
+
+			<class
+				name="com.pss.qms.AuditManagementPlannedApproval.PlanScheduleInAM" />
+			<class
+				name="com.pss.qms.AuditManagementPlannedApproval.PlanScheduleApproveAM" /> 
+			<class
+				name="com.pss.qms.AuditManagementPlannedApproval.AuditPlanInPlanSch" />
+			<class
+				name="com.pss.qms.AuditManagementPlannedApproval.EnterAuditObservations" /> 
+			<class
+				name="com.pss.qms.AuditManagementPlannedApproval.AuditObservationsReview" />
+			<class
+				name="com.pss.qms.AuditManagementPlannedApproval.AuditObservationsApprove" />
+			<class
+				name="com.pss.qms.AuditManagementPlannedApproval.AuditeeResponse" />
+			<class
+				name="com.pss.qms.AuditManagementPlannedApproval.AuditeeResponseReview" />
+			<class
+				name="com.pss.qms.AuditManagementPlannedApproval.AuditeeResponseApproval" />
+			<!-- <class name="com.pss.qms.AuditManagementPlannedApproval.CloseAudit" /> -->
+
+		</classes>
+	</test>
+
+</suite>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="com.mycompany_QMS2.0_jar_1.0-SNAPSHOT" duration-ms="60207" started-at="2022-03-21T18:25:40 IST" finished-at="2022-03-21T18:26:41 IST">
+    <groups>
+    </groups>
+    <test name="QMSTestSuites suite" duration-ms="60207" started-at="2022-03-21T18:25:40 IST" finished-at="2022-03-21T18:26:41 IST">
+      <class name="com.pss.qms.ChangeControlModule.CCClosureApprove">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.pss.qms.ChangeControlModule.CCClosureApprove@2d8f65a4]" name="setUp" is-config="true" duration-ms="5844" started-at="2022-03-21T18:25:40 IST" finished-at="2022-03-21T18:25:46 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="toCCClosureApprove()[pri:0, instance:com.pss.qms.ChangeControlModule.CCClosureApprove@2d8f65a4]" name="toCCClosureApprove" duration-ms="53418" started-at="2022-03-21T18:25:46 IST" finished-at="2022-03-21T18:26:40 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- toCCClosureApprove -->
+        <test-method status="PASS" signature="testIT(org.testng.ITestResult)[pri:0, instance:com.pss.qms.ChangeControlModule.CCClosureApprove@2d8f65a4]" name="testIT" is-config="true" duration-ms="3" started-at="2022-03-21T18:26:40 IST" finished-at="2022-03-21T18:26:40 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=toCCClosureApprove status=SUCCESS method=CCClosureApprove.toCCClosureApprove()[pri:0, instance:com.pss.qms.ChangeControlModule.CCClosureApprove@2d8f65a4] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testIT -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.pss.qms.ChangeControlModule.CCClosureApprove@2d8f65a4]" name="tearDown" is-config="true" duration-ms="826" started-at="2022-03-21T18:26:40 IST" finished-at="2022-03-21T18:26:41 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.pss.qms.ChangeControlModule.CCClosureApprove -->
+    </test> <!-- QMSTestSuites suite -->
+  </suite> <!-- com.mycompany_QMS2.0_jar_1.0-SNAPSHOT -->
+</testng-results>

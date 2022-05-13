@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMS2.0_jar_1.0-SNAPSHOT">
+
+    <test name="BEDevWithRAAndCAPA1">
+          <classes>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.DeviationInitiation"/> 
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.DeptReviewerRejectDev"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.ReInitiateDev"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.DeptReviewerApprove"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.QAReviewerReject"/>
+             </classes>
+             </test> 
+      <test name="BEDevWithRAAndCAPA2">
+          <classes>        
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.ReInitiateDev"/>   
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.DeptHODApprove"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.QAReviewerApprove"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.CFTReviewReject"/> 
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.RegReviewerReject"/>
+          </classes>
+          </test>    
+         
+         <test name="BEDevWithRAAndCAPA3">
+          <classes>          
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.QAReviewerNotifyCustomer"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.CustomerResponseReject"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.QAReReviewRejectDev"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.ReInitiateDev"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.DeptHODApprove"/>
+           </classes>
+           </test>   
+           
+           <test name="BEDevWithRAAndCAPA4">
+          <classes>        
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.QMSCoOrdinatorDev"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.CFTReviewApprove"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.RegReviewerApprove"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.QAReviewerNotifyCustomer"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.CustomerResponseApprove"/>
+           </classes>
+           </test>
+           
+              
+             <test name="BEDevWithRAAndCAPA5">
+          <classes>      
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.QAApproveRejectDev"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.QAReReviewRejectDev"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.ReInitiateDev"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.DeptHODApprove"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.QMSCoOrdinator"/>
+              </classes>
+              </test>
+              
+              
+          <test name="BEDevWithRAAndCAPA6">
+          <classes>         
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.QAApproveDev"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.PostApprovalActionsInitiate"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.PostApprovalActionsReviewReject"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.PostApprovalActionsReInitiate"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.PostApprovalActionsApproval"/>
+             </classes>
+             </test>
+             <test name="BEDevWithRAAndCAPA7">
+          <classes>       
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.DeptHODCAPA"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.QAApproverCAPA"/>
+              <class name="com.pss.qms.DeviationWithRAWithCAPA.CloseDeviation"/>
+          </classes>
+   </test>
+
+</suite>
+
+
+

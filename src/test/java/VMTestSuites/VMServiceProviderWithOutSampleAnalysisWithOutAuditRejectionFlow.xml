@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">  
+    
+    <test name="VMRegisterToCloser">
+        <classes>
+            <class name="com.pss.qms.VMServiceProviderWithOutSampleAnalysisWithOutAuditRejectionFlow.ServiceProviderRegistration"/>
+            <class name="com.pss.qms.VMServiceProviderWithOutSampleAnalysisWithOutAuditRejectionFlow.ServiceProviderRegistrationReject"/>
+            <class name="com.pss.qms.VMServiceProviderWithOutSampleAnalysisWithOutAuditRejectionFlow.ServiceProviderReRegister"/>
+            <class name="com.pss.qms.VMServiceProviderWithOutSampleAnalysisWithOutAuditRejectionFlow.ServiceProviderRegistrationApproval"/>
+            <class name="com.pss.qms.VMServiceProviderWithOutSampleAnalysisWithOutAuditRejectionFlow.VendorIdentification"/>
+            <class name="com.pss.qms.VMServiceProviderWithOutSampleAnalysisWithOutAuditRejectionFlow.VendorIdentificationReject"/>
+            <class name="com.pss.qms.VMServiceProviderWithOutSampleAnalysisWithOutAuditRejectionFlow.VendorReIdentification"/>
+            <class name="com.pss.qms.VMServiceProviderWithOutSampleAnalysisWithOutAuditRejectionFlow.VendorIdentificationApproval"/>
+            <class name="com.pss.qms.VMServiceProviderWithOutSampleAnalysisWithOutAuditRejectionFlow.VendorEvaluation"/>
+            <class name="com.pss.qms.VMServiceProviderWithOutSampleAnalysisWithOutAuditRejectionFlow.VendorEvaluationReject"/>
+            <class name="com.pss.qms.VMServiceProviderWithOutSampleAnalysisWithOutAuditRejectionFlow.VendorReEvaluation"/>
+            <class name="com.pss.qms.VMServiceProviderWithOutSampleAnalysisWithOutAuditRejectionFlow.VendorEvaluationApproval"/>
+        </classes>
+    </test>
+
+</suite>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+
+<listeners> 
+        <listener class-name="com.pss.qms.Listners.TestListenerCAPA"/>
+</listeners>
+
+    <test name="CAPAInitiationToCloser">
+    
+        <classes>
+        
+            <class name="com.pss.qms.CAPAModule.CAPANewPlan"/>
+            <class name="com.pss.qms.CAPAModule.DeptHODCAPAModule"/> 
+            <class name="com.pss.qms.CAPAModule.QAReviewerCAPA"/>
+            <class name="com.pss.qms.CAPAModule.QAApproverCAPA"/> 
+            <class name="com.pss.qms.CAPAModule.CAPAPerformTask"/>
+            <class name="com.pss.qms.CAPAModule.CAPAApproveTask"/>
+            <class name="com.pss.qms.CAPAModule.CAPACompletion"/> 
+            <class name="com.pss.qms.CAPAModule.CAPACompletionApproval"/>
+            <class name="com.pss.qms.CAPAModule.EffectiveCheckInitiate"/>
+            <class name="com.pss.qms.CAPAModule.EffectiveCheckInitiateReview"/>                  
+            <class name="com.pss.qms.CAPAModule.EffectiveCheckPerformCA"/>
+            <class name="com.pss.qms.CAPAModule.DepthodEffectiveCheckReview"/>
+            <class name="com.pss.qms.CAPAModule.QAReviewerEffectiveCheckReview"/>
+            <class name="com.pss.qms.CAPAModule.QahodEffectiveCheckReview"/>
+            
+        </classes>
+        
+    </test>
+
+</suite>

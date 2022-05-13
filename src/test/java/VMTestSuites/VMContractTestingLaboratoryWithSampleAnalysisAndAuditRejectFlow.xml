@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">  
+    
+    <test name="VMRegisterToCloser">
+        <classes>
+        
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.ContractTestingLaboratoryregistration"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.ContractTestingRegistrationReject"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.ContractTestingReRegister"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.ContractTestingLaboratoryRegistrationApproval"/> 
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.VendorIdentification"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.VendorIdentificationReject"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.VendorReIdentification"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.VendorIdentificationApproval"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.VendorEvaluation"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.VendorEvaluationReject"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.VendorReEvaluation"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.VendorEvaluationApproval"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.AnalyseSample"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.AnalyseSampleReject"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.ReAnalyseSample"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.AnalyseSampleApproval"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.VendorInspectionPlan"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.VendorInspectionPlanReject"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.VendorResubmittedRejectedInspectionPlan"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.VendorInspectionPlanApproval"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.CheckListPerformAudit"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.VendorQuestionnarieAuditApproval"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.VendorNotification"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.VendorResponse"/>
+            <class name="com.pss.qms.VMContractTestingLaboratoryRegistrationApprovalRejectionFlow.CloseVendor"/> 
+            
+            
+            <class name="com.pss.qms.VendorManagementServiceProvidersForwardFlow.ServiceProviderRegistration"/>
+            <class name="com.pss.qms.VendorManagementServiceProvidersForwardFlow.ServiceProviderRegistrationApproval"/>
+            <class name="com.pss.qms.VendorManagementServiceProvidersForwardFlow.VendorIdentification"/>
+            <class name="com.pss.qms.VendorManagementServiceProvidersForwardFlow.VendorIdentificationApproval"/>
+            <class name="com.pss.qms.VendorManagementServiceProvidersForwardFlow.VendorEvaluation"/>
+            <class name="com.pss.qms.VendorManagementServiceProvidersForwardFlow.VendorEvaluationApproval"/>
+            <class name="com.pss.qms.VendorManagementServiceProvidersForwardFlow.AnalyseSample"/>
+            <class name="com.pss.qms.VendorManagementServiceProvidersForwardFlow.AnalyseSampleApproval"/>
+            <class name="com.pss.qms.VendorManagementServiceProvidersForwardFlow.VendorInspectionPlan"/>
+            <class name="com.pss.qms.VendorManagementServiceProvidersForwardFlow.VendorInspectionPlanApproval"/>
+            <class name="com.pss.qms.VendorManagementServiceProvidersForwardFlow.CheckListPerformAudit"/>
+            <class name="com.pss.qms.VendorManagementServiceProvidersForwardFlow.VendorQuestionnarieAuditApproval"/>
+            <class name="com.pss.qms.VendorManagementServiceProvidersForwardFlow.VendorNotification"/>
+            <class name="com.pss.qms.VendorManagementServiceProvidersForwardFlow.VendorResponse"/>
+            <class name="com.pss.qms.VendorManagementServiceProvidersForwardFlow.CloseVendor"/>
+            
+            
+        </classes>
+    </test>
+
+</suite>

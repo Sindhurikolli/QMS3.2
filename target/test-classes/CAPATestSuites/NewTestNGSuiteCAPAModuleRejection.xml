@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+
+  <listeners> 
+        <listener class-name="com.pss.qms.Listners.TestListenerCAPA"/>
+</listeners> 
+
+    <test name="CAPAInitiationToCloser1">  
+              
+            <classes>
+            
+            <class name="com.pss.qms.CAPAModuleRejection.CAPANewPlan"/>
+            <class name="com.pss.qms.CAPAModuleRejection.DeptHODCAPAReject"/>
+            <class name="com.pss.qms.CAPAModuleRejection.CAPARejectInitiate"/>
+            <class name="com.pss.qms.CAPAModuleRejection.DeptHODCAPAModule"/>
+            
+            </classes>
+             
+             </test>
+             
+             
+            <test name="CAPAInitiationToCloser2"> 
+                       
+            <classes>
+            
+            <class name="com.pss.qms.CAPAModuleRejection.QAreviewerCAPAReject"/>                        
+            <class name="com.pss.qms.CAPAModuleRejection.CAPAinitiateAfterQAreviewerReject"/>
+            <class name="com.pss.qms.CAPAModuleRejection.DepthodAfterRejectQAReviewer"/>
+            <class name="com.pss.qms.CAPAModuleRejection.QAReviewerCAPA"/>            
+            <class name="com.pss.qms.CAPAModuleRejection.QAApproverCAPAReject"/>            
+            <class name="com.pss.qms.CAPAModuleRejection.QAReviewerAfterReject"/>            
+            <class name="com.pss.qms.CAPAModuleRejection.QAApproverCAPA"/>
+            <class name="com.pss.qms.CAPAModuleRejection.CAPerformTask"/>             
+            <class name="com.pss.qms.CAPAModuleRejection.CARejectCAPA"/>            
+            <class name="com.pss.qms.CAPAModuleRejection.CAPerformAfterReject"/>
+           
+            </classes>
+             
+             </test>
+            
+            
+             <test name="CAPAInitiationToCloser3"> 
+                        
+            <classes>
+                      
+            <class name="com.pss.qms.CAPAModuleRejection.CAApproveCAPA"/>            
+            <class name="com.pss.qms.CAPAModuleRejection.CAPACompletion"/>
+            <class name="com.pss.qms.CAPAModuleRejection.CAPACompletionReject"/>
+            <class name="com.pss.qms.CAPAModuleRejection.CAPACompletionAfterReject"/>                                   
+            <class name="com.pss.qms.CAPAModuleRejection.CAPACompletionApproval"/>   
+            
+            </classes>
+             
+             </test> 
+             
+             <test name="CAPAInitiationToCloser4"> 
+                        
+            <classes>    
+                
+            <class name="com.pss.qms.CAPAModuleRejection.EffectiveCheckInitiate"/>
+            <class name="com.pss.qms.CAPAModuleRejection.EffectiveCheckInitiateReviewReject"/>
+            <class name="com.pss.qms.CAPAModuleRejection.EffectiveCheckInitiateAfterReject"/>
+            <class name="com.pss.qms.CAPAModuleRejection.EffectiveCheckInitiateReview"/>
+            <class name="com.pss.qms.CAPAModuleRejection.EffectiveCheckPerformCAPA"/>
+            <class name="com.pss.qms.CAPAModuleRejection.EffectiveCheckReviewDepthodReject"/> 
+           
+            </classes>
+             
+             </test>
+             
+            <test name="CAPAInitiationToCloser5"> 
+                       
+            <classes>
+            
+            <class name="com.pss.qms.CAPAModuleRejection.EffectiveCheckPerformAfterRejectByDepthod"/>
+            <class name="com.pss.qms.CAPAModuleRejection.EffectiveCheckReviewDepthod"/>
+            <class name="com.pss.qms.CAPAModuleRejection.EffectiveCheckReviewQAReviewerReject"/>  
+            
+            </classes>
+             
+             </test>
+             
+            <test name="CAPAInitiationToCloser6"> 
+                       
+            <classes>
+            
+            <class name="com.pss.qms.CAPAModuleRejection.EffectiveCheckPerformAfterRejectByQMSCoordinator"/>
+            <class name="com.pss.qms.CAPAModuleRejection.EffectiveCheckReviewDepthod"/>
+            <class name="com.pss.qms.CAPAModuleRejection.EffectiveCheckReviewQAReviewer"/>
+            <class name="com.pss.qms.CAPAModuleRejection.EffectiveCheckQAApproverReject"/>  
+           
+            </classes>
+             
+             </test>
+             
+            <test name="CAPAInitiationToCloser7">   
+                     
+            <classes>
+            
+            <class name="com.pss.qms.CAPAModuleRejection.EffectiveCheckReviewQAReviewer"/>
+            <class name="com.pss.qms.CAPAModuleRejection.EffectiveCheckReviewQAApprover"/>
+            
+             </classes>
+             
+             </test>
+</suite>

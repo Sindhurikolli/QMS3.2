@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMS2.0_jar_1.0-SNAPSHOT">
+
+    <test name="BEDevWithoutSRManagerWithCFT">
+          <classes>
+              <class name="com.pss.qms.DevWithoutSRManagerWithCFT.DeviationInitiation"/> 
+              <class name="com.pss.qms.DevWithoutSRManagerWithCFT.DeptReviewerDev"/>
+              <class name="com.pss.qms.DevWithoutSRManagerWithCFT.QAReviewerDev"/>
+              <class name="com.pss.qms.DevWithoutSRManagerWithCFT.CFTReviewerDev"/>
+              <class name="com.pss.qms.DevWithoutSRManagerWithCFT.RegReviewerDev"/>
+              <class name="com.pss.qms.DevWithoutSRManagerWithCFT.CustomerNotification"/>   
+              <class name="com.pss.qms.DevWithoutSRManagerWithCFT.CustomerResponse"/>
+              <class name="com.pss.qms.DevWithoutSRManagerWithCFT.QAApproverDev"/>
+              <class name="com.pss.qms.DevWithoutSRManagerWithCFT.PostApprovalActionsInitiate"/>
+              <class name="com.pss.qms.DevWithoutSRManagerWithCFT.PostApprovalActionsReview"/>   
+              <class name="com.pss.qms.DevWithoutSRManagerWithCFT.DeptHODCAPA"/>
+              <class name="com.pss.qms.DevWithoutSRManagerWithCFT.QAApproverCAPA"/>
+              <class name="com.pss.qms.DevWithoutSRManagerWithCFT.CloseDeviation"/>
+              
+              
+              
+              
+              
+               
+          </classes>
+   </test>
+
+</suite>
+
+
+

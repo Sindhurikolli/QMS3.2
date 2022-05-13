@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+<listeners>
+        <listener class-name="com.pss.qms.Listners.TestListenerAM"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+    
+    <test name="AdhocAuditManagementExternalSchedule">
+    
+        <classes>
+        
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ExternalSchedule"/>
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ExternalScheduleReject"/>
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ExternalScheduleRejectApprove"/>
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ExternalAuditApprove"/>
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.AuditPlan"/>
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ExternalObservationandResponse"/> 
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ExternalObservationsAndResponseReviewReject"/>
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ExternalObsAndResponseRejectApprove"/>
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ExternalObservationAndResponseReview"/>
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ExternalObsAndResponseApproveReject"/>
+      </classes>
+       
+    </test>
+     <test name="AdhocAuditManagementExternalSchedule1">
+    
+        <classes>
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ExternalObsAndResponseRejectApprove"/>
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ExternalObservationAndResponseReview"/>
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ExternalObservationAndResponseApproval"/>
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ActionItemPerform"/>
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ActionItemApproveReject"/>
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ActionItemRePerform"/>
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ActionItemApprove"/>
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.CloseAudit"/>
+       
+       </classes>
+       
+    </test>
+
+</suite>

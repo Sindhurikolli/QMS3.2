@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+
+    <test name="AdminTestSuites">
+        <classes>
+           <class name="com.pss.qms.WorkFlow.ChangeControlWorkFlow"/> 
+            <class name="com.pss.qms.WorkFlow.DeviationWorkFlow"/>
+            <class name="com.pss.qms.WorkFlow.CAPAWorkFlow"/>
+            <class name="com.pss.qms.WorkFlow.IncidentManagementWorkFlow"/>
+            <class name="com.pss.qms.WorkFlow.MarketComplaintsWorkFlow"/>
+          	<class name="com.pss.qms.WorkFlow.RiskAssessmentWorkFlow"/>           
+                 
+        </classes>
+    </test>
+
+</suite>

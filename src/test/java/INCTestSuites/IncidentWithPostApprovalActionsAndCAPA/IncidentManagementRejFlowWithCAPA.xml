@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+ <listeners> 
+         <listener class-name="com.pss.qms.Listners.TestListenerINC"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners> 
+    
+    <test name="IncidentCreationAndApproval1">
+        <classes>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.IncidentInitiation"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.DeptReviewerRejectInc"/>
+        <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.IncidentInitiationRevert"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.DeptReviewerApproveInc"/>
+        </classes>
+    </test>   
+     <test name="IncidentCreationAndApproval2">
+        <classes>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.QAReviewRejectInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.IncidentInitiationRevert"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.DeptReviewerApproveAfterQAReviewRevertInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.QAReviewerInc"/>
+         </classes>
+    </test>   
+    <test name="IncidentReview1">   
+     <classes>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.QAReviewNotifyCustomerInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.QAReviewCustomerResponseRevertInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.CFTReviewerRevertInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.RegReviewRevertInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.QAReReviewAfterCustomerCftRaReject"/>
+             </classes>
+    </test>   
+    <test name="IncidentReview2">   
+     <classes> 
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.QAReviewNotifyCustomerInc"/>      
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.QAReviewCustomerResponseInc"/> 
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.CFTReviewerInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.RegReviewInc"/>
+      </classes>
+    </test>   
+    <test name="IncidentReview3">   
+     <classes>   
+        <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.QAApproverRevertInc"/>
+        <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.QAReReviewerAfterApproverRevertInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.QAApproverInc"/> 
+     </classes>
+    </test>
+    <test name="IncidentPostApprovalActions">
+        <classes>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.PostApprovalActionsInitiateWithCAorPA"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.PostApprovalActionsReviewRevert"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.PostApprovalActionReInitate"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.PostApprovalActionsReview"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPARejFlow.CloseIncident"/>
+     
+         </classes>
+    </test>
+
+</suite>

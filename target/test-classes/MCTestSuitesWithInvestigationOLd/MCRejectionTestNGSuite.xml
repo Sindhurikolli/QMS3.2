@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">  
+ <listeners> 
+        <listener class-name="com.pss.qms.Listners.TestListenerMC"/>
+</listeners>
+
+    <test name="MCInitiationToCloserRejectionFlow">
+    
+        <classes>
+        
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.MCRegister"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.QAReviewRejectMC"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.MCReInitiate"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.QAReviewMC"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.InvPlanReject"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.QAReviewMC"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.InvPlanMC"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.InvestigationRejectMC"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.InvPlanAfterRejInv"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.InvestigationMC"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.RootCauseAnalysisReject"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.InvPlanAfterRejectRootCauseAnalysis"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.RootCauseAnalysisApprove"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.RiskAssessmentRejectMC"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.InvPlanAfterRejectRiskImpactAssessment"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.RiskAssessmentApproveMC"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.CAPARejectMC"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.InvPlanAfterCapaReject"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.CAPAApproveInv"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.QAReReviewMC"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.SecondaryInvPlanReject"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.QAReReviewMC"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.SecondaryInvPlan"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.SecondaryInvestigationReject"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.SecondaryInvPlanAfterRejectInv"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.SecondaryInvestigation"/>
+            <class name =" com.pss.qms.MarketComplaintsRejectionWithInvestigation.SecondaryRootCauseAnalysisReject"/>
+            <class name ="com.pss.qms.MarketComplaintsRejectionWithInvestigation.SecondaryInvPlanAfterRejectRootCauseAnalysis"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.SecondaryRootCauseAnalysis"/> 
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.SecondaryRiskImpactAssessmentReject"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.SecondaryInvPlanAfterRiskImpactAssessmentReject"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.SecondaryRiskImpactAssessment"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.SecondaryCapaReject"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.SecondaryInvplanAfterCapaReject"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.SecondaryCapa"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.CFTRejectMC"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.QAReReviewMC"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.SecondaryInvPlan"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.SecondaryInvestigation"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.SecondaryRootCauseAnalysis"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.SecondaryRiskImpactAssessment"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.SecondaryCapa"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.QAReviewWithActionItems"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.ActionItemPerform"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.ActionItemRejectMC"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.ActionItemPerformAfterReject"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.ActionItemApprove"/>
+            <class name = "com.pss.qms.MarketComplaintsRejectionWithInvestigation.CloseComplaint"/>
+           
+         </classes>  
+         
+         </test>
+         
+         </suite> 

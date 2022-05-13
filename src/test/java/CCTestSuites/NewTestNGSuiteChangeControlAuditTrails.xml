@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMS2.0_jar_1.0-SNAPSHOT">
+
+    <test name="QMSCCTestSuiteAT">
+       <classes>
+              <class name="com.pss.qms.ChangeControlAuditTrails.ExtensionOfCC"/> 
+              <class name="com.pss.qms.ChangeControlAuditTrails.CancelActionItems"/>   
+              <class name="com.pss.qms.ChangeControlAuditTrails.WorkFlows"/>
+              <class name="com.pss.qms.ChangeControlAuditTrails.CancelChangeControls"/>
+              <class name="com.pss.qms.ChangeControlAuditTrails.Roles"/>              
+              <class name="com.pss.qms.ChangeControlAuditTrails.ActionItemOverDue"/>
+              <class name="com.pss.qms.ChangeControlAuditTrails.DelayedCC"/>
+              <class name="com.pss.qms.ChangeControlAuditTrails.ActionItemReAssign"/>
+              <class name="com.pss.qms.ChangeControlAuditTrails.CCStatus"/>
+       </classes>
+    </test>
+
+</suite>
+

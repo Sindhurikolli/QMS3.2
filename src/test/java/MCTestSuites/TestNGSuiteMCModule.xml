@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">  
+
+<listeners> 
+        <listener class-name="com.pss.qms.Listners.TestListenerMC"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+
+    <test name="MCInitiationToCloser">
+    
+        <classes>
+        
+            <class name="com.pss.qms.MarketComplaintsModule.MCRegister"/>
+            <class name="com.pss.qms.MarketComplaintsModule.QAReviewerMCModule"/>
+            <class name="com.pss.qms.MarketComplaintsModule.InvestigationPlanMCModule"/>
+            <class name="com.pss.qms.MarketComplaintsModule.InvestigationMCModule"/>
+            <class name="com.pss.qms.MarketComplaintsModule.InvRootCauseAnalysisMCModule"/>
+            <class name="com.pss.qms.MarketComplaintsModule.InvImpactAssessmentMCModule"/>
+            <class name="com.pss.qms.MarketComplaintsModule.CAPAInvMCModule"/>
+            <class name="com.pss.qms.MarketComplaintsModule.QAReReviewMC"/>
+            <class name="com.pss.qms.MarketComplaintsModule.SecondaryInvestigationPlan"/>
+            <class name="com.pss.qms.MarketComplaintsModule.SecondaryInvestigation"/>
+            <class name="com.pss.qms.MarketComplaintsModule.SecondaryInvRootCauseAnalysis"/>
+            <class name="com.pss.qms.MarketComplaintsModule.SecondaryInvRiskImapctAssessment"/>
+            <class name="com.pss.qms.MarketComplaintsModule.SecondaryInvCAPA"/>
+            <class name="com.pss.qms.MarketComplaintsModule.CFTReviewMCModule"/>
+            <class name="com.pss.qms.MarketComplaintsModule.QAReviewWithActionItems"/>
+            <class name="com.pss.qms.MarketComplaintsModule.ActionItemPerformMC"/>
+            <class name="com.pss.qms.MarketComplaintsModule.ActionItemApproveMC"/>
+            <class name="com.pss.qms.MarketComplaintsModule.MCCompletion"/>
+         
+        </classes>
+        
+    </test>
+
+</suite>

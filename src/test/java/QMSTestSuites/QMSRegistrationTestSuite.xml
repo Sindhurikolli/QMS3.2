@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
+
+    <test name="AdminTestSuites">
+        <classes>
+            <class name="com.pss.qms.Registration.MarketRegistration"/>
+            <class name="com.pss.qms.Registration.CustomerRegistration"/>
+            <class name="com.pss.qms.Registration.CustomerRegistrationApproval"/>
+            <class name="com.pss.qms.Registration.PlantCodeRegistration"/>
+            <class name="com.pss.qms.Registration.PlantCodeApproval"/>
+          	<class name="com.pss.qms.Registration.MaterialRegistration"/>
+            <class name="com.pss.qms.Registration.MaterialApprove"/>
+            <class name="com.pss.qms.Registration.ProductRegistration"/>
+            <class name="com.pss.qms.Registration.ProductRegistrationApprove"/>
+            <class name="com.pss.qms.Registration.MultiUserGroupCreationTest"/>
+            <class name="com.pss.qms.Registration.MultiCFTGroupCreationTest"/>
+            <class name="com.pss.qms.Registration.RegulatoryGroups"/>
+            <class name="com.pss.qms.Registration.CheckListRegistration"/>
+            <class name="com.pss.qms.Registration.ChecklistApproval"/>
+            <class name="com.pss.qms.Registration.DocumentRegistration"/>
+            <class name="com.pss.qms.Registration.DocumentApproval"/>
+                 
+        </classes>
+    </test>
+
+</suite>

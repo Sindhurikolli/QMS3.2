@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">  
+    
+    <test name="VMRegisterToCloser">
+        <classes>
+            <class name="com.pss.qms.VMSupplierWithOutSampleAnalysisAndWithOutAuditRejectionFlow.SupplierRegistration"/>
+            <class name="com.pss.qms.VMSupplierWithOutSampleAnalysisAndWithOutAuditRejectionFlow.SupplierRegistrationReject"/>
+            <class name="com.pss.qms.VMSupplierWithOutSampleAnalysisAndWithOutAuditRejectionFlow.SupplierReRegister"/>
+            <class name="com.pss.qms.VMSupplierWithOutSampleAnalysisAndWithOutAuditRejectionFlow.SupplierRegistrationApproval"/>
+            <class name="com.pss.qms.VMSupplierWithOutSampleAnalysisAndWithOutAuditRejectionFlow.VendorIdentification"/>
+            <class name="com.pss.qms.VMSupplierWithOutSampleAnalysisAndWithOutAuditRejectionFlow.VendorIdentificationReject"/>
+            <class name="com.pss.qms.VMSupplierWithOutSampleAnalysisAndWithOutAuditRejectionFlow.VendorReIdentification"/>
+            <class name="com.pss.qms.VMSupplierWithOutSampleAnalysisAndWithOutAuditRejectionFlow.VendorIdentificationApproval"/>
+            <class name="com.pss.qms.VMSupplierWithOutSampleAnalysisAndWithOutAuditRejectionFlow.VendorEvaluation"/>
+            <class name="com.pss.qms.VMSupplierWithOutSampleAnalysisAndWithOutAuditRejectionFlow.VendorEvaluationReject"/>
+            <class name="com.pss.qms.VMSupplierWithOutSampleAnalysisAndWithOutAuditRejectionFlow.VendorReEvaluation"/>
+            <class name="com.pss.qms.VMSupplierWithOutSampleAnalysisAndWithOutAuditRejectionFlow.VendorEvaluationApproval"/>
+        </classes>
+    </test>
+
+</suite>

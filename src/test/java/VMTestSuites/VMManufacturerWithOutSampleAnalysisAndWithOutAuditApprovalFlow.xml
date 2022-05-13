@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">  
+    
+    <test name="VMRegisterToCloser">
+        <classes>
+            <class name="com.pss.qms.VMManufacturerWithOutSampleAnalysisAndWithOutAuditApprovalFlow.ManufacturerRegistration"/>
+            <class name="com.pss.qms.VMManufacturerWithOutSampleAnalysisAndWithOutAuditApprovalFlow.ManufacturerRegistrationApproval"/>
+            <class name="com.pss.qms.VMManufacturerWithOutSampleAnalysisAndWithOutAuditApprovalFlow.VendorIdentification"/>
+            <class name="com.pss.qms.VMManufacturerWithOutSampleAnalysisAndWithOutAuditApprovalFlow.VendorIdentificationApproval"/>
+            <class name="com.pss.qms.VMManufacturerWithOutSampleAnalysisAndWithOutAuditApprovalFlow.VendorEvaluation"/>
+            <class name="com.pss.qms.VMManufacturerWithOutSampleAnalysisAndWithOutAuditApprovalFlow.VendorEvaluationApproval"/>
+            
+        </classes>
+    </test>
+
+</suite>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [com.mycompany_QMSProject_jar_1.0-SNAPSHOT]">
+  <test thread-count="5" name="AdminTestSuites(failed)">
+    <classes>
+      <class name="com.pss.qms.Registration.ProductRegistration">
+        <methods>
+          <include name="tearDown"/>
+          <include name="testIT"/>
+          <include name="setUp"/>
+          <include name="toProductRegistration"/>
+        </methods>
+      </class> <!-- com.pss.qms.Registration.ProductRegistration -->
+      <class name="com.pss.qms.Registration.ProductRegistrationApprove">
+        <methods>
+          <include name="tearDown"/>
+          <include name="testIT"/>
+          <include name="setUp"/>
+          <include name="ProductRegistration"/>
+        </methods>
+      </class> <!-- com.pss.qms.Registration.ProductRegistrationApprove -->
+      <class name="com.pss.qms.Registration.CheckListRegistration">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="testIT"/>
+          <include name="toCheckListRegistration"/>
+        </methods>
+      </class> <!-- com.pss.qms.Registration.CheckListRegistration -->
+      <class name="com.pss.qms.Registration.MaterialApprove">
+        <methods>
+          <include name="testIT"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="toMaterialApprove"/>
+        </methods>
+      </class> <!-- com.pss.qms.Registration.MaterialApprove -->
+      <class name="com.pss.qms.Registration.CustomerRegistration">
+        <methods>
+          <include name="testIT"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="toCustomerRegistration"/>
+        </methods>
+      </class> <!-- com.pss.qms.Registration.CustomerRegistration -->
+      <class name="com.pss.qms.Registration.ChecklistApproval">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="testIT"/>
+          <include name="toChecklistApproval"/>
+        </methods>
+      </class> <!-- com.pss.qms.Registration.ChecklistApproval -->
+      <class name="com.pss.qms.Registration.CustomerRegistrationApproval">
+        <methods>
+          <include name="testIT"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="toCustomerRegistrationApproval"/>
+        </methods>
+      </class> <!-- com.pss.qms.Registration.CustomerRegistrationApproval -->
+      <class name="com.pss.qms.Registration.MarketRegistration">
+        <methods>
+          <include name="toMarketRegistration"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="testIT"/>
+        </methods>
+      </class> <!-- com.pss.qms.Registration.MarketRegistration -->
+      <class name="com.pss.qms.Registration.MultiCFTGroupCreationTest">
+        <methods>
+          <include name="toMultiUserCreation" invocation-numbers="0 1"/>
+        </methods>
+      </class> <!-- com.pss.qms.Registration.MultiCFTGroupCreationTest -->
+      <class name="com.pss.qms.Registration.MultiUserGroupCreationTest">
+        <methods>
+          <include name="toMultiUserCreation" invocation-numbers="0 1 2 3"/>
+        </methods>
+      </class> <!-- com.pss.qms.Registration.MultiUserGroupCreationTest -->
+      <class name="com.pss.qms.Registration.PlantCodeRegistration">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="testIT"/>
+          <include name="toPlantCodeRegistration"/>
+        </methods>
+      </class> <!-- com.pss.qms.Registration.PlantCodeRegistration -->
+      <class name="com.pss.qms.Registration.PlantCodeApproval">
+        <methods>
+          <include name="tearDown"/>
+          <include name="testIT"/>
+          <include name="toPlantCodeApproval"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.pss.qms.Registration.PlantCodeApproval -->
+      <class name="com.pss.qms.Registration.RegulatoryGroups">
+        <methods>
+          <include name="tearDown"/>
+          <include name="testIT"/>
+          <include name="setUp"/>
+          <include name="RegGroupRegistration"/>
+        </methods>
+      </class> <!-- com.pss.qms.Registration.RegulatoryGroups -->
+      <class name="com.pss.qms.Registration.DocumentApproval">
+        <methods>
+          <include name="testIT"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="toDocumentApproval"/>
+        </methods>
+      </class> <!-- com.pss.qms.Registration.DocumentApproval -->
+      <class name="com.pss.qms.Registration.MaterialRegistration">
+        <methods>
+          <include name="tearDown"/>
+          <include name="testIT"/>
+          <include name="setUp"/>
+          <include name="toMaterialRegistration"/>
+        </methods>
+      </class> <!-- com.pss.qms.Registration.MaterialRegistration -->
+      <class name="com.pss.qms.Registration.DocumentRegistration">
+        <methods>
+          <include name="tearDown"/>
+          <include name="testIT"/>
+          <include name="setUp"/>
+          <include name="toDocumentRegistration"/>
+        </methods>
+      </class> <!-- com.pss.qms.Registration.DocumentRegistration -->
+    </classes>
+  </test> <!-- AdminTestSuites(failed) -->
+</suite> <!-- Failed suite [com.mycompany_QMSProject_jar_1.0-SNAPSHOT] -->

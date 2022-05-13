@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMS2.0_jar_1.0-SNAPSHOT">
+	<listeners>
+		<listener class-name="com.pss.qms.Listners.TestListenerDeviation"/>
+		<listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+	</listeners>
+	<test name="BEDeviationWithInvAndCapa">
+		<classes>
+			 <class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.DeviationInitiation" />
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.DeptReviewerReject" /> 
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.ReInitiateDeviation" />
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.DeptReviewerApprove" />
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.QAReviewReject" />
+		</classes>
+	</test>
+		<test name="BEDeviationWithInvAndCapa1">
+		<classes>
+		 <class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.ReInitiateDeviation" /> 
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.DeptReviewerApprove" />
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.QAReviewerApprove" /> 
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.CFTReviewReject" /> 
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.RegReviewerReject" />
+			 <class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.CustomerNotification" />
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.CustomerResponseReject" />
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.QAReReviewAfterCFTReject" /> 
+			 <class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.CFTReviewApprove" />
+		</classes>
+		
+	 </test> 
+	<test name="BEDeviationWithInvAndCapa2">
+		<classes>
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.RegReviewerApprove" />
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.CustomerNotification" />
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.CustomerResponse" />
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.QAApproverRejectDev" />
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.QAReReviewerDev" />
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.QAApproverDev" />
+		</classes>
+	</test> 
+	 <test name="BEDeviationWithInvAndCapa3">
+		<classes>
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.InvestigationPlanDev" /> 
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.InvPerformDev" />
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.InvReviewReject" />
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.InvRePerform" />
+		</classes>
+	</test>
+	<test name="BEDeviationWithInvAndCapa4">
+		<classes>
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.InvReReview" />
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.CFTInvReviewReject" /> 
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.InvRePerform" />
+		</classes>
+	</test>
+	<test name="BEDeviationWithInvAndCapa5">
+		<classes>
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.InvReReview" />
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.CFTInvReview" />
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.QAReReviewerDev" />
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.FinalQAApproverDev" />
+		</classes>
+	</test>
+
+	<test name="BEDeviationWithInvAndCapa6">
+		<classes>
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.PlanExistingCAPA" />
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.DeptHODReviewCAPAForExistingCAPA" />
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.QAReviewCAPA" />
+
+			<class
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.QAApproverCAPA" />
+				
+			<class name="com.pss.qms.DeviationWithInvAndCAPARejection.CloseDeviation"/>
+			
+		</classes>
+	</test>
+
+</suite>

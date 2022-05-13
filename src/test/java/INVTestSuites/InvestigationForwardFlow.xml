@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMS2.0_jar_1.0-SNAPSHOT">
+
+<listeners> 
+        <listener class-name="com.pss.qms.Listners.TestListenerINV"/>
+        <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
+</listeners>
+
+     <test name="InvestigationForwardFlow">
+     
+          <classes>
+            
+              <class name="com.pss.qms.Investigation.InvestigationRequest"/>
+              <class name="com.pss.qms.Investigation.InvestigationRequestApproval"/> 
+              <class name="com.pss.qms.Investigation.InvestigationPlan"/>
+              <class name="com.pss.qms.Investigation.InvestigationPerform"/>
+              <class name="com.pss.qms.Investigation.InvestigationReview"/> 
+              
+          </classes>
+          
+     </test>             
+
+</suite>

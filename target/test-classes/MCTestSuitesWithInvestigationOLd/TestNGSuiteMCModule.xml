@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">  
+
+ <listeners> 
+        <listener class-name="com.pss.qms.Listners.TestListenerMC"/>
+</listeners>
+
+    <test name="MCInitiationToCloserForwardFlow">
+    
+        <classes>
+        
+            <class name="com.pss.qms.MarketComplaintsModuleWithInvestigation.MCRegister"/>
+            <class name="com.pss.qms.MarketComplaintsModuleWithInvestigation.QAReviewerMCModule"/>
+            <class name="com.pss.qms.MarketComplaintsModuleWithInvestigation.InvestigationPlanMCModule"/>
+            <class name="com.pss.qms.MarketComplaintsModuleWithInvestigation.InvestigationMCModule"/>
+            <class name="com.pss.qms.MarketComplaintsModuleWithInvestigation.InvRootCauseAnalysisMCModule"/>
+            <class name="com.pss.qms.MarketComplaintsModuleWithInvestigation.InvImpactAssessmentMCModule"/>
+            <class name="com.pss.qms.MarketComplaintsModuleWithInvestigation.CAPAInvMCModule"/>
+            <class name="com.pss.qms.MarketComplaintsModuleWithInvestigation.QAReReviewMC"/>
+            <class name="com.pss.qms.MarketComplaintsModuleWithInvestigation.SecondaryInvestigationPlan"/>
+            <class name="com.pss.qms.MarketComplaintsModuleWithInvestigation.SecondaryInvestigation"/>
+            <class name="com.pss.qms.MarketComplaintsModuleWithInvestigation.SecondaryInvRootCauseAnalysis"/>
+            <class name="com.pss.qms.MarketComplaintsModuleWithInvestigation.SecondaryInvRiskImapctAssessment"/>
+            <class name="com.pss.qms.MarketComplaintsModuleWithInvestigation.SecondaryInvCAPA"/>
+            <class name="com.pss.qms.MarketComplaintsModuleWithInvestigation.CFTReviewMCModule"/>
+            <class name="com.pss.qms.MarketComplaintsModuleWithInvestigation.QAReviewWithActionItems"/>
+            <class name="com.pss.qms.MarketComplaintsModuleWithInvestigation.ActionItemPerformMC"/>
+            <class name="com.pss.qms.MarketComplaintsModuleWithInvestigation.ActionItemApproveMC"/>
+            <class name="com.pss.qms.MarketComplaintsModuleWithInvestigation.MCCompletion"/>
+         
+        </classes>
+    </test>
+
+</suite>
