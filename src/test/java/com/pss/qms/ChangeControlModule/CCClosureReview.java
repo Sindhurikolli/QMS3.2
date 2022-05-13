@@ -364,11 +364,10 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 			Thread.sleep(2000);
 			sno++;
 			WebDriverWait wait = new WebDriverWait(driver, 70);
-			wait.until(ExpectedConditions.presenceOfElementLocated(By.className("modal-btn")));
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"modal-window\"]/div/div/div[3]/a")));
 			Thread.sleep(2000);
-//			WebElement element26 = driver.findElement(By.className("modal-btn"));
-//			js.executeScript("arguments[0].click();", element26);
-            driver.findElement(By.className("modal-btn")).click();
+			Helper.clickElement(driver, By.xpath("//*[@id=\"modal-window\"]/div/div/div[3]/a"));
+//            driver.findElement(By.xpath("//*[@id=\"modal-window\"]/div/div/div[3]/a")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on OK button", sno, false);
 			Thread.sleep(2000);
 			sno++;
@@ -376,7 +375,7 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On UserName ", sno, false);
 			sno++;
 			Thread.sleep(2000);
-			driver.findElement(By.cssSelector("a[href='Logout.do']")).click();
+			Helper.clickElement(driver, By.cssSelector("a[href='Logout.do']"));
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On LogOut ", sno, true);
 
 		} else {
@@ -393,8 +392,8 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 		int totalNoOfRecords = 0;
 		int noOfRecordsChecked = 0;
 		if (perPageNoOfRecordsPresent > 0) {
-			String a = driver.findElement(By.xpath("//*[@id=\"ccClosureQaReviewDetailsTable\"]/div/div[4]/div[2]/span"))
-					.getText();// For Ex: Showing 1-1 of 1
+			Helper.scrollElement(driver, By.xpath("//*[@id=\"ccClosureQaReviewDetailsTable\"]/div/div[4]/div[2]/span"));
+			String a = driver.findElement(By.xpath("//*[@id=\"ccClosureQaReviewDetailsTable\"]/div/div[4]/div[2]/span")).getText();// For Ex: Showing 1-1 of 1
 			String[] parts = a.split(" of ");
 			try {
 				totalNoOfRecords = Integer.parseInt(parts[1].trim());
@@ -404,13 +403,9 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 		}
 		if (perPageNoOfRecordsPresent > 0 && count == 0) {
 			if ((totalNoOfRecords > 1) && ((CCNumber == null) || ("".equalsIgnoreCase(CCNumber)))) {
-				CCNumber = driver
-						.findElement(By.xpath("//*[@id=\"ccClosureQaReviewDetailsTable\"]/div/table/tbody/tr[1]/td[3]"))
-						.getText();// documentType
+				CCNumber = driver.findElement(By.xpath("//*[@id=\"ccClosureQaReviewDetailsTable\"]/div/table/tbody/tr[1]/td[3]")).getText();// documentType
 			} else if ((CCNumber == null) || ("".equalsIgnoreCase(CCNumber))) {
-				CCNumber = driver
-						.findElement(By.xpath("//*[@id=\"ccClosureQaReviewDetailsTable\"]/div/table/tbody/tr/td[3]"))
-						.getText();// documentType
+				CCNumber = driver.findElement(By.xpath("//*[@id=\"ccClosureQaReviewDetailsTable\"]/div/table/tbody/tr/td[3]")).getText();// documentType
 
 			}
 			++count;
@@ -419,13 +414,10 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						String CCNumberSequence = driver.findElement(By.xpath(
-								".//*[@id='ccClosureQaReviewDetailsTable']/div/table/tbody/tr[ " + i + "]/td[3]"))
-								.getText();// documentTypeName
+						Helper.scrollElement(driver, By.xpath("//*[@id='ccClosureQaReviewDetailsTable']/div/table/tbody/tr[ " + i + "]/td[3]"));
+						String CCNumberSequence = driver.findElement(By.xpath("//*[@id='ccClosureQaReviewDetailsTable']/div/table/tbody/tr[ " + i + "]/td[3]")).getText();// documentTypeName
 						if (CCNumber.equalsIgnoreCase(CCNumberSequence)) {
-							driver.findElement(By.xpath(
-									".//*[@id='ccClosureQaReviewDetailsTable']/div/table/tbody/tr[ " + i + "]/td[3]"))
-									.click();
+							Helper.clickElement(driver, By.xpath("//*[@id='ccClosureQaReviewDetailsTable']/div/table/tbody/tr[ " + i + "]/td[3]"));
 							isRecordSelected = true;
 							break;
 						}
@@ -448,12 +440,10 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#ccClosureQaReviewDetailsTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#ccClosureQaReviewDetailsTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					driver.findElement(By.cssSelector("#ccClosureQaReviewDetailsTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
 					Thread.sleep(3000);
-					WebDriverWait wait1 = new WebDriverWait(driver, 60);
-					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccClosureQaReviewDetailsTable > div > div.jtable-busy-message[style='display: none;']")));
+					Helper.waitLoadRecords(driver, By.cssSelector("#ccClosureQaReviewDetailsTable > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("ccClosureQaReviewDetailsTable"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
