@@ -365,22 +365,6 @@ public class CCInitiation extends CCLoginDetails {
 		sno++;
 		}
 		Thread.sleep(3000);
-		if(driver.findElement(By.xpath("//*[@id=\"materialJtableInCCInit\"]/div/div[3]/div[2]/span/span[2]")).isDisplayed())
-		{
-		
-		driver.findElement(By.xpath("//*[@id=\"materialJtableInCCInit\"]/div/div[3]/div[2]/span/span[2]")).click();
-		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Add material", sno, false);
-		Thread.sleep(5000);
-		sno++;
-		driver.findElement(By.id("materialNameInCCMaterDlg")).sendKeys(properties.getProperty("MATERIAL_NAME"));
-		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter the material name", sno, false);
-		Thread.sleep(5000);
-		sno++;
-		driver.findElement(By.id("addBtnInCCMaterDlg")).click();
-		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on add button", sno, false);
-		Thread.sleep(5000);
-		sno++;		
-		}
 		wait1.until(ExpectedConditions.or(
 			    ExpectedConditions.presenceOfElementLocated(By.id("addEquipmentInCcInit")),
 			    ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"equipmentJtableInCCInit\"]/div/div[3]/div[2]/span/span[2]"))
