@@ -15,6 +15,7 @@ import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.login.CAorPALoginDetails;
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.Desktop;
@@ -198,12 +199,8 @@ public class CAPACompletionAfterReject extends CAorPALoginDetails {
 		int totalNoOfRecords = 0;
 		int noOfRecordsChecked = 0;
 		if (perPageNoOfRecordsPresent > 0) {
-//        	WebElement elementshowing = driver.findElement(By.xpath("//*[@id=\"capaRecsTable_CapaCmplInitPage\"]/div/div[4]/div[2]/span"));
-//            JavascriptExecutor jsshow = (JavascriptExecutor)driver;
-//            jsshow.executeScript("arguments[0].scrollIntoView(true);", elementshowing);
-			String a = driver
-					.findElement(By.xpath("//*[@id=\"capaRecsTable_CapaCmplInitPage\"]/div/div[4]/div[2]/span"))
-					.getText();// For Ex: Showing 1-1 of 1
+			Helper.scrollElement(driver, By.xpath("//*[@id=\"capaRecsTable_CapaCmplInitPage\"]/div/div[4]/div[2]/span"));
+			String a = driver.findElement(By.xpath("//*[@id=\"capaRecsTable_CapaCmplInitPage\"]/div/div[4]/div[2]/span")).getText();// For Ex: Showing 1-1 of 1
 			String[] parts = a.split(" of ");
 			try {
 				totalNoOfRecords = Integer.parseInt(parts[1].trim());
@@ -228,18 +225,11 @@ public class CAPACompletionAfterReject extends CAorPALoginDetails {
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						WebElement elementsele = driver.findElement(By.xpath(
-								"//*[@id=\"capaRecsTable_CapaCmplInitPage\"]/div/table/tbody/tr[ " + i + " ]/td[3]"));
-						JavascriptExecutor jssel = (JavascriptExecutor) driver;
-						jssel.executeScript("arguments[0].scrollIntoView(true);", elementsele);
-						String capaNumberSequence = driver.findElement(By.xpath(
-								"//*[@id=\"capaRecsTable_CapaCmplInitPage\"]/div/table/tbody/tr[ " + i + " ]/td[3]"))
-								.getText();// documentTypeName
+						Helper.scrollElement(driver, By.xpath("//*[@id=\"capaRecsTable_CapaCmplInitPage\"]/div/table/tbody/tr[ " + i + " ]/td[3]"));
+						String capaNumberSequence = driver.findElement(By.xpath("//*[@id=\"capaRecsTable_CapaCmplInitPage\"]/div/table/tbody/tr[ " + i + " ]/td[3]")).getText();// documentTypeName
 						if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
-							driver.findElement(
-									By.xpath("//*[@id=\"capaRecsTable_CapaCmplInitPage\"]/div/table/tbody/tr[ " + i
-											+ " ]/td[3]"))
-									.click();
+							Helper.clickElement(driver, By.xpath("//*[@id=\"capaRecsTable_CapaCmplInitPage\"]/div/table/tbody/tr[ " + i + " ]/td[3]"));
+//							driver.findElement(By.xpath("//*[@id=\"capaRecsTable_CapaCmplInitPage\"]/div/table/tbody/tr[ " + i + " ]/td[3]")).click();
 							isRecordSelected = true;
 							break;
 						}
@@ -265,13 +255,10 @@ public class CAPACompletionAfterReject extends CAorPALoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-//                	WebElement elementnext = driver.findElement(By.cssSelector("#capaRecsTable_CapaCmplInitPage> div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
-//                    JavascriptExecutor jsnext = (JavascriptExecutor)driver;
-//                    jsnext.executeScript("arguments[0].scrollIntoView(true);", elementnext);
-					driver.findElement(By.cssSelector(
-							"#capaRecsTable_CapaCmplInitPage> div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
-//                    Thread.sleep(3000);
+					Helper.clickElement(driver, By.cssSelector("#capaRecsTable_CapaCmplInitPage> div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					driver.findElement(By.cssSelector("#capaRecsTable_CapaCmplInitPage> div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
+                    Thread.sleep(3000);
+                    Helper.waitLoadRecords(driver, By.cssSelector("#changeControlActionItemReviewTable > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("capaRecsTable_CapaCmplInitPage"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();

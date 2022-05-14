@@ -12,7 +12,7 @@
           <classes>  
      
             <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckPerformCA"/>
-            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckPerformPA"/> 
+            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckPerformPA"/>  
             <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckReviewDepthodRejectCA"/> 
             <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckReviewDepthodRejectPA"/>
             <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckPerformAfterRejectByDepthodCA"/>
@@ -25,7 +25,7 @@
                        
             <classes>
             
-            <class name="com.pss.qms.CAPACAorPARejFlow.EffectiveCheckPerformAfterRejectByDepthodPA"/> 
+            <class name="com.pss.qms.CAPACAorPARejFlow.EffectiveCheckPerformAfterRejectByDepthodPA"/>  
             <class name="com.pss.qms.CAPACAorPARejFlow.DepthodEffectiveCheckReviewCA"/>
             <class name="com.pss.qms.CAPACAorPARejFlow.DepthodEffectiveCheckReviewPA"/>
             <class name="com.pss.qms.CAPACAorPARejFlow.EffectiveCheckReviewQAReviewerRejectCA"/>  
@@ -42,7 +42,7 @@
             <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckPerformAfterRejectByQMSCoordinatorCA"/>  
             <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckPerformAfterRejectByQMSCoordinatorPA"/>
             <class name = "com.pss.qms.CAPACAorPARejFlow.DepthodEffectiveCheckReviewCA"/>
-            <class name = "com.pss.qms.CAPACAorPARejFlow.DepthodEffectiveCheckReviewPA"/>
+            <class name = "com.pss.qms.CAPACAorPARejFlow.DepthodEffectiveCheckReviewPA"/> 
             <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckReviewQAReviewerCA"/>
             <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckReviewQAReviewerPA"/>
             <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckQAApproverRejectCA"/>  
@@ -57,7 +57,7 @@
             <classes>
             
             <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckReviewQAReviewerCA"/>
-            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckReviewQAReviewerPA"/> 
+            <class name = "com.pss.qms.CAPACAorPARejFlow.EffectiveCheckReviewQAReviewerPA"/>  
             <class name = "com.pss.qms.CAPACAorPARejFlow.QahodEffectiveCheckReviewCA"/>
             <class name = "com.pss.qms.CAPACAorPARejFlow.QahodEffectiveCheckReviewPA"/>
             
