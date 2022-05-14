@@ -383,7 +383,7 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 										".//*[@id='ccPostApprovalReviewTable']/div/table/tbody/tr[ " + i + "]/td[6]"))
 								.getText();// documentTypeName
 						if (chgCtrlId.equalsIgnoreCase(CCNumberSequence)) {
-							Helper.scrollElement(driver, By.xpath(
+							Helper.clickElement(driver, By.xpath(
 									".//*[@id='ccPostApprovalReviewTable']/div/table/tbody/tr[ " + i + "]/td[6]"));
 							Helper.waitUntilPageLoad(driver);
 							isRecordSelected = true;
