@@ -35,6 +35,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 public class QAReviewerEffectiveCheckReviewCA extends CAorPALoginDetails {
@@ -176,9 +177,8 @@ public class QAReviewerEffectiveCheckReviewCA extends CAorPALoginDetails {
 		int totalNoOfRecords = 0;
 		int noOfRecordsChecked = 0;
 		if (perPageNoOfRecordsPresent > 0) {
-			String a = driver
-					.findElement(By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/div[4]/div[2]/span"))
-					.getText();// For Ex: Showing 1-1 of 1
+			Helper.scrollElement(driver, By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/div[4]/div[2]/span"));
+			String a = driver.findElement(By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/div[4]/div[2]/span")).getText();// For Ex: Showing 1-1 of 1
 			String[] parts = a.split(" of ");
 			try {
 				totalNoOfRecords = Integer.parseInt(parts[1].trim());
@@ -205,15 +205,11 @@ public class QAReviewerEffectiveCheckReviewCA extends CAorPALoginDetails {
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						String capaNumberSequence = driver.findElement(
-								By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/table/tbody/tr[ " + i
-										+ " ]/td[7]"))
-								.getText();// documentTypeName
+						Helper.scrollElement(driver, By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[7]"));
+						String capaNumberSequence = driver.findElement(By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[7]")).getText();// documentTypeName
 						if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
-							driver.findElement(
-									By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/table/tbody/tr[ " + i
-											+ " ]/td[7]"))
-									.click();
+							Helper.clickElement(driver, By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[7]"));
+//							driver.findElement(By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[7]")).click();
 							isRecordSelected = true;
 							break;
 						}
@@ -222,24 +218,19 @@ public class QAReviewerEffectiveCheckReviewCA extends CAorPALoginDetails {
 						break;
 					}
 				} else {
-					String capaNumberSequence = driver
-							.findElement(By
-									.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/table/tbody/tr/td[7]"))
-							.getText();
+					String capaNumberSequence = driver.findElement(By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/table/tbody/tr/td[7]")).getText();
 					if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
-						driver.findElement(
-								By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/table/tbody/tr/td[7]"))
-								.click();
+						driver.findElement(By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/table/tbody/tr/td[7]")).click();
 						isRecordSelected = true;
 						break;
 					}
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By
-							.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/div[4]/div[1]/span[1]/span[4]"))
-							.click();// next page in Document approve list
+					Helper.clickElement(driver, By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/div[4]/div[1]/span[1]/span[4]"));
+//					driver.findElement(By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/div[4]/div[1]/span[1]/span[4]")).click();// next page in Document approve list
 					Thread.sleep(3000);
+					Helper.waitLoadRecords(driver, By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("effectiveCheckImplPostPerformTable"));// Document Tree approve
 																							// table
 					tableBody = table.findElement(By.tagName("tbody"));

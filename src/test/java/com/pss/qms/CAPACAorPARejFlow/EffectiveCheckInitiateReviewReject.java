@@ -14,6 +14,7 @@ import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.login.CAorPALoginDetails;
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.Desktop;
@@ -188,7 +189,8 @@ public class EffectiveCheckInitiateReviewReject extends CAorPALoginDetails {
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on User Name", sno, false);
 //			Thread.sleep(2000);
 			sno++;
-			driver.findElement(By.cssSelector("a[href='Logout.do']")).click();
+			Helper.clickElement(driver, By.cssSelector("a[href='Logout.do']"));
+//			driver.findElement(By.cssSelector("a[href='Logout.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Logout", sno, true);
 
 		} else {

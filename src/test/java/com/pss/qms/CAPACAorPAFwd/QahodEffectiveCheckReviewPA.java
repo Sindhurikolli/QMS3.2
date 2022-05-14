@@ -34,6 +34,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 public class QahodEffectiveCheckReviewPA extends CAorPALoginDetails {
@@ -79,6 +80,7 @@ public class QahodEffectiveCheckReviewPA extends CAorPALoginDetails {
 		sno++;
 		WebDriverWait wait = new WebDriverWait(driver, 240);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href='effChkImplPostPerfom.do']")));
+		js.executeScript("window.scrollBy(0,150)", "");
 		driver.findElement(By.cssSelector("a[href='effChkImplPostPerfom.do']")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Effective check approval", sno,
 				false);
@@ -199,15 +201,11 @@ public class QahodEffectiveCheckReviewPA extends CAorPALoginDetails {
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						String capaNumberSequence = driver.findElement(
-								By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/table/tbody/tr[ " + i
-										+ " ]/td[7]"))
-								.getText();// documentTypeName
+						Helper.scrollElement(driver, By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[7]"));
+						String capaNumberSequence = driver.findElement(By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[7]")).getText();// documentTypeName
 						if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
-							driver.findElement(
-									By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/table/tbody/tr[ " + i
-											+ " ]/td[7]"))
-									.click();
+							Helper.clickElement(driver, By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[7]"));
+//							driver.findElement(By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[7]")).click();
 							isRecordSelected = true;
 							break;
 						}
@@ -230,10 +228,10 @@ public class QahodEffectiveCheckReviewPA extends CAorPALoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By
-							.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/div[4]/div[1]/span[1]/span[4]"))
-							.click();// next page in Document approve list
+					Helper.clickElement(driver, By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/div[4]/div[1]/span[1]/span[4]"));
+//					driver.findElement(By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/div[4]/div[1]/span[1]/span[4]")).click();// next page in Document approve list
 					Thread.sleep(3000);
+					Helper.waitLoadRecords(driver, By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("effectiveCheckImplPostPerformTable"));// Document Tree approve
 																							// table
 					tableBody = table.findElement(By.tagName("tbody"));
