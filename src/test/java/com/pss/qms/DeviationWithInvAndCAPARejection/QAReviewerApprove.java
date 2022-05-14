@@ -10,6 +10,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
  
 import com.pss.qms.login.DeviationLoginDetails;
@@ -243,6 +244,7 @@ boolean isRecordSelectedForInv = false;
     document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Select Button",sno,false);
     sno++;
     Thread.sleep(3000);
+    Helper.scrollElement(driver, By.id("regulatoryChildReqInDevReview"));
         driver.findElement(By.id("regulatoryChildReqInDevReview")).click();
         document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select Regulatory CheckBox",sno,false);
         Thread.sleep(6000);
