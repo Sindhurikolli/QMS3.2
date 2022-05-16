@@ -15,7 +15,7 @@
             <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.MCReInitiate"/>
             <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.QAReviewerMCModule"/>
             <class name ="com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvestigationPlanMC"/>
-            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvPerformMC"/>  
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvPerformMC"/>   
             <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvReviewMC"/>
             <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.QAReReviewMC"/>
            
@@ -29,8 +29,8 @@
         
             <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvestigationPlanMC"/>
             <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvSecondaryPerformMC"/>
-            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvReviewMC"/>  
-            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.CFTRejectMC"/> 
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvReviewMC"/> 
+            <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.CFTRejectMC"/>   
             <class name = "com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.QAReReviewMC"/>
                       
          </classes>  

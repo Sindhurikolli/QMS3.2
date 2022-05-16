@@ -10,6 +10,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
  
 import com.pss.qms.login.MCLoginDetails;
@@ -82,7 +83,9 @@ public class InvReviewMC extends MCLoginDetails {
 //			sno++;  	 
 //        driver.findElement(By.xpath(".//*[@id='investigation_tile_Id']/div/div/div/h2")).click();
 //        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Investigation Module",sno,false);
-//        Thread.sleep(10000);
+        Thread.sleep(10000);
+        Helper.waitUntilPageLoad(driver);
+        Helper.waitLoadRecords(driver, By.cssSelector("a[href='reviewFullInvPage.do']"));
         sno++;
         driver.findElement(By.cssSelector("a[href='reviewFullInvPage.do']")).click();
         document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Review Menu",sno,false);
