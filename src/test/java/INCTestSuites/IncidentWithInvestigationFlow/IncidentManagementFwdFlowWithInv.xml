@@ -9,7 +9,7 @@
     <test name="IncidentCreationAndApproval">
         <classes>
        <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.IncidentInitiation"/>
-       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.DeptReviewerInc"/>
+       <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.DeptReviewerInc"/> 
        <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.QAReviewerInc"/>
          </classes>
     </test> 
@@ -26,7 +26,7 @@
     
    <test name="IncidentInvestigation">
         <classes>
-       		  <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.InvestigationPlanInc"/> 
+       		  <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.InvestigationPlanInc"/>  
               <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.InvPerformInc"/>  
               <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.InvReviewInc"/>
               <class name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInv.CFTInvReviewInc"/>

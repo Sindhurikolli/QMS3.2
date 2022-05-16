@@ -13,6 +13,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
 //import com.pss.qms.login.IncidentLoginDetails;
 import com.pss.qms.login.IncidentManagementLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
  
 
@@ -82,6 +83,7 @@ public class CFTInvReview extends IncidentManagementLoginDetails {
 //        driver.findElement(By.xpath(".//*[@id='investigation_tile_Id']/div/div/div/h2")).click();
 //        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Investigation Module",sno,false);
         Thread.sleep(5000);
+        Helper.waitUntilPageLoad(driver);
         sno++;
         driver.findElement(By.cssSelector("a[href='reviewFullInvPage.do']")).click();
         document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Review Menu",sno,false);

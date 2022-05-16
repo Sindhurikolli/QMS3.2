@@ -55,7 +55,7 @@
 			<class
 				name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInvRejFlow.InvReviewReject" /> 
 			<class
-				name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInvRejFlow.InvRePerform" />
+				name="com.pss.qms.IncidentManagementWithCustomerCftRACAPAInvRejFlow.InvRePerform" /> 
 		</classes>
     </test> 
    <test name="IncidentInvestigation2">   

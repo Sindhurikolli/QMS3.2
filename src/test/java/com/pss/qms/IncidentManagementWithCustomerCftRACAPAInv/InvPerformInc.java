@@ -10,6 +10,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
  
 import com.pss.qms.login.IncidentManagementLoginDetails;
@@ -144,11 +145,12 @@ public class InvPerformInc extends IncidentManagementLoginDetails {
             Thread.sleep(3000);
 //            JavascriptExecutor scl1 = ((JavascriptExecutor) driver);//*[@id="rcaAnalysisInDevReview"]/div/div[3]/div[2]/span/span[2]
 //            scl1.executeScript("window.scrollBy(0,-250)");
-            JavascriptExecutor jse90 = (JavascriptExecutor) driver;
-            WebElement element90 = driver.findElement(By.id("ui-id-391"));
-            jse90.executeScript("arguments[0].scrollIntoView(true);", element90);
-            jse90.executeScript("arguments[0].click();", element90);
+//            JavascriptExecutor jse90 = (JavascriptExecutor) driver;
+//            WebElement element90 = driver.findElement(By.id("ui-id-391"));
+//            jse90.executeScript("arguments[0].scrollIntoView(true);", element90);
+//            jse90.executeScript("arguments[0].click();", element90);
 //            driver.findElement(By.id("ui-id-367]")).click();
+            Helper.scrollAndClickElement(driver, By.cssSelector("a[href='#rcaTabInInvRev']"));
             sno++;
             Thread.sleep(3000);
             driver.findElement(By.xpath("//*[@id=\"rcaAnalysisInDevReview\"]/div/div[3]/div[2]/span/span[2]")).click();
@@ -165,12 +167,14 @@ public class InvPerformInc extends IncidentManagementLoginDetails {
             Thread.sleep(2000);
             driver.findElement(By.id("addBtnInRootCauseWndw")).click();
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Button",sno,false);
-            driver.findElement(By.xpath("//*[@id=\"ui-id-392\"]")).click();
+//            driver.findElement(By.xpath("//*[@id=\"ui-id-392\"]")).click();
+            Helper.scrollAndClickElement(driver, By.cssSelector("a[href='#impAssTabInInvRev']"));
             sno++;
             Thread.sleep(2000);
             driver.findElement(By.id("impactAssessmentDescription")).sendKeys(properties.getProperty("Description_Of_Incident_2000"));
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter Impact Assessment",sno,false);
-            driver.findElement(By.xpath("//*[@id=\"ui-id-393\"]")).click();
+//            driver.findElement(By.xpath("//*[@id=\"ui-id-393\"]")).click();
+            Helper.scrollAndClickElement(driver, By.cssSelector("a[href='#capaTabInInvRev']"));
             sno++;
             Thread.sleep(2000);
             driver.findElement(By.id("isNeedCapaInInvReview")).click();
