@@ -69,7 +69,7 @@ public class CFTInvReviewInc extends IncidentManagementLoginDetails {
 			module.selectByIndex(5);
 			input = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 			Thread.sleep(3000);
-			driver.findElement(By.xpath(".//*[@id='loginform']/div[7]/input[1]")).click();
+			driver.findElement(By.xpath("//*[@id=\"loginform\"]/div[7]/button[1]")).click();
 			Thread.sleep(10000);
 			im = Image.getInstance(input);
 			im.scaleToFit((PageSize.A4.getWidth() - (PageSize.A4.getWidth() / 8)),
