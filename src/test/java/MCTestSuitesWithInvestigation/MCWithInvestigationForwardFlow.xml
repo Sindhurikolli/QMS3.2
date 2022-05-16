@@ -14,7 +14,7 @@
             <class name="com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.MCRegister"/>  
             <class name="com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.QAReviewerMCModule"/>  
             <class name="com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvestigationPlanMC"/>   
-            <class name="com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvPerformMC"/>
+            <class name="com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvPerformMC"/> 
             <class name="com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation.InvReviewMC"/>
          
         </classes>

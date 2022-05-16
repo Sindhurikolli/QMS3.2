@@ -10,6 +10,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
  
 import com.pss.qms.login.MCLoginDetails;
@@ -138,17 +139,11 @@ public class InvSecondaryPerformMC extends MCLoginDetails {
             Thread.sleep(3000);
             driver.findElement(By.id("summaryInPerformInvActionsInInvPlan")).sendKeys(properties.getProperty("MC_994"));
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter Summary & Conclusion",sno,false);
-//            Select DeptHOD = new Select(driver.findElement(By.id("stageName1")));
-//            DeptHOD.selectByIndex(1);
-//            Thread.sleep(3000);
-//            JavascriptExecutor scl1 = ((JavascriptExecutor) driver);//*[@id="rcaAnalysisInDevReview"]/div/div[3]/div[2]/span/span[2]
-//            scl1.executeScript("window.scrollBy(0,-250)");
-            JavascriptExecutor jse90 = (JavascriptExecutor) driver;
-           // WebElement element90 = driver.findElement(By.id("ui-id-390"));findElement(By.xpath("//label[2]"))
-            WebElement element90 = driver.findElement(By.xpath("//*[starts-with(@id,'ui-id-') and contains(text(),'Root Cause Analysis')] "));
-            jse90.executeScript("arguments[0].scrollIntoView(true);", element90);
-            jse90.executeScript("arguments[0].click();", element90);
-//            driver.findElement(By.id("ui-id-367]")).click();
+            Select QAApprover = new Select(driver.findElement(By.id("stageName1")));
+            QAApprover.selectByVisibleText(properties.getProperty("INVQAApprover"));
+            Thread.sleep(3000);
+            Helper.scrollAndClickElement(driver, By.cssSelector("a[href='#rcaTabInInvRev']"));
+            
             sno++;
             Thread.sleep(3000);//*[starts-with(@id,'ext-gen1') and contains(@name,'----')] 
             driver.findElement(By.xpath("//*[@id=\"rcaAnalysisInDevReview\"]/div/div[3]/div[2]/span/span[2]")).click();
@@ -165,23 +160,14 @@ public class InvSecondaryPerformMC extends MCLoginDetails {
             Thread.sleep(2000);
             driver.findElement(By.id("addBtnInRootCauseWndw")).click();
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Button",sno,false);
-            JavascriptExecutor jse91 = (JavascriptExecutor) driver;
-            WebElement element91 = driver.findElement(By.xpath("//*[starts-with(@id,'ui-id-') and contains(text(),'Risk/Impact Assessment')]"));
-            jse91.executeScript("arguments[0].scrollIntoView(true);", element91);
-            jse91.executeScript("arguments[0].click();", element91);
+            Helper.scrollAndClickElement(driver, By.cssSelector("a[href='#impAssTabInInvRev']"));
             sno++;
             Thread.sleep(2000);
             driver.findElement(By.id("impactAssessmentDescription")).sendKeys(properties.getProperty("MC_994"));
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter Impact Assessment",sno,false);
             Thread.sleep(2000);
             
-            JavascriptExecutor jse92 = (JavascriptExecutor) driver;
-          //  WebElement element92 = driver.findElement(By.xpath("//*[starts-with(@id,'ui-id-') and contains(text(),'CAPA')]"));
-            WebElement element92 = driver.findElement(By.id("ui-id-393")); 
-            jse92.executeScript("arguments[0].scrollIntoView(true);", element92);
-            jse92.executeScript("arguments[0].click();", element92);
-            
-            //driver.findElement(By.xpath("//*[starts-with(@id,'ui-id-') and contains(text(),'CAPA')]"));
+            Helper.scrollAndClickElement(driver, By.cssSelector("a[href='#capaTabInInvRev']"));
 			sno++; Thread.sleep(2000);
 			  driver.findElement(By.id("isNeedCapaInInvReview")).click(); 
 			  document =Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On CAPA Required RadioButton",sno,false);
