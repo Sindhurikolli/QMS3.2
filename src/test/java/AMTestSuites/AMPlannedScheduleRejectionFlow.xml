@@ -23,7 +23,7 @@
     
         <classes>
         
-        <class name="com.pss.qms.AuditManagementPlanSchdRejection.PlanSchedule"/>
+        <class name="com.pss.qms.AuditManagementPlanSchdRejection.PlanSchedule"/> 
        <class name="com.pss.qms.AuditManagementPlanSchdRejection.PlanSheduleReject"/>
        <class name="com.pss.qms.AuditManagementPlanSchdRejection.PlanScheduleRejectedApprove"/>
        <class name="com.pss.qms.AuditManagementPlanSchdRejection.PlanScheduleApprove"/>

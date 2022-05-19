@@ -150,11 +150,11 @@ public class ActionItemRePerform extends AMLoginDetails {
 			driver.findElement(By.className("modal-btn")).click();
 			Thread.sleep(2000);
 			sno++;
-			driver.findElement(By.xpath("/html/body/div[1]/header/nav/ul[3]/li[4]/a/span")).click();
+			driver.findElement(By.className("username")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On UserName", sno, false);
 			Thread.sleep(200);
 			sno++;
-			driver.findElement(By.xpath("/html/body/div[1]/header/nav/ul[3]/li[4]/ul/li[3]/a")).click();
+			driver.findElement(By.cssSelector("a[href='Logout.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On LogOut", sno, true);
 			
 		} else {

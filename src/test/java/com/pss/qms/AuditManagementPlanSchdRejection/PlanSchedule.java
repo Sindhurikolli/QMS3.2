@@ -30,6 +30,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
 public class PlanSchedule extends AMLoginDetails {
@@ -79,6 +80,7 @@ public class PlanSchedule extends AMLoginDetails {
 //	         document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on MyActivities Tab",sno,false);  
 			Thread.sleep(3000);
 			sno++;
+			Helper.waitLoadRecords(driver, By.cssSelector("a[href='amPlannedAuditPage.do']"));
 			driver.findElement(By.cssSelector("a[href='amPlannedAuditPage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Adhoc Menu", sno, false);
 			todoadhocScheduleAM();
@@ -187,11 +189,11 @@ public class PlanSchedule extends AMLoginDetails {
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Ok Button", sno, false);
 		Thread.sleep(2000);
 		sno++;
-		driver.findElement(By.xpath("/html/body/div[1]/header/nav/ul[3]/li[4]/a/span")).click();
+		driver.findElement(By.className("username")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On UserName", sno, false);
 		Thread.sleep(2000);
 		sno++;
-		driver.findElement(By.xpath("/html/body/div[1]/header/nav/ul[3]/li[4]/ul/li[3]/a")).click();
+		driver.findElement(By.cssSelector("a[href='Logout.do']")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On LogOut", sno, true);
 		
 
