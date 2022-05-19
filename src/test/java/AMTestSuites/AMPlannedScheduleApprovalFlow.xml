@@ -24,13 +24,13 @@
 		<classes>
 
 			<class
-				name="com.pss.qms.AuditManagementPlannedApproval.PlanScheduleInAM" />
+				name="com.pss.qms.AuditManagementPlannedApproval.PlanScheduleInAM" />  
 			<class
-				name="com.pss.qms.AuditManagementPlannedApproval.PlanScheduleApproveAM" /> 
+				name="com.pss.qms.AuditManagementPlannedApproval.PlanScheduleApproveAM" />
 			<class
 				name="com.pss.qms.AuditManagementPlannedApproval.AuditPlanInPlanSch" />
 			<class
-				name="com.pss.qms.AuditManagementPlannedApproval.EnterAuditObservations" /> 
+				name="com.pss.qms.AuditManagementPlannedApproval.EnterAuditObservations" />
 			<class
 				name="com.pss.qms.AuditManagementPlannedApproval.AuditObservationsReview" />
 			<class

@@ -29,6 +29,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
 public class AdhocSchedule extends AMLoginDetails {
@@ -75,6 +76,8 @@ public class AdhocSchedule extends AMLoginDetails {
 //        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Audit Management Module",sno,false);
 			Thread.sleep(3000);
 			sno++;
+			Helper.waitLoadRecords(driver, By.cssSelector("a[href='amAdhocAuditPage.do']"));
+			Thread.sleep(1000);
 			driver.findElement(By.cssSelector("a[href='amAdhocAuditPage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document,
 					"Click on Adhoc internal audit schedule preparation", sno, false);
@@ -132,6 +135,7 @@ public class AdhocSchedule extends AMLoginDetails {
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Checklist", sno, false);
 		Thread.sleep(2000);
 		sno++;
+		Helper.waitLoadRecords(driver, By.cssSelector("#approvedCheckListsInAmAdhocAuditForm > div > div.jtable-busy-message[style='display: none;']"));
 		driver.findElement(By.xpath("//*[@id=\"approvedCheckListsInAmAdhocAuditForm\"]/div/table/tbody/tr[1]/td[2]"))
 				.click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select The CheckList", sno, false);
@@ -168,11 +172,11 @@ public class AdhocSchedule extends AMLoginDetails {
 		driver.findElement(By.className("modal-btn")).click();
 		Thread.sleep(2000);
 		sno++;
-		driver.findElement(By.xpath("/html/body/div[1]/header/nav/ul[3]/li[4]/a/span")).click();
+		driver.findElement(By.className("username")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Username", sno, false);
 		Thread.sleep(2000);
 		sno++;
-		driver.findElement(By.xpath("/html/body/div[1]/header/nav/ul[3]/li[4]/ul/li[3]/a")).click();
+		driver.findElement(By.cssSelector("a[href='Logout.do']")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On LogOut", sno, true);
 
 	}

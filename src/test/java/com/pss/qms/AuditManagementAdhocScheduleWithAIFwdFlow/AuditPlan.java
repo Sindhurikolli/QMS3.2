@@ -6,8 +6,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
+import org.apache.commons.configuration.PropertiesConfiguration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -32,6 +34,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
 public class AuditPlan extends AMLoginDetails {
@@ -85,10 +88,12 @@ public class AuditPlan extends AMLoginDetails {
 //	     jse.executeScript("arguments[0].scrollIntoView(true);", element);
 
 			sno++;
+			Helper.waitLoadRecords(driver, By.cssSelector("a[href='amAssignAuditPage.do']"));
 			driver.findElement(By.cssSelector("a[href='amAssignAuditPage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Audit Plan Menu", sno, false);
 			methodToDoAuditPlan();
 			Thread.sleep(5000);
+			Helper.waitLoadRecords(driver, By.cssSelector("#auditsListTableContainer > div > div.jtable-busy-message[style='display: none;']"));
 			document.close();
 			writer.close();
 			Desktop desktop = Desktop.getDesktop();
@@ -183,21 +188,30 @@ public class AuditPlan extends AMLoginDetails {
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Submit Button", sno, false);
 			Thread.sleep(2000);
 			WebDriverWait wait = new WebDriverWait(driver, 70);
-			wait.until(ExpectedConditions.presenceOfElementLocated(By.className("modal-btn")));
-			if(driver.findElement(By.xpath("//*[@id=\"modal-window\"]/div/div/div[3]/a")).isDisplayed())
-	         {
-	             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On OK Button",sno,false);
-	         }
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"modal-window\"]/div/div/div[3]/a")));
 			sno++;
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On OK Button", sno, false);
-			driver.findElement(By.className("modal-btn")).click();
+		String text = driver.findElement(By.xpath("//*[@id=\"modal-window\"]/div/div/div[2]/center")).getText();
+		
+		String[] parts = new String[1];		
+		parts = text.split(".");	
+		String part1 = parts[1];
+		String AMNO = part1.substring(1, 15);
+		System.out.println(AMNO);
+		PropertiesConfiguration properties = new PropertiesConfiguration("src/test/java/QMSUIProperties/AMproperties.properties");
+		properties.setProperty("ADHOC_SCHEDULE_AMNO", AMNO);
+		properties.setProperty("ADHOC_NAME_WITH_AI_IN_ADHOC_SCHEDULE_AINO", AMNO+"/A1");
+		properties.setProperty("ADHOC_NAME_WITH_AI2_IN_ADHOC_SCHEDULE_AINO", AMNO+"/A2");
+		properties.save();		
+		
+		driver.findElement(By.xpath("//*[@id=\"modal-window\"]/div/div/div[3]/a")).click();
 			Thread.sleep(2000);
 			sno++;
-			driver.findElement(By.xpath("/html/body/div[1]/header/nav/ul[3]/li[4]/a/span")).click();
+			driver.findElement(By.className("username")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Username", sno, false);
 			Thread.sleep(2000);
 			sno++;
-			driver.findElement(By.xpath("/html/body/div[1]/header/nav/ul[3]/li[4]/ul/li[3]/a")).click();
+			driver.findElement(By.cssSelector("a[href='Logout.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On LogOut", sno, true);
 
 		} else {

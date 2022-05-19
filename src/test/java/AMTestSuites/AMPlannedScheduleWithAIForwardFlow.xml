@@ -24,7 +24,7 @@
        <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.PlanSchedule"/>
        <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.PlanSchdApproval"/>
        <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.AuditPlan"/>
-       <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.EnterAuditObservations"/> 
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.EnterAuditObservations"/>  
        <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.ReviewAuditObservations"/>
        <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.ApproveAuditObservations"/>
        <class name="com.pss.qms.AuditManagementPlanSchWithAIForwardFlow.AuditeeResponse"/>

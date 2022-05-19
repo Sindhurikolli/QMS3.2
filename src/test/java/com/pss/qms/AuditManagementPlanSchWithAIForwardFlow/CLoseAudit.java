@@ -110,7 +110,8 @@ public class CLoseAudit extends AMLoginDetails {
 		Thread.sleep(3000);
 		int count = 0;
 		boolean isRecordSelected = false;
-		String AMId = properties.getProperty("PLAN_NAME_IN_AI_PLAN_SCHEDULE");
+//		String AMId = properties.getProperty("PLAN_NAME_IN_AI_PLAN_SCHEDULE");
+		String AMId = null;
 		isRecordSelected = selectRecdCloseAudit(AMId, isRecordSelected, count);
 		Thread.sleep(1000);
 		sno++;
@@ -152,11 +153,11 @@ public class CLoseAudit extends AMLoginDetails {
 			driver.findElement(By.className("modal-btn")).click();
 			Thread.sleep(2000);
 			sno++;
-			driver.findElement(By.xpath("/html/body/div[1]/header/nav/ul[3]/li[4]/a/span")).click();
+			driver.findElement(By.className("username")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On UserName", sno, false);
 			Thread.sleep(2000);
 			sno++;
-			driver.findElement(By.xpath("/html/body/div[1]/header/nav/ul[3]/li[4]/ul/li[3]/a")).click();
+			driver.findElement(By.cssSelector("a[href='Logout.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On LogOut", sno, true);
 			
 		} else {
@@ -186,12 +187,12 @@ public class CLoseAudit extends AMLoginDetails {
 			if ((totalNoOfRecords > 1) && ((AMId == null) || ("".equalsIgnoreCase(AMId)))) {
 				AMId = driver
 						.findElement(
-								By.xpath("//*[@id=\"auditsListTableInCLoseAuditApprove\"]/div/table/tbody/tr[1]/td[3]"))
+								By.xpath("//*[@id=\"auditsListTableInCLoseAuditApprove\"]/div/table/tbody/tr[1]/td[6]"))
 						.getText();// documentType
 			} else if ((AMId == null) || ("".equalsIgnoreCase(AMId))) {
 				AMId = driver
 						.findElement(
-								By.xpath("//*[@id=\"auditsListTableInCLoseAuditApprove\"]/div/table/tbody/tr/td[3]"))
+								By.xpath("//*[@id=\"auditsListTableInCLoseAuditApprove\"]/div/table/tbody/tr/td[6]"))
 						.getText();// documentType
 
 			}
