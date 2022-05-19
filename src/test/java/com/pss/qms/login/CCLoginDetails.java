@@ -161,6 +161,7 @@ public class CCLoginDetails {
 			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             WebDriverWait wait1 = new WebDriverWait(driver, 120);
             driver.get(properties.getProperty("QMSLoginUrl"));
             driver.manage().window().maximize();          
