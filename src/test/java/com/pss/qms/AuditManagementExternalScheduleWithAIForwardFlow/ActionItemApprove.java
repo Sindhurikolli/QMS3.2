@@ -30,6 +30,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
 public class ActionItemApprove extends AMLoginDetails {
@@ -91,6 +92,7 @@ public class ActionItemApprove extends AMLoginDetails {
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on ActionItem Approve Menu", sno,
 					false);
 			methodToDoAuditeeResponseApprove();
+			Helper.waitLoadRecords(driver, By.cssSelector("#actItmApproveTable > div > div.jtable-busy-message[style='display: none;']"));
 			Thread.sleep(3000);
 			document.close();
 			writer.close();

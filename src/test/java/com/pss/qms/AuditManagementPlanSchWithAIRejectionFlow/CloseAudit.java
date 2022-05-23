@@ -108,7 +108,8 @@ public class CloseAudit extends AMLoginDetails {
 		Thread.sleep(3000);
 		int count = 0;
 		boolean isRecordSelected = false;
-		String AMId = properties.getProperty("PLAN_NAME_IN_AI_REJECT_FLOW");
+		String AMId = null;
+//		String AMId = properties.getProperty("PLAN_NAME_IN_AI_REJECT_FLOW");
 		isRecordSelected = selectRecdCloseAudit(AMId, isRecordSelected, count);
 		Thread.sleep(1000);
 		sno++;
@@ -184,12 +185,12 @@ public class CloseAudit extends AMLoginDetails {
 			if ((totalNoOfRecords > 1) && ((AMId == null) || ("".equalsIgnoreCase(AMId)))) {
 				AMId = driver
 						.findElement(
-								By.xpath("//*[@id=\"auditsListTableInCLoseAuditApprove\"]/div/table/tbody/tr[1]/td[3]"))
+								By.xpath("//*[@id=\"auditsListTableInCLoseAuditApprove\"]/div/table/tbody/tr[1]/td[6]"))
 						.getText();// documentType
 			} else if ((AMId == null) || ("".equalsIgnoreCase(AMId))) {
 				AMId = driver
 						.findElement(
-								By.xpath("//*[@id=\"auditsListTableInCLoseAuditApprove\"]/div/table/tbody/tr/td[3]"))
+								By.xpath("//*[@id=\"auditsListTableInCLoseAuditApprove\"]/div/table/tbody/tr/td[6]"))
 						.getText();// documentType
 
 			}

@@ -155,5 +155,43 @@ import org.testng.annotations.Test;
 	        }
 		
 		}
-}
 
+	
+	@Test
+	@Parameters({"EXTERNAL_AUDIT_NAME_WITH_AI"})
+	public static void ExternalScheduleAIPlanname(String EXTERNAL_AUDIT_NAME_WITH_AI) {
+        try {
+     
+        
+        PropertiesConfiguration amproperties = new PropertiesConfiguration("src\\test\\java\\QMSUIProperties\\AMproperties.properties");
+        String timeStamp = new SimpleDateFormat("yyyy-MM-dd_HHmmss").format(new Date());
+        String Plannamewithtime = EXTERNAL_AUDIT_NAME_WITH_AI+timeStamp;
+        amproperties.setProperty("EXTERNAL_AUDIT_NAME_WITH_AI", Plannamewithtime);        	        
+        amproperties.save();
+        System.out.println("AMproperties.properties updated Successfully!!");
+        
+        } catch (ConfigurationException e) {
+            System.out.println(e.getMessage());
+        }
+	
+	}
+
+	@Test
+	@Parameters({"EXTERNAL_AUDIT_NAME_WITH_AI_REJECT_FLOW"})
+	public static void ExternalScheduleAIPlannameRej(String EXTERNAL_AUDIT_NAME_WITH_AI_REJECT_FLOW) {
+        try {
+     
+        
+        PropertiesConfiguration amproperties = new PropertiesConfiguration("src\\test\\java\\QMSUIProperties\\AMproperties.properties");
+        String timeStamp = new SimpleDateFormat("yyyy-MM-dd_HHmmss").format(new Date());
+        String Plannamewithtime = EXTERNAL_AUDIT_NAME_WITH_AI_REJECT_FLOW+timeStamp;
+        amproperties.setProperty("EXTERNAL_AUDIT_NAME_WITH_AI_REJECT_FLOW", Plannamewithtime);        	        
+        amproperties.save();
+        System.out.println("AMproperties.properties updated Successfully!!");
+        
+        } catch (ConfigurationException e) {
+            System.out.println(e.getMessage());
+        }
+	
+	}
+}

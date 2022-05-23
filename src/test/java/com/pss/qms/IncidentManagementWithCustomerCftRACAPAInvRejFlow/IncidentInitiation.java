@@ -147,7 +147,7 @@ public class IncidentInitiation extends IncidentManagementLoginDetails {
          driver.findElement(By.id("currStatusBatchInIncInit")).sendKeys(properties.getProperty("CurrentStatus_1000"));
          document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter Current Status",sno,false);
          sno++;
-     	Thread.sleep(2000);
+     	Thread.sleep(2000);    	
          driver.findElement(By.id("suppDocYesInIncInit")).click();
          document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Yes radio button",sno,false);
      	Thread.sleep(2000);

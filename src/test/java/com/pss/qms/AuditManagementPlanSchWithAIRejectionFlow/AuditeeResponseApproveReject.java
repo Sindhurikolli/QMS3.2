@@ -118,19 +118,19 @@ public class AuditeeResponseApproveReject extends AMLoginDetails {
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
 			sno++;
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
 			sno++;
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
 			sno++;
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
 			sno++;
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			driver.findElement(By.id("commentsInAmReviewAuditFindingAppForm"))
 					.sendKeys(properties.getProperty("AM_1500"));
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter The Comments", sno, false);

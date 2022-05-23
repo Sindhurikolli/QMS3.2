@@ -30,6 +30,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
 public class AuditObservationsReviewReject extends AMLoginDetails {
@@ -83,6 +84,7 @@ public class AuditObservationsReviewReject extends AMLoginDetails {
 			driver.findElement(By.cssSelector("a[href='amRevAuditFindingPage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on AuditResponse Review Menu",
 					sno, false);
+			Helper.waitLoadRecords(driver, By.cssSelector("#auditsContainerInReviewAuditFindingForm > div > div.jtable-busy-message[style='display: none;']"));
 			methodToDoReviewAuditReject();
 			Thread.sleep(5000);
 			document.close();

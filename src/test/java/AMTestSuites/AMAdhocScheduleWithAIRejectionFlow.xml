@@ -54,7 +54,7 @@
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditeeResponseReview"/>
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditeeResponseApproval"/>  
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.ActionItemPerform"/>
-       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.ActionItemPerform2"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.ActionItemPerform2"/> 
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.ActionItemApproveReject"/>
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.ActionItemApproveReject2"/>
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.ActionItemRePerform"/>

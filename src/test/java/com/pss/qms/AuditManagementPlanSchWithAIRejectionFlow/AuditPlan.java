@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 
+import org.apache.commons.configuration.PropertiesConfiguration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -184,11 +185,18 @@ public class AuditPlan extends AMLoginDetails {
 			Thread.sleep(2000);
 			WebDriverWait wait = new WebDriverWait(driver, 70);
 			wait.until(ExpectedConditions.presenceOfElementLocated(By.className("modal-btn")));
-			if(driver.findElement(By.xpath("//*[@id=\"modal-window\"]/div/div/div[3]/a")).isDisplayed())
-	        {
-	            document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On OK Button",sno,false);
-	        }
+//			if(driver.findElement(By.xpath("//*[@id=\"modal-window\"]/div/div/div[3]/a")).isDisplayed())
+//	        {
+//	            document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On OK Button",sno,false);
+//	        }
 			sno++;
+			String text = driver.findElement(By.xpath("//*[@id=\"modal-window\"]/div/div/div[2]/center")).getText();
+			String amno = text.substring(24, 38);
+			System.out.println(amno);
+			PropertiesConfiguration properties = new PropertiesConfiguration("src/test/java/QMSUIProperties/AMproperties.properties");
+			properties.setProperty("PLAN_NAME_IN_AI_PLAN_SCHEDULE_AINO", amno+"/A1");
+			properties.setProperty("PLAN_NAME_IN_AI2_PLAN_SCHEDULE_AINO", amno+"/A2");
+			properties.save();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On OK Button", sno, false);
 			driver.findElement(By.className("modal-btn")).click();
 			Thread.sleep(2000);
