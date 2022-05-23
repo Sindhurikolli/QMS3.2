@@ -109,7 +109,7 @@ public class ExternalAuditApprove extends AMLoginDetails {
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select a Record", sno, false);
 		if (isRecordSelected) {
 			sno++;
-			driver.findElement(By.id("commentsInAmAuditPlanApp")).sendKeys(properties.getProperty("AM_1500"));
+			driver.findElement(By.id("commentsInAmAuditPlanApp")).sendKeys(properties.getProperty("AM_50"));
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter The Comments", sno, false);
 			Thread.sleep(2000);
 			sno++;

@@ -6,6 +6,18 @@
         <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
 </listeners>
     
+    <parameter name="EXTERNAL_AUDIT_NAME_WITH_AI_REJECT_FLOW" value="ExtAI"/>
+	
+	
+    <test name="AMPropertiesfileupdate">
+        <classes>
+      <class name="com.pss.qms.PropertiesFileUpdate.UpdateAMProperties">
+      <methods>
+		<include name="ExternalScheduleAIPlannameRej"/>
+	  </methods>   
+      </class> 
+        </classes>
+    </test>
     <test name="AdhocAuditManagementExternalSchedule">
     
         <classes>

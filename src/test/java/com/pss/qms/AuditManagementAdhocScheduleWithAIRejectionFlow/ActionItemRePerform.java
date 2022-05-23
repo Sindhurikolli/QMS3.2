@@ -103,7 +103,7 @@ public class ActionItemRePerform extends AMLoginDetails {
 		Thread.sleep(3000);
 		int count = 0;
 		boolean isRecordSelected = false;
-		String AMId = properties.getProperty("ADHOC_NAME_WITH_AI_IN_ADHOC_SCHEDULE_AINO_REJECT_FLOW");
+		String AMId = properties.getProperty("ADHOC_NAME_WITH_AI_IN_ADHOC_SCHEDULE_AINO");
 		isRecordSelected = selectRecdAuditeeResponseApprove(AMId, isRecordSelected, count);
 		Thread.sleep(3000);
 		sno++;

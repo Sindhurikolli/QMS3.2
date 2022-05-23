@@ -28,6 +28,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
 public class ActionItemApproveReject2 extends AMLoginDetails {
@@ -87,6 +88,7 @@ public class ActionItemApproveReject2 extends AMLoginDetails {
 			driver.findElement(By.cssSelector("a[href='amActionItemApprovePage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on ActionItem Approve Menu", sno,
 					false);
+			Helper.waitLoadRecords(driver, By.cssSelector("#actItmApproveTable > div > div.jtable-busy-message[style='display: none;']"));
 			methodToDoAuditeeResponseApprove();
 			Thread.sleep(3000);
 			document.close();
@@ -105,7 +107,7 @@ public class ActionItemApproveReject2 extends AMLoginDetails {
 		Thread.sleep(3000);
 		int count = 0;
 		boolean isRecordSelected = false;
-		String AMId = properties.getProperty("ADHOC_NAME_WITH_AI2_IN_ADHOC_SCHEDULE_AINO_REJECT_FLOW");
+		String AMId = properties.getProperty("ADHOC_NAME_WITH_AI2_IN_ADHOC_SCHEDULE_AINO");
 		isRecordSelected = selectRecdAuditeeResponseApprove(AMId, isRecordSelected, count);
 		Thread.sleep(3000);
 		sno++;

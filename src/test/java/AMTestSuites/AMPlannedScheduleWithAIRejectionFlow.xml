@@ -24,9 +24,9 @@
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.PlanScheduleReject"/> 
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.PlanScheduleRejectedApprove"/>
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.PlanScheduleApprove"/>
-       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditPlan"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditPlan"/> 
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.InternalAuditObservations"/>
-       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ReviewAuditObservationsReject"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ReviewAuditObservationsReject"/> 
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.InternalAuditObservationsRejectedApprove"/>
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ReviewAuditObservations"/>
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditObservationsApprovalReject"/>
@@ -39,9 +39,9 @@
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ReviewAuditObservations"/>
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ApproveAuditObservations"/> 
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponse"/>
-       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseReviewReject"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseReviewReject"/> 
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseRejectedApprove"/>
-       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseReview"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseReview"/> 
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseApproveReject"/>
         </classes>
     </test>

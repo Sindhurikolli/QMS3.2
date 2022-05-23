@@ -120,26 +120,26 @@ public class InternalAuditObservationsRejectedApprove extends AMLoginDetails {
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			sno++;
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			sno++;
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			sno++;
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			sno++;
 			// driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 			// document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On
 			// Next Button",sno,false);
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[3]/a")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Submit Button", sno, false);
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			sno++;
 			driver.findElement(By.id("eSignPwdInWnd")).sendKeys(properties.getProperty("Esign_Password"));
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter The E-Signature Password", sno,
