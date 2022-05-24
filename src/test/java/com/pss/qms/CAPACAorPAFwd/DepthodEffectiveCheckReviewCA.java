@@ -214,7 +214,7 @@ public class DepthodEffectiveCheckReviewCA extends CAorPALoginDetails {
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
 					Helper.clickElement(driver, By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/div[4]/div[1]/span[1]/span[4]"));
-					driver.findElement(By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/div[4]/div[1]/span[1]/span[4]")).click();// next page in Document approve list
+//					driver.findElement(By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/div[4]/div[1]/span[1]/span[4]")).click();// next page in Document approve list
 					Thread.sleep(3000);
 					Helper.waitLoadRecords(driver, By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("effectiveCheckImplPostPerformTable"));// Document Tree approve
