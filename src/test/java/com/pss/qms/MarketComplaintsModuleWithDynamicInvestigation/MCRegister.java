@@ -264,12 +264,13 @@ public class MCRegister extends MCLoginDetails {
 		sno++;
 		driver.findElement(By.id("traderFaxInMcCustomerDlg")).sendKeys(properties.getProperty("Trader_FaxNo"));
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter the fax number", sno, false);
-		Thread.sleep(5000);
+		Thread.sleep(5000);	
+		JavascriptExecutor scl = ((JavascriptExecutor) driver);
+		scl.executeScript("window.scrollBy(0,1500)");
 		driver.findElement(By.xpath("//*[@id=\"marketComplaintsRegForm\"]/div[17]/div[1]/div[2]/label")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on radio button Yes", sno, false);
 		Thread.sleep(4000);
-		JavascriptExecutor scl = ((JavascriptExecutor) driver);
-		scl.executeScript("window.scrollBy(0,1500)");
+
 		Thread.sleep(4000);
 		driver.findElement(By.cssSelector(
 				"#supportingDocsJtableInMcReg > div > div.jtable-title > div.jtable-toolbar > span > span.jtable-toolbar-item-text"))
