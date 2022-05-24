@@ -112,6 +112,8 @@ public class EffectiveCheckReviewDepthodRejectCA extends CAorPALoginDetails {
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter the comments", sno, false);
 			Thread.sleep(2000);
 			sno++;
+			JavascriptExecutor jse = (JavascriptExecutor)driver;
+			jse.executeScript("window.scrollBy(0,250)");
 			driver.findElement(By.id("rejInCapaEffectiveCheckPostPerformImpl")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on reject button", sno, false);
 			Thread.sleep(3000);
