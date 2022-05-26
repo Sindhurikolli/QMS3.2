@@ -13,6 +13,7 @@ import com.pss.qms.login.CCLoginDetails;
  
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.Desktop;
@@ -255,12 +256,10 @@ public class CFTReviewCC extends CCLoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#changeControlCftReviewTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+//					driver.findElement(By.cssSelector("#changeControlCftReviewTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#changeControlCftReviewTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
 					Thread.sleep(3000);
-					WebDriverWait wait1 = new WebDriverWait(driver, 60);
-					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlCftReviewTableContainer > div > div.jtable-busy-message[style='display: none;']")));
+					Helper.waitLoadRecords(driver, By.cssSelector("#changeControlCftReviewTableContainer > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("changeControlCftReviewTableContainer"));// Document Tree approve
 																								// table
 					tableBody = table.findElement(By.tagName("tbody"));
