@@ -91,8 +91,9 @@ public class ActionItemApprove extends AMLoginDetails {
 //			driver.findElement(By.cssSelector("a[href='amActionItemApprovePage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on ActionItem Approve Menu", sno,
 					false);
-			methodToDoAuditeeResponseApprove();
 			Helper.waitLoadRecords(driver, By.cssSelector("#actItmApproveTable > div > div.jtable-busy-message[style='display: none;']"));
+			methodToDoAuditeeResponseApprove();
+			
 			Thread.sleep(3000);
 			document.close();
 			writer.close();
