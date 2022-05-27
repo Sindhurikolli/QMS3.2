@@ -91,9 +91,11 @@ public class AuditPlan extends AMLoginDetails {
 			Helper.waitLoadRecords(driver, By.cssSelector("a[href='amAssignAuditPage.do']"));
 			driver.findElement(By.cssSelector("a[href='amAssignAuditPage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Audit Plan Menu", sno, false);
+			Thread.sleep(3000);
+			Helper.waitLoadRecords(driver, By.cssSelector("#auditsListTableContainer > div > div.jtable-busy-message[style='display: none;']"));
 			methodToDoAuditPlan();
 			Thread.sleep(5000);
-			Helper.waitLoadRecords(driver, By.cssSelector("#auditsListTableContainer > div > div.jtable-busy-message[style='display: none;']"));
+			
 			document.close();
 			writer.close();
 			Desktop desktop = Desktop.getDesktop();
