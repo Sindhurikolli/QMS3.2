@@ -214,7 +214,7 @@ public class ActionItemApprove extends AMLoginDetails {
 //					driver.findElement(By.cssSelector("#actItmApproveTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
 					Helper.clickElement(driver, By.cssSelector("#actItmApproveTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
 					Thread.sleep(3000);
-					Helper.waitLoadRecords(driver, By.cssSelector("#changeControlActionItemReviewTable > div > div.jtable-busy-message[style='display: none;']"));
+					Helper.waitLoadRecords(driver, By.cssSelector("#actItmApproveTable > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("actItmApproveTable"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
