@@ -176,8 +176,9 @@ public class DeptHODCAPAModuleCAorPA extends CAorPALoginDetails {
 			Thread.sleep(2000);
 			String capa = driver.findElement(By.xpath("//*[@id='modal-window']/div/div/div[2]/center")).getText();
 			String[] parts = capa.split(" : ");
-			System.out.println(parts[1]);
-			String CapaNo = parts[1].replace(")","").trim();
+			int index = 1;
+			System.out.println(parts[index]);
+			String CapaNo = parts[index].replace(")","").trim();
 			System.out.println(CapaNo);
 			PropertiesConfiguration properties = new PropertiesConfiguration(
 					"src/test/java/QMSUIProperties/CAPA.properties");
