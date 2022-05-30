@@ -12,6 +12,7 @@ import com.pss.qms.login.CCLoginDetails;
 import com.pss.qms.login.CCLoginDetails;
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.Desktop;
@@ -239,15 +240,9 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						String CCNumberSequence = driver.findElement(
-								By.xpath(".//*[@id='changeControlRegulatoryReviewTableContainer']/div/table/tbody/tr[ "
-										+ i + "]/td[3]"))
-								.getText();// documentTypeName
+						String CCNumberSequence = driver.findElement(By.xpath(".//*[@id='changeControlRegulatoryReviewTableContainer']/div/table/tbody/tr[ " + i + "]/td[3]")).getText();// documentTypeName
 						if (chgControlNumber.equalsIgnoreCase(CCNumberSequence)) {
-							driver.findElement(By
-									.xpath(".//*[@id='changeControlRegulatoryReviewTableContainer']/div/table/tbody/tr["
-											+ i + "]/td[52]/button"))
-									.click();
+							driver.findElement(By.xpath(".//*[@id='changeControlRegulatoryReviewTableContainer']/div/table/tbody/tr[" + i + "]/td[52]/button")).click();
 							isRecordSelected = true;
 							break;
 						}
@@ -270,12 +265,11 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#changeControlRegulatoryReviewTableContainer> div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#changeControlRegulatoryReviewTableContainer> div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					driver.findElement(By.cssSelector("#changeControlRegulatoryReviewTableContainer> div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
 					Thread.sleep(3000);
-					WebDriverWait wait1 = new WebDriverWait(driver, 60);
-					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlRegulatoryReviewTableContainer > div > div.jtable-busy-message[style='display: none;']")));
+					Helper.waitLoadRecords(driver, By.cssSelector("#changeControlRegulatoryReviewTableContainer > div > div.jtable-busy-message[style='display: none;']"));
+					
 					table = driver.findElement(By.id("changeControlRegulatoryReviewTableContainer"));// Document Tree
 																										// approve table
 					tableBody = table.findElement(By.tagName("tbody"));

@@ -35,6 +35,7 @@ import com.pss.qms.login.CCLoginDetails;
 
 
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 
@@ -203,7 +204,8 @@ public class CCInitiation extends CCLoginDetails {
 		Thread.sleep(5000);
 		sno++;
 //        driver.findElement(By.xpath("//*[@id=\"content\"]/div[8]/div[1]/div[2]/label")).click();
-		driver.findElement(By.id("suppDocYesInCcInit")).click();
+//		driver.findElement(By.id("suppDocYesInCcInit")).click();
+		Helper.clickElement(driver, By.id("suppDocYesInCcInit"));
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Supporting documents ", sno,
 				false);
 		Thread.sleep(4000);
