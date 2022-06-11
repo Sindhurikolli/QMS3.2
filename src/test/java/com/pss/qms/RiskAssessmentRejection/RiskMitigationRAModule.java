@@ -11,6 +11,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
  
 import com.pss.qms.login.RALoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.Desktop;
@@ -358,9 +359,8 @@ public class RiskMitigationRAModule extends RALoginDetails {
 		int totalNoOfRecords = 0;
 		int noOfRecordsChecked = 0;
 		if (perPageNoOfRecordsPresent > 0) {
-			String a = driver
-					.findElement(By.xpath("//*[@id=\"riskMitigationReviewTableContainer\"]/div/div[4]/div[2]/span"))
-					.getText();// For Ex: Showing 1-1 of 1
+			Helper.scrollElement(driver, By.xpath("//*[@id=\"riskMitigationReviewTableContainer\"]/div/div[4]/div[2]/span"));
+			String a = driver.findElement(By.xpath("//*[@id=\"riskMitigationReviewTableContainer\"]/div/div[4]/div[2]/span")).getText();// For Ex: Showing 1-1 of 1
 			String[] parts = a.split(" of ");
 			try {
 				totalNoOfRecords = Integer.parseInt(parts[1].trim());
@@ -370,10 +370,7 @@ public class RiskMitigationRAModule extends RALoginDetails {
 		}
 		if (perPageNoOfRecordsPresent > 0 && count == 0) {
 			if ((totalNoOfRecords > 1) && ((RANumber == null) || ("".equalsIgnoreCase(RANumber)))) {
-				RANumber = driver
-						.findElement(
-								By.xpath("//*[@id=\"riskMitigationReviewTableContainer\"]/div/table/tbody/tr[1]/td[3]"))
-						.getText();// documentType
+				RANumber = driver.findElement(By.xpath("//*[@id=\"riskMitigationReviewTableContainer\"]/div/table/tbody/tr[1]/td[3]")).getText();// documentType
 			} else if ((RANumber == null) || ("".equalsIgnoreCase(RANumber))) {
 				RANumber = driver
 						.findElement(
@@ -417,10 +414,10 @@ public class RiskMitigationRAModule extends RALoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#riskMitigationReviewTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+//					driver.findElement(By.cssSelector("#riskMitigationReviewTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#riskMitigationReviewTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
 					Thread.sleep(3000);
+					Helper.waitLoadRecords(driver, By.cssSelector("#riskMitigationReviewTableContainer > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("riskMitigationReviewTableContainer"));// Document Tree approve
 																							// table
 					tableBody = table.findElement(By.tagName("tbody"));
