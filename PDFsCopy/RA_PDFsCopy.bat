@@ -17,7 +17,7 @@ call :LOG > %LOGFILE%
 
 echo on
 set location=%cd%
-call xcopy "location\TestReport" "D:\PDFCopyFolder\QMS\Risk Assessment" /h /i /c /k /e /r /y
+call xcopy "%location%\TestReport" "D:\PDFCopyFolder\QMS\Risk Assessment" /h /i /c /k /e /r /y
 cd location\TestReport
 del *.pdf
 exit
