@@ -16,8 +16,9 @@ call :LOG > %LOGFILE%
 :LOG
 
 echo on
-call xcopy "C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins\.jenkins\QMS3.2\TestReport" "D:\PDFCopyFolder\QMS\Risk Assessment" /h /i /c /k /e /r /y
-cd C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins\.jenkins\QMS3.2\TestReport
+set location=%cd%
+call xcopy "location\TestReport" "D:\PDFCopyFolder\QMS\Risk Assessment" /h /i /c /k /e /r /y
+cd location\TestReport
 del *.pdf
 exit
 
