@@ -187,10 +187,10 @@ public class DeptHODCAPAReject extends CAorPALoginDetails {
 		int totalNoOfRecords = 0;
 		int noOfRecordsChecked = 0;
 		if (perPageNoOfRecordsPresent > 0) {
-			WebElement elementshowing = driver
-					.findElement(By.xpath(".//*[@id='capaReviewTable']/div/div[4]/div[2]/span"));
-			JavascriptExecutor jsshow = (JavascriptExecutor) driver;
-			jsshow.executeScript("arguments[0].scrollIntoView(true);", elementshowing);
+//			WebElement elementshowing = driver
+//					.findElement(By.xpath(".//*[@id='capaReviewTable']/div/div[4]/div[2]/span"));
+//			JavascriptExecutor jsshow = (JavascriptExecutor) driver;
+//			jsshow.executeScript("arguments[0].scrollIntoView(true);", elementshowing);
 
 			String a = driver.findElement(By.xpath(".//*[@id='capaReviewTable']/div/div[4]/div[2]/span")).getText();// For
 																													// Ex:
@@ -201,16 +201,16 @@ public class DeptHODCAPAReject extends CAorPALoginDetails {
 			String[] parts = a.split(" of ");
 			try {
 				totalNoOfRecords = Integer.parseInt(parts[1].trim());
-				List<WebElement> options = driver.findElements(By.cssSelector(
-						"#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-size-change > select > option"));
-
-				if (totalNoOfRecords > perPageNoOfRecordsPresent) {
-
-					int j = 1;
-					options.get(j).click();
-					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
-					j++;
-				}
+//				List<WebElement> options = driver.findElements(By.cssSelector(
+//						"#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-size-change > select > option"));
+//
+//				if (totalNoOfRecords > perPageNoOfRecordsPresent) {
+//
+//					int j = 1;
+//					options.get(j).click();
+//					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
+//					j++;
+//				}
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
