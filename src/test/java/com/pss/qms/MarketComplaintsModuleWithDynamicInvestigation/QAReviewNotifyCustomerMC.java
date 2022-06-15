@@ -4,6 +4,7 @@ package com.pss.qms.MarketComplaintsModuleWithDynamicInvestigation;
 import com.pss.qms.ExtentTestNGPkg.Utility;
  
 import com.pss.qms.login.MCLoginDetails;
+import com.pss.qms.util.Helper;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -116,8 +117,10 @@ public class QAReviewNotifyCustomerMC extends MCLoginDetails {
                 }
                 noOfRecordsChecked += perPageNoOfRecordsPresent;
                 if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-                    driver.findElement(By.cssSelector("#mcNotifyCustomerContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();//next page in Document approve list
-                    Thread.sleep(3000);
+//                    driver.findElement(By.cssSelector("#mcNotifyCustomerContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();//next page in Document approve list
+                   Helper.clickElement(driver, By.cssSelector("#mcNotifyCustomerContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+                	Thread.sleep(3000);
+                	Helper.waitLoadRecords(driver, By.cssSelector("#mcNotifyCustomerContainer > div > div.jtable-busy-message[style='display: none;']"));
                     table = driver.findElement(By.id("mcNotifyCustomerContainer"));//Document Tree approve table
                     tableBody = table.findElement(By.tagName("tbody"));
                     perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
