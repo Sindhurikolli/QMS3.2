@@ -13,9 +13,9 @@
 
 		<jre.level>1.8</jre.level>
 		<jdk.level>1.8</jdk.level>
-		<ADMINURL>http://192.168.0.126:6097/ADMIN</ADMINURL>
-		<QMSLoginUrl>http://192.168.0.126:6079/QMS/</QMSLoginUrl>        
-		<QMSRegistrationURL>http://192.168.0.126:6097/REGISTRATION/Login.do</QMSRegistrationURL>
+		<ADMINURL>http://192.168.0.100:8096/ADMIN/</ADMINURL>
+		<QMSLoginUrl>http://192.168.0.101:8098/QMS</QMSLoginUrl>        
+		<QMSRegistrationURL>http://192.168.0.100:8096/REGISTRATION/Login.do</QMSRegistrationURL>
 	</properties>
 	
 <profiles>
