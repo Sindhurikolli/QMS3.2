@@ -65,6 +65,27 @@ public class Helper {
 		Thread.sleep(500);
 	}
 	
+	public static void dueDateSelection(WebDriver driver, int daysafter,int newdate ) throws InterruptedException
+	{
+		
+		List<WebElement> dates = driver.findElements(By.cssSelector("td[data-handler='selectDay']"));
+		int daysremaininginmonth = dates.size();
+		String LastDayOfMonth = dates.get(daysremaininginmonth - 1).getText();
+		System.out.println(LastDayOfMonth);
+		if (newdate <= Integer.parseInt(LastDayOfMonth)) {
+			List<WebElement> days = driver.findElements(By.cssSelector("td[data-handler='selectDay']"));
+			days.get(daysafter).click();
+		} else {
+			int indextoselect = daysafter - daysremaininginmonth;
+			System.out.println(indextoselect);
+			driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/div/a[2]/span")).click();
+			Thread.sleep(5000);
+			List<WebElement> days1 = driver.findElements(By.cssSelector("td[data-handler='selectDay']"));
+			days1.get(indextoselect).click();
+		}
+
+	}
+	
 //	public static void clickOnCCReViewButton(WebDriver driver, By byObj) throws InterruptedException {
 //
 //		WebElement element = driver.findElement(byObj);
@@ -633,5 +654,7 @@ public class Helper {
 
         return isRecordSelectedForSelectingMultiUsers;
     }
+    
+    
 
 }
