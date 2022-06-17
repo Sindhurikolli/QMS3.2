@@ -109,7 +109,7 @@ public class CAPANewPlanCAorPA extends CAorPALoginDetails {
 		int daysafter = Integer.parseInt(properties.getProperty("DutedateAfterhowmanyDays"));
 		int newdate = Integer.parseInt(todaydate) + daysafter;
 		System.out.println(newdate);
-		Helper.selectDueDate(driver, daysafter, newdate);
+		Helper.dueDateSelection(driver, daysafter, newdate);
 //		List<WebElement> dates = driver.findElements(By.cssSelector("td[data-handler='selectDay']"));
 //		int daysremaininginmonth = dates.size();
 //		String LastDayOfMonth = dates.get(daysremaininginmonth - 1).getText();
@@ -165,7 +165,7 @@ public class CAPANewPlanCAorPA extends CAorPALoginDetails {
 		int daysafterCa = Integer.parseInt(properties.getProperty("DutedateAfterhowmanyDays"));
 		int newdateCa = Integer.parseInt(todaydate) + daysafter;
 		System.out.println(newdateCa);
-		Helper.selectDueDate(driver, daysafterCa, newdateCa);
+		Helper.dueDateSelection(driver, daysafterCa, newdateCa);
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select Due Date", sno, false);
 		sno++;
 		Thread.sleep(1000);
@@ -220,7 +220,7 @@ public class CAPANewPlanCAorPA extends CAorPALoginDetails {
 		int daysafterPa = Integer.parseInt(properties.getProperty("DutedateAfterhowmanyDays"));
 		int newdatePa = Integer.parseInt(todaydate) + daysafter;
 		System.out.println(newdatePa);
-		Helper.selectDueDate(driver, daysafterPa, newdatePa);
+		Helper.dueDateSelection(driver, daysafterPa, newdatePa);
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "select Due Date", sno, false);
 		sno++;
 		String TasktypePA = properties.getProperty("Task_Type_PA");
