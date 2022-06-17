@@ -11,7 +11,7 @@
      
           <classes>
             
-              <class name="com.pss.qms.InvestigationWithCFTCAPA.InvestigationRequest"/>
+              <class name="com.pss.qms.InvestigationWithCFTCAPA.InvestigationRequest"/> 
               <class name="com.pss.qms.InvestigationWithCFTCAPA.InvestigationRequestApproval"/> 
               <class name="com.pss.qms.InvestigationWithCFTCAPA.InvestigationPlan"/>
               <class name="com.pss.qms.InvestigationWithCFTCAPA.InvestigationPerformWithCFTCAPA"/>

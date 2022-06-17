@@ -191,10 +191,10 @@ public class ActionItemApprove extends AMLoginDetails {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
 						String AMNumberSequence = driver
-								.findElement(By.xpath("//*[@id=\"actItmApproveTable\"]/div/table/tbody/tr[1]/td[3]"))
+								.findElement(By.xpath("//*[@id=\"actItmApproveTable\"]/div/table/tbody/tr[ " + i + "]/td[3]"))
 								.getText();// documentTypeName
 						if (AMId.equalsIgnoreCase(AMNumberSequence)) {
-							driver.findElement(By.xpath("//*[@id=\"actItmApproveTable\"]/div/table/tbody/tr[1]/td[3]"))
+							driver.findElement(By.xpath("//*[@id=\"actItmApproveTable\"]/div/table/tbody/tr[ " + i + "]/td[3]"))
 									.click();
 							isRecordSelected = true;
 							break;

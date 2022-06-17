@@ -359,7 +359,7 @@ public class RiskMitigationRAModule extends RALoginDetails {
 		int totalNoOfRecords = 0;
 		int noOfRecordsChecked = 0;
 		if (perPageNoOfRecordsPresent > 0) {
-			Helper.scrollElement(driver, By.xpath("//*[@id=\"riskMitigationReviewTableContainer\"]/div/div[4]/div[2]/span"));
+//			Helper.scrollElement(driver, By.xpath("//*[@id=\"riskMitigationReviewTableContainer\"]/div/div[4]/div[2]/span"));
 			String a = driver.findElement(By.xpath("//*[@id=\"riskMitigationReviewTableContainer\"]/div/div[4]/div[2]/span")).getText();// For Ex: Showing 1-1 of 1
 			String[] parts = a.split(" of ");
 			try {
@@ -384,12 +384,10 @@ public class RiskMitigationRAModule extends RALoginDetails {
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						String RANumberSequence = driver.findElement(By.xpath(
-								".//*[@id='riskMitigationReviewTableContainer']/div/table/tbody/tr[ " + i + " ]/td[3]"))
-								.getText();// documentTypeName
+						String RANumberSequence = driver.findElement(By.xpath("//*[@id='riskMitigationReviewTableContainer']/div/table/tbody/tr[ " + i + " ]/td[3]")).getText();// documentTypeName
 						if (RANumber.equalsIgnoreCase(RANumberSequence)) {
 							driver.findElement(
-									By.xpath(".//*[@id='riskMitigationReviewTableContainer']/div/table/tbody/tr[ " + i
+									By.xpath("//*[@id='riskMitigationReviewTableContainer']/div/table/tbody/tr[ " + i
 											+ " ]/td[3]"))
 									.click();
 							isRecordSelected = true;
