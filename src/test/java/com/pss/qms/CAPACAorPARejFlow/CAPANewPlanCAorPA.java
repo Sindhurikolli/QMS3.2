@@ -15,6 +15,7 @@ import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.login.CAorPALoginDetails;
 // 
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import org.openqa.selenium.By;
@@ -32,6 +33,8 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -106,21 +109,22 @@ public class CAPANewPlanCAorPA extends CAorPALoginDetails {
 		int daysafter = Integer.parseInt(properties.getProperty("DutedateAfterhowmanyDays"));
 		int newdate = Integer.parseInt(todaydate) + daysafter;
 		System.out.println(newdate);
-		List<WebElement> dates = driver.findElements(By.cssSelector("td[data-handler='selectDay']"));
-		int daysremaininginmonth = dates.size();
-		String LastDayOfMonth = dates.get(daysremaininginmonth - 1).getText();
-		System.out.println(LastDayOfMonth);
-		if (newdate <= Integer.parseInt(LastDayOfMonth)) {
-			List<WebElement> days = driver.findElements(By.cssSelector("td[data-handler='selectDay']"));
-			days.get(daysafter).click();
-		} else {
-			int indextoselect = daysafter - daysremaininginmonth;
-			System.out.println(indextoselect);
-			driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/div/a[2]/span")).click();
-			Thread.sleep(5000);
-			List<WebElement> days1 = driver.findElements(By.cssSelector("td[data-handler='selectDay']"));
-			days1.get(indextoselect).click();
-		}
+		Helper.selectDueDate(driver, daysafter, newdate);
+//		List<WebElement> dates = driver.findElements(By.cssSelector("td[data-handler='selectDay']"));
+//		int daysremaininginmonth = dates.size();
+//		String LastDayOfMonth = dates.get(daysremaininginmonth - 1).getText();
+//		System.out.println(LastDayOfMonth);
+//		if (newdate <= Integer.parseInt(LastDayOfMonth)) {
+//			List<WebElement> days = driver.findElements(By.cssSelector("td[data-handler='selectDay']"));
+//			days.get(daysafter).click();
+//		} else {
+//			int indextoselect = daysafter - daysremaininginmonth;
+//			System.out.println(indextoselect);
+//			driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/div/a[2]/span")).click();
+//			Thread.sleep(5000);
+//			List<WebElement> days1 = driver.findElements(By.cssSelector("td[data-handler='selectDay']"));
+//			days1.get(indextoselect).click();
+//		}
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select Due Date", sno, false);
 		sno++;
 		Thread.sleep(2000);
@@ -128,8 +132,10 @@ public class CAPANewPlanCAorPA extends CAorPALoginDetails {
 		Source.selectByIndex(2);
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select Source", sno, false);
 		sno++;
+		String ref=properties.getProperty("Reference_Number");
+		String timeStamp = new SimpleDateFormat("yyyy-MM-dd_HHmmss").format(new Date());
 		driver.findElement(By.id("referenceNumberInCreateCapaPlan"))
-				.sendKeys(properties.getProperty("Reference_Number"));
+				.sendKeys(ref+timeStamp);
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter the reference number", sno, false);
 		sno++;
 		driver.findElement(By.id("descriptionInCreateCapaPlan")).sendKeys(properties.getProperty("CAPA_2000"));
@@ -153,7 +159,11 @@ public class CAPANewPlanCAorPA extends CAorPALoginDetails {
 		sno++;
 		driver.findElement(By.id("dueDateInAddCaDetails")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.className("ui-datepicker-today")).click();
+//		driver.findElement(By.className("ui-datepicker-today")).click();
+		int daysafterCa = Integer.parseInt(properties.getProperty("DutedateAfterhowmanyDays"));
+		int newdateCa = Integer.parseInt(todaydate) + daysafter;
+		System.out.println(newdateCa);
+		Helper.selectDueDate(driver, daysafterCa, newdateCa);
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select Due Date", sno, false);
 		sno++;
 		Thread.sleep(1000);
@@ -204,7 +214,11 @@ public class CAPANewPlanCAorPA extends CAorPALoginDetails {
 		sno++;
 		driver.findElement(By.id("dueDateInAddCaDetails")).click();
 		Thread.sleep(3000);
-		driver.findElement(By.className("ui-datepicker-today")).click();
+//		driver.findElement(By.className("ui-datepicker-today")).click();
+		int daysafterPa = Integer.parseInt(properties.getProperty("DutedateAfterhowmanyDays"));
+		int newdatePa = Integer.parseInt(todaydate) + daysafter;
+		System.out.println(newdatePa);
+		Helper.selectDueDate(driver, daysafterPa, newdatePa);
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "select Due Date", sno, false);
 		sno++;
 		String TasktypePA = properties.getProperty("Task_Type_PA");

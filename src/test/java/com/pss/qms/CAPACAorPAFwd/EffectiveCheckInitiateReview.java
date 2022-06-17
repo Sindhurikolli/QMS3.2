@@ -77,13 +77,14 @@ public class EffectiveCheckInitiateReview extends CAorPALoginDetails {
 		document.add(new Paragraph("                                     "));
 		sno++;
 		Thread.sleep(4000);
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("window.scrollBy(0,150)", "");
-		Thread.sleep(2000);
+		
 		
 		WebDriverWait wait = new WebDriverWait(driver, 240);
 		wait.until(ExpectedConditions
 				.presenceOfElementLocated(By.cssSelector("a[href='capaEffectiveChkInitiateReview.do']")));
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,150)", "");
+		Thread.sleep(2000);
 		driver.findElement(By.cssSelector("a[href='capaEffectiveChkInitiateReview.do']")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Effective check initiate review",
 				sno, false);
