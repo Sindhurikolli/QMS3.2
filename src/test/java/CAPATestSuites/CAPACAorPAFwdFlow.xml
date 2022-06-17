@@ -6,7 +6,18 @@
         <listener class-name="com.pss.qms.Listners.TestListenerCAPA"/>
         <listener class-name="com.pss.qms.Listners.SuiteFailingInvokedMethodListener"/>
 </listeners>
-
+  <parameter name="CAPA_REF_No" value="RefNo"/>
+	
+	
+    <test name="CAPAPropertiesfileupdate">
+        <classes>
+      <class name="com.pss.qms.PropertiesFileUpdate.UpdateCapaProperties">
+      <methods>
+		<include name="capaRefNoUpdate"/>
+	  </methods>   
+      </class> 
+        </classes>
+    </test>
     <test name="CAPAInitiationToCloser1">
     
         <classes>

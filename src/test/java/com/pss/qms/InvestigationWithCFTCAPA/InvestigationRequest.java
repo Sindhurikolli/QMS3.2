@@ -188,7 +188,7 @@ public class InvestigationRequest extends InvestigationLoginDetails {
 		String Investigation = driver.findElement(By.xpath("//*[@id='modal-window']/div/div/div[2]/center")).getText();
 		String[] parts = Investigation.split(" : ");
 		System.out.println(parts[1]);
-		String InvestigationNo = parts[1].substring(0, 11);
+		String InvestigationNo = parts[1].substring(0, 15);
 		System.out.println(InvestigationNo);
 		PropertiesConfiguration properties = new PropertiesConfiguration(
 				"src/test/java/QMSUIProperties/Investigation.properties");
