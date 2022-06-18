@@ -15,6 +15,7 @@ import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.login.CAorPALoginDetails;
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.AWTException;
@@ -96,7 +97,7 @@ public class DeptHODCAPAModuleCAorPA extends CAorPALoginDetails {
 //        driver.findElement(By.id("myActivitiesInCapa")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on CAPA Review/Approval", sno, false);
 		Thread.sleep(3000);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']")));
+		Helper.waitLoadRecords(driver, By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']"));		
 		toCAPAReviewAndApproval();
 //        Thread.sleep(2000);
 		document.close();

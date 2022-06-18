@@ -132,10 +132,8 @@ public class CAPANewPlanCAorPA extends CAorPALoginDetails {
 		Source.selectByIndex(2);
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select Source", sno, false);
 		sno++;
-		String ref=properties.getProperty("Reference_Number");
-		String timeStamp = new SimpleDateFormat("yyyy-MM-dd_HHmmss").format(new Date());
 		driver.findElement(By.id("referenceNumberInCreateCapaPlan"))
-				.sendKeys(ref+timeStamp);
+				.sendKeys(properties.getProperty("Reference_Number"));
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter the reference number", sno, false);
 		sno++;
 		driver.findElement(By.id("descriptionInCreateCapaPlan")).sendKeys(properties.getProperty("CAPA_2000"));
