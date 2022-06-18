@@ -142,6 +142,9 @@ public class CAPANewPlanCAorPA extends CAorPALoginDetails {
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document,
 				"Enter the  source description in create capa plan", sno, false);
 		sno++;
+		driver.findElement(By.id("shortDescriptionInCreateCapaPlan")).sendKeys(properties.getProperty("CAPAShortDescription_100"));
+		document = Utilities.getScreenShotAndAddInLogDoc(driver, document,"Enter the CAPA Short Description", sno, false);
+		sno++;
 		JavascriptExecutor scl = ((JavascriptExecutor) driver);
 		scl.executeScript("window.scrollBy(0,400)");
 		driver.findElement(By.id("chkAddCAInCapaReview")).click();
