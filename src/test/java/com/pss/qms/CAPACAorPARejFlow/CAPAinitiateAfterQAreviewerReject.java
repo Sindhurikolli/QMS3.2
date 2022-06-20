@@ -215,7 +215,7 @@ public class CAPAinitiateAfterQAreviewerReject extends CAorPALoginDetails {
 								.getText();// documentTypeName
 						if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
 							WebElement elementsel = driver.findElement(By.xpath(
-									"//*[@id=\"capaRejectTable\"]/div/table/tbody/tr[ " + i + " ]/td[29]/button"));
+									"//*[@id=\"capaRejectTable\"]/div/table/tbody/tr[ " + i + " ]/td[30]/button"));
 							JavascriptExecutor jsse = (JavascriptExecutor) driver;
 							jsse.executeScript("arguments[0].click();", elementsel);
 							// driver.findElement(By.xpath("//*[@id=\"capaRejectTable\"]/div/table/tbody/tr[
@@ -232,7 +232,7 @@ public class CAPAinitiateAfterQAreviewerReject extends CAorPALoginDetails {
 							.findElement(By.xpath("//*[@id=\"capaRejectTable\"]/div/table/tbody/tr/td[3]")).getText();
 					if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
 						WebElement elementnext = driver
-								.findElement(By.xpath("//*[@id=\"capaRejectTable\"]/div/table/tbody/tr/td[29]/button"));
+								.findElement(By.xpath("//*[@id=\"capaRejectTable\"]/div/table/tbody/tr/td[30]/button"));
 						JavascriptExecutor jsnext = (JavascriptExecutor) driver;
 						jsnext.executeScript("arguments[0].click();", elementnext);
 //                         driver.findElement(By.xpath("//*[@id=\"capaRejectTable\"]/div/table/tbody/tr/td[29]/button")).click();
