@@ -175,6 +175,7 @@ public class DepthodEffectiveCheckReviewCA extends CAorPALoginDetails {
 			String[] parts = a.split(" of ");
 			try {
 				totalNoOfRecords = Integer.parseInt(parts[1].trim());
+				System.out.println("Total No of Records - "+totalNoOfRecords);
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
@@ -225,9 +226,9 @@ public class DepthodEffectiveCheckReviewCA extends CAorPALoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					Helper.clickElement(driver, By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-busy-message[style='display: none;']"));// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
 					Thread.sleep(3000);
-					Helper.waitLoadRecords(driver, By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+					Helper.waitLoadRecords(driver, By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("effectiveCheckImplPostPerformTable"));// Document Tree approve
 																							// table
 					tableBody = table.findElement(By.tagName("tbody"));
