@@ -3,9 +3,9 @@
 <suite name="com.mycompany_QMSProject_jar_1.0-SNAPSHOT">
 
     
-    <parameter name="ADMINURL" value="http://192.168.0.100:8096/ADMIN"/>
-	<parameter name="QMSLoginUrl" value="http://192.168.0.101:8098/QMS"/>
-	<parameter name="QMSRegistrationURL" value="http://192.168.0.100:8096/REGISTRATION/Login.do"/>
+    <parameter name="ADMINURL" value="http://192.168.0.107:4040/ADMIN/Login.do"/>
+	<parameter name="QMSLoginUrl" value="http://192.168.0.101:4042/QMS/Login.do"/>
+	<parameter name="QMSRegistrationURL" value="http://192.168.0.107:4040/REGISTRATION/Login.do"/>
 	
     <test name="URLUpdateinPropertiesfile">
         <classes>
