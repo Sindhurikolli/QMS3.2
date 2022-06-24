@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.pss.qms.login.AdminLoginDetails;
+import com.pss.qms.util.Helper;
 
 public class InitiateUserCreation extends AdminLoginDetails {
 
@@ -40,6 +41,7 @@ public class InitiateUserCreation extends AdminLoginDetails {
         Thread.sleep(6000);
         driver.findElement(By.id("locTreeInuserSelectionWindow_1_span")).click();
         Thread.sleep(3000);
+        Helper.waitLoadRecords(driver, By.cssSelector("#usersTableContainer > div > div.jtable-busy-message[style='display: none;']"));
         boolean isRecordSelectedForUser = false;
         String UserFirstName = properties.getProperty("User_Name");
 //      String regLastName  = "reviewer3";
@@ -100,7 +102,7 @@ public class InitiateUserCreation extends AdminLoginDetails {
         Thread.sleep(2000);
         driver.findElement(By.className("username")).click();
         Thread.sleep(1000);
-        driver.findElement(By.cssSelector("body > div.container > header > nav > ul > li.dropdown > ul > li:nth-child(2) > a")).click();
+        driver.findElement(By.cssSelector("a[onclick='logOutInPssAdmin()']")).click();
     }
 
 	private boolean selectingTheUser(String UserFullName, boolean isRecordSelectedForUser, int count5) throws InterruptedException {

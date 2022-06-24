@@ -159,7 +159,7 @@ public void setUp() throws Exception {
 		driver.manage().window().maximize();
         WebDriverWait wait = new WebDriverWait(driver, 120);
         driver.get(properties.getProperty("QMSLoginUrl"));
-        driver.manage().window().maximize();          
+//        driver.manage().window().maximize();          
 	}
 
 

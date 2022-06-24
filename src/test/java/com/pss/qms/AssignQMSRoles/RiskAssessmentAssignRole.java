@@ -104,9 +104,9 @@ public class RiskAssessmentAssignRole extends QMSLoginDetails {
     	  System.out.println("Role Not Available to Select");
       }  
  		
-      driver.findElement(By.xpath("/html/body/div[1]/header/nav/ul[3]/li[3]/a/span")).click();
+      driver.findElement(By.className("username")).click();
       Thread.sleep(1000);
-      driver.findElement(By.xpath("/html/body/div[1]/header/nav/ul[3]/li[3]/ul/li[3]/a")).click();
+      driver.findElement(By.xpath("/html/body/div[1]/header/nav/ul/li[3]/ul/li[4]/a")).click();
       Thread.sleep(1000);
 }
         else
