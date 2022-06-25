@@ -398,7 +398,7 @@ public class RiskIdentification extends RALoginDetails {
 		String Risk = driver.findElement(By.xpath("//*[@id='modal-window']/div/div/div[2]/center")).getText();
 		String[] parts = Risk.split(" : ");
 		System.out.println(parts[1]);
-		String RiskNo = parts[1].substring(0, 14);
+		String RiskNo = parts[1].substring(0, 15);
 		System.out.println(RiskNo);
 		PropertiesConfiguration properties = new PropertiesConfiguration(
 				"src/test/java/QMSUIProperties/RAproperties.properties");
