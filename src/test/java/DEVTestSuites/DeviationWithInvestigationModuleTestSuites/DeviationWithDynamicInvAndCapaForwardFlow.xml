@@ -17,7 +17,7 @@
     <test name="BEDeviationWithInvAndCapa1">
           <classes>
               <class name="com.pss.qms.DeviationWithInvAndCAPA.QAReviewNotifyCustomerDev"/> 
-              <class name="com.pss.qms.DeviationWithInvAndCAPA.QAReviewCustomerResponseDev"/>
+              <class name="com.pss.qms.DeviationWithInvAndCAPA.QAReviewCustomerResponseDev"/> 
               <class name="com.pss.qms.DeviationWithInvAndCAPA.QAApproverDev"/>
               <class name="com.pss.qms.DeviationWithInvAndCAPA.InvestigationPlanDev"/>  
               <class name="com.pss.qms.DeviationWithInvAndCAPA.InvPerformDev"/>
@@ -29,7 +29,7 @@
           <classes>		  
               <class name="com.pss.qms.DeviationWithInvAndCAPA.QAReReviewDev"/>
               <class name="com.pss.qms.DeviationWithInvAndCAPA.QAReApproveDev"/>  
-              <class name="com.pss.qms.DeviationWithInvAndCAPA.PlanExistingCAPA"/>   
+              <class name="com.pss.qms.DeviationWithInvAndCAPA.PlanExistingCAPA"/>    
               <class name="com.pss.qms.DeviationWithInvAndCAPA.DeptHODReviewCAPAForExistingCAPA"/>
               <class name="com.pss.qms.DeviationWithInvAndCAPA.QAReviewCAPA"/>
               <class name="com.pss.qms.DeviationWithInvAndCAPA.QAApproverCAPA"/>

@@ -30,6 +30,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.DeviationLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 public class QAReviewCAPA extends DeviationLoginDetails {
@@ -158,9 +159,9 @@ public class QAReviewCAPA extends DeviationLoginDetails {
 	        }
 	        if (perPageNoOfRecordsPresent > 0 && count == 0) {
 	            if ((totalNoOfRecords > 1) && ((DeviationNumber == null) || ("".equalsIgnoreCase(DeviationNumber)))) {
-	                DeviationNumber = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[1]/td[10]")).getText();//documentType
+	                DeviationNumber = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[1]/td[11]")).getText();//documentType
 	            } else if ((DeviationNumber == null) || ("".equalsIgnoreCase(DeviationNumber))) {
-	                DeviationNumber = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr/td[10]")).getText();//documentType
+	                DeviationNumber = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr/td[11]")).getText();//documentType
 
 	            }//*[@id="capaReviewTable"]/div/table/tbody/tr[6]/td[9]
 	            ++count;
@@ -169,9 +170,9 @@ public class QAReviewCAPA extends DeviationLoginDetails {
 	            while (noOfRecordsChecked < totalNoOfRecords) {
 	                if (totalNoOfRecords > 1) {
 	                    for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-	                        String DevNumberSequence = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[ " + i + " ]/td[10]")).getText();//documentTypeName
+	                        String DevNumberSequence = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[ " + i + " ]/td[11]")).getText();//documentTypeName
 	                        if (DeviationNumber.equalsIgnoreCase(DevNumberSequence)) {
-	                            driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[ " + i + " ]/td[10]")).click();
+	                            driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[ " + i + " ]/td[11]")).click();
 	                            isRecordSelected = true;
 	                            break;
 	                        }
@@ -180,19 +181,21 @@ public class QAReviewCAPA extends DeviationLoginDetails {
 	                        break;
 	                    }
 	                } else {
-	                    String DevNumberSequence = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr/td[10]")).getText();
+	                    String DevNumberSequence = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr/td[11]")).getText();
 	                    if (DeviationNumber.equalsIgnoreCase(DevNumberSequence)) {
-	                        driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr/td[10]")).click();
+	                        driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr/td[11]")).click();
 	                        isRecordSelected = true;
 	                        break;
 	                    }
 	                }
 	                noOfRecordsChecked += perPageNoOfRecordsPresent;
 	                if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-	                    driver.findElement(By.cssSelector("#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();//next page in Document approve list
+	                   Helper.clickElement(driver, By.cssSelector("#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//	                	driver.findElement(By.cssSelector("#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();//next page in Document approve list
 	                    Thread.sleep(5000);
-	                    WebDriverWait wait1 = new WebDriverWait(driver, 240);
-	                    wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']")));
+//	                    WebDriverWait wait1 = new WebDriverWait(driver, 240);
+//	                    wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']")));
+	                   Helper.waitLoadRecords(driver, By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']"));
 	                    table = driver.findElement(By.id("capaReviewTable"));//Document Tree approve table
 	                    tableBody = table.findElement(By.tagName("tbody"));
 	                    perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
