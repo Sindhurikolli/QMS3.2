@@ -187,7 +187,7 @@ public class AuditPlan extends AMLoginDetails {
 			WebDriverWait wait = new WebDriverWait(driver, 70);
 			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"modal-window\"]/div/div/div[3]/a")));
 			String text = driver.findElement(By.xpath("//*[@id=\"modal-window\"]/div/div/div[2]/center")).getText();
-			String amno = text.substring(24, 38);
+			String amno = text.substring(24, 39);
 			System.out.println(amno);
 			PropertiesConfiguration properties = new PropertiesConfiguration("src/test/java/QMSUIProperties/AMproperties.properties");
 			properties.setProperty("PLAN_NAME_IN_AI_PLAN_SCHEDULE_AINO", amno+"/A1");

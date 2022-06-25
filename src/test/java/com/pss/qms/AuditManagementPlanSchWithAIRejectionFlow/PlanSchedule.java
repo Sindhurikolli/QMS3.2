@@ -117,7 +117,8 @@ public class PlanSchedule extends AMLoginDetails {
 		Thread.sleep(2000);
 		driver.findElement(By.id("treeContainer_2_switch")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.id("treeContainer_3_span")).click();
+//		driver.findElement(By.id("treeContainer_3_span")).click();
+		driver.findElement(By.linkText(properties.getProperty("PlannedAuditDepartment"))).click();
 		Thread.sleep(2000);
 		sno++;
 		driver.findElement(By.id("selectBtnInLocSelect")).click();

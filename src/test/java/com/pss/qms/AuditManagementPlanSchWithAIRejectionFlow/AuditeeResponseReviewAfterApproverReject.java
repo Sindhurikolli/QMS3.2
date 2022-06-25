@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Random;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
@@ -29,27 +30,27 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
-import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
-public class PlanScheduleReject extends AMLoginDetails {
+public class AuditeeResponseReviewAfterApproverReject extends AMLoginDetails {
 
 	@Test
-	public void toPlanSheduleReject() throws Exception {
+	public void toAuditeeResponseReviewAfterApproverReject() throws Exception {
 
 //		try {
 
 			document = new Document(PageSize.A4, 36, 36, 20, 20);
 			Font font = new Font(Font.FontFamily.TIMES_ROMAN);
-			output = System.getProperty("user.dir") + "\\" + "/TestReport/" + "PlanSheduleReject"
+			output = System.getProperty("user.dir") + "\\" + "/TestReport/" + "AuditeeResponseReviewAfterApproverReject"
 					+ (new Random().nextInt()) + ".pdf";
 			fos = new FileOutputStream(output);
 			writer = PdfWriter.getInstance(document, fos);
 			writer.open();
-			HeaderFooterPageEvent event = new HeaderFooterPageEvent("PlanSheduleReject", "PSS-QMS-002", "Pass");
+			HeaderFooterPageEvent event = new HeaderFooterPageEvent("AuditeeResponseReviewAfterApproverReject", "PSS-QMS-015",
+					"Pass");
 			writer.setPageEvent(event);
 			document.open();
-			driver.findElement(By.name("loginUserName")).sendKeys(properties.getProperty("QaHod"));
+			driver.findElement(By.name("loginUserName")).sendKeys(properties.getProperty("DepartmentHod"));
 			Thread.sleep(1000);
 			driver.findElement(By.name("loginPassword")).sendKeys(properties.getProperty("Password"));
 			Thread.sleep(1000);
@@ -70,23 +71,19 @@ public class PlanScheduleReject extends AMLoginDetails {
 			document.add(im);
 			document.add(new Paragraph("                                     "));
 			document.add(new Paragraph("                                     "));
-//			Thread.sleep(10000);
-//			sno++;
-//		   driver.findElement(By.xpath("//*[@id=\"auditMgmt_tile_Id\"]/div/div/div/h2")).click();
-//		   document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Audit Management Module"+"  PSS-QMS-SS-002",sno,false);
-//		   sno++;
-//	      driver.findElement(By.id("myActivitiesInAM")).click();
-//	      document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on MyActivities Tab"+"  PSS-QMS-SS-003",sno,false);  
-//	      sno++;
-//	      driver.findElement(By.xpath("//*[@id=\"amMyActApprovalMenuId\"]/a")).click();
-//	      document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Approvals Menu "+"  PSS-QMS-SS-004",sno,false); 
+//		Thread.sleep(10000);
+//		sno++;
+//	   driver.findElement(By.cssSelector("#auditMgmt_tile_Id > div > div > div > h2")).click();
+//	   document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Audit Management Module",sno,false);
+//	   sno++;
+//      driver.findElement(By.id("myActivitiesInAM")).click();
+//      document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on MyActivities Tab",sno,false); 
 			Thread.sleep(3000);
 			sno++;
-			driver.findElement(By.cssSelector("a[href='amPlanOrAdhocAuditAppPage.do']")).click();
-			document = Utilities.getScreenShotAndAddInLogDoc(driver, document,
-					"Click on Planned/Adhoc/External Audit Menu " + "  PSS-QMS-SS-005", sno, false);
-			Helper.waitLoadRecords(driver, By.cssSelector("#amPlanAuditAppDetailsContainer > div > div.jtable-busy-message[style='display: none;']"));
-			methodToDoAdhocReject();
+			driver.findElement(By.cssSelector("a[href='amAuditeeResponseReviewPage.do']")).click();
+			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Auditee Response Review Menu",
+					sno, false);
+			methodToDoAuditResponseReviewApprove();
 			Thread.sleep(3000);
 			document.close();
 			writer.close();
@@ -99,24 +96,45 @@ public class PlanScheduleReject extends AMLoginDetails {
 		}
 //	}
 
-	private void methodToDoAdhocReject() throws Exception {
+	private void methodToDoAuditResponseReviewApprove() throws Exception {
 
 		Thread.sleep(3000);
 		int count = 0;
 		boolean isRecordSelected = false;
 		String AuditId = properties.getProperty("PLAN_NAME_IN_AI_REJECT_FLOW");
-		isRecordSelected = selectRecdAdhocReject(AuditId, isRecordSelected, count);
+		isRecordSelected = selectRecdAuditResponseReviewApprove(AuditId, isRecordSelected, count);
 		Thread.sleep(1000);
 		sno++;
-		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select a record", sno, false);
+		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select a Record", sno, false);
 		if (isRecordSelected) {
 			sno++;
-			driver.findElement(By.id("commentsInAmAuditPlanApp")).sendKeys(properties.getProperty("AM_50"));
+			JavascriptExecutor jse = (JavascriptExecutor) driver;
+			WebElement element = driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a"));
+			jse.executeScript("arguments[0].scrollIntoView(true);", element);
+			Thread.sleep(3000);
+			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
+			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
+			sno++;
+			Thread.sleep(3000);
+			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
+			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
+			sno++;
+			Thread.sleep(3000);
+			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
+			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
+			sno++;
+			Thread.sleep(3000);
+			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
+			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
+			sno++;
+			Thread.sleep(3000);
+			driver.findElement(By.id("commentsInAmReviewAuditFindingAppForm"))
+					.sendKeys(properties.getProperty("AM_1500"));
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter The Comments", sno, false);
 			Thread.sleep(2000);
 			sno++;
-			driver.findElement(By.id("rejectBtnInAuditPlanApp")).click();
-			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Reject Button", sno, false);
+			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[3]/a")).click();
+			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Submit Button", sno, false);
 			Thread.sleep(2000);
 			sno++;
 			driver.findElement(By.id("eSignPwdInWnd")).sendKeys(properties.getProperty("Esign_Password"));
@@ -129,11 +147,11 @@ public class PlanScheduleReject extends AMLoginDetails {
 			Thread.sleep(2000);
 			WebDriverWait wait = new WebDriverWait(driver, 70);
 			wait.until(ExpectedConditions.presenceOfElementLocated(By.className("modal-btn")));
-			sno++;
 			if(driver.findElement(By.xpath("//*[@id=\"modal-window\"]/div/div/div[3]/a")).isDisplayed())
-	        {
-	            document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On OK Button",sno,false);
-	        }
+	         {
+	             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On OK Button",sno,false);
+	         }
+			sno++;
 			driver.findElement(By.className("modal-btn")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On OK Button", sno, false);
 			Thread.sleep(2000);
@@ -151,16 +169,17 @@ public class PlanScheduleReject extends AMLoginDetails {
 		}
 	}
 
-	private boolean selectRecdAdhocReject(String AuditId, boolean isRecordSelected, int count)
+	private boolean selectRecdAuditResponseReviewApprove(String AuditId, boolean isRecordSelected, int count)
 			throws InterruptedException {
-		WebElement table = driver.findElement(By.id("amPlanAuditAppDetailsContainer"));
+		WebElement table = driver.findElement(By.id("auditsContainerInReviewAuditFindingAppForm"));
 		WebElement tableBody = table.findElement(By.tagName("tbody"));
 		int perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
 		int totalNoOfRecords = 0;
 		int noOfRecordsChecked = 0;
 		if (perPageNoOfRecordsPresent > 0) {
 			String a = driver
-					.findElement(By.xpath("//*[@id=\"amPlanAuditAppDetailsContainer\"]/div/div[4]/div[2]/span"))
+					.findElement(
+							By.xpath("//*[@id=\"auditsContainerInReviewAuditFindingAppForm\"]/div/div[4]/div[2]/span"))
 					.getText();// For Ex: Showing 1-1 of 1
 			String[] parts = a.split(" of ");
 			try {
@@ -172,12 +191,13 @@ public class PlanScheduleReject extends AMLoginDetails {
 		if (perPageNoOfRecordsPresent > 0 && count == 0) {
 			if ((totalNoOfRecords > 1) && ((AuditId == null) || ("".equalsIgnoreCase(AuditId)))) {
 				AuditId = driver
-						.findElement(
-								By.xpath("//*[@id=\"amPlanAuditAppDetailsContainer\"]/div/table/tbody/tr[1]/td[3]"))
+						.findElement(By.xpath(
+								"//*[@id=\"auditsContainerInReviewAuditFindingAppForm\"]/div/table/tbody/tr[1]/td[3]"))
 						.getText();// documentType
 			} else if ((AuditId == null) || ("".equalsIgnoreCase(AuditId))) {
 				AuditId = driver
-						.findElement(By.xpath("//*[@id=\"amPlanAuditAppDetailsContainer\"]/div/table/tbody/tr/td[3]"))
+						.findElement(By.xpath(
+								"//*[@id=\"auditsContainerInReviewAuditFindingAppForm\"]/div/table/tbody/tr/td[3]"))
 						.getText();// documentType
 
 			}
@@ -187,15 +207,15 @@ public class PlanScheduleReject extends AMLoginDetails {
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						String AuditNumberSequence = driver.findElement(By.xpath(
-								"//*[@id=\"amPlanAuditAppDetailsContainer\"]/div/table/tbody/tr[ " + i + " ]/td[3]"))
+						String AuditNumberSequence = driver.findElement(
+								By.xpath(".//*[@id='auditsContainerInReviewAuditFindingAppForm']/div/table/tbody/tr[ "
+										+ i + "]/td[5]"))
 								.getText();// documentTypeName
 						if (AuditId.equalsIgnoreCase(AuditNumberSequence)) {
-							driver.findElement(
-									By.xpath("//*[@id=\"amPlanAuditAppDetailsContainer\"]/div/table/tbody/tr[ " + i
-											+ " ]/td[3]"))
+							driver.findElement(By.xpath(
+									"//*[@id=\"auditsContainerInReviewAuditFindingAppForm\"]/div/table/tbody/tr[ " + i
+											+ " ]/td[5]"))
 									.click();
-
 							isRecordSelected = true;
 							break;
 						}
@@ -205,12 +225,12 @@ public class PlanScheduleReject extends AMLoginDetails {
 					}
 				} else {
 					String AuditNumberSequence = driver
-							.findElement(
-									By.xpath("//*[@id=\"amPlanAuditAppDetailsContainer\"]/div/table/tbody/tr/td[3]"))
+							.findElement(By.xpath(
+									"//*[@id=\"auditsContainerInReviewAuditFindingAppForm\"]/div/table/tbody/tr/td[5]"))
 							.getText();
 					if (AuditId.equalsIgnoreCase(AuditNumberSequence)) {
-						driver.findElement(
-								By.xpath("//*[@id=\"amPlanAuditAppDetailsContainer\"]/div/table/tbody/tr/td[3]"))
+						driver.findElement(By.xpath(
+								"//*[@id=\"auditsContainerInReviewAuditFindingAppForm\"]/div/table/tbody/tr/td[5]"))
 								.click();
 						isRecordSelected = true;
 						break;
@@ -219,10 +239,11 @@ public class PlanScheduleReject extends AMLoginDetails {
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
 					driver.findElement(By.cssSelector(
-							"#amPlanAuditAppDetailsContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
+							"#auditsContainerInReviewAuditFindingAppForm > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
 							.click();// next page in Document approve list
 					Thread.sleep(3000);
-					table = driver.findElement(By.id("amPlanAuditAppDetailsContainer"));// Document Tree approve table
+					table = driver.findElement(By.id("auditsContainerInReviewAuditFindingAppForm"));// Document Tree
+																									// approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
 				}
