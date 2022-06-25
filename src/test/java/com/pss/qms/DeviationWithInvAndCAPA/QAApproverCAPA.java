@@ -11,6 +11,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
  
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
  
 import com.pss.qms.login.DeviationLoginDetails;
@@ -181,9 +182,9 @@ public class QAApproverCAPA extends DeviationLoginDetails {
         int noOfRecordsChecked = 0;
         if (perPageNoOfRecordsPresent > 0) {
         	
-        	WebElement elementshowing = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/div[4]/div[2]/span"));
-            JavascriptExecutor jsshow = (JavascriptExecutor)driver;
-            jsshow.executeScript("arguments[0].scrollIntoView(true);", elementshowing);
+//        	WebElement elementshowing = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/div[4]/div[2]/span"));
+//            JavascriptExecutor jsshow = (JavascriptExecutor)driver;
+//            jsshow.executeScript("arguments[0].scrollIntoView(true);", elementshowing);
         	
             String a = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/div[4]/div[2]/span")).getText();// For Ex: Showing 1-1 of 1
             String[] parts = a.split(" of ");
@@ -195,9 +196,9 @@ public class QAApproverCAPA extends DeviationLoginDetails {
         }
         if (perPageNoOfRecordsPresent > 0 && count == 0) {
             if ((totalNoOfRecords > 1) && ((DeviationNumber == null) || ("".equalsIgnoreCase(DeviationNumber)))) {
-                DeviationNumber = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[1]/td[10]")).getText();//documentType
+                DeviationNumber = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[1]/td[11]")).getText();//documentType
             } else if ((DeviationNumber == null) || ("".equalsIgnoreCase(DeviationNumber))) {
-                DeviationNumber = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr/td[10]")).getText();//documentType
+                DeviationNumber = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr/td[11]")).getText();//documentType
 
             }
             ++count;
@@ -207,15 +208,15 @@ public class QAApproverCAPA extends DeviationLoginDetails {
                 if (totalNoOfRecords > 1) {
                     for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
                     	
-                    	WebElement elementsele = driver.findElement(By.xpath(".//*[@id='capaReviewTable']/div/table/tbody/tr[ " + i + "]/td[10]"));
+                    	WebElement elementsele = driver.findElement(By.xpath(".//*[@id='capaReviewTable']/div/table/tbody/tr[ " + i + "]/td[11]"));
                         JavascriptExecutor jssel = (JavascriptExecutor)driver;
                         jssel.executeScript("arguments[0].scrollIntoView(true);", elementsele);
                     	Thread.sleep(4000);
-                        String DevNumberSequence = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[ " + i + " ]/td[10]")).getText();//documentTypeName
+                        String DevNumberSequence = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[ " + i + " ]/td[11]")).getText();//documentTypeName
                         Thread.sleep(4000);
                         if (DeviationNumber.equalsIgnoreCase(DevNumberSequence)) {
                         	Thread.sleep(4000);
-                            driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[ " + i + " ]/td[10]")).click();
+                            driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[ " + i + " ]/td[11]")).click();
                             isRecordSelected = true;
                             break;
                         }
@@ -224,9 +225,9 @@ public class QAApproverCAPA extends DeviationLoginDetails {
                         break;
                     }
                 } else {
-                    String DevNumberSequence = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr/td[10]")).getText();
+                    String DevNumberSequence = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr/td[11]")).getText();
                     if (DeviationNumber.equalsIgnoreCase(DevNumberSequence)) {
-                        driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr/td[10]")).click();
+                        driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr/td[11]")).click();
                         isRecordSelected = true;
                         break;
                     }
@@ -235,15 +236,17 @@ public class QAApproverCAPA extends DeviationLoginDetails {
                 if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
                 	
                 	
-                	WebElement elementnext = driver.findElement(By.cssSelector("#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
-                    JavascriptExecutor jsnext = (JavascriptExecutor)driver;
-                    jsnext.executeScript("arguments[0].scrollIntoView(true);", elementnext);
+//                	WebElement elementnext = driver.findElement(By.cssSelector("#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//                    JavascriptExecutor jsnext = (JavascriptExecutor)driver;
+//                    jsnext.executeScript("arguments[0].scrollIntoView(true);", elementnext);
                 	
-                    driver.findElement(By.cssSelector("#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();//next page in Document approve list
-                    Thread.sleep(5000);
-                    WebDriverWait wait1 = new WebDriverWait(driver, 240);
-                    wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']")));
-                    table = driver.findElement(By.id("capaReviewTable"));//Document Tree approve table
+//                    driver.findElement(By.cssSelector("#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();//next page in Document approve list
+                   Helper.clickElement(driver, By.cssSelector("#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+                	Thread.sleep(5000);
+//                    WebDriverWait wait1 = new WebDriverWait(driver, 240);
+//                    wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']")));
+                   Helper.waitLoadRecords(driver, By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']"));
+                	table = driver.findElement(By.id("capaReviewTable"));//Document Tree approve table
                     tableBody = table.findElement(By.tagName("tbody"));
                     perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
                 }

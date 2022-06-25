@@ -57,7 +57,7 @@
 			<class
 				name="com.pss.qms.DeviationWithInvAndCAPARejection.QAApproverDev" />
 		</classes>
-	</test> 
+	</test>  
 	 <test name="BEDeviationWithInvAndCapa3">
 		<classes>
 			<class

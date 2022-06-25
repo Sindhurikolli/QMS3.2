@@ -218,6 +218,10 @@ public class InvPerformDev extends DeviationLoginDetails {
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter CAPA Comments",sno,false);
             sno++;
             Thread.sleep(2000);
+            driver.findElement(By.id("capaShortDescInInvCapaPerformDialog")).sendKeys(properties.getProperty("CAPAShortDescription_100"));
+            document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter CAPA Short Description",sno,false);
+            sno++;
+            Thread.sleep(2000);
             driver.findElement(By.id("addBtnInInvCapaWinInPerform")).click();
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Button",sno,false);
             JavascriptExecutor jse2 = (JavascriptExecutor) driver;
