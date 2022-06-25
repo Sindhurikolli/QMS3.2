@@ -33,6 +33,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
 public class AuditPlan extends AMLoginDetails {
@@ -84,6 +85,7 @@ public class AuditPlan extends AMLoginDetails {
 			sno++;
 			driver.findElement(By.cssSelector("a[href='amAssignAuditPage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Audit Plan Menu", sno, false);
+			Helper.waitLoadRecords(driver, By.cssSelector("#auditsListTableContainer > div > div.jtable-busy-message[style='display: none;']"));
 			methodToDoAuditPlan();
 			Thread.sleep(3000);
 			document.close();
@@ -191,7 +193,7 @@ public class AuditPlan extends AMLoginDetails {
 //	        }
 			sno++;
 			String text = driver.findElement(By.xpath("//*[@id=\"modal-window\"]/div/div/div[2]/center")).getText();
-			String amno = text.substring(24, 38);
+			String amno = text.substring(24, 39);
 			System.out.println(amno);
 			PropertiesConfiguration properties = new PropertiesConfiguration("src/test/java/QMSUIProperties/AMproperties.properties");
 			properties.setProperty("PLAN_NAME_IN_AI_PLAN_SCHEDULE_AINO", amno+"/A1");

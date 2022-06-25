@@ -125,10 +125,10 @@ public class ApproveAuditeeResponse extends AMLoginDetails {
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Next Button", sno, false);
 			Thread.sleep(3000);
 			sno++;
-			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
-			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Next Button", sno, false);
-			Thread.sleep(3000);
-			sno++;
+//			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
+//			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Next Button", sno, false);
+//			Thread.sleep(3000);
+//			sno++;
 			driver.findElement(By.id("commentsInAmReviewAuditFindingAppForm"))
 					.sendKeys(properties.getProperty("AM_1500"));
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter The Comments", sno, false);

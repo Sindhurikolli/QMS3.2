@@ -38,7 +38,7 @@
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.InternalAuditObservationsRejectedApprove"/>
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ReviewAuditObservations"/>
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ApproveAuditObservations"/> 
-       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponse"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponse"/> 
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseReviewReject"/> 
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseRejectedApprove"/>
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseReview"/> 
@@ -47,7 +47,7 @@
     </test>
      <test name="PlannedAuditManagementWithAI2">
         <classes>  
-       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseRejectedApprove"/>
+       <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseRejectedApprove"/> 
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseReview"/>
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.AuditeeResponseApproval"/> 
        <class name="com.pss.qms.AuditManagementPlanSchWithAIRejectionFlow.ActionItemPerform"/>

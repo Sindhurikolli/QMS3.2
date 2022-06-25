@@ -29,6 +29,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
 public class PlanSchedule extends AMLoginDetails {
@@ -80,6 +81,7 @@ public class PlanSchedule extends AMLoginDetails {
 			driver.findElement(By.cssSelector("a[href='amPlannedAuditPage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document,
 					"Click on Internal Plan sxchedule preparation Menu", sno, false);
+			
 			todoadhocScheduleAM();
 			Thread.sleep(3000);
 			document.close();
@@ -119,7 +121,8 @@ public class PlanSchedule extends AMLoginDetails {
 		driver.findElement(By.id("treeContainer_2_switch")).click();
 		Thread.sleep(2000);
 //	        Thread.sleep(2000);
-		driver.findElement(By.id("treeContainer_3_span")).click();
+//		driver.findElement(By.id("treeContainer_3_span")).click();
+		driver.findElement(By.linkText(properties.getProperty("PlannedAuditDepartment"))).click();
 		sno++;
 		driver.findElement(By.id("selectBtnInLocSelect")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Select Button", sno, false);
@@ -133,6 +136,7 @@ public class PlanSchedule extends AMLoginDetails {
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select The Frequency", sno, false);
 		Thread.sleep(2000);
 //	        driver.findElement(By.id("treeContainer_3_ico")).click();
+		
 		sno++;
 		driver.findElement(By.id("addBtnInAmPlanForm")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Button", sno, false);
