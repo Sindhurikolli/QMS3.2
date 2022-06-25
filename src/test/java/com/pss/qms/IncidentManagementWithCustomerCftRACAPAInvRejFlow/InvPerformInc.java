@@ -191,7 +191,8 @@ public class InvPerformInc extends IncidentManagementLoginDetails {
             Thread.sleep(2000);
             driver.findElement(By.id("capaTreeContainer_2_switch")).click();
             Thread.sleep(3000);
-            driver.findElement(By.id("capaTreeContainer_3_span")).click();
+//            driver.findElement(By.id("capaTreeContainer_3_span")).click();
+            driver.findElement(By.linkText(properties.getProperty("CAPADepartment")));
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select The Location",sno,false);
             sno++;
             Thread.sleep(2000);
@@ -223,6 +224,9 @@ public class InvPerformInc extends IncidentManagementLoginDetails {
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter CAPA Comments",sno,false);
             sno++;
             Thread.sleep(2000);
+            driver.findElement(By.id("caDesciptionInCADetailsJtable1")).sendKeys(properties.getProperty("Description_Of_Incident_2000"));
+            document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter CA Comments",sno,false);
+            sno++;
             driver.findElement(By.id("addBtnInInvCapaWinInPerform")).click();
             Thread.sleep(2000);
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Button",sno,false);
