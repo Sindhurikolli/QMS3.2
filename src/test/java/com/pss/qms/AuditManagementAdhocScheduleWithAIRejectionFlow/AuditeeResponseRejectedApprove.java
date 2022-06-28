@@ -30,6 +30,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
 public class AuditeeResponseRejectedApprove extends AMLoginDetails {
@@ -84,6 +85,7 @@ public class AuditeeResponseRejectedApprove extends AMLoginDetails {
 			driver.findElement(By.id("rejAuditEntryInStartAudit")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Reject Radio Button", sno,
 					false);
+			Helper.waitLoadRecords(driver, By.cssSelector("#rejectAuditsContainerInReviewAuditResponseForm > div > div.jtable-busy-message[style='display: none;']"));
 			methodToDoAuditeeResponseRejectApprove();
 			Thread.sleep(3000);
 			document.close();
@@ -111,22 +113,23 @@ public class AuditeeResponseRejectedApprove extends AMLoginDetails {
 			JavascriptExecutor jse = (JavascriptExecutor) driver;
 			WebElement element = driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a"));
 			jse.executeScript("arguments[0].scrollIntoView(true);", element);
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			sno++;
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
-			Thread.sleep(3000);
-			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
-			sno++;
-			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
-			Thread.sleep(3000);
-			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
-			sno++;
-			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
 			sno++;
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 			Thread.sleep(5000);
+			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
+			sno++;
+			Helper.waitLoadRecords(driver, By.cssSelector("#chkPointsTableInAuditeeResponseForm > div > div.jtable-busy-message[style='display: none;']"));
+			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
+			Thread.sleep(10000);
+			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
+			sno++;
+			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
+			Thread.sleep(10000);
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
 			sno++;
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[3]/a")).click();

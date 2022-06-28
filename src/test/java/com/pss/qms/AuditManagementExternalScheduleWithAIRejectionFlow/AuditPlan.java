@@ -173,7 +173,7 @@ public class AuditPlan extends AMLoginDetails {
 			sno++;
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On OK Button", sno, false);
 			String text = driver.findElement(By.xpath("//*[@id=\"modal-window\"]/div/div/div[2]/center")).getText();
-			String amno = text.substring(24, 38);
+			String amno = text.substring(24, 39);
 			System.out.println(amno);
 			PropertiesConfiguration properties = new PropertiesConfiguration("src/test/java/QMSUIProperties/AMproperties.properties");
 			properties.setProperty("External_AUDIT_NAME_WITH_AINO_REJECT_FLOW", amno+"/A1");

@@ -30,6 +30,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
 public class AuditeeResponseApproval extends AMLoginDetails {
@@ -85,6 +86,7 @@ public class AuditeeResponseApproval extends AMLoginDetails {
 			driver.findElement(By.cssSelector("a[href='amAuditeeResponseAppPage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Auditee Response Menu", sno,
 					false);
+			Helper.waitLoadRecords(driver, By.cssSelector("#auditsContainerInReviewAuditFindingAppForm > div > div.jtable-busy-message[style='display: none;']"));
 			methodToDoAuditeeResponseApprove();
 			Thread.sleep(3000);
 			document.close();
@@ -121,6 +123,7 @@ public class AuditeeResponseApproval extends AMLoginDetails {
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Next Button", sno, false);
 			Thread.sleep(3000);
 			sno++;
+			Helper.waitLoadRecords(driver, By.cssSelector("#chkPointsTableInReviewAuditFindingForm > div > div.jtable-busy-message[style='display: none;']"));
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Next Button", sno, false);
 			Thread.sleep(3000);

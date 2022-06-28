@@ -30,6 +30,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
 public class AdhocScheduleRejectApprove extends AMLoginDetails {
@@ -87,6 +88,7 @@ public class AdhocScheduleRejectApprove extends AMLoginDetails {
 			driver.findElement(By.id("rejectedAdhocAuditPlanInAM")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Rejected RadioButton", sno,
 					false);
+			Helper.waitLoadRecords(driver, By.cssSelector("#rejectedAdhocAuditTablesContainer > div > div.jtable-busy-message[style='display: none;']"));
 			methodToDoPlanRejectApprove();
 			Thread.sleep(5000);
 			document.close();

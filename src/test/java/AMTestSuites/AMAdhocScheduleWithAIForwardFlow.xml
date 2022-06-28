@@ -24,7 +24,7 @@
       
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.AdhocSchedule"/>
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.AdhocScheduleApproval"/>
-       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.AuditPlan"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.AuditPlan"/> 
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.InternalAuditObservations"/> 
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.AuditObservationsReview"/>
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIFwdFlow.AuditObservaionApprove"/>

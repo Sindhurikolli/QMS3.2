@@ -120,7 +120,8 @@ public class ExternalSchedule extends AMLoginDetails {
 		Thread.sleep(2000);
 		driver.findElement(By.id("treeContainer_2_switch")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.id("treeContainer_3_span")).click();
+//		driver.findElement(By.id("treeContainer_3_span")).click();
+		driver.findElement(By.linkText(properties.getProperty("ExternalAuditDepartment"))).click();
 		sno++;
 		driver.findElement(By.id("selectBtnInLocSelect")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Select Button", sno, false);
