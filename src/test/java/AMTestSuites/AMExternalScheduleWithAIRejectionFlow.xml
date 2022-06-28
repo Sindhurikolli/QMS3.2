@@ -27,7 +27,7 @@
        <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ExternalScheduleRejectApprove"/>
        <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ExternalAuditApprove"/>
        <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.AuditPlan"/>
-       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ExternalObservationandResponse"/> 
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ExternalObservationandResponse"/>  
        <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ExternalObservationsAndResponseReviewReject"/>
        <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ExternalObsAndResponseRejectApprove"/>
        <class name="com.pss.qms.AuditManagementExternalScheduleWithAIRejectionFlow.ExternalObservationAndResponseReview"/>

@@ -30,6 +30,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
 public class ActionItemPerform extends AMLoginDetails {
@@ -90,8 +91,7 @@ public class ActionItemPerform extends AMLoginDetails {
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on ActionItem perform Menu", sno,
 					false);
 			Thread.sleep(5000);
-			WebDriverWait wait1 = new WebDriverWait(driver, 60);
-			wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#actItmPerformTable > div > div.jtable-busy-message[style='display: none;']")));
+			Helper.waitLoadRecords(driver, By.cssSelector("#actItmPerformTable > div > div.jtable-busy-message[style='display: none;']"));
 			methodToDoAuditeeResponseApprove();
 			Thread.sleep(3000);
 			document.close();

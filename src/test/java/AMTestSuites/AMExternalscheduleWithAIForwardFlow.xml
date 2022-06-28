@@ -28,7 +28,7 @@
        <class name="com.pss.qms.AuditManagementExternalScheduleWithAIForwardFlow.ExternalScheduleAuditPlan"/> 
        <class name="com.pss.qms.AuditManagementExternalScheduleWithAIForwardFlow.ExternalObservationsAndResponse"/>
        <class name="com.pss.qms.AuditManagementExternalScheduleWithAIForwardFlow.ExternalObservationAndResponseReview"/>
-       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIForwardFlow.ExternalObservationAndResponseApproval"/>
+       <class name="com.pss.qms.AuditManagementExternalScheduleWithAIForwardFlow.ExternalObservationAndResponseApproval"/> 
        <class name="com.pss.qms.AuditManagementExternalScheduleWithAIForwardFlow.ActionItemPerform"/> 
        <class name="com.pss.qms.AuditManagementExternalScheduleWithAIForwardFlow.ActionItemApprove"/>
        <class name="com.pss.qms.AuditManagementExternalScheduleWithAIForwardFlow.CloseAudit"/>

@@ -30,6 +30,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
 public class ExternalObservationsAndResponseReviewReject extends AMLoginDetails {
@@ -84,6 +85,7 @@ public class ExternalObservationsAndResponseReviewReject extends AMLoginDetails 
 			driver.findElement(By.cssSelector("a[href='amExternalAuditObsAndResReviewPage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document,
 					"Click on External Obs And Response Review Menu", sno, false);
+			Helper.waitLoadRecords(driver, By.cssSelector("#auditsContainerInEnterAuditFindingsForm > div > div.jtable-busy-message[style='display: none;']"));
 			methodToDoExternalObsReviewReject();
 			Thread.sleep(3000);
 			document.close();

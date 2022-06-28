@@ -224,7 +224,8 @@ public class ExternalObservationandResponse extends AMLoginDetails {
 			Thread.sleep(2000);
 			driver.findElement(By.id("treeContainerInAllDepartmentsTree_2_switch")).click();
 			Thread.sleep(2000);
-			driver.findElement(By.id("treeContainerInAllDepartmentsTree_3_span")).click();
+//			driver.findElement(By.id("treeContainerInAllDepartmentsTree_3_span")).click();
+			driver.findElement(By.linkText(properties.getProperty("ExternalAuditDepartment"))).click();
 			Thread.sleep(2000);
 			driver.findElement(By.id("selectBtnInAllDepartmentsSelect")).click();
 			Thread.sleep(2000);

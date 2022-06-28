@@ -30,6 +30,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
 public class AuditObservationsRejectedApprove extends AMLoginDetails {
@@ -89,6 +90,7 @@ public class AuditObservationsRejectedApprove extends AMLoginDetails {
 			Thread.sleep(4000);
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Rejected RadioButton Menu",
 					sno, false);
+			Helper.waitLoadRecords(driver, By.cssSelector("#rejectAuditsContainerInEnterAuditFindingsForm > div > div.jtable-busy-message[style='display: none;']"));
 			methodToDoAuditObsRejectApprove();
 			Thread.sleep(5000);
 			document.close();
@@ -127,14 +129,14 @@ public class AuditObservationsRejectedApprove extends AMLoginDetails {
 			sno++;
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
-			Thread.sleep(4000);
+			Thread.sleep(10000);
 //	  sno++;
 //	  driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 //	  document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button",sno,false); 
 			sno++;
 			// driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 			// document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On
-			// Next Button",sno,false);
+			// Next Button",sno,false);			
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
 			Thread.sleep(3000);

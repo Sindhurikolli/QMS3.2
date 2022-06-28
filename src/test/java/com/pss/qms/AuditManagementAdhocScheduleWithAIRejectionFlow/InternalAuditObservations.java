@@ -86,6 +86,7 @@ public class InternalAuditObservations extends AMLoginDetails {
 			driver.findElement(By.cssSelector("a[href='amStartAuditPage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Enter Audit Observations Menu",
 					sno, false);
+			Helper.waitLoadRecords(driver, By.cssSelector("#auditsContainerInEnterAuditFindingsForm > div > div.jtable-busy-message[style='display: none;']"));
 			methodToDoNonComplianceInternalObs();
 			Thread.sleep(5000);
 			document.close();

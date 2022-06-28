@@ -28,7 +28,7 @@
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AdhocSchApprove"/>
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditPlan"/>
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.InternalAuditObservations"/>
-       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditObservationsReviewReject"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditObservationsReviewReject"/> 
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditObservationsRejectedApprove"/>
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditObservationsReview"/>
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditObservationsApproveReject"/>
@@ -40,7 +40,7 @@
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditObservationsRejectedApprove"/>
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditObservationsReview"/>
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditObservationsApprove"/> 
-       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditeeResponse"/>
+       <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditeeResponse"/> 
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditeeResponseReviewReject"/>
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditeeResponseRejectedApprove"/>
        <class name="com.pss.qms.AuditManagementAdhocScheduleWithAIRejectionFlow.AuditeeResponseReview"/>
