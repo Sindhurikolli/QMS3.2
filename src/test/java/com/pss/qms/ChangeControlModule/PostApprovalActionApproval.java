@@ -237,6 +237,7 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 			String[] parts = a.split(" of ");
 			try {
 				totalNoOfRecords = Integer.parseInt(parts[1].trim());
+				System.out.println("Total No of Recors - "+totalNoOfRecords);
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
@@ -244,11 +245,11 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 		if (perPageNoOfRecordsPresent > 0 && count == 0) {
 			if ((totalNoOfRecords > 1) && ((chgCtrlId == null) || ("".equalsIgnoreCase(chgCtrlId)))) {
 				chgCtrlId = driver
-						.findElement(By.xpath("//*[@id=\"ccPostActionsApprovalTable\"]/div/table/tbody/tr[1]/td[3]"))
+						.findElement(By.xpath("//*[@id=\"ccPostActionsApprovalTable\"]/div/table/tbody/tr[1]/td[5]"))
 						.getText();// documentType
 			} else if ((chgCtrlId == null) || ("".equalsIgnoreCase(chgCtrlId))) {
 				chgCtrlId = driver
-						.findElement(By.xpath("//*[@id=\"ccPostActionsApprovalTable\"]/div/table/tbody/tr/td[3]"))
+						.findElement(By.xpath("//*[@id=\"ccPostActionsApprovalTable\"]/div/table/tbody/tr/td[5]"))
 						.getText();// documentType
 
 			}
@@ -274,12 +275,9 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 						break;
 					}
 				} else {
-					String capaNumberSequence = driver
-							.findElement(By.xpath("//*[@id=\"ccPostActionsApprovalTable\"]/div/table/tbody/tr/td[5]"))
-							.getText();
+					String capaNumberSequence = driver.findElement(By.xpath("//*[@id=\"ccPostActionsApprovalTable\"]/div/table/tbody/tr/td[5]")).getText();
 					if (chgCtrlId.equalsIgnoreCase(capaNumberSequence)) {
-						driver.findElement(By.xpath("//*[@id=\"ccPostActionsApprovalTable\"]/div/table/tbody/tr/td[5]"))
-								.click();
+						driver.findElement(By.xpath("//*[@id=\"ccPostActionsApprovalTable\"]/div/table/tbody/tr/td[5]")).click();
 						isRecordSelected = true;
 						break;
 					}
