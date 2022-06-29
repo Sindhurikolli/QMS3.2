@@ -52,7 +52,7 @@
               <class name="com.pss.qms.ChangeControlRejection.QAReviewWithoutCFT"/> 
               <class name="com.pss.qms.ChangeControlRejection.QAApproveReject"/>
              </classes>
-           </test> 
+           </test>  
            
             <test name="QMSTestSuites suite6">    
               <classes>

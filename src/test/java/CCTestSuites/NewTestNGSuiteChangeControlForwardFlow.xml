@@ -19,7 +19,7 @@
              <class name="com.pss.qms.ChangeControlModule.QAReviewerCustomerResponse"/>      
              <class name="com.pss.qms.ChangeControlModule.QAReReviewCC"/>     
              <class name="com.pss.qms.ChangeControlModule.QAApproverCC"/> 
-             <class name="com.pss.qms.ChangeControlModule.PostApprovalActionInitiate"/>
+             <class name="com.pss.qms.ChangeControlModule.PostApprovalActionInitiate"/> 
              <class name="com.pss.qms.ChangeControlModule.PostApprovalActionReview"/>
               <class name="com.pss.qms.ChangeControlModule.PostApprovalActionApproval"/>    
              <class name="com.pss.qms.ChangeControlModule.ActionItemPerform"/>
