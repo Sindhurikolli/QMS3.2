@@ -128,7 +128,7 @@ driver.findElement(By.id("devOccureInDevInit")).sendKeys(todaysDate);
         document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select Identified On",sno,false);
         driver.findElement(By.id("iniOrgintr")).click();
         sno++;
-        driver.findElement(By.id("shortDescDeviationInDevInit")).sendKeys(properties.getProperty("Description_Of_Deviation_1000"));
+        driver.findElement(By.id("shortDescDeviationInDevInit")).sendKeys(properties.getProperty("DeviationShortDescription_300"));
         document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter Deviation Short Description",sno,false);
         sno++;
         driver.findElement(By.id("descDeviationInDevInit")).sendKeys(properties.getProperty("Description_Of_Deviation"));
