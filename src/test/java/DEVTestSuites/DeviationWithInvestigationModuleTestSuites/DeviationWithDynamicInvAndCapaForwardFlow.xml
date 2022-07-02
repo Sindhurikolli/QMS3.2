@@ -17,7 +17,7 @@
     <test name="BEDeviationWithInvAndCapa1">
           <classes>
               <class name="com.pss.qms.DeviationWithInvAndCAPA.QAReviewNotifyCustomerDev"/> 
-              <class name="com.pss.qms.DeviationWithInvAndCAPA.QAReviewCustomerResponseDev"/> 
+              <class name="com.pss.qms.DeviationWithInvAndCAPA.QAReviewCustomerResponseDev"/>  
               <class name="com.pss.qms.DeviationWithInvAndCAPA.QAApproverDev"/>
               <class name="com.pss.qms.DeviationWithInvAndCAPA.InvestigationPlanDev"/>  
               <class name="com.pss.qms.DeviationWithInvAndCAPA.InvPerformDev"/>

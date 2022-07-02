@@ -206,7 +206,7 @@ private boolean selectRecdDeptReviewDeviation(String DeviationNumber, boolean is
 	                        Thread.sleep(4000);
 	                        if (DeviationNumber.equalsIgnoreCase(DevNumberSequence)) {
 	                        	Thread.sleep(4000);
-	                            driver.findElement(By.xpath("//*[@id=\"devReviewTableContailner\"]/div/table/tbody/tr[ " + i + " ]/td[43]/button")).click();
+	                            driver.findElement(By.xpath("//*[@id=\"devReviewTableContailner\"]/div/table/tbody/tr[ " + i + " ]/td[44]/button")).click();
 	                            isRecordSelected = true;
 	                            break;
 	                        }
@@ -224,7 +224,7 @@ private boolean selectRecdDeptReviewDeviation(String DeviationNumber, boolean is
 	                    Thread.sleep(2000);
 	                    if (DeviationNumber.equalsIgnoreCase(DevNumberSequence)) {
 	                    	Thread.sleep(4000);
-	                        driver.findElement(By.xpath("//*[@id=\"devReviewTableContailner\"]/div/table/tbody/tr[1]/td[43 ]/button")).click();
+	                        driver.findElement(By.xpath("//*[@id=\"devReviewTableContailner\"]/div/table/tbody/tr[1]/td[44]/button")).click();
 	                        isRecordSelected = true;
 	                        break;
 	                    }

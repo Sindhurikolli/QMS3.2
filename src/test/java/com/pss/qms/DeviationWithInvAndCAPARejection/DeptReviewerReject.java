@@ -233,7 +233,7 @@ public class DeptReviewerReject extends DeviationLoginDetails {
                     	
                         String DevNumberSequence = driver.findElement(By.xpath(".//*[@id='devReviewTableContailner']/div/table/tbody/tr[ " + i + " ]/td[3]")).getText();//documentTypeName
                         if (DeviationNumber.equalsIgnoreCase(DevNumberSequence)) {
-                            driver.findElement(By.xpath(".//*[@id='devReviewTableContailner']/div/table/tbody/tr[ " + i + " ]/td[43]/button")).click();
+                            driver.findElement(By.xpath(".//*[@id='devReviewTableContailner']/div/table/tbody/tr[ " + i + " ]/td[44]/button")).click();
                             isRecordSelected = true;
                             break;
                         }
@@ -244,7 +244,7 @@ public class DeptReviewerReject extends DeviationLoginDetails {
                 } else {
                     String DevNumberSequence = driver.findElement(By.xpath("//*[@id=\"devReviewTableContailner\"]/div/table/tbody/tr/td[3]")).getText();
                     if (DeviationNumber.equalsIgnoreCase(DevNumberSequence)) {
-                        driver.findElement(By.xpath("//*[@id=\"devReviewTableContailner\"]/div/table/tbody/tr/td[43]/button")).click();
+                        driver.findElement(By.xpath("//*[@id=\"devReviewTableContailner\"]/div/table/tbody/tr/td[44]/button")).click();
                         isRecordSelected = true;
                         break;
                     }

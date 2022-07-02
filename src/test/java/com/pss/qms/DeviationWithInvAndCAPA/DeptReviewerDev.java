@@ -10,6 +10,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.DeviationLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
  
 
@@ -91,8 +92,8 @@ public class DeptReviewerDev extends DeviationLoginDetails {
         document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on MyActivities Tab",sno,false);
         Thread.sleep(2000);
 //          WebDriverWait wait1 = new WebDriverWait(driver, 240);
+        Helper.waitLoadRecords(driver, By.cssSelector("#devReviewTableContailner > div > div.jtable-busy-message[style='display: none;']"));
         
-        wait1.until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#devReviewTableContailner > div > div.jtable-busy-message"))));
         methodToDoDeptReviewDeviation();
         document.close();
 		writer.close();
@@ -191,7 +192,8 @@ private boolean selectRecdDeptReviewDeviation(String DeviationNumber, boolean is
                     for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
   String DevNumberSequence = driver.findElement(By.xpath("//*[@id=\"devReviewTableContailner\"]/div/table/tbody/tr[ " + i + " ]/td[3]")).getText();//documentTypeName
                         if (DeviationNumber.equalsIgnoreCase(DevNumberSequence)) {
-                            driver.findElement(By.xpath("//*[@id=\"devReviewTableContailner\"]/div/table/tbody/tr[ " + i + " ]/td[43]/button")).click();
+                           Helper.clickElement(driver, By.xpath("//*[@id=\"devReviewTableContailner\"]/div/table/tbody/tr[ " + i + " ]/td[44]/button"));
+//                        	driver.findElement(By.xpath("//*[@id=\"devReviewTableContailner\"]/div/table/tbody/tr[ " + i + " ]/td[44]/button")).click();
                             isRecordSelected = true;
                             break;
                         }
@@ -202,15 +204,17 @@ private boolean selectRecdDeptReviewDeviation(String DeviationNumber, boolean is
                 } else {
                     String DevNumberSequence = driver.findElement(By.xpath("//*[@id=\"devReviewTableContailner\"]/div/table/tbody/tr/td[3]")).getText();
                     if (DeviationNumber.equalsIgnoreCase(DevNumberSequence)) {
-                        driver.findElement(By.xpath("//*[@id=\"devReviewTableContailner\"]/div/table/tbody/tr/td[43]/button")).click();
+                        driver.findElement(By.xpath("//*[@id=\"devReviewTableContailner\"]/div/table/tbody/tr/td[44]/button")).click();
                         isRecordSelected = true;
                         break;
                     }
                 }
                 noOfRecordsChecked += perPageNoOfRecordsPresent;
                 if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-                    driver.findElement(By.cssSelector("#devReviewTableContailner > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();//next page in Document approve list
-                    Thread.sleep(120000);
+                   Helper.clickElement(driver, By.cssSelector("#devReviewTableContailner > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//                	driver.findElement(By.cssSelector("#devReviewTableContailner > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();//next page in Document approve list
+                    Thread.sleep(5000);
+                    Helper.waitLoadRecords(driver, By.cssSelector("#devReviewTableContailner > div > div.jtable-busy-message[style='display: none;']"));
                     table = driver.findElement(By.id("devReviewTableContailner"));//Document Tree approve table
                     tableBody = table.findElement(By.tagName("tbody"));
                     perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();

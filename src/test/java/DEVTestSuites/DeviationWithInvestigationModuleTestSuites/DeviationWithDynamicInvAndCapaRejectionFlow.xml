@@ -87,7 +87,7 @@
 			<class
 				name="com.pss.qms.DeviationWithInvAndCAPARejection.CFTInvReview" />
 			<class
-				name="com.pss.qms.DeviationWithInvAndCAPARejection.QAReReviewerDev" />
+				name="com.pss.qms.DeviationWithInvAndCAPARejection.QAReReviewerDev" /> 
 			<class
 				name="com.pss.qms.DeviationWithInvAndCAPARejection.FinalQAApproverDev" />
 		</classes>

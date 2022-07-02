@@ -11,6 +11,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
  
 import com.pss.qms.login.DeviationLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.Desktop;
@@ -211,7 +212,7 @@ private boolean methodToDoReInitiateDeviation(String DeviationNumber, boolean is
                     	
   String DevNumberSequence = driver.findElement(By.xpath(".//*[@id='devRejectTable']/div/table/tbody/tr[ " + i + "]/td[3]")).getText();//documentTypeName
                         if (DeviationNumber.equalsIgnoreCase(DevNumberSequence)) {
-                            driver.findElement(By.xpath(".//*[@id='devRejectTable']/div/table/tbody/tr[ " + i + " ]/td[11]/button")).click();
+                            driver.findElement(By.xpath(".//*[@id='devRejectTable']/div/table/tbody/tr[ " + i + " ]/td[12]/button")).click();
                             isRecordSelected = true;
                             break;
                         }
@@ -222,7 +223,7 @@ private boolean methodToDoReInitiateDeviation(String DeviationNumber, boolean is
                 } else {
                     String DevNumberSequence = driver.findElement(By.xpath("//*[@id=\"devRejectTable\"]/div/table/tbody/tr/td[3]")).getText();
                     if (DeviationNumber.equalsIgnoreCase(DevNumberSequence)) {
-                        driver.findElement(By.xpath("//*[@id=\"devRejectTable\"]/div/table/tbody/tr/td[11]/button")).click();
+                        driver.findElement(By.xpath("//*[@id=\"devRejectTable\"]/div/table/tbody/tr/td[12]/button")).click();
                         isRecordSelected = true;
                         break;
                     }
@@ -230,12 +231,10 @@ private boolean methodToDoReInitiateDeviation(String DeviationNumber, boolean is
                 noOfRecordsChecked += perPageNoOfRecordsPresent;
                 if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
                 	
-                	WebElement elementnext = driver.findElement(By.cssSelector("#devRejectTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
-                    JavascriptExecutor jsnext = (JavascriptExecutor)driver;
-                    jsnext.executeScript("arguments[0].scrollIntoView(true);", elementnext);
-                    
-                    driver.findElement(By.cssSelector("#devRejectTable' > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();//next page in Document approve list
+                	Helper.clickElement(driver, By.cssSelector("#devRejectTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));                    
+//                    driver.findElement(By.cssSelector("#devRejectTable' > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();//next page in Document approve list
                     Thread.sleep(3000);
+                    Helper.waitLoadRecords(driver, By.cssSelector("#devRejectTable > div > div.jtable-busy-message[style='display: none;']"));
                     table = driver.findElement(By.id("devRejectTable"));//Document Tree approve table
                     tableBody = table.findElement(By.tagName("tbody"));
                     perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();

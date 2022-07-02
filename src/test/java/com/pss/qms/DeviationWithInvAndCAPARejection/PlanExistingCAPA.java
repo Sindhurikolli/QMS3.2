@@ -213,11 +213,11 @@ public class PlanExistingCAPA extends DeviationLoginDetails {
             TaskType.selectByIndex(3);
             Thread.sleep(2000);
             driver.findElement(By.id("addBtnInCaPaDueDtWndw")).click();
-            js.executeScript("window.scrollBy(0,1000)");
+            js.executeScript("window.scrollBy(0,2000)");
 			Thread.sleep(2000);
-			driver.findElement(By.cssSelector("#createCapaPlanWindowMainDiv > div:nth-child(5) > div:nth-child(2) > div.form-group.col-sm-4 > div.radio_false_disable > label")).click();
-			
-         //   driver.findElement(By.id("suppDocYesInCapaPlan")).click();
+			driver.findElement(By.cssSelector("#createCapaPlanWindowMainDiv > div:nth-child(5) > div:nth-child(3) > div.form-group.col-sm-4 > div.radio_false_disable > label")).click();
+			 js.executeScript("window.scrollBy(0,3000)");
+//            driver.findElement(By.id("suppDocYesInCapaPlan")).click();
             Thread.sleep(2000);
             driver.findElement(By.id("capaAddSuppDocs")).click();
             driver.findElement(By.id("uploadSuppDoc_1")).sendKeys(properties.getProperty("Document-1"));
