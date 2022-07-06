@@ -12,6 +12,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
  
 import com.pss.qms.login.RALoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.Desktop;
@@ -194,14 +195,11 @@ public class QAReReviewRAModule extends RALoginDetails {
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						String RANumberSequence = driver.findElement(By.xpath(
-								"//*[@id=\"riskAnalysisReviewTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[4]"))
-								.getText();// documentTypeName
+						Helper.scrollElement(driver, By.xpath("//*[@id=\"riskAnalysisReviewTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[4]"));
+						String RANumberSequence = driver.findElement(By.xpath("//*[@id=\"riskAnalysisReviewTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[4]")).getText();// documentTypeName
 						if (RANumber.equalsIgnoreCase(RANumberSequence)) {
-							driver.findElement(
-									By.xpath("//*[@id=\"riskAnalysisReviewTableContainer\"]/div/table/tbody/tr[ " + i
-											+ " ]/td[29]/button"))
-									.click();
+							Helper.clickElement(driver, By.xpath("//*[@id=\"riskAnalysisReviewTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[29]/button"));
+//							driver.findElement(By.xpath("//*[@id=\"riskAnalysisReviewTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[29]/button")).click();
 							isRecordSelected = true;
 							break;
 						}
