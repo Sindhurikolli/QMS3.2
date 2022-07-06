@@ -63,7 +63,7 @@ public class InvReviewMC extends MCLoginDetails {
 			HeaderFooterPageEvent event = new HeaderFooterPageEvent("InvReviewDev", "PSS-QMS-001", "Pass");
 			writer.setPageEvent(event);
 			document.open();
-			driver.findElement(By.name("loginUserName")).sendKeys(properties.getProperty("QAHod"));
+			driver.findElement(By.name("loginUserName")).sendKeys(properties.getProperty("INVQAHOD"));
 			driver.findElement(By.name("loginPassword")).sendKeys(properties.getProperty("Password"));
 			Select module= new Select(driver.findElement(By.id("qmsModule")));
 			module.selectByIndex(5);

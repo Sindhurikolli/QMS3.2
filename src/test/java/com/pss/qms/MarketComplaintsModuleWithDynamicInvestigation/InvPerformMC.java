@@ -180,12 +180,17 @@ public class InvPerformMC extends MCLoginDetails {
             Thread.sleep(2000);
             driver.findElement(By.id("capaTreeContainer_2_switch")).click();
             Thread.sleep(3000);
-            driver.findElement(By.id("capaTreeContainer_3_span")).click();
+//            driver.findElement(By.id("capaTreeContainer_3_span")).click();
+            driver.findElement(By.linkText(properties.getProperty("CAPA_Department"))).click();
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select The Location",sno,false);
             sno++;
             Thread.sleep(2000);
             driver.findElement(By.id("selectBtnInCapaLocSelect")).click();
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Select Button",sno,false);
+            sno++;
+            Thread.sleep(2000);
+            driver.findElement(By.id("capaShortDescInInvCapaPerformDialog")).sendKeys(properties.getProperty("CAPA_ShortDescription"));
+            document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter CAPA Short Description",sno,false);
             sno++;
             Thread.sleep(2000);
             driver.findElement(By.id("addCorrectiveActCktInInvCapaAddWin")).click();

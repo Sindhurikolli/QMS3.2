@@ -82,8 +82,7 @@ public class QAReviewerMCModule extends MCLoginDetails {
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Review menu", sno, false);
 		driver.findElement(By.cssSelector("a[href='mcMyActReviewPage.do']")).click();
 		WebDriverWait wait = new WebDriverWait(driver, 240);
-		wait.until(ExpectedConditions.invisibilityOf(
-				driver.findElement(By.cssSelector("#mcReviewTableContailner > div > div.jtable-busy-message"))));
+		Helper.waitLoadRecords(driver, By.cssSelector("#mcReviewTableContailner > div > div.jtable-busy-message[style='display: none;']"));
 		methodToDoQAReviewer();
 		document.close();
 		writer.close();

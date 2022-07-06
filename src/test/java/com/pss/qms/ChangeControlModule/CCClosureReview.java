@@ -110,7 +110,8 @@ WebDriverWait wait1 = new WebDriverWait(driver, 90);
 		//	driver.findElement(By.cssSelector("a[href='ccClosureQAReviewPage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on closure review sub menu", sno,
 					false);
-			 wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccClosureQaReviewDetailsTable > div > div.jtable-busy-message[style='display: none;']")));
+			Helper.waitLoadRecords(driver, By.cssSelector("#ccClosureQaReviewDetailsTable > div > div.jtable-busy-message[style='display: none;']"));
+//			 wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccClosureQaReviewDetailsTable > div > div.jtable-busy-message[style='display: none;']")));
 //        Thread.sleep(20000);
 			methodToDoClosureReview();
 			document.close();
