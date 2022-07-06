@@ -195,7 +195,7 @@ public class QAReReviewRAModule extends RALoginDetails {
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						Helper.scrollElement(driver, By.xpath("//*[@id=\"riskAnalysisReviewTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[4]"));
+//						Helper.scrollElement(driver, By.xpath("//*[@id=\"riskAnalysisReviewTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[4]"));
 						String RANumberSequence = driver.findElement(By.xpath("//*[@id=\"riskAnalysisReviewTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[4]")).getText();// documentTypeName
 						if (RANumber.equalsIgnoreCase(RANumberSequence)) {
 							Helper.clickElement(driver, By.xpath("//*[@id=\"riskAnalysisReviewTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[29]/button"));
