@@ -12,6 +12,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
  
 import com.pss.qms.login.RALoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.Desktop;
@@ -196,13 +197,9 @@ public class QAReviewerNotifyCustomer extends RALoginDetails {
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						String RANumberSequence = driver.findElement(By.xpath(
-								".//*[@id='riskAssmntNotifyCustomerContainer']/div/table/tbody/tr[ " + i + " ]/td[2]"))
-								.getText();// documentTypeName
+						String RANumberSequence = driver.findElement(By.xpath("//*[@id='riskAssmntNotifyCustomerContainer']/div/table/tbody/tr[ " + i + " ]/td[2]")).getText(); // documentTypeName
 						if (RANumber.equalsIgnoreCase(RANumberSequence)) {
-							WebElement element = driver.findElement(
-									By.xpath(".//*[@id='riskAssmntNotifyCustomerContainer']/div/table/tbody/tr[ " + i
-											+ " ]/td[2]"));
+							WebElement element = driver.findElement(By.xpath("//*[@id='riskAssmntNotifyCustomerContainer']/div/table/tbody/tr[ " + i + " ]/td[2]"));
 							JavascriptExecutor js = (JavascriptExecutor) driver;
 							js.executeScript("arguments[0].click();", element);
 //                            driver.findElement(By.xpath(".//*[@id='riskAssmntNotifyCustomerContainer']/div/table/tbody/tr[ " + i + " ]/td[2]")).click();
@@ -214,13 +211,9 @@ public class QAReviewerNotifyCustomer extends RALoginDetails {
 						break;
 					}
 				} else {
-					String RANumberSequence = driver
-							.findElement(
-									By.xpath("//*[@id=\"riskAssmntNotifyCustomerContainer\"]/div/table/tbody/tr/td[2]"))
-							.getText();
+					String RANumberSequence = driver.findElement(By.xpath("//*[@id=\"riskAssmntNotifyCustomerContainer\"]/div/table/tbody/tr/td[2]")).getText();
 					if (RANumber.equalsIgnoreCase(RANumberSequence)) {
-						WebElement element = driver.findElement(
-								By.xpath("//*[@id=\"riskAssmntNotifyCustomerContainer\"]/div/table/tbody/tr/td[2]"));
+						WebElement element = driver.findElement(By.xpath("//*[@id=\"riskAssmntNotifyCustomerContainer\"]/div/table/tbody/tr/td[2]"));
 						JavascriptExecutor js = (JavascriptExecutor) driver;
 						js.executeScript("arguments[0].click();", element);
 //                        driver.findElement(By.xpath("//*[@id=\"riskAssmntNotifyCustomerContainer\"]/div/table/tbody/tr/td[2]")).click();
@@ -230,10 +223,10 @@ public class QAReviewerNotifyCustomer extends RALoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#riskAssmntNotifyCustomerContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#riskAssmntNotifyCustomerContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					driver.findElement(By.cssSelector("#riskAssmntNotifyCustomerContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
 					Thread.sleep(3000);
+					Helper.waitLoadRecords(driver, By.cssSelector("#riskAssmntNotifyCustomerContainer > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("riskAssmntNotifyCustomerContainer"));// Document Tree approve
 																							// table
 					tableBody = table.findElement(By.tagName("tbody"));
