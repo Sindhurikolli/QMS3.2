@@ -34,7 +34,7 @@ public class Helper {
 	
 	public static void waitLoadRecords(WebDriver driver, By byObj) throws InterruptedException {
 		Thread.sleep(500);
-		WebDriverWait wait1 = new WebDriverWait(driver, 60);
+		WebDriverWait wait1 = new WebDriverWait(driver, 280);
 		wait1.until(ExpectedConditions.presenceOfElementLocated(byObj));
 		Thread.sleep(500);
 	}

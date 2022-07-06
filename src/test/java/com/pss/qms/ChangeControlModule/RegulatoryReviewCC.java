@@ -92,13 +92,12 @@ public class RegulatoryReviewCC extends CCLoginDetails {
 //        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on My Activities Tab", sno,false);
 //        sno++;
 //        Thread.sleep(25000);
-WebDriverWait wait1 = new WebDriverWait(driver, 60);
- wait1.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='ccRegulatoryReviewPage.do']")));
-			driver.findElement(By.cssSelector("a[href='ccRegulatoryReviewPage.do']")).click();
+
+ Helper.clickElement(driver, By.cssSelector("a[href='ccRegulatoryReviewPage.do']"));
+//			driver.findElement(By.cssSelector("a[href='ccRegulatoryReviewPage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on review menu", sno, false);
 //        Thread.sleep(100000);
-		
-					 wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlRegulatoryReviewTableContainer > div > div.jtable-busy-message[style='display: none;']")));
+			Helper.waitLoadRecords(driver, By.cssSelector("#changeControlRegulatoryReviewTableContainer > div > div.jtable-busy-message[style='display: none;']"));
 			methodToDoRegReviewChgControl();
 			Thread.sleep(5000);
 			document.close();
@@ -240,9 +239,9 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						String CCNumberSequence = driver.findElement(By.xpath(".//*[@id='changeControlRegulatoryReviewTableContainer']/div/table/tbody/tr[ " + i + "]/td[3]")).getText();// documentTypeName
+						String CCNumberSequence = driver.findElement(By.xpath("//*[@id='changeControlRegulatoryReviewTableContainer']/div/table/tbody/tr[ " + i + "]/td[3]")).getText();// documentTypeName
 						if (chgControlNumber.equalsIgnoreCase(CCNumberSequence)) {
-							driver.findElement(By.xpath(".//*[@id='changeControlRegulatoryReviewTableContainer']/div/table/tbody/tr[" + i + "]/td[52]/button")).click();
+							driver.findElement(By.xpath("//*[@id='changeControlRegulatoryReviewTableContainer']/div/table/tbody/tr[" + i + "]/td[52]/button")).click();
 							isRecordSelected = true;
 							break;
 						}
@@ -253,11 +252,11 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 				} else {
 					String CCNumberSequence = driver
 							.findElement(By.xpath(
-									".//*[@id='changeControlRegulatoryReviewTableContainer']/div/table/tbody/tr/td[3]"))
+									"//*[@id='changeControlRegulatoryReviewTableContainer']/div/table/tbody/tr/td[3]"))
 							.getText();
 					if (chgControlNumber.equalsIgnoreCase(CCNumberSequence)) {
 						driver.findElement(By.xpath(
-								".//*[@id='changeControlRegulatoryReviewTableContainer']/div/table/tbody/tr/td[52]/button"))
+								"//*[@id='changeControlRegulatoryReviewTableContainer']/div/table/tbody/tr/td[52]/button"))
 								.click();
 						isRecordSelected = true;
 						break;
