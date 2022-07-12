@@ -13,6 +13,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.Desktop;
@@ -196,10 +197,10 @@ public class CAPARejectInitiate extends CAorPALoginDetails {
 		}
 		if (perPageNoOfRecordsPresent > 0 && count == 0) {
 			if ((totalNoOfRecords > 1) && ((CAPANumber == null) || ("".equalsIgnoreCase(CAPANumber)))) {
-				CAPANumber = driver.findElement(By.xpath("//*[@id=\"capaRejectTable\"]/div/table/tbody/tr/td[16]"))
+				CAPANumber = driver.findElement(By.xpath("//*[@id=\"capaRejectTable\"]/div/table/tbody/tr/td[6]"))
 						.getText();// documentType
 			} else if ((CAPANumber == null) || ("".equalsIgnoreCase(CAPANumber))) {
-				CAPANumber = driver.findElement(By.xpath("//*[@id=\"capaRejectTable\"]/div/table/tbody/tr/td[16]"))
+				CAPANumber = driver.findElement(By.xpath("//*[@id=\"capaRejectTable\"]/div/table/tbody/tr/td[6]"))
 						.getText();// documentType
 
 			}
@@ -211,13 +212,13 @@ public class CAPARejectInitiate extends CAorPALoginDetails {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
 
 						WebElement elementsele = driver.findElement(
-								By.xpath("//*[@id=\"capaRejectTable\"]/div/table/tbody/tr[ " + i + " ]/td[16]"));
+								By.xpath("//*[@id=\"capaRejectTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]"));
 						JavascriptExecutor jssel = (JavascriptExecutor) driver;
 						jssel.executeScript("arguments[0].scrollIntoView(true);", elementsele);
 
 						String capaNumberSequence = driver
 								.findElement(
-										By.xpath("//*[@id=\"capaRejectTable\"]/div/table/tbody/tr[ " + i + " ]/td[16]"))
+										By.xpath("//*[@id=\"capaRejectTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]"))
 								.getText();// documentTypeName
 						if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
 
@@ -237,11 +238,11 @@ public class CAPARejectInitiate extends CAorPALoginDetails {
 					}
 				} else {
 					WebElement elementsele = driver
-							.findElement(By.xpath("//*[@id=\"capaRejectTable\"]/div/table/tbody/tr/td[16]"));
+							.findElement(By.xpath("//*[@id=\"capaRejectTable\"]/div/table/tbody/tr/td[6]"));
 					JavascriptExecutor jssel = (JavascriptExecutor) driver;
 					jssel.executeScript("arguments[0].scrollIntoView(true);", elementsele);
 					String capaNumberSequence = driver
-							.findElement(By.xpath("//*[@id=\"capaRejectTable\"]/div/table/tbody/tr/td[16]")).getText();
+							.findElement(By.xpath("//*[@id=\"capaRejectTable\"]/div/table/tbody/tr/td[6]")).getText();
 					if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
 						WebElement elementsele1 = driver
 								.findElement(By.xpath("//*[@id=\"capaRejectTable\"]/div/table/tbody/tr/td[30]/button"));
@@ -255,16 +256,9 @@ public class CAPARejectInitiate extends CAorPALoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-
-					WebElement elementnext = driver.findElement(By.cssSelector(
-							"#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
-					JavascriptExecutor jsnext = (JavascriptExecutor) driver;
-					jsnext.executeScript("arguments[0].scrollIntoView(true);", elementnext);
-
-					driver.findElement(By.cssSelector(
-							"#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
-//                    Thread.sleep(3000);
+					Helper.clickElement(driver, By.cssSelector("#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));					
+                    Thread.sleep(3000);
+                    Helper.waitLoadRecords(driver, By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("capaRejectTable"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();

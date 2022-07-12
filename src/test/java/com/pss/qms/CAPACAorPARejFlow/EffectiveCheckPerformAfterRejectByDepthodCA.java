@@ -33,6 +33,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 public class EffectiveCheckPerformAfterRejectByDepthodCA extends CAorPALoginDetails {
@@ -211,13 +212,11 @@ public class EffectiveCheckPerformAfterRejectByDepthodCA extends CAorPALoginDeta
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						String capaNumberSequence = driver.findElement(By.xpath(
-								"//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[" + i + " ]/td[6]"))
-								.getText();// documentTypeName
+						Helper.scrollElement(driver, By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[" + i + " ]/td[6]"));
+						String capaNumberSequence = driver.findElement(By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[" + i + " ]/td[6]")).getText();// documentTypeName
 						if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
-							driver.findElement(By.xpath(
-									"//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[" + i + " ]/td[6]"))
-									.click();
+							Helper.clickElement(driver, By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[" + i + " ]/td[6]"));
+//							driver.findElement(By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[" + i + " ]/td[6]")).click();
 							isRecordSelected = true;
 							break;
 						}

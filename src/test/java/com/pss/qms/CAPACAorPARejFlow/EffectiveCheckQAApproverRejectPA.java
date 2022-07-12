@@ -79,6 +79,7 @@ public class EffectiveCheckQAApproverRejectPA extends CAorPALoginDetails {
 
 		WebDriverWait wait = new WebDriverWait(driver, 240);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href='effChkImplPostPerfom.do']")));
+		jse.executeScript("window.scrollBy(0,250)");
 		driver.findElement(By.cssSelector("a[href='effChkImplPostPerfom.do']")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document,
 				"Click on Effectiveness check Review & approval", sno, false);

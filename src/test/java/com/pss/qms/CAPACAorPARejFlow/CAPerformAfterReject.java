@@ -14,6 +14,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.Desktop;
@@ -87,8 +88,8 @@ public class CAPerformAfterReject extends CAorPALoginDetails {
 		driver.findElement(By.cssSelector("a[href='caRejectTaskPage.do']")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Reverted Performed CAPAs", sno,
 				false);
-		wait.until(ExpectedConditions.presenceOfElementLocated(
-				By.cssSelector("#caTaskRejectTable > div > div.jtable-busy-message[style='display: none;']")));
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#caTaskRejectTable > div > div.jtable-busy-message[style='display: none;']")));
+		Helper.waitLoadRecords(driver, By.cssSelector("#caTaskRejectTable > div > div.jtable-busy-message[style='display: none;']"));
 		methodToDoCAPerformTaskCAPA();
 		document.close();
 		writer.close();

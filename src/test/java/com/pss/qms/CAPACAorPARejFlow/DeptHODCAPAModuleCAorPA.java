@@ -15,6 +15,7 @@ import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.login.CAorPALoginDetails;
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.AWTException;
@@ -244,10 +245,10 @@ public class DeptHODCAPAModuleCAorPA extends CAorPALoginDetails {
 		}
 		if (perPageNoOfRecordsPresent > 0 && count == 0) {
 			if ((totalNoOfRecords > 1) && ((CAPANumber == null) || ("".equalsIgnoreCase(CAPANumber)))) {
-				CAPANumber = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[1]/td[10]"))
+				CAPANumber = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[1]/td[11]"))
 						.getText();// documentType
 			} else if ((CAPANumber == null) || ("".equalsIgnoreCase(CAPANumber))) {
-				CAPANumber = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[1]/td[10]"))
+				CAPANumber = driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[1]/td[11]"))
 						.getText();// documentType
 
 			}
@@ -259,13 +260,13 @@ public class DeptHODCAPAModuleCAorPA extends CAorPALoginDetails {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
 						String capaNumberSequence = driver
 								.findElement(
-										By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[ " + i + " ]/td[10]"))
+										By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[ " + i + " ]/td[11]"))
 								.getText();// documentTypeName
 //                        Thread.sleep(8000);
 						if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
 //                            Thread.sleep(8000);
 							driver.findElement(
-									By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[ " + i + " ]/td[10]"))
+									By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[ " + i + " ]/td[11]"))
 									.click();
 //                            Thread.sleep(8000);
 							isRecordSelected = true;
@@ -277,9 +278,9 @@ public class DeptHODCAPAModuleCAorPA extends CAorPALoginDetails {
 					}
 				} else {
 					String capaNumberSequence = driver
-							.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr/td[10]")).getText();
+							.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr/td[11]")).getText();
 					if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
-						driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[1]/td[10]"))
+						driver.findElement(By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[1]/td[11]"))
 								.click();
 						isRecordSelected = true;
 						break;
@@ -287,13 +288,12 @@ public class DeptHODCAPAModuleCAorPA extends CAorPALoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					driver.findElement(By.cssSelector("#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
 					Thread.sleep(3000);
-					WebDriverWait wait = new WebDriverWait(driver, 240);
-					wait.until(ExpectedConditions.presenceOfElementLocated(
-							By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']")));
+//					WebDriverWait wait = new WebDriverWait(driver, 240);
+//					wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']")));
+					Helper.waitLoadRecords(driver, By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("capaReviewTable"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
