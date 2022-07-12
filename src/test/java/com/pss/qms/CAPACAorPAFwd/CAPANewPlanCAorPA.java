@@ -256,9 +256,8 @@ public class CAPANewPlanCAorPA extends CAorPALoginDetails {
 		Thread.sleep(5000);
 		scl.executeScript("window.scrollBy(0,200)");
 
-		driver.findElement(By.cssSelector(
-				"#createCapaPlanWindowMainDiv > div:nth-child(5) > div:nth-child(2) > div.form-group.col-sm-4 > div.radio_false_disable > label"))
-				.click();
+//		driver.findElement(By.cssSelector("#createCapaPlanWindowMainDiv > div:nth-child(5) > div:nth-child(2) > div.form-group.col-sm-4 > div.radio_false_disable > label")).click();
+		driver.findElement(By.cssSelector("label[for='suppDocYesInCapaPlan']")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document,
 				"Click on supporing dosuments Yes radio button", sno, false);
 		sno++;

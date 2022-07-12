@@ -14,6 +14,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.Desktop;
@@ -335,10 +336,10 @@ public class PAPerformAfterReject extends CAorPALoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#prevActRejectTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#prevActRejectTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					driver.findElement(By.cssSelector("#prevActRejectTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
 					Thread.sleep(3000);
+					Helper.waitLoadRecords(driver, By.cssSelector("#prevActRejectTable > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("prevActRejectTable"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();

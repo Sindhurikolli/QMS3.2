@@ -79,6 +79,7 @@ public class DepthodEffectiveCheckReviewCA extends CAorPALoginDetails {
 		jse.executeScript("window.scrollBy(0,250)");
 		WebDriverWait wait = new WebDriverWait(driver, 240);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href='effChkImplPostPerfom.do']")));
+		jse.executeScript("window.scrollBy(0,250)");
 		driver.findElement(By.cssSelector("a[href='effChkImplPostPerfom.do']")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document,
 				"Click on Performed Effective check approval", sno, false);

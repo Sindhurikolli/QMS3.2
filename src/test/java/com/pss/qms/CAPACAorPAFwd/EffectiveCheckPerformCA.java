@@ -16,6 +16,7 @@ import com.pss.qms.login.CAorPALoginDetails;
  
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.Desktop;
@@ -122,7 +123,7 @@ public class EffectiveCheckPerformCA extends CAorPALoginDetails {
 	private void toCAPAEffectiveCheckPerform() throws Exception {
 
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeScript("window.scrollBy(0,500)");
+//		jse.executeScript("window.scrollBy(0,100)");
 		int count = 0;
 		boolean isRecordSelected = false;
 		String CAPANumber = properties.getProperty("ActionIdCA");
@@ -217,9 +218,10 @@ public class EffectiveCheckPerformCA extends CAorPALoginDetails {
 		int totalNoOfRecords = 0;
 		int noOfRecordsChecked = 0;
 		if (perPageNoOfRecordsPresent > 0) {
-			WebElement element1 = driver.findElement(By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/div[4]/div[2]/span"));
-            JavascriptExecutor js1 = (JavascriptExecutor)driver;
-            js1.executeScript("arguments[0].scrollIntoView(true);", element1);
+//			WebElement element1 = driver.findElement(By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/div[4]/div[2]/span"));
+//            JavascriptExecutor js1 = (JavascriptExecutor)driver;
+//            js1.executeScript("arguments[0].scrollIntoView(true);", element1);
+			Helper.scrollElement(driver, By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/div[4]/div[2]/span"));
 			String a = driver.findElement(By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/div[4]/div[2]/span"))
 					.getText();// For Ex: Showing 1-1 of 1
 			String[] parts = a.split(" of ");
@@ -246,18 +248,16 @@ public class EffectiveCheckPerformCA extends CAorPALoginDetails {
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						WebElement element1 = driver.findElement(By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]"));
-			            JavascriptExecutor js1 = (JavascriptExecutor)driver;
-			            js1.executeScript("arguments[0].scrollIntoView(true);", element1);
-						String capaNumberSequence = driver.findElement(By.xpath(
-								"//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]"))
-								.getText();// documentTypeName
+//						WebElement element1 = driver.findElement(By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]"));
+//			            JavascriptExecutor js1 = (JavascriptExecutor)driver;
+//			            js1.executeScript("arguments[0].scrollIntoView(true);", element1);
+			            Helper.scrollElement(driver, By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]"));
+						String capaNumberSequence = driver.findElement(By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]")).getText();// documentTypeName
 						if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
-							WebElement element2 = driver.findElement(By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]"));			           
-				            js1.executeScript("arguments[0].scrollIntoView(true);", element2);
-							driver.findElement(By.xpath(
-									"//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]"))
-									.click();
+//							WebElement element2 = driver.findElement(By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]"));			           
+//				            js1.executeScript("arguments[0].scrollIntoView(true);", element2);
+							Helper.clickElement(driver, By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]"));
+//				            driver.findElement(By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]")).click();
 							isRecordSelected = true;
 							break;
 						}
