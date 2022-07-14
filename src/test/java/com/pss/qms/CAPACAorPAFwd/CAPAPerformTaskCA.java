@@ -323,10 +323,10 @@ public class CAPAPerformTaskCA extends CAorPALoginDetails {
 		}
 		if (perPageNoOfRecordsPresent > 0 && count == 0) {
 			if ((totalNoOfRecords > 1) && ((CAPANumber == null) || ("".equalsIgnoreCase(CAPANumber)))) {
-				CAPANumber = driver.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr/td[5]"))
+				CAPANumber = driver.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr/td[6]"))
 						.getText();// documentType
 			} else if ((CAPANumber == null) || ("".equalsIgnoreCase(CAPANumber))) {
-				CAPANumber = driver.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr/td[5]"))
+				CAPANumber = driver.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr/td[6]"))
 						.getText();// documentType
 
 			}
@@ -336,10 +336,10 @@ public class CAPAPerformTaskCA extends CAorPALoginDetails {
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						Helper.scrollElement(driver, By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[5]"));
-						String capaNumberSequence = driver.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[5]")).getText();// documentTypeName
+						Helper.scrollElement(driver, By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]"));
+						String capaNumberSequence = driver.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]")).getText();// documentTypeName
 						if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
-							Helper.clickElement(driver, By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[5]"));
+							Helper.clickElement(driver, By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]"));
 //							driver.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[5]")).click();
 							isRecordSelected = true;
 							break;
@@ -350,10 +350,10 @@ public class CAPAPerformTaskCA extends CAorPALoginDetails {
 					}
 				} else {
 					String capaNumberSequence = driver
-							.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr/td[5]"))
+							.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr/td[6]"))
 							.getText();
 					if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
-						driver.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr/td[5]"))
+						driver.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr/td[6]"))
 								.click();
 						isRecordSelected = true;
 						break;
@@ -362,17 +362,15 @@ public class CAPAPerformTaskCA extends CAorPALoginDetails {
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
 
-					JavascriptExecutor jse9 = (JavascriptExecutor) driver;
-					WebElement element9 = driver.findElement(By.cssSelector(
-							"#actItmPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
-
-					jse9.executeScript("arguments[0].scrollIntoView(true);", element9);
-					driver.findElement(By.cssSelector(
-							"#actItmPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+//					JavascriptExecutor jse9 = (JavascriptExecutor) driver;
+//					WebElement element9 = driver.findElement(By.cssSelector("#actItmPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					jse9.executeScript("arguments[0].scrollIntoView(true);", element9);
+//					driver.findElement(By.cssSelector("#actItmPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#actItmPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
 					Thread.sleep(5000);
-					WebDriverWait wait = new WebDriverWait(driver, 70);
-					wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#actItmPerformTable > div > div.jtable-busy-message[style='display: none;']")));
+//					WebDriverWait wait = new WebDriverWait(driver, 70);
+//					wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#actItmPerformTable > div > div.jtable-busy-message[style='display: none;']")));
+					Helper.waitLoadRecords(driver, By.cssSelector("#actItmPerformTable > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("actItmPerformTable"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
