@@ -30,6 +30,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 public class CAPAPerformTaskCA extends CAorPALoginDetails {
@@ -336,10 +337,10 @@ public class CAPAPerformTaskCA extends CAorPALoginDetails {
 		}
 		if (perPageNoOfRecordsPresent > 0 && count == 0) {
 			if ((totalNoOfRecords > 1) && ((CAPANumber == null) || ("".equalsIgnoreCase(CAPANumber)))) {
-				CAPANumber = driver.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr/td[5]"))
+				CAPANumber = driver.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr/td[6]"))
 						.getText();// documentType
 			} else if ((CAPANumber == null) || ("".equalsIgnoreCase(CAPANumber))) {
-				CAPANumber = driver.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr/td[5]"))
+				CAPANumber = driver.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr/td[6]"))
 						.getText();// documentType
 
 			}
@@ -349,15 +350,11 @@ public class CAPAPerformTaskCA extends CAorPALoginDetails {
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-
-						String capaNumberSequence = driver
-								.findElement(By
-										.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[5]"))
-								.getText();// documentTypeName
+						Helper.scrollElement(driver, By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]"));
+						String capaNumberSequence = driver.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]")).getText();// documentTypeName
 						if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
-							driver.findElement(
-									By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[5]"))
-									.click();
+							Helper.clickElement(driver, By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]"));
+//							driver.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]")).click();
 
 							isRecordSelected = true;
 							break;
@@ -368,10 +365,10 @@ public class CAPAPerformTaskCA extends CAorPALoginDetails {
 					}
 				} else {
 					String capaNumberSequence = driver
-							.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr/td[5]"))
+							.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr/td[6]"))
 							.getText();
 					if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
-						driver.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr/td[5]"))
+						driver.findElement(By.xpath("//*[@id=\"actItmPerformTable\"]/div/table/tbody/tr/td[6]"))
 								.click();
 						isRecordSelected = true;
 						break;

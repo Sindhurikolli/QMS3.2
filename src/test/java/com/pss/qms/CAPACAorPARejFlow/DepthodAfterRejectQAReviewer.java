@@ -222,17 +222,17 @@ public class DepthodAfterRejectQAReviewer extends CAorPALoginDetails {
 			String[] parts = a.split(" of ");
 			try {
 				totalNoOfRecords = Integer.parseInt(parts[1].trim());
-				List<WebElement> options = driver.findElements(By.cssSelector(
-						"#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-size-change > select > option"));
-
-				if (totalNoOfRecords > perPageNoOfRecordsPresent) {
-
-					int j = 1;
-					options.get(j).click();
-					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
-					j++;
-
-				}
+//				List<WebElement> options = driver.findElements(By.cssSelector(
+//						"#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-size-change > select > option"));
+//
+//				if (totalNoOfRecords > perPageNoOfRecordsPresent) {
+//
+//					int j = 1;
+//					options.get(j).click();
+//					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
+//					j++;
+//
+//				}
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
@@ -262,7 +262,7 @@ public class DepthodAfterRejectQAReviewer extends CAorPALoginDetails {
 								.findElement(
 										By.xpath("//*[@id=\"capaReviewTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]"))
 								.getText();// documentTypeName
-						Thread.sleep(8000);
+//						Thread.sleep(8000);
 						if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
 //                           Thread.sleep(8000);
 							driver.findElement(
