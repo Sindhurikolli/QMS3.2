@@ -175,12 +175,12 @@ public class QAReviewerAfterCFTReject extends RALoginDetails {
 		}
 	}
 
-	private boolean selectingTheUserReview(String UserFullName, boolean isRecordSelectedForUser, int count1) {
+	private boolean selectingTheUserReview(String UserFullName, boolean isRecordSelectedForUser, int count1) throws InterruptedException {
 		WebElement table = driver.findElement(By.id("crossFunTeamReviewAddDetailsWindowTable"));
 		WebElement tableBody = table.findElement(By.tagName("tbody"));
 		int perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
-//         int totalNoOfRecords = 0;
-//         int noOfRecordsChecked = 0;
+         int totalNoOfRecords = perPageNoOfRecordsPresent;
+         int noOfRecordsChecked = 0;
 //         if (perPageNoOfRecordsPresent > 0) {
 //             String a = driver.findElement(By.xpath("//*[@id=\"devReviewTableContailner\"]/div/div[4]/div[2]/span")).getText();// For Ex: Showing 1-1 of 1
 //             String[] parts = a.split(" of ");
@@ -207,7 +207,7 @@ public class QAReviewerAfterCFTReject extends RALoginDetails {
 			++count1;
 		}
 		if (perPageNoOfRecordsPresent > 0) {
-			// while (noOfRecordsChecked < totalNoOfRecords) {
+			 while (noOfRecordsChecked < totalNoOfRecords) {
 			if (perPageNoOfRecordsPresent > 1) {
 				for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
 					String cftReviewerFullName = driver.findElement(By.xpath(
@@ -237,15 +237,15 @@ public class QAReviewerAfterCFTReject extends RALoginDetails {
 
 				}
 			}
-//                 noOfRecordsChecked += perPageNoOfRecordsPresent;
-//                 if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-//                     driver.findElement(By.cssSelector("#devReviewTableContailner > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();//next page in Document approve list
-//                     Thread.sleep(3000);
-//                     table = driver.findElement(By.id("devReviewTableContailner"));//Document Tree approve table
-//                     tableBody = table.findElement(By.tagName("tbody"));
-//                     perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
-//                 }
-			// }
+                 noOfRecordsChecked += perPageNoOfRecordsPresent;
+                 if ((!isRecordSelectedForUser) && (noOfRecordsChecked < totalNoOfRecords)) {
+                     driver.findElement(By.cssSelector("#devReviewTableContailner > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();//next page in Document approve list
+                     Thread.sleep(3000);
+                     table = driver.findElement(By.id("devReviewTableContailner"));//Document Tree approve table
+                     tableBody = table.findElement(By.tagName("tbody"));
+                     perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
+                 }
+			 }
 		}
 		return isRecordSelectedForUser;
 	}

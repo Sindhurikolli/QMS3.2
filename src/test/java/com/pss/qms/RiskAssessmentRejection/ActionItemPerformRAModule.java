@@ -11,6 +11,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
  
 import com.pss.qms.login.RALoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.Desktop;
@@ -114,11 +115,15 @@ public class ActionItemPerformRAModule extends RALoginDetails {
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Select Button", sno, false);
 			Thread.sleep(4000);
 			sno++;
-			driver.findElement(By.id("locTreeInQmsProdReg_2_span")).click();
-//            Thread.sleep(6000);
-//            driver.findElement(By.id("locTreeInQmsProdReg_5_span")).click();
+			driver.findElement(By.id("locTreeInQmsProdReg_2_switch")).click();
+            Thread.sleep(6000);
+            driver.findElement(By.id("locTreeInQmsProdReg_3_ico")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select The Location", sno, false);
 			Thread.sleep(4000);
+//			driver.findElement(By.id("searchEmpCode")).sendKeys(properties.getProperty("ACTION_ITEM_APPROVER_ECODE"));
+//			Thread.sleep(2000);
+//			driver.findElement(By.id("usersSearchBtnInRepProb")).click();
+			Helper.waitLoadRecords(driver, By.cssSelector("#usersTableContainer > div > div.jtable-busy-message[style='display: none;']"));
 			boolean isRecordSelectedForUser = false;
 			String UserFirstName = properties.getProperty("ACTION_ITEM_APPROVER_ECODE");
 			String UserFullName = UserFirstName;
@@ -238,10 +243,9 @@ public class ActionItemPerformRAModule extends RALoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelectedForUser) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#usersTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+					driver.findElement(By.cssSelector("#usersTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
 					Thread.sleep(3000);
+					Helper.waitLoadRecords(driver, By.cssSelector("#usersTableContainer > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("usersTableContainer"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();

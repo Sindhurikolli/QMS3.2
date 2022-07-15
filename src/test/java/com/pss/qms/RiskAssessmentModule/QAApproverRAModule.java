@@ -79,6 +79,7 @@ public class QAApproverRAModule extends RALoginDetails {
 		sno++;
 		WebDriverWait wait1 = new WebDriverWait(driver, 240);
 		wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href='raRiskReviewPage.do']")));
+		Thread.sleep(3000);
 		driver.findElement(By.cssSelector("a[href='raRiskReviewPage.do']")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on RiskReview Menu", sno, false);
 		wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(
