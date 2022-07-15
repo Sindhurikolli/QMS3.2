@@ -70,11 +70,11 @@ public class ActionItemPerformRejected extends RALoginDetails {
 		Thread.sleep(2000);
 		WebDriverWait wait1 = new WebDriverWait(driver, 240);
 		wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href='raActItemRejectPage.do']")));
+		Thread.sleep(2000);
 		driver.findElement(By.cssSelector("a[href='raActItemRejectPage.do']")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on ActionItem Reject Menu", sno,
 				false);
-		wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(
-				"#riskAssmntActionItemRejectTable > div > div.jtable-busy-message[style='display: none;']")));
+		wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#riskAssmntActionItemRejectTable > div > div.jtable-busy-message[style='display: none;']")));
 		methodToDoActionItemRejectedApprove();
 		Thread.sleep(3000);
 		document.close();
@@ -174,11 +174,11 @@ public class ActionItemPerformRejected extends RALoginDetails {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
 						String RANumberSequence = driver.findElement(By.xpath(
-								".//*[@id='riskAssmntActionItemRejectTable']/div/table/tbody/tr[ " + i + " ]/td[3]"))
+								"//*[@id='riskAssmntActionItemRejectTable']/div/table/tbody/tr[ " + i + " ]/td[3]"))
 								.getText();// documentTypeName
 						if (RANumber.equalsIgnoreCase(RANumberSequence)) {
 							driver.findElement(
-									By.xpath(".//*[@id='riskAssmntActionItemRejectTable']/div/table/tbody/tr[ " + i
+									By.xpath("//*[@id='riskAssmntActionItemRejectTable']/div/table/tbody/tr[ " + i
 											+ " ]/td[3]"))
 									.click();
 							isRecordSelected = true;
@@ -189,14 +189,9 @@ public class ActionItemPerformRejected extends RALoginDetails {
 						break;
 					}
 				} else {
-					String RANumberSequence = driver
-							.findElement(
-									By.xpath("//*[@id=\"riskAssmntActionItemRejectTable\"]/div/table/tbody/tr/td[3]"))
-							.getText();
+					String RANumberSequence = driver.findElement(By.xpath("//*[@id=\"riskAssmntActionItemRejectTable\"]/div/table/tbody/tr/td[3]")).getText();
 					if (RANumber.equalsIgnoreCase(RANumberSequence)) {
-						driver.findElement(
-								By.xpath("//*[@id=\"riskAssmntActionItemRejectTable\"]/div/table/tbody/tr/td[3]"))
-								.click();
+						driver.findElement(By.xpath("//*[@id=\"riskAssmntActionItemRejectTable\"]/div/table/tbody/tr/td[3]")).click();
 						isRecordSelected = true;
 						break;
 					}
