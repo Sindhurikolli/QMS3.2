@@ -62,7 +62,7 @@ if(isRecordSelectedForAdmin)
         Thread.sleep(2000);
         driver.findElement(By.className("username")).click();
         Thread.sleep(1000);
-        driver.findElement(By.cssSelector("body > div.container > header > nav > ul > li.dropdown > ul > li:nth-child(2) > a")).click();
+        driver.findElement(By.cssSelector("a[onclick='logOutInPssAdmin()']")).click();
     }
 else
 {
