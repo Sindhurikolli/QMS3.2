@@ -348,9 +348,11 @@ WebDriverWait wait1 = new WebDriverWait(driver, 240);
             while (noOfRecordsChecked < totalNoOfRecords) {
                 if (totalNoOfRecords > 1) {
                     for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-                        String DevNumberSequence = driver.findElement(By.xpath(".//*[@id='devReviewTableContailner']/div/table/tbody/tr[ " + i + "]/td[3]")).getText();//documentTypeName
+                    	Helper.scrollElement(driver, By.xpath("//*[@id='devReviewTableContailner']/div/table/tbody/tr[ " + i + "]/td[3]"));
+                        String DevNumberSequence = driver.findElement(By.xpath("//*[@id='devReviewTableContailner']/div/table/tbody/tr[ " + i + "]/td[3]")).getText();//documentTypeName
                         if (DeviationNumber.equalsIgnoreCase(DevNumberSequence)) {
-                            driver.findElement(By.xpath(".//*[@id='devReviewTableContailner']/div/table/tbody/tr[ " + i + "]/td[44]/button")).click();
+                        	Helper.clickElement(driver, By.xpath("//*[@id='devReviewTableContailner']/div/table/tbody/tr[ " + i + "]/td[44]/button"));
+//                            driver.findElement(By.xpath("//*[@id='devReviewTableContailner']/div/table/tbody/tr[ " + i + "]/td[44]/button")).click();
                             isRecordSelected = true;
                             break;
                         }
