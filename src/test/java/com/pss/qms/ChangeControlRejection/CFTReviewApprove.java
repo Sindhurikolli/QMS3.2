@@ -215,16 +215,11 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						Helper.scrollElement(driver, By.xpath("//*[@id=\"changeControlCftReviewTableContainer\"]/div/table/tbody/tr[ " + i
-										+ " ]/td[3]"));
-						String CCNumberSequence = driver.findElement(
-								By.xpath("//*[@id=\"changeControlCftReviewTableContainer\"]/div/table/tbody/tr[ " + i
-										+ " ]/td[3]"))
-								.getText();// documentTypeName
+						Helper.scrollElement(driver, By.xpath("//*[@id=\"changeControlCftReviewTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[3]"));
+						String CCNumberSequence = driver.findElement(By.xpath("//*[@id=\"changeControlCftReviewTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[3]")).getText();// documentTypeName
 						if (CCNumber.equalsIgnoreCase(CCNumberSequence)) {
-							Helper.clickOnCCReViewButton(driver, By.xpath("//*[@id=\"changeControlCftReviewTableContainer\"]/div/table/tbody/tr[ "
-											+ i + " ]/td[53]/button"));
-							Helper.waitUntilPageLoad(driver);
+							Helper.clickOnCCReViewButton(driver, By.xpath("//*[@id=\"changeControlCftReviewTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[53]/button"));
+//							Helper.waitUntilPageLoad(driver);
 							isRecordSelected = true;
 							break;
 						}
@@ -233,29 +228,23 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 						break;
 					}
 				} else {
-					Helper.scrollElement(driver, By.xpath(
-									"//*[@id=\"changeControlCftReviewTableContainer\"]/div/table/tbody/tr[1]/td[3]"));
-					String CCNumberSequence = driver
-							.findElement(By.xpath(
-									"//*[@id=\"changeControlCftReviewTableContainer\"]/div/table/tbody/tr[1]/td[3]"))
-							.getText();
+					Helper.scrollElement(driver, By.xpath("//*[@id=\"changeControlCftReviewTableContainer\"]/div/table/tbody/tr[1]/td[3]"));
+					String CCNumberSequence = driver.findElement(By.xpath("//*[@id=\"changeControlCftReviewTableContainer\"]/div/table/tbody/tr[1]/td[3]")).getText();
 					if (CCNumber.equalsIgnoreCase(CCNumberSequence)) {
 						Helper.clickOnCCReViewButton(driver, By.xpath("//*[@id=\"changeControlCftReviewTableContainer\"]/div/table/tbody/tr[1]/td[53]/button"));
-						Helper.waitUntilPageLoad(driver);
+//						Helper.waitUntilPageLoad(driver);
 						isRecordSelected = true;
 						break;
 					}
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					Helper.scrollElement(driver, By.cssSelector(
-							"#changeControlCftReviewTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
-					driver.findElement(By.cssSelector(
-							"#changeControlCftReviewTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#changeControlCftReviewTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					driver.findElement(By.cssSelector("#changeControlCftReviewTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
 					Thread.sleep(3000);
-					WebDriverWait wait1 = new WebDriverWait(driver, 60);
-					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlCftReviewTableContainer > div > div.jtable-busy-message[style='display: none;']")));
+//					WebDriverWait wait1 = new WebDriverWait(driver, 60);
+//					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlCftReviewTableContainer > div > div.jtable-busy-message[style='display: none;']")));
+					Helper.waitLoadRecords(driver, By.cssSelector("#changeControlCftReviewTableContainer > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("changeControlCftReviewTableContainer"));// Document Tree approve
 																								// table
 					tableBody = table.findElement(By.tagName("tbody"));
