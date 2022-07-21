@@ -211,16 +211,25 @@ public class PlanExistingCAPA extends DeviationLoginDetails {
             sno++;
             Thread.sleep(2000);
             TaskType.selectByIndex(3);
+            document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select Task Type",sno,false);
+            sno++;
             Thread.sleep(2000);
             driver.findElement(By.id("addBtnInCaPaDueDtWndw")).click();
+            document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Add Button",sno,false);
+            sno++;
+            Thread.sleep(2000);
             js.executeScript("window.scrollBy(0,1000)");
 			Thread.sleep(2000);
-			driver.findElement(By.cssSelector("#createCapaPlanWindowMainDiv > div:nth-child(5) > div:nth-child(2) > div.form-group.col-sm-4 > div.radio_false_disable > label")).click();
-			
+			driver.findElement(By.cssSelector("label[for='suppDocYesInCapaPlan']")).click();
+			 document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "At Supporting Documents section Click on Yes Radio button",sno,false);
+	            sno++;
          //   driver.findElement(By.id("suppDocYesInCapaPlan")).click();
             Thread.sleep(2000);
             driver.findElement(By.id("capaAddSuppDocs")).click();
+            document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Add Button",sno,false);
+            sno++;
             driver.findElement(By.id("uploadSuppDoc_1")).sendKeys(properties.getProperty("Document-1"));
+            document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "click on Choosef file to Upload",sno,false);
             sno++;
             driver.findElement(By.id("submitIdInCreateCapaPlan")).click();
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Submit Button",sno,false);
