@@ -13,6 +13,7 @@ import com.pss.qms.login.CCLoginDetails;
  
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.Desktop;
@@ -107,7 +108,8 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 //        driver.findElement(By.cssSelector("#ccPostAppActionsListId > ul > li > a")).click();
 //        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on review submenu", sno,false);
 //        Thread.sleep(100000);
-		 wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccPostApprovalReviewTable > div > div.jtable-busy-message[style='display: none;']")));
+		Helper.waitLoadRecords(driver, By.cssSelector("#ccPostApprovalReviewTable > div > div.jtable-busy-message[style='display: none;']"));
+//			wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccPostApprovalReviewTable > div > div.jtable-busy-message[style='display: none;']")));
 			methodToDoPostApprovalActionReview();
 			document.close();
 			writer.close();

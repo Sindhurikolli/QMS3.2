@@ -224,15 +224,11 @@ public class CFTReviewCC extends CCLoginDetails {
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						String CCNumberSequence = driver.findElement(
-								By.xpath(".//*[@id='changeControlCftReviewTableContainer']/div/table/tbody/tr[ " + i
-										+ "]/td[3]"))
-								.getText();// documentTypeName
+						Helper.scrollElement(driver, By.xpath("//*[@id='changeControlCftReviewTableContainer']/div/table/tbody/tr[ " + i + "]/td[3]"));
+						String CCNumberSequence = driver.findElement(By.xpath("//*[@id='changeControlCftReviewTableContainer']/div/table/tbody/tr[ " + i + "]/td[3]")).getText();// documentTypeName
 						if (chgControlNumber.equalsIgnoreCase(CCNumberSequence)) {
-							driver.findElement(
-									By.xpath(".//*[@id='changeControlCftReviewTableContainer']/div/table/tbody/tr[" + i
-											+ "]/td[53]/button"))
-									.click();
+							Helper.clickElement(driver, By.xpath("//*[@id='changeControlCftReviewTableContainer']/div/table/tbody/tr[" + i + "]/td[53]/button"));
+//							driver.findElement(By.xpath("//*[@id='changeControlCftReviewTableContainer']/div/table/tbody/tr[" + i + "]/td[53]/button")).click();
 							
 							isRecordSelected = true;
 							break;
@@ -244,11 +240,11 @@ public class CFTReviewCC extends CCLoginDetails {
 				} else {
 					String CCNumberSequence = driver
 							.findElement(By
-									.xpath(".//*[@id='changeControlCftReviewTableContainer']/div/table/tbody/tr/td[3]"))
+									.xpath("//*[@id='changeControlCftReviewTableContainer']/div/table/tbody/tr/td[3]"))
 							.getText();
 					if (chgControlNumber.equalsIgnoreCase(CCNumberSequence)) {
 						driver.findElement(By.xpath(
-								".//*[@id='changeControlCftReviewTableContainer']/div/table/tbody/tr/td[53]/button"))
+								"//*[@id='changeControlCftReviewTableContainer']/div/table/tbody/tr/td[53]/button"))
 								.click();
 						isRecordSelected = true;
 						break;

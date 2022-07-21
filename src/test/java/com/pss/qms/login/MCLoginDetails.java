@@ -17,6 +17,7 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -168,6 +169,9 @@ public class MCLoginDetails  {
 		else{
 			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 			driver = new ChromeDriver();
+			driver.manage().deleteAllCookies();
+			driver.get("chrome://settings/clearBrowserData");
+			driver.findElement(By.xpath("//settings-ui")).sendKeys(Keys.ENTER);
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             WebDriverWait wait = new WebDriverWait(driver, 120);
