@@ -99,7 +99,7 @@ public class PostApprovalActionApproval extends CCLoginDetails {
 //        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on My Activities Tab", sno,false);
 //        sno++;
 //        Thread.sleep(16000);
-WebDriverWait wait1 = new WebDriverWait(driver, 60);
+			WebDriverWait wait1 = new WebDriverWait(driver, 60);
  wait1.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='ccPostAppActionsApprovePage.do']")));
 			driver.findElement(By.cssSelector("a[href='ccPostAppActionsApprovePage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Post Approval Actions menu",
@@ -109,7 +109,8 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 //        driver.findElement(By.cssSelector("#ccPostAppActionsListId > ul > li:nth-child(2) > a")).click();
 //        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on approval submenu", sno,false);
 //        Thread.sleep(100000);
-			 wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccPostActionsApprovalTable > div > div.jtable-busy-message[style='display: none;']")));
+			Helper.waitLoadRecords(driver, By.cssSelector("#ccPostActionsApprovalTable > div > div.jtable-busy-message[style='display: none;']"));
+//			 wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccPostActionsApprovalTable > div > div.jtable-busy-message[style='display: none;']")));
 			methodToDoPostApprovalActionApproval();
 			document.close();
 			writer.close();
@@ -259,14 +260,11 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						String CCNumberSequence = driver
-								.findElement(By.xpath(
-										".//*[@id='ccPostActionsApprovalTable']/div/table/tbody/tr[ " + i + "]/td[5]"))
-								.getText();// documentTypeName
+						Helper.waitLoadRecords(driver, By.xpath("//*[@id='ccPostActionsApprovalTable']/div/table/tbody/tr[ " + i + "]/td[5]"));
+						String CCNumberSequence = driver.findElement(By.xpath("//*[@id='ccPostActionsApprovalTable']/div/table/tbody/tr[ " + i + "]/td[5]")).getText();// documentTypeName
 						if (chgCtrlId.equalsIgnoreCase(CCNumberSequence)) {
-							driver.findElement(By.xpath(
-									".//*[@id='ccPostActionsApprovalTable']/div/table/tbody/tr[ " + i + "]/td[5]"))
-									.click();
+							Helper.clickElement(driver, By.xpath("//*[@id='ccPostActionsApprovalTable']/div/table/tbody/tr[ " + i + "]/td[5]"));
+//							driver.findElement(By.xpath("//*[@id='ccPostActionsApprovalTable']/div/table/tbody/tr[ " + i + "]/td[5]")).click();
 							isRecordSelected = true;
 							break;
 						}
@@ -284,12 +282,12 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#ccPostActionsApprovalTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#ccPostActionsApprovalTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					driver.findElement(By.cssSelector("#ccPostActionsApprovalTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
 					Thread.sleep(5000);
-					WebDriverWait wait1 = new WebDriverWait(driver, 60);
-					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccPostActionsApprovalTable > div > div.jtable-busy-message[style='display: none;']")));
+					Helper.waitLoadRecords(driver, By.cssSelector("#ccPostActionsApprovalTable > div > div.jtable-busy-message[style='display: none;']"));
+//					WebDriverWait wait1 = new WebDriverWait(driver, 60);
+//					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccPostActionsApprovalTable > div > div.jtable-busy-message[style='display: none;']")));
 					table = driver.findElement(By.id("ccPostActionsApprovalTable"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
