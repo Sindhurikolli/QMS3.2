@@ -91,9 +91,10 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 	wait1.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='ccReviewPage.do']")));
 			driver.findElement(By.cssSelector("a[href='ccReviewPage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on review menu", sno, false);
-			Thread.sleep(15000);
-		 wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlReviewTableContainer > div > div.jtable-busy-message[style='display: none;']")));
-			methodToDoQAApproverChgControl();
+			Thread.sleep(5000);
+//		 wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlReviewTableContainer > div > div.jtable-busy-message[style='display: none;']")));
+		Helper.waitLoadRecords(driver, By.cssSelector("#changeControlReviewTableContainer > div > div.jtable-busy-message[style='display: none;']"));	
+		 methodToDoQAApproverChgControl();
 			document.close();
 			writer.close();
 			Desktop desktop = Desktop.getDesktop();
@@ -235,9 +236,8 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 								"//*[@id=\"changeControlReviewTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[3]"))
 								.getText();// documentTypeName
 						if (chgControlNumber.equalsIgnoreCase(CCNumberSequence)) {
-							Helper.clickOnCCReViewButton(driver, By.xpath("//*[@id=\"changeControlReviewTableContainer\"]/div/table/tbody/tr[ " + i
-											+ " ]/td[56]/button"));
-							Helper.waitUntilPageLoad(driver);
+							Helper.clickElement(driver, By.xpath("//*[@id=\"changeControlReviewTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[56]/button"));
+//							Helper.waitUntilPageLoad(driver);
 							isRecordSelected = true;
 							break;
 						}
@@ -247,14 +247,11 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 					}
 				} else {
 					Helper.scrollElement(driver, By.xpath("//*[@id=\"changeControlReviewTableContainer\"]/div/table/tbody/tr/td[3]"));
-					String CCNumberSequence = driver
-							.findElement(
-									By.xpath("//*[@id=\"changeControlReviewTableContainer\"]/div/table/tbody/tr/td[3]"))
-							.getText();
+					String CCNumberSequence = driver.findElement(By.xpath("//*[@id=\"changeControlReviewTableContainer\"]/div/table/tbody/tr/td[3]")).getText();
 					if (chgControlNumber.equalsIgnoreCase(CCNumberSequence)) {
-						Helper.clickOnCCReViewButton(driver, By.xpath(
+						Helper.clickElement(driver, By.xpath(
 								"//*[@id=\"changeControlReviewTableContainer\"]/div/table/tbody/tr/td[56]/button"));
-						Helper.waitUntilPageLoad(driver);
+//						Helper.waitUntilPageLoad(driver);
 						isRecordSelected = true;
 						break;
 					}

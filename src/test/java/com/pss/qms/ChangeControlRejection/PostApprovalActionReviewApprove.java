@@ -99,7 +99,8 @@ public class PostApprovalActionReviewApprove extends CCLoginDetails {
 //        driver.findElement(By.cssSelector("#ccPostAppActionsListId > ul > li > a")).click();
 //        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on review submenu", sno,false);
 			Thread.sleep(2000);
-			 wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccPostApprovalReviewTable > div > div.jtable-busy-message[style='display: none;']")));
+			Helper.waitLoadRecords(driver, By.cssSelector("#ccPostApprovalReviewTable > div > div.jtable-busy-message[style='display: none;']"));
+//			 wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccPostApprovalReviewTable > div > div.jtable-busy-message[style='display: none;']")));
 			methodToDoPostApprovalActionReview();
 			document.close();
 			writer.close();

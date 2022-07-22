@@ -99,7 +99,8 @@ WebDriverWait wait1 = new WebDriverWait(driver, 90);
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on closure review sub menu", sno,
 					false);
 			Thread.sleep(2000);
-		 wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccClosureQaReviewDetailsTable > div > div.jtable-busy-message[style='display: none;']")));
+			Helper.waitLoadRecords(driver, By.cssSelector("#ccClosureQaReviewDetailsTable > div > div.jtable-busy-message[style='display: none;']"));
+//		 wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccClosureQaReviewDetailsTable > div > div.jtable-busy-message[style='display: none;']")));
 			methodToDoClosureReview();
 			document.close();
 			writer.close();
@@ -355,15 +356,11 @@ WebDriverWait wait1 = new WebDriverWait(driver, 90);
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						Helper.scrollElement(driver, By.xpath(
-								".//*[@id='ccClosureQaReviewDetailsTable']/div/table/tbody/tr[ " + i + "]/td[3]"));
-						String CCNumberSequence = driver.findElement(By.xpath(
-								".//*[@id='ccClosureQaReviewDetailsTable']/div/table/tbody/tr[ " + i + "]/td[3]"))
-								.getText();// documentTypeName
+						Helper.scrollElement(driver, By.xpath("//*[@id='ccClosureQaReviewDetailsTable']/div/table/tbody/tr[ " + i + "]/td[3]"));
+						String CCNumberSequence = driver.findElement(By.xpath("//*[@id='ccClosureQaReviewDetailsTable']/div/table/tbody/tr[ " + i + "]/td[3]")).getText();// documentTypeName
 						if (CCNumber.equalsIgnoreCase(CCNumberSequence)) {
-							Helper.clickOnCCReViewButton(driver, By.xpath(
-									".//*[@id='ccClosureQaReviewDetailsTable']/div/table/tbody/tr[ " + i + "]/td[3]"));
-							Helper.waitUntilPageLoad(driver);
+							Helper.clickElement(driver, By.xpath("//*[@id='ccClosureQaReviewDetailsTable']/div/table/tbody/tr[ " + i + "]/td[3]"));
+//							Helper.waitUntilPageLoad(driver);
 //							driver.findElement(By.xpath(
 //									".//*[@id='ccClosureQaReviewDetailsTable']/div/table/tbody/tr[ " + i + "]/td[3]"))
 //									.click();
@@ -376,13 +373,10 @@ WebDriverWait wait1 = new WebDriverWait(driver, 90);
 					}
 				} else {
 					Helper.scrollElement(driver, By.xpath("//*[@id=\"ccClosureQaReviewDetailsTable\"]/div/table/tbody/tr/td[3]"));
-					String CCNumberSequence = driver
-							.findElement(
-									By.xpath("//*[@id=\"ccClosureQaReviewDetailsTable\"]/div/table/tbody/tr/td[3]"))
-							.getText();
+					String CCNumberSequence = driver.findElement(By.xpath("//*[@id=\"ccClosureQaReviewDetailsTable\"]/div/table/tbody/tr/td[3]")).getText();
 					if (CCNumber.equalsIgnoreCase(CCNumberSequence)) {
-						Helper.clickOnCCReViewButton(driver, By.xpath("//*[@id=\"ccClosureQaReviewDetailsTable\"]/div/table/tbody/tr/td[3]"));
-						Helper.waitUntilPageLoad(driver);
+						Helper.clickElement(driver, By.xpath("//*[@id=\"ccClosureQaReviewDetailsTable\"]/div/table/tbody/tr/td[3]"));
+//						Helper.waitUntilPageLoad(driver);
 //						driver.findElement(
 //								By.xpath("//*[@id=\"ccClosureQaReviewDetailsTable\"]/div/table/tbody/tr/td[3]"))
 //								.click();
@@ -392,14 +386,12 @@ WebDriverWait wait1 = new WebDriverWait(driver, 90);
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					Helper.scrollElement(driver, By.cssSelector(
-							"#ccClosureQaReviewDetailsTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
-					driver.findElement(By.cssSelector(
-							"#ccClosureQaReviewDetailsTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#ccClosureQaReviewDetailsTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					driver.findElement(By.cssSelector("#ccClosureQaReviewDetailsTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
 					Thread.sleep(3000);
-					WebDriverWait wait1 = new WebDriverWait(driver, 60);
-					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccClosureQaReviewDetailsTable > div > div.jtable-busy-message[style='display: none;']")));
+//					WebDriverWait wait1 = new WebDriverWait(driver, 60);
+					Helper.waitLoadRecords(driver, By.cssSelector("#ccClosureQaReviewDetailsTable > div > div.jtable-busy-message[style='display: none;']"));
+//					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccClosureQaReviewDetailsTable > div > div.jtable-busy-message[style='display: none;']")));
 					table = driver.findElement(By.id("ccClosureQaReviewDetailsTable"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
