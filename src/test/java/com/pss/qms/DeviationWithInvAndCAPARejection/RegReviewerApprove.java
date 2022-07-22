@@ -10,6 +10,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
  
 import com.pss.qms.login.DeviationLoginDetails;
@@ -88,7 +89,7 @@ public class RegReviewerApprove extends DeviationLoginDetails {
         wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href='devRglReview.do']")));
         driver.findElement(By.cssSelector("a[href='devRglReview.do']")).click();
 //        WebDriverWait wait1 = new WebDriverWait(driver, 240);
-        wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#devRequlatoryReviewRecordsTable > div > div.jtable-busy-message[style='display: none;']")));
+        Helper.waitLoadRecords(driver, By.cssSelector("#devRequlatoryReviewRecordsTable > div > div.jtable-busy-message[style='display: none;']"));
 //        driver.findElement(By.id("deviationInDev")).click();
 //        Thread.sleep(25000);
         methodToDoRegReviewerDeviation();
@@ -210,11 +211,12 @@ public class RegReviewerApprove extends DeviationLoginDetails {
             while (noOfRecordsChecked < totalNoOfRecords) {
                 if (totalNoOfRecords > 1) {
                     for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-                    	                    	                       
+                    	Helper.scrollElement(driver, By.xpath("//*[@id=\"devRequlatoryReviewRecordsTable\"]/div/table/tbody/tr[ " + i + "]/td[18]"));                    	                       
                         String cftReviewerFullName = driver.findElement(By.xpath("//*[@id=\"devRequlatoryReviewRecordsTable\"]/div/table/tbody/tr[ " + i + "]/td[18]")).getText();//documentTypeName
-                        System.out.println("cftReviewerFullName: "+cftReviewerFullName);
+//                        System.out.println("cftReviewerFullName: "+cftReviewerFullName);
                         if (DeviationNumber.equalsIgnoreCase(cftReviewerFullName)) {
-                            driver.findElement(By.xpath("//*[@id=\"devRequlatoryReviewRecordsTable\"]/div/table/tbody/tr[ " + i + " ]/td[18]")).click();
+                            Helper.clickElement(driver, By.xpath("//*[@id=\"devRequlatoryReviewRecordsTable\"]/div/table/tbody/tr[ " + i + " ]/td[18]"));
+//                        	driver.findElement(By.xpath("//*[@id=\"devRequlatoryReviewRecordsTable\"]/div/table/tbody/tr[ " + i + " ]/td[18]")).click();
                             isRecordSelected = true;
                             break;
                         }
@@ -232,8 +234,10 @@ public class RegReviewerApprove extends DeviationLoginDetails {
                 }
                     noOfRecordsChecked += perPageNoOfRecordsPresent;
                     if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-                        driver.findElement(By.cssSelector("#devRequlatoryReviewRecordsTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();//next page in Document approve list
-                        Thread.sleep(10000);
+                       Helper.clickElement(driver, By.cssSelector("#devRequlatoryReviewRecordsTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//                    	driver.findElement(By.cssSelector("#devRequlatoryReviewRecordsTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();//next page in Document approve list
+                        Thread.sleep(5000);
+                        Helper.waitLoadRecords(driver, By.cssSelector("#devRequlatoryReviewRecordsTable > div > div.jtable-busy-message[style='display: none;']"));
                         table = driver.findElement(By.id("devRequlatoryReviewRecordsTable"));//Document Tree approve table
                         tableBody = table.findElement(By.tagName("tbody"));
                         perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
