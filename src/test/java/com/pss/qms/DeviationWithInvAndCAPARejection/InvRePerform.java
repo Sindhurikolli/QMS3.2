@@ -14,6 +14,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
  
 import com.pss.qms.login.DeviationLoginDetails;
@@ -163,6 +164,7 @@ public class InvRePerform extends DeviationLoginDetails {
        	   actions.perform();
 //            driver.findElement(By.id("ui-id-388")).click();
             Thread.sleep(5000);
+            Helper.waitLoadRecords(driver, By.cssSelector("#rcaAnalysisInDevReview > div > div.jtable-busy-message[style='display: none;']"));
 //            WebElement element3 = driver.findElement(By.id("invCapaTabId"));
 //            jse.executeScript("arguments[0].click();", element3);
             WebElement element4 = driver.findElement(By.id("ui-id-393"));
