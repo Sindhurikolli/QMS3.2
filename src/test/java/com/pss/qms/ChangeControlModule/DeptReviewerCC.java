@@ -12,6 +12,7 @@ import com.pss.qms.login.CCLoginDetails;
  
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
  
 import com.pss.qms.login.CCLoginDetails;
@@ -231,14 +232,11 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						String CCNumberSequence = driver.findElement(By.xpath(
-								".//*[@id='changeControlReviewTableContainer']/div/table/tbody/tr[ " + i + "]/td[3]"))
-								.getText();// documentTypeName
+						Helper.scrollElement(driver, By.xpath("//*[@id='changeControlReviewTableContainer']/div/table/tbody/tr[ " + i + "]/td[3]"));
+						String CCNumberSequence = driver.findElement(By.xpath("//*[@id='changeControlReviewTableContainer']/div/table/tbody/tr[ " + i + "]/td[3]")).getText();// documentTypeName
 						if (chgControlNumber.equalsIgnoreCase(CCNumberSequence)) {
-							driver.findElement(
-									By.xpath("//*[@id=\"changeControlReviewTableContainer\"]/div/table/tbody/tr[ " + i
-											+ " ]/td[56]/button"))
-									.click();
+							Helper.clickElement(driver, By.xpath("//*[@id=\"changeControlReviewTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[56]/button"));
+//							driver.findElement(By.xpath("//*[@id=\"changeControlReviewTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[56]/button")).click();
 							isRecordSelected = true;
 							break;
 						}
@@ -247,28 +245,24 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 						break;
 					}
 				} else {
-					String CCNumberSequence = driver
-							.findElement(
-									By.xpath("//*[@id=\"changeControlReviewTableContainer\"]/div/table/tbody/tr/td[3]"))
-							.getText();
+					String CCNumberSequence = driver.findElement(By.xpath("//*[@id=\"changeControlReviewTableContainer\"]/div/table/tbody/tr/td[3]")).getText();
 					if (chgControlNumber.equalsIgnoreCase(CCNumberSequence)) {
-						driver.findElement(By.xpath(
-								"//*[@id=\"changeControlReviewTableContainer\"]/div/table/tbody/tr/td[56]/button"))
-								.click();
+						driver.findElement(By.xpath("//*[@id=\"changeControlReviewTableContainer\"]/div/table/tbody/tr/td[56]/button")).click();
 						isRecordSelected = true;
 						break;
 					}
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					 WebElement element5 = driver.findElement(By.cssSelector("#changeControlReviewTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
-			            JavascriptExecutor js5 = (JavascriptExecutor)driver;
-			            js5.executeScript("arguments[0].click();", element5);
-
+//					 WebElement element5 = driver.findElement(By.cssSelector("#changeControlReviewTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//			            JavascriptExecutor js5 = (JavascriptExecutor)driver;
+//			            js5.executeScript("arguments[0].click();", element5);
+			        Helper.clickElement(driver, By.cssSelector("#changeControlReviewTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));    
 //					driver.findElement(By.cssSelector("#changeControlReviewTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
 					Thread.sleep(3000);
-					WebDriverWait wait1 = new WebDriverWait(driver, 240);
-					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlReviewTableContainer > div > div.jtable-busy-message[style='display: none;']")));
+//					WebDriverWait wait1 = new WebDriverWait(driver, 240);
+//					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlReviewTableContainer > div > div.jtable-busy-message[style='display: none;']")));
+					Helper.waitLoadRecords(driver, By.cssSelector("#changeControlReviewTableContainer > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("changeControlReviewTableContainer"));// Document Tree approve																							// table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
