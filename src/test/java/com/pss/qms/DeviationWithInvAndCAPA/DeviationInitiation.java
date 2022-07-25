@@ -69,7 +69,7 @@ public class DeviationInitiation extends DeviationLoginDetails {
 			document.add(im);
 			document.add(new Paragraph("                                     "));
 			document.add(new Paragraph("                                     "));
-			sno++;
+			
         Thread.sleep(3000);
         sno++;
         WebDriverWait wait = new WebDriverWait(driver, 60);
@@ -260,6 +260,7 @@ driver.findElement(By.id("devOccureInDevInit")).sendKeys(todaysDate);
          sno++;
          driver.findElement(By.id("addBtnInEqptAdd")).click();
          document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Button",sno,false);
+         sno++;
          Helper.scrollElement(driver, By.id("addInstrumentsInDevInit"));
          driver.findElement(By.id("addInstrumentsInDevInit")).click();
          document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Instrument Button",sno,false);
