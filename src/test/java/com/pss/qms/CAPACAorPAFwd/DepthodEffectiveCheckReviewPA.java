@@ -81,12 +81,13 @@ public class DepthodEffectiveCheckReviewPA extends CAorPALoginDetails {
 		Thread.sleep(2000);
 		WebDriverWait wait = new WebDriverWait(driver, 240);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href='effChkImplPostPerfom.do']")));
+		js.executeScript("window.scrollBy(0,150)", "");
 		driver.findElement(By.cssSelector("a[href='effChkImplPostPerfom.do']")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document,
 				"Click on Performed Effective check approval", sno, false);
 		Thread.sleep(5000);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(
-				"#effectiveCheckImplPostPerformTable > div > div.jtable-busy-message[style='display: none;']")));
+		Helper.waitLoadRecords(driver, By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-busy-message[style='display: none;']"));
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-busy-message[style='display: none;']")));
 		toCAPAEffectiveCheckReview();
 		document.close();
 		writer.close();
