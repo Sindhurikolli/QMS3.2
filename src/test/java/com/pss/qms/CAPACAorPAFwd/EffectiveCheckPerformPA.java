@@ -16,6 +16,7 @@ import com.pss.qms.login.CAorPALoginDetails;
  
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.Desktop;
@@ -107,8 +108,8 @@ public class EffectiveCheckPerformPA extends CAorPALoginDetails {
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Effective check Perform", sno,
 				false);
 		Thread.sleep(5000);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(
-				"#capaEffectivePostPerformTable > div > div.jtable-busy-message[style='display: none;']")));
+		Helper.waitLoadRecords(driver, By.cssSelector("#capaEffectivePostPerformTable > div > div.jtable-busy-message[style='display: none;']"));
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#capaEffectivePostPerformTable > div > div.jtable-busy-message[style='display: none;']")));
 		toCAPAEffectiveCheckPerform();
 		document.close();
 		writer.close();
@@ -242,13 +243,11 @@ public class EffectiveCheckPerformPA extends CAorPALoginDetails {
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						String capaNumberSequence = driver.findElement(By.xpath(
-								"//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]"))
-								.getText();// documentTypeName
+						Helper.scrollElement(driver, By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]"));
+						String capaNumberSequence = driver.findElement(By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]")).getText();// documentTypeName
 						if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
-							driver.findElement(By.xpath(
-									"//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]"))
-									.click();
+							Helper.clickElement(driver, By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]"));
+//							driver.findElement(By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr[ " + i + " ]/td[6]")).click();
 							isRecordSelected = true;
 							break;
 						}
@@ -271,10 +270,10 @@ public class EffectiveCheckPerformPA extends CAorPALoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#capaEffectivePostPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#capaEffectivePostPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					driver.findElement(By.cssSelector("#capaEffectivePostPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
 					Thread.sleep(3000);
+					Helper.waitLoadRecords(driver, By.cssSelector("#capaEffectivePostPerformTable > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("capaEffectivePostPerformTable"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
