@@ -37,6 +37,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 public class EffectiveCheckInitiateCAorPA extends CAorPALoginDetails {
@@ -94,14 +95,15 @@ public class EffectiveCheckInitiateCAorPA extends CAorPALoginDetails {
 		js.executeScript("window.scrollBy(0,150)", "");
 		Thread.sleep(2000);
 		WebDriverWait wait = new WebDriverWait(driver, 240);
-		wait.until(
-				ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href='capaEffectiveChkInitiate.do']")));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href='capaEffectiveChkInitiate.do']")));
+		Thread.sleep(2000);
+		js.executeScript("window.scrollBy(0,150)", "");
 		driver.findElement(By.cssSelector("a[href='capaEffectiveChkInitiate.do']")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Effective check initiate", sno,
 				false);
 		Thread.sleep(5000);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(
-				"#capaRecsTable_CapaEffInitPage > div > div.jtable-busy-message[style='display: none;']")));
+		Helper.waitLoadRecords(driver, By.cssSelector("#capaRecsTable_CapaEffInitPage > div > div.jtable-busy-message[style='display: none;']"));
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#capaRecsTable_CapaEffInitPage > div > div.jtable-busy-message[style='display: none;']")));
 		toCAPAEffectiveCheckInitiate();
 		document.close();
 		writer.close();

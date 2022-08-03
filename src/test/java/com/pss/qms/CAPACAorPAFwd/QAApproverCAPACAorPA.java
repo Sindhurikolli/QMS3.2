@@ -17,6 +17,7 @@ import com.pss.qms.login.CAorPALoginDetails;
  
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.AWTException;
@@ -233,11 +234,11 @@ public class QAApproverCAPACAorPA extends CAorPALoginDetails {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
 						String capaNumberSequence = driver
 								.findElement(
-										By.xpath(".//*[@id='capaReviewTable']/div/table/tbody/tr[ " + i + " ]/td[6]"))
+										By.xpath("//*[@id='capaReviewTable']/div/table/tbody/tr[ " + i + " ]/td[6]"))
 								.getText();// documentTypeName
 						if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
 							driver.findElement(
-									By.xpath(".//*[@id='capaReviewTable']/div/table/tbody/tr[ " + i + " ]/td[6]"))
+									By.xpath("//*[@id='capaReviewTable']/div/table/tbody/tr[ " + i + " ]/td[6]"))
 									.click();
 							isRecordSelected = true;
 							break;
@@ -260,10 +261,10 @@ public class QAApproverCAPACAorPA extends CAorPALoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
-//                    Thread.sleep(3000);
+					
+					driver.findElement(By.cssSelector("#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
+                    Thread.sleep(3000);
+                    Helper.waitLoadRecords(driver, By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("capaReviewTable"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
