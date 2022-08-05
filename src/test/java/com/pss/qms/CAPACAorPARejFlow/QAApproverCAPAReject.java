@@ -14,6 +14,7 @@ import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.login.CAorPALoginDetails;
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.Desktop;
@@ -89,8 +90,8 @@ public class QAApproverCAPAReject extends CAorPALoginDetails {
 		driver.findElement(By.cssSelector("a[href='capaReviewPage.do']")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on CAPA Review/Approve", sno, false);
 		Thread.sleep(2000);
-		wait.until(ExpectedConditions.presenceOfElementLocated(
-				By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']")));
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']")));
+		Helper.waitLoadRecords(driver, By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']"));
 		toCAPAReviewAndApproval();
 		document.close();
 		writer.close();
@@ -261,18 +262,17 @@ public class QAApproverCAPAReject extends CAorPALoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					WebElement elementnext = driver.findElement(By.cssSelector(
-							"#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
-					JavascriptExecutor jsnext = (JavascriptExecutor) driver;
-					jsnext.executeScript("arguments[0].scrollIntoView(true);", elementnext);
-					driver.findElement(By.cssSelector(
-							"#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
-                    Thread.sleep(3000);
-                    WebDriverWait wait = new WebDriverWait(driver, 240);
-                    wait.until(ExpectedConditions.presenceOfElementLocated(
-            				By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']")));
-					table = driver.findElement(By.id("capaReviewTable"));// Document Tree approve table
+//					WebElement elementnext = driver.findElement(By.cssSelector(
+//							"#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					JavascriptExecutor jsnext = (JavascriptExecutor) driver;
+//					jsnext.executeScript("arguments[0].scrollIntoView(true);", elementnext);
+//					driver.findElement(By.cssSelector("#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
+                    Helper.clickElement(driver, By.cssSelector("#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+					Thread.sleep(3000);
+//                    WebDriverWait wait = new WebDriverWait(driver, 240);
+//                    wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']")));
+                    Helper.waitLoadRecords(driver, By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']"));
+                    table = driver.findElement(By.id("capaReviewTable"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
 				}

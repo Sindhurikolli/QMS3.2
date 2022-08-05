@@ -14,6 +14,7 @@ import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.login.CAorPALoginDetails;
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.Desktop;
@@ -87,8 +88,8 @@ public class CAPACompletionApproval extends CAorPALoginDetails {
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on CAPA completion Approval", sno,
 				false);
 		Thread.sleep(5000);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(
-				"#capaRecsTable_CapaCmplApprovalPage > div > div.jtable-busy-message[style='display: none;']")));
+		Helper.waitLoadRecords(driver, By.cssSelector("#capaRecsTable_CapaCmplApprovalPage > div > div.jtable-busy-message[style='display: none;']"));
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#capaRecsTable_CapaCmplApprovalPage > div > div.jtable-busy-message[style='display: none;']")));
 		toCAPACompletionApprove();
 		document.close();
 		writer.close();
@@ -283,10 +284,10 @@ public class CAPACompletionApproval extends CAorPALoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#capaRecsTable_CapaCmplInitPage> div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
-//                    Thread.sleep(3000);
+					Helper.clickElement(driver, By.cssSelector("#capaRecsTable_CapaCmplInitPage> div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					driver.findElement(By.cssSelector("#capaRecsTable_CapaCmplInitPage> div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
+                    Thread.sleep(3000);
+                    Helper.waitLoadRecords(driver, By.cssSelector("#capaRecsTable_CapaCmplApprovalPage > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("capaRecsTable_CapaCmplApprovalPage"));// Document Tree approve
 																							// table
 					tableBody = table.findElement(By.tagName("tbody"));

@@ -89,8 +89,8 @@ public class CAPACompletionAfterReject extends CAorPALoginDetails {
 		driver.findElement(By.cssSelector("a[href='capaCmplInitiatePage.do']")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Initiate completion", sno, false);
 		Thread.sleep(2500);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(
-				"#capaRecsTable_CapaCmplInitPage > div > div.jtable-busy-message[style='display: none;']")));
+		Helper.waitLoadRecords(driver, By.cssSelector("#capaRecsTable_CapaCmplInitPage > div > div.jtable-busy-message[style='display: none;']"));
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#capaRecsTable_CapaCmplInitPage > div > div.jtable-busy-message[style='display: none;']")));
 		toCAPACompletionInitiate();
 		document.close();
 		writer.close();

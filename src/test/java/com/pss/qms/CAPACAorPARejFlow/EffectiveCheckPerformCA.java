@@ -95,8 +95,8 @@ public class EffectiveCheckPerformCA extends CAorPALoginDetails {
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Effective check Perform", sno,
 				false);
 		Thread.sleep(5000);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(
-				"#capaEffectivePostPerformTable > div > div.jtable-busy-message[style='display: none;']")));
+		Helper.waitLoadRecords(driver, By.cssSelector("#capaEffectivePostPerformTable > div > div.jtable-busy-message[style='display: none;']"));
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#capaEffectivePostPerformTable > div > div.jtable-busy-message[style='display: none;']")));
 		toCAPAEffectiveCheckPerform();
 		document.close();
 		writer.close();

@@ -77,8 +77,8 @@ public class CAPAPerformTaskCA extends CAorPALoginDetails {
 //        driver.findElement(By.id("caPerformTaskId")).click();
 		Thread.sleep(5000);
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on CA perform Task", sno, false);
-		wait.until(ExpectedConditions.presenceOfElementLocated(
-				By.cssSelector("#actItmPerformTable > div > div.jtable-busy-message[style='display: none;']")));
+		Helper.waitLoadRecords(driver, By.cssSelector("#actItmPerformTable > div > div.jtable-busy-message[style='display: none;']"));
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#actItmPerformTable > div > div.jtable-busy-message[style='display: none;']")));
 		Thread.sleep(5000);
 		toCAPAImplementationPerform();
 		document.close();
@@ -377,15 +377,16 @@ public class CAPAPerformTaskCA extends CAorPALoginDetails {
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
 
-					JavascriptExecutor jse9 = (JavascriptExecutor) driver;
-					WebElement element9 = driver.findElement(By.cssSelector(
-							"#actItmPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
-
-					jse9.executeScript("arguments[0].scrollIntoView(true);", element9);
-					driver.findElement(By.cssSelector(
-							"#actItmPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+//					JavascriptExecutor jse9 = (JavascriptExecutor) driver;
+//					WebElement element9 = driver.findElement(By.cssSelector(
+//							"#actItmPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//
+//					jse9.executeScript("arguments[0].scrollIntoView(true);", element9);
+//					driver.findElement(By.cssSelector("#actItmPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
+//							.click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#actItmPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
 					Thread.sleep(3000);
+					Helper.waitLoadRecords(driver, By.cssSelector("#actItmPerformTable > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("actItmPerformTable"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();

@@ -15,6 +15,7 @@ import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.login.CAorPALoginDetails;
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.Desktop;
@@ -90,8 +91,8 @@ public class PARejectCAPA extends CAorPALoginDetails {
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Performed capa approval", sno,
 				false);
 		Thread.sleep(2000);
-		wait1.until(ExpectedConditions.presenceOfElementLocated(
-				By.cssSelector("#paTaskApproveTable > div > div.jtable-busy-message[style='display: none;']")));
+		Helper.waitLoadRecords(driver, By.cssSelector("#paTaskApproveTable > div > div.jtable-busy-message[style='display: none;']"));
+//		wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#paTaskApproveTable > div > div.jtable-busy-message[style='display: none;']")));
 		methodToDoCAApproveTaskCAPA();
 		document.close();
 		writer.close();
@@ -223,10 +224,10 @@ public class PARejectCAPA extends CAorPALoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#paTaskApproveTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#paTaskApproveTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+					driver.findElement(By.cssSelector("#paTaskApproveTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
 					Thread.sleep(3000);
+					Helper.waitLoadRecords(driver, By.cssSelector("#paTaskApproveTable > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("paTaskApproveTable"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();

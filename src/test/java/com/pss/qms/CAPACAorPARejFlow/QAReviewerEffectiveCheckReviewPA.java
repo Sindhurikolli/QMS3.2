@@ -35,6 +35,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 public class QAReviewerEffectiveCheckReviewPA extends CAorPALoginDetails {
@@ -82,8 +83,8 @@ public class QAReviewerEffectiveCheckReviewPA extends CAorPALoginDetails {
         driver.findElement(By.cssSelector("a[href='effChkImplPostPerfom.do']")).click();
         document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Effective check approval", sno,false);
 //        Thread.sleep(25000);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-busy-message[style='display: none;']")));
-       
+//        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-busy-message[style='display: none;']")));
+        Helper.waitLoadRecords(driver, By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-busy-message[style='display: none;']"));
         toCAPAEffectiveCheckReview();
         document.close();
 		writer.close();
@@ -215,8 +216,10 @@ public class QAReviewerEffectiveCheckReviewPA extends CAorPALoginDetails {
 	            }
 	            noOfRecordsChecked += perPageNoOfRecordsPresent;
 	            if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-	                driver.findElement(By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/div[4]/div[1]/span[1]/span[4]")).click();//next page in Document approve list
+	            	Helper.clickElement(driver, By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//	                driver.findElement(By.xpath("//*[@id=\"effectiveCheckImplPostPerformTable\"]/div/div[4]/div[1]/span[1]/span[4]")).click();//next page in Document approve list
 	                Thread.sleep(3000);
+	                Helper.waitLoadRecords(driver, By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-busy-message[style='display: none;']"));
 	                table = driver.findElement(By.id("effectiveCheckImplPostPerformTable"));//Document Tree approve table
 	                tableBody = table.findElement(By.tagName("tbody"));
 	                perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();

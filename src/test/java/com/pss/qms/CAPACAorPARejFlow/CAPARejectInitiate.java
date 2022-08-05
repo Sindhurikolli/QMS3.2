@@ -83,8 +83,8 @@ public class CAPARejectInitiate extends CAorPALoginDetails {
 		driver.findElement(By.cssSelector("a[href='capaRejectPage.do']")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Reject menu", sno, false);
 		Thread.sleep(2000);
-		wait.until(ExpectedConditions.presenceOfElementLocated(
-				By.cssSelector("#capaRejectTable > div > div.jtable-busy-message[style='display: none;']")));
+		Helper.waitLoadRecords(driver, By.cssSelector("#capaRejectTable > div > div.jtable-busy-message[style='display: none;']"));
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#capaRejectTable > div > div.jtable-busy-message[style='display: none;']")));
 		toCAPAReviewAndApproval();
 		document.close();
 		writer.close();
