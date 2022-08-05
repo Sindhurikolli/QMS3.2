@@ -97,8 +97,8 @@ public class DeptHODCAPAModuleCAorPA extends CAorPALoginDetails {
 //        driver.findElement(By.id("myActivitiesInCapa")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on CAPA Review/Approval", sno, false);
 		Thread.sleep(3000);
-		wait.until(ExpectedConditions.presenceOfElementLocated(
-				By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']")));
+		Helper.waitLoadRecords(driver, By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']"));
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']")));
 		toCAPAReviewAndApproval();
 		Thread.sleep(2000);
 		document.close();

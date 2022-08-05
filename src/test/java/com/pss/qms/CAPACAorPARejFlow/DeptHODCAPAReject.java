@@ -86,8 +86,8 @@ public class DeptHODCAPAReject extends CAorPALoginDetails {
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href='capaReviewPage.do']")));
 		driver.findElement(By.cssSelector("a[href='capaReviewPage.do']")).click();
 		Thread.sleep(5000);
-		wait.until(ExpectedConditions.presenceOfElementLocated(
-				By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']")));
+		Helper.waitLoadRecords(driver, By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']"));
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']")));
 		toCAPAReviewAndApproval();
 		document.close();
 		writer.close();
@@ -267,7 +267,7 @@ public class DeptHODCAPAReject extends CAorPALoginDetails {
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
 					Helper.clickElement(driver, By.cssSelector("#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
 //					driver.findElement(By.cssSelector("#capaReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
-					Thread.sleep(6000);
+					Thread.sleep(3000);
 //					WebDriverWait wait = new WebDriverWait(driver, 240);
 //					wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']")));
 					Helper.waitLoadRecords(driver, By.cssSelector("#capaReviewTable > div > div.jtable-busy-message[style='display: none;']"));

@@ -36,6 +36,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.login.CAorPALoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 public class EffectiveCheckInitiateAfterReject extends CAorPALoginDetails {
@@ -105,8 +106,8 @@ public class EffectiveCheckInitiateAfterReject extends CAorPALoginDetails {
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on reverted radio button", sno,
 				false);
 		Thread.sleep(5000);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(
-				"#capaRecsTable_CapaEffInitReviewRejectPage > div > div.jtable-busy-message[style='display: none;']")));
+		Helper.waitLoadRecords(driver, By.cssSelector("#capaRecsTable_CapaEffInitReviewRejectPage > div > div.jtable-busy-message[style='display: none;']"));
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#capaRecsTable_CapaEffInitReviewRejectPage > div > div.jtable-busy-message[style='display: none;']")));
 		
 		jse.executeScript("window.scrollBy(0,500)");
 		toCAPAEffectiveCheckInitiate();
@@ -313,10 +314,10 @@ public class EffectiveCheckInitiateAfterReject extends CAorPALoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#capaEffectivePostPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#capaEffectivePostPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					driver.findElement(By.cssSelector("#capaEffectivePostPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
 					Thread.sleep(3000);
+					Helper.waitLoadRecords(driver, By.cssSelector("#capaRecsTable_CapaEffInitReviewRejectPage > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("capaEffectivePostPerformTable"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();

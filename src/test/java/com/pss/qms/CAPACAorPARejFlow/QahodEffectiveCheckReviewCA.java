@@ -82,8 +82,8 @@ public class QahodEffectiveCheckReviewCA extends CAorPALoginDetails {
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Effective check approval", sno,
 				false);
 		Thread.sleep(5000);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(
-				"#effectiveCheckImplPostPerformTable > div > div.jtable-busy-message[style='display: none;']")));
+		Helper.waitLoadRecords(driver, By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-busy-message[style='display: none;']"));
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-busy-message[style='display: none;']")));
 		toCAPAEffectiveCheckReview();
 		document.close();
 		writer.close();

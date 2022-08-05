@@ -88,8 +88,8 @@ public class PAPerformAfterReject extends CAorPALoginDetails {
 		driver.findElement(By.cssSelector("a[href='paRejectTaskPage.do']")).click();
 		document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Reverted Performed CAPAs", sno,
 				false);
-		wait.until(ExpectedConditions.presenceOfElementLocated(
-				By.cssSelector("#prevActRejectTable > div > div.jtable-busy-message[style='display: none;']")));
+		Helper.waitLoadRecords(driver, By.cssSelector("#prevActRejectTable > div > div.jtable-busy-message[style='display: none;']"));
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#prevActRejectTable > div > div.jtable-busy-message[style='display: none;']")));
 		methodToDoCAPerformTaskCAPA();
 		document.close();
 		writer.close();
