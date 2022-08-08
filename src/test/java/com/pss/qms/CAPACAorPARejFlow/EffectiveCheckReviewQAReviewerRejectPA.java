@@ -84,7 +84,7 @@ public class EffectiveCheckReviewQAReviewerRejectPA extends CAorPALoginDetails {
 				"Click on Effectiveness check Review & approval", sno, false);
 		Thread.sleep(2000);
 //		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-busy-message[style='display: none;']")));
-		Helper.waitLoadRecords(driver, By.cssSelector("#effnessCheckReviewTable > div > div.jtable-busy-message[style='display: none;']"));
+		Helper.waitLoadRecords(driver, By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-busy-message[style='display: none;']"));
 		toCAPAEffectiveCheckReview();
 		document.close();
 		writer.close();
@@ -242,9 +242,9 @@ public class EffectiveCheckReviewQAReviewerRejectPA extends CAorPALoginDetails {
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
 //	                driver.findElement(By.cssSelector("#effnessCheckReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();//next page in Document approve list
-					Helper.clickElement(driver, By.cssSelector("#effnessCheckReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+					Helper.clickElement(driver, By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
 					Thread.sleep(3000);
-					Helper.waitLoadRecords(driver, By.cssSelector("#effnessCheckReviewTable > div > div.jtable-busy-message[style='display: none;']"));
+					Helper.waitLoadRecords(driver, By.cssSelector("#effectiveCheckImplPostPerformTable > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("effectiveCheckImplPostPerformTable"));// Document Tree approve
 																							// table
 					tableBody = table.findElement(By.tagName("tbody"));
