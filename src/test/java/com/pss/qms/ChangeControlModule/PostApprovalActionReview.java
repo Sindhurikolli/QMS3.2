@@ -460,12 +460,12 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#ccPostApprovalReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
-					Thread.sleep(10000);
-					WebDriverWait wait1 = new WebDriverWait(driver, 60);
-					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccPostApprovalReviewTable > div > div.jtable-busy-message[style='display: none;']")));
+					Helper.clickElement(driver, By.cssSelector("#ccPostApprovalReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					driver.findElement(By.cssSelector("#ccPostApprovalReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
+					Thread.sleep(3000);
+					Helper.waitLoadRecords(driver, By.cssSelector("#ccPostApprovalReviewTable > div > div.jtable-busy-message[style='display: none;']"));
+//					WebDriverWait wait1 = new WebDriverWait(driver, 60);
+//					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccPostApprovalReviewTable > div > div.jtable-busy-message[style='display: none;']")));
 					table = driver.findElement(By.id("ccPostApprovalReviewTable"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();

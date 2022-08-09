@@ -102,7 +102,8 @@ public class CFTReviewCC extends CCLoginDetails {
 			driver.findElement(By.cssSelector("a[href='ccCftReviewPage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on review menu", sno, false);
 			Thread.sleep(2000);
-			wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlCftReviewTableContainer > div > div.jtable-busy-message[style='display: none;']")));
+			Helper.waitLoadRecords(driver, By.cssSelector("#changeControlCftReviewTableContainer > div > div.jtable-busy-message[style='display: none;']"));
+//			wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlCftReviewTableContainer > div > div.jtable-busy-message[style='display: none;']")));
 			
 			methodToDoCftReviewChgControl();
 			document.close();
