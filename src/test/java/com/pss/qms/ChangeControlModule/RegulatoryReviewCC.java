@@ -239,9 +239,11 @@ public class RegulatoryReviewCC extends CCLoginDetails {
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
+						Helper.scrollElement(driver, By.xpath("//*[@id='changeControlRegulatoryReviewTableContainer']/div/table/tbody/tr[ " + i + "]/td[3]"));
 						String CCNumberSequence = driver.findElement(By.xpath("//*[@id='changeControlRegulatoryReviewTableContainer']/div/table/tbody/tr[ " + i + "]/td[3]")).getText();// documentTypeName
 						if (chgControlNumber.equalsIgnoreCase(CCNumberSequence)) {
-							driver.findElement(By.xpath("//*[@id='changeControlRegulatoryReviewTableContainer']/div/table/tbody/tr[" + i + "]/td[52]/button")).click();
+							Helper.clickElement(driver, By.xpath("//*[@id='changeControlRegulatoryReviewTableContainer']/div/table/tbody/tr[" + i + "]/td[52]/button"));
+//							driver.findElement(By.xpath("//*[@id='changeControlRegulatoryReviewTableContainer']/div/table/tbody/tr[" + i + "]/td[52]/button")).click();
 							isRecordSelected = true;
 							break;
 						}
