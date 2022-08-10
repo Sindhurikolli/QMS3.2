@@ -38,6 +38,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.pss.qms.login.CCLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 /**
@@ -236,18 +237,14 @@ public class ReInitiateDocument extends CCLoginDetails {
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						JavascriptExecutor jse1 = (JavascriptExecutor) driver;
-						WebElement element1 = driver.findElement(By.xpath(
-								".//*[@id='changeControlRejTableContainer']/div/table/tbody/tr[ \" + i + \"]/td[2]"));
-						jse1.executeScript("arguments[0].scrollIntoView(true);", element1);
-						String CCNumberSequence = driver.findElement(By.xpath(
-								".//*[@id='changeControlRejTableContainer']/div/table/tbody/tr[ " + i + "]/td[2]"))
-								.getText();// documentTypeName
+//						JavascriptExecutor jse1 = (JavascriptExecutor) driver;
+//						WebElement element1 = driver.findElement(By.xpath("//*[@id='changeControlRejTableContainer']/div/table/tbody/tr[ \" + i + \"]/td[2]"));
+//						jse1.executeScript("arguments[0].scrollIntoView(true);", element1);
+						Helper.scrollElement(driver, By.xpath("//*[@id='changeControlRejTableContainer']/div/table/tbody/tr[ \" + i + \"]/td[2]"));
+						String CCNumberSequence = driver.findElement(By.xpath("//*[@id='changeControlRejTableContainer']/div/table/tbody/tr[ " + i + "]/td[2]")).getText();// documentTypeName
 						if (CCNumber.equalsIgnoreCase(CCNumberSequence)) {
-							driver.findElement(
-									By.xpath(".//*[@id='changeControlRejTableContainer']/div/table/tbody/tr[ " + i
-											+ " ]/td[34]/button"))
-									.click();
+							Helper.clickElement(driver, By.xpath("//*[@id='changeControlRejTableContainer']/div/table/tbody/tr[ " + i + " ]/td[34]/button"));
+//							driver.findElement(By.xpath("//*[@id='changeControlRejTableContainer']/div/table/tbody/tr[ " + i + " ]/td[34]/button")).click();
 							isRecordSelected = true;
 							break;
 						}
@@ -270,16 +267,15 @@ public class ReInitiateDocument extends CCLoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					JavascriptExecutor jse2 = (JavascriptExecutor) driver;
-					WebElement element2 = driver.findElement(By.cssSelector(
-							"#changeControlRejTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
-					jse2.executeScript("arguments[0].scrollIntoView(true);", element2);
-					driver.findElement(By.cssSelector(
-							"#changeControlRejTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+//					JavascriptExecutor jse2 = (JavascriptExecutor) driver;
+//					WebElement element2 = driver.findElement(By.cssSelector("#changeControlRejTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					jse2.executeScript("arguments[0].scrollIntoView(true);", element2);
+//					driver.findElement(By.cssSelector("#changeControlRejTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#changeControlRejTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
 					Thread.sleep(3000);
-					WebDriverWait wait1 = new WebDriverWait(driver, 60);
-					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlRejTableContainer > div > div.jtable-busy-message[style='display: none;']")));
+					Helper.waitLoadRecords(driver, By.cssSelector("#changeControlRejTableContainer > div > div.jtable-busy-message[style='display: none;']"));
+//					WebDriverWait wait1 = new WebDriverWait(driver, 60);
+//					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlRejTableContainer > div > div.jtable-busy-message[style='display: none;']")));
 					table = driver.findElement(By.id("changeControlRejTableContainer"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();

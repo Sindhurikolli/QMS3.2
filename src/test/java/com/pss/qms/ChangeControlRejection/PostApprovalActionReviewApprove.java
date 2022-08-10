@@ -99,6 +99,7 @@ public class PostApprovalActionReviewApprove extends CCLoginDetails {
 //        driver.findElement(By.cssSelector("#ccPostAppActionsListId > ul > li > a")).click();
 //        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on review submenu", sno,false);
 			Thread.sleep(2000);
+			
 			Helper.waitLoadRecords(driver, By.cssSelector("#ccPostApprovalReviewTable > div > div.jtable-busy-message[style='display: none;']"));
 //			 wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccPostApprovalReviewTable > div > div.jtable-busy-message[style='display: none;']")));
 			methodToDoPostApprovalActionReview();
@@ -379,16 +380,11 @@ public class PostApprovalActionReviewApprove extends CCLoginDetails {
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						Helper.scrollElement(driver, By.xpath(
-										".//*[@id='ccPostApprovalReviewTable']/div/table/tbody/tr[ " + i + "]/td[6]"));
-						String CCNumberSequence = driver
-								.findElement(By.xpath(
-										".//*[@id='ccPostApprovalReviewTable']/div/table/tbody/tr[ " + i + "]/td[6]"))
-								.getText();// documentTypeName
+						Helper.scrollElement(driver, By.xpath("//*[@id='ccPostApprovalReviewTable']/div/table/tbody/tr[ " + i + "]/td[6]"));
+						String CCNumberSequence = driver.findElement(By.xpath("//*[@id='ccPostApprovalReviewTable']/div/table/tbody/tr[ " + i + "]/td[6]")).getText();// documentTypeName
 						if (chgCtrlId.equalsIgnoreCase(CCNumberSequence)) {
-						Helper.clickOnCCReViewButton(driver, By.xpath(
-									".//*[@id='ccPostApprovalReviewTable']/div/table/tbody/tr[ " + i + "]/td[6]"));
-						Helper.waitUntilPageLoad(driver);
+						Helper.clickElement(driver, By.xpath("//*[@id='ccPostApprovalReviewTable']/div/table/tbody/tr[ " + i + "]/td[6]"));
+//						Helper.waitUntilPageLoad(driver);
 							isRecordSelected = true;
 							break;
 						}
@@ -409,14 +405,14 @@ public class PostApprovalActionReviewApprove extends CCLoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					Helper.scrollElement(driver, By.cssSelector(
-							"#ccPostApprovalReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
-					driver.findElement(By.cssSelector(
-							"#ccPostApprovalReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#ccPostApprovalReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					driver.findElement(By.cssSelector(
+//							"#ccPostApprovalReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
+//							.click();// next page in Document approve list
 					Thread.sleep(3000);
-					WebDriverWait wait1 = new WebDriverWait(driver, 60);
-					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccPostApprovalReviewTable > div > div.jtable-busy-message[style='display: none;']")));
+//					WebDriverWait wait1 = new WebDriverWait(driver, 60);
+//					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#ccPostApprovalReviewTable > div > div.jtable-busy-message[style='display: none;']")));
+					Helper.waitLoadRecords(driver, By.cssSelector("#ccPostApprovalReviewTable > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("ccPostApprovalReviewTable"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
