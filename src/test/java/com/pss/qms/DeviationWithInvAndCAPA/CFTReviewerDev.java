@@ -11,6 +11,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
  
 import com.pss.qms.login.DeviationLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
  
 
@@ -219,14 +220,11 @@ public class CFTReviewerDev extends DeviationLoginDetails {
             while (noOfRecordsChecked < totalNoOfRecords) {
                 if (totalNoOfRecords > 1) {
                     for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-                    	
-                    	WebElement elementsele = driver.findElement(By.xpath(".//*[@id='devCFTReviewTable']/div/table/tbody/tr[ " + i + "]/td[22]"));
-                        JavascriptExecutor jssel = (JavascriptExecutor)driver;
-                        jssel.executeScript("arguments[0].scrollIntoView(true);", elementsele);
-                    	
-                        String DevNumberSequence = driver.findElement(By.xpath(".//*[@id='devCFTReviewTable']/div/table/tbody/tr[ " + i + " ]/td[22]")).getText();//documentTypeName
+                    	Helper.scrollElement(driver, By.xpath("//*[@id='devCFTReviewTable']/div/table/tbody/tr[ " + i + "]/td[22]"));
+                        String DevNumberSequence = driver.findElement(By.xpath("//*[@id='devCFTReviewTable']/div/table/tbody/tr[ " + i + " ]/td[22]")).getText();//documentTypeName
                         if (DeviationNumber.equalsIgnoreCase(DevNumberSequence)) {
-                            driver.findElement(By.xpath(".//*[@id='devCFTReviewTable']/div/table/tbody/tr[ " + i + " ]/td[22]")).click();
+                        	Helper.clickElement(driver, By.xpath("//*[@id='devCFTReviewTable']/div/table/tbody/tr[ " + i + " ]/td[22]"));
+//                            driver.findElement(By.xpath("//*[@id='devCFTReviewTable']/div/table/tbody/tr[ " + i + " ]/td[22]")).click();
                             isRecordSelected = true;
                             break;
                         }
@@ -237,7 +235,7 @@ public class CFTReviewerDev extends DeviationLoginDetails {
                 } else {
                     String DevNumberSequence = driver.findElement(By.xpath("//*[@id=\"devCFTReviewTable\"]/div/table/tbody/tr/td[22]")).getText();
                     if (DeviationNumber.equalsIgnoreCase(DevNumberSequence)) {
-                        driver.findElement(By.xpath(".//*[@id='devCFTReviewTable']/div/table/tbody/tr/td[22]")).click();
+                        driver.findElement(By.xpath("//*[@id='devCFTReviewTable']/div/table/tbody/tr/td[22]")).click();
                         isRecordSelected = true;
                         break;
                     }
@@ -245,12 +243,14 @@ public class CFTReviewerDev extends DeviationLoginDetails {
                 noOfRecordsChecked += perPageNoOfRecordsPresent;
                 if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
                 	
-                	WebElement elementnext = driver.findElement(By.cssSelector("#devCFTReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
-                    JavascriptExecutor jsnext = (JavascriptExecutor)driver;
-                    jsnext.executeScript("arguments[0].scrollIntoView(true);", elementnext);
-                	
-                    driver.findElement(By.cssSelector("#devCFTReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();//next page in Document approve list
-                    Thread.sleep(20000);
+//                	WebElement elementnext = driver.findElement(By.cssSelector("#devCFTReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//                    JavascriptExecutor jsnext = (JavascriptExecutor)driver;
+//                    jsnext.executeScript("arguments[0].scrollIntoView(true);", elementnext);
+//                	
+//                    driver.findElement(By.cssSelector("#devCFTReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();//next page in Document approve list
+                    Helper.clickElement(driver, By.cssSelector("#devCFTReviewTable > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+                	Thread.sleep(5000);
+                    Helper.waitLoadRecords(driver, By.cssSelector("#devCFTReviewTable > div > div.jtable-busy-message[style='display: none;']"));
                     table = driver.findElement(By.id("devCFTReviewTable"));//Document Tree approve table
                     tableBody = table.findElement(By.tagName("tbody"));
                     perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
