@@ -10,6 +10,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
  
 import com.pss.qms.login.DeviationLoginDetails;
@@ -91,8 +92,9 @@ public class CustomerResponse extends DeviationLoginDetails {
 	        driver.findElement(By.cssSelector("a[href='devCustomerNotify.do']")).click();
 	        document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Notify Customer Menu",sno,false);
 //	        Thread.sleep(10000);
-	        wait1.until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#deviationNotifyCustomerContainer > div > div.jtable-busy-message"))));
+//	        wait1.until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#deviationNotifyCustomerContainer > div > div.jtable-busy-message"))));
 //	        Thread.sleep(60000);
+	        Helper.waitLoadRecords(driver, By.cssSelector("#deviationNotifyCustomerContainer > div > div.jtable-busy-message[style='display: none;']"));
 	        methodToDoQAReviewCustomerResponse();
 	        document.close();
 			writer.close();
@@ -195,9 +197,11 @@ public class CustomerResponse extends DeviationLoginDetails {
 	            while (noOfRecordsChecked < totalNoOfRecords) {
 	                if (totalNoOfRecords > 1) {
 	                    for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-	                        String DevNumberSequence = driver.findElement(By.xpath(".//*[@id='deviationNotifyCustomerContainer']/div/table/tbody/tr[ " + i + " ]/td[18]")).getText();//documentTypeName
+	                    	Helper.scrollElement(driver, By.xpath("//*[@id='deviationNotifyCustomerContainer']/div/table/tbody/tr[ " + i + " ]/td[18]"));
+	                        String DevNumberSequence = driver.findElement(By.xpath("//*[@id='deviationNotifyCustomerContainer']/div/table/tbody/tr[ " + i + " ]/td[18]")).getText();//documentTypeName
 	                        if (DeviationNumber.equalsIgnoreCase(DevNumberSequence)) {
-	                            driver.findElement(By.xpath(".//*[@id='deviationNotifyCustomerContainer']/div/table/tbody/tr[ " + i + " ]/td[18]")).click();
+	                        	Helper.clickElement(driver, By.xpath("//*[@id='deviationNotifyCustomerContainer']/div/table/tbody/tr[ " + i + " ]/td[18]"));
+//	                            driver.findElement(By.xpath("//*[@id='deviationNotifyCustomerContainer']/div/table/tbody/tr[ " + i + " ]/td[18]")).click();
 	                            isRecordSelected = true;
 	                            break;
 	                        }
@@ -215,10 +219,12 @@ public class CustomerResponse extends DeviationLoginDetails {
 	                }
 	                noOfRecordsChecked += perPageNoOfRecordsPresent;
 	                if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-	                    driver.findElement(By.cssSelector("#deviationNotifyCustomerContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();//next page in Document approve list
+	                	Helper.clickElement(driver, By.cssSelector("#deviationNotifyCustomerContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//	                    driver.findElement(By.cssSelector("#deviationNotifyCustomerContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();//next page in Document approve list
 	                    Thread.sleep(5000);
-	                    WebDriverWait wait1 = new WebDriverWait(driver, 240);
-	                    wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#deviationNotifyCustomerContainer > div > div.jtable-busy-message[style='display: none;']")));
+//	                    WebDriverWait wait1 = new WebDriverWait(driver, 240);
+//	                    wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#deviationNotifyCustomerContainer > div > div.jtable-busy-message[style='display: none;']")));
+	                   Helper.waitLoadRecords(driver, By.cssSelector("#deviationNotifyCustomerContainer > div > div.jtable-busy-message[style='display: none;']"));
 	                    table = driver.findElement(By.id("deviationNotifyCustomerContainer"));//Document Tree approve table
 	                    tableBody = table.findElement(By.tagName("tbody"));
 	                    perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
