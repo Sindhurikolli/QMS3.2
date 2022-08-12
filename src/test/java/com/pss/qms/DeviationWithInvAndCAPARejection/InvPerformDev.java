@@ -163,7 +163,7 @@ public class InvPerformDev extends DeviationLoginDetails {
             Thread.sleep(2000);
             driver.findElement(By.id("addBtnInRootCauseWndw")).click();
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Button",sno,false);
-            driver.findElement(By.xpath("//*[@id=\"ui-id-393\"]")).click();
+            driver.findElement(By.xpath("//*[@id=\"impactAssessMentId\"]")).click();
             sno++;
             Thread.sleep(2000);
             driver.findElement(By.id("impactAssessmentDescription")).sendKeys(properties.getProperty("Description_Of_Deviation"));
