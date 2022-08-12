@@ -113,10 +113,8 @@ public class PAPerformAfterReject extends CAorPALoginDetails {
 			JavascriptExecutor jse = (JavascriptExecutor) driver;
 			jse.executeScript("window.scrollBy(0,3000)");
 			WebDriverWait waitmenu = new WebDriverWait(driver, 240);
-			waitmenu.until(ExpectedConditions.presenceOfElementLocated(
-					By.cssSelector("#supportingDocsJtableInPaPerform > div > div.jtable-busy-message")));
-			driver.findElement(By.xpath("//*[@id=\"supportingDocsJtableInPaPerform\"]/div/div[3]/div[2]/span/span[2]"))
-					.click();
+			waitmenu.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#supportingDocsJtableInPaPerform > div > div.jtable-busy-message[style='display: none;']")));
+			driver.findElement(By.xpath("//*[@id=\"supportingDocsJtableInPaPerform\"]/div/div[3]/div[2]/span/span[2]")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document,
 					"Click on add supporting documents button ", sno, false);
 			Thread.sleep(3000);
