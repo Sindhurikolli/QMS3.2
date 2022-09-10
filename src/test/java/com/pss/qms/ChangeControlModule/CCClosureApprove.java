@@ -13,6 +13,7 @@ import com.pss.qms.login.CCLoginDetails;
  
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import java.awt.Desktop;
@@ -237,18 +238,12 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						String CCNumberSequence = driver.findElement(
-								By.xpath("//*[@id=\"changeControlCloseApproveTableContainer\"]/div/table/tbody/tr[ " + i
-										+ " ]/td[4]"))
-								.getText();// documentTypeName
+						String CCNumberSequence = driver.findElement(By.xpath("//*[@id=\"changeControlCloseApproveTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[4]")).getText();// documentTypeName
 						if (CCNumber.equalsIgnoreCase(CCNumberSequence)) {
 //                        	WebElement element = driver.findElement(By.xpath("//*[@id=\"changeControlCloseApproveTableContainer\"]/div/table/tbody/tr[3]/td[4]"));
 //                      	  JavascriptExecutor js = (JavascriptExecutor)driver;
 //                      	  js.executeScript("arguments[0].click();", element);
-							driver.findElement(
-									By.xpath("//*[@id=\"changeControlCloseApproveTableContainer\"]/div/table/tbody/tr[ "
-											+ i + " ]/td[4]"))
-									.click();
+							driver.findElement(By.xpath("//*[@id=\"changeControlCloseApproveTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[4]")).click();
 							isRecordSelected = true;
 							break;
 						}
@@ -257,26 +252,21 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 						break;
 					}
 				} else {
-					String CCNumberSequence = driver
-							.findElement(By.xpath(
-									"//*[@id=\"changeControlCloseApproveTableContainer\"]/div/table/tbody/tr/td[4]"))
-							.getText();
+					String CCNumberSequence = driver.findElement(By.xpath("//*[@id=\"changeControlCloseApproveTableContainer\"]/div/table/tbody/tr/td[4]")).getText();
 					if (CCNumber.equalsIgnoreCase(CCNumberSequence)) {
-						driver.findElement(By
-								.xpath("//*[@id=\"changeControlCloseApproveTableContainer\"]/div/table/tbody/tr/td[4]"))
-								.click();
+						driver.findElement(By.xpath("//*[@id=\"changeControlCloseApproveTableContainer\"]/div/table/tbody/tr/td[4]")).click();
 						isRecordSelected = true;
 						break;
 					}
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#changeControlCloseApproveTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+//					driver.findElement(By.cssSelector("#changeControlCloseApproveTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#changeControlCloseApproveTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
 					Thread.sleep(3000);
-					WebDriverWait wait1 = new WebDriverWait(driver, 60);
-					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlCloseApproveTableContainer > div > div.jtable-busy-message[style='display: none;']")));
+//					WebDriverWait wait1 = new WebDriverWait(driver, 60);
+//					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlCloseApproveTableContainer > div > div.jtable-busy-message[style='display: none;']")));
+					Helper.waitLoadRecords(driver, By.cssSelector("#changeControlCloseApproveTableContainer > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("changeControlCloseApproveTableContainer"));// Document Tree
 																									// approve table
 					tableBody = table.findElement(By.tagName("tbody"));
