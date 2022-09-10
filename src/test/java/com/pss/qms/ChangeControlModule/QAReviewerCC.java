@@ -104,7 +104,8 @@ public class QAReviewerCC extends CCLoginDetails {
 			driver.findElement(By.cssSelector("a[href='ccReviewPage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on review menu", sno, false);
 			Thread.sleep(2000);
-		wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlReviewTableContainer > div > div.jtable-busy-message[style='display: none;']")));
+			Helper.waitLoadRecords(driver, By.cssSelector("#changeControlReviewTableContainer > div > div.jtable-busy-message[style='display: none;']"));
+//		wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlReviewTableContainer > div > div.jtable-busy-message[style='display: none;']")));
 			methodToDoQAReviewerCC();
 			document.close();
 			writer.close();

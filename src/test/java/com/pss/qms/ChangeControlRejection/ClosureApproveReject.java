@@ -98,7 +98,8 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 					false);
 			Thread.sleep(2000);
 		 wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlCloseApproveTableContainer > div > div.jtable-busy-message[style='display: none;']")));
-			methodToDoClosureApprove();
+		Helper.waitLoadRecords(driver, By.cssSelector("#changeControlCloseApproveTableContainer > div > div.jtable-busy-message[style='display: none;']"));	
+		 methodToDoClosureApprove();
 			document.close();
 			writer.close();
 			Desktop desktop = Desktop.getDesktop();
@@ -239,16 +240,11 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 						break;
 					}
 				} else {
-					Helper.scrollElement(driver, By.xpath(
-									"//*[@id=\"changeControlCloseApproveTableContainer\"]/div/table/tbody/tr/td[4]"));
-					String CCNumberSequence = driver
-							.findElement(By.xpath(
-									"//*[@id=\"changeControlCloseApproveTableContainer\"]/div/table/tbody/tr/td[4]"))
-							.getText();
+					Helper.scrollElement(driver, By.xpath("//*[@id=\"changeControlCloseApproveTableContainer\"]/div/table/tbody/tr/td[4]"));
+					String CCNumberSequence = driver.findElement(By.xpath("//*[@id=\"changeControlCloseApproveTableContainer\"]/div/table/tbody/tr/td[4]")).getText();
 					if (chgCtrlId.equalsIgnoreCase(CCNumberSequence)) {
-						Helper.clickOnCCReViewButton(driver, By
-								.xpath("//*[@id=\"changeControlCloseApproveTableContainer\"]/div/table/tbody/tr/td[4]"));
-						Helper.waitUntilPageLoad(driver);
+						Helper.clickElement(driver, By.xpath("//*[@id=\"changeControlCloseApproveTableContainer\"]/div/table/tbody/tr/td[4]"));
+//						Helper.waitUntilPageLoad(driver);
 //						driver.findElement(By
 //								.xpath("//*[@id=\"changeControlCloseApproveTableContainer\"]/div/table/tbody/tr/td[4]"))
 //								.click();
@@ -264,8 +260,9 @@ WebDriverWait wait1 = new WebDriverWait(driver, 60);
 							"#changeControlCloseApproveTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
 							.click();// next page in Document approve list
 					Thread.sleep(3000);
-					WebDriverWait wait1 = new WebDriverWait(driver, 60);
-					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlCloseApproveTableContainer > div > div.jtable-busy-message[style='display: none;']")));
+//					WebDriverWait wait1 = new WebDriverWait(driver, 60);
+//					wait1.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#changeControlCloseApproveTableContainer > div > div.jtable-busy-message[style='display: none;']")));
+					Helper.waitLoadRecords(driver, By.cssSelector("#changeControlCloseApproveTableContainer > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("changeControlCloseApproveTableContainer"));// Document Tree
 																									// approve table
 					tableBody = table.findElement(By.tagName("tbody"));
