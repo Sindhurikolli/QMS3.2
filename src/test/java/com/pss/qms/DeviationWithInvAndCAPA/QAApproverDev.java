@@ -211,13 +211,13 @@ public class QAApproverDev extends DeviationLoginDetails {
                     for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
                     	
                     	
-                    	WebElement elementsele = driver.findElement(By.xpath(".//*[@id='devReviewTableContailner']/div/table/tbody/tr[ " + i + "]/td[3]"));
+                    	WebElement elementsele = driver.findElement(By.xpath("//*[@id='devReviewTableContailner']/div/table/tbody/tr[ " + i + "]/td[3]"));
                         JavascriptExecutor jssel = (JavascriptExecutor)driver;
                         jssel.executeScript("arguments[0].scrollIntoView(true);", elementsele);
                     	
-                        String DevNumberSequence = driver.findElement(By.xpath(".//*[@id='devReviewTableContailner']/div/table/tbody/tr[ " + i + " ]/td[3]")).getText();//documentTypeName
+                        String DevNumberSequence = driver.findElement(By.xpath("//*[@id='devReviewTableContailner']/div/table/tbody/tr[ " + i + " ]/td[3]")).getText();//documentTypeName
                         if (DeviationNumber.equalsIgnoreCase(DevNumberSequence)) {
-                            driver.findElement(By.xpath(".//*[@id='devReviewTableContailner']/div/table/tbody/tr[ " + i + " ]/td[44]/button")).click();
+                            driver.findElement(By.xpath("//*[@id='devReviewTableContailner']/div/table/tbody/tr[ " + i + " ]/td[44]/button")).click();
                             isRecordSelected = true;
                             break;
                         }
