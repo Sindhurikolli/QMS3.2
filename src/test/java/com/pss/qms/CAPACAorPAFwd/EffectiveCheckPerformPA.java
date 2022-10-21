@@ -256,14 +256,11 @@ public class EffectiveCheckPerformPA extends CAorPALoginDetails {
 						break;
 					}
 				} else {
-					String capaNumberSequence = driver
-							.findElement(
-									By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr/td[6]"))
-							.getText();
+					Helper.scrollElement(driver, By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr/td[6]"));
+					String capaNumberSequence = driver.findElement(By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr/td[6]")).getText();
 					if (CAPANumber.equalsIgnoreCase(capaNumberSequence)) {
-						driver.findElement(
-								By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr/td[6]"))
-								.click();
+						Helper.clickElement(driver, By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr/td[6]"));
+//						driver.findElement(By.xpath("//*[@id=\"capaEffectivePostPerformTable\"]/div/table/tbody/tr/td[6]")).click();
 						isRecordSelected = true;
 						break;
 					}
