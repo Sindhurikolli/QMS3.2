@@ -118,12 +118,13 @@ public class EffectiveCheckPerformAfterRejectByQMSCoordinatorCA extends CAorPALo
 					"Enter the  reperformed effective check summary", sno, false);
 			Thread.sleep(1000);
 			sno++;
-//           JavascriptExecutor scl1 = ((JavascriptExecutor) driver);
-//           scl1.executeScript("window.scrollBy(0,500)");
+           JavascriptExecutor scl1 = ((JavascriptExecutor) driver);
+           scl1.executeScript("window.scrollBy(0,500)");
 //           Thread.sleep(1000);
-			WebDriverWait waitsupp = new WebDriverWait(driver, 240);
-			waitsupp.until(ExpectedConditions.invisibilityOf(driver
-					.findElement(By.cssSelector("#supDocsJtable_EffChkPerformPage > div > div.jtable-busy-message"))));
+//			WebDriverWait waitsupp = new WebDriverWait(driver, 240);
+//			waitsupp.until(ExpectedConditions.invisibilityOf(driver
+//					.findElement(By.cssSelector("#supDocsJtable_EffChkPerformPage > div > div.jtable-busy-message"))));
+			Helper.waitLoadRecords(driver, By.cssSelector("#supDocsJtable_EffChkPerformPage > div > div.jtable-busy-message[style='display: none;']"));
 			driver.findElement(By.id("addSupDocsBtn_EffChkPerformPage")).click();
 			Thread.sleep(5000);
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Add suppoting doscuments", sno,
