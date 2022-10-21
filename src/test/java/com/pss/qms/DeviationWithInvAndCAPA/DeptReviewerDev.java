@@ -127,12 +127,14 @@ public class DeptReviewerDev extends DeviationLoginDetails {
               driver.findElement(By.id("immediateCAInDeviationDeptReview")).sendKeys(properties.getProperty("Description_Of_Deviation"));
               document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Additional Remedial Actions Proposed If Any",sno,false);
             JavascriptExecutor jse = (JavascriptExecutor) driver;
-            WebElement element = driver.findElement(By.id("approve_DevReview"));
-            jse.executeScript("arguments[0].scrollIntoView(true);", element);
+//            WebElement element = driver.findElement(By.id("devAddSuppDocs_DevReview"));
+//            jse.executeScript("arguments[0].scrollIntoView(true);", element);
             sno++;
-           driver.findElement(By.id("devAddSuppDocs_DevReview")).click();
+            Helper.scrollAndClickElement(driver, By.id("devAddSuppDocs_DevReview"));
+//           driver.findElement(By.id("devAddSuppDocs_DevReview")).click();
            document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Button",sno,false);
            sno++;
+           Thread.sleep(2000);
             driver.findElement(By.id("uploadSuppDoc_Dev_Review_1")).sendKeys(properties.getProperty("Document-1"));
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Upload The Document",sno,false); 
             sno++;
