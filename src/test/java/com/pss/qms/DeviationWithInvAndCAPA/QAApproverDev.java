@@ -10,6 +10,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
  
 import com.pss.qms.login.DeviationLoginDetails;
@@ -217,7 +218,8 @@ public class QAApproverDev extends DeviationLoginDetails {
                     	
                         String DevNumberSequence = driver.findElement(By.xpath("//*[@id='devReviewTableContailner']/div/table/tbody/tr[ " + i + " ]/td[3]")).getText();//documentTypeName
                         if (DeviationNumber.equalsIgnoreCase(DevNumberSequence)) {
-                            driver.findElement(By.xpath("//*[@id='devReviewTableContailner']/div/table/tbody/tr[ " + i + " ]/td[44]/button")).click();
+                           Helper.clickElement(driver, By.xpath("//*[@id='devReviewTableContailner']/div/table/tbody/tr[ " + i + " ]/td[44]/button"));
+//                        	driver.findElement(By.xpath("//*[@id='devReviewTableContailner']/div/table/tbody/tr[ " + i + " ]/td[44]/button")).click();
                             isRecordSelected = true;
                             break;
                         }
