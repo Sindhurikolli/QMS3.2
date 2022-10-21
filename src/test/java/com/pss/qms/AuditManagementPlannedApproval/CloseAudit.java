@@ -31,6 +31,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
 public class CloseAudit extends AMLoginDetails {
@@ -201,7 +202,7 @@ public class CloseAudit extends AMLoginDetails {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
 						String AMNumberSequence = driver.findElement(By.xpath(
-								".//*[@id='auditsListTableInCLoseAuditApprove']/div/table/tbody/tr[ " + i + "]/td[6]"))
+								"//*[@id='auditsListTableInCLoseAuditApprove']/div/table/tbody/tr[ " + i + "]/td[6]"))
 								.getText();// documentTypeName
 						if (AMId.equalsIgnoreCase(AMNumberSequence)) {
 							driver.findElement(
@@ -234,6 +235,7 @@ public class CloseAudit extends AMLoginDetails {
 							"#auditsListTableInCLoseAuditApprove > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
 							.click();// next page in Document approve list
 					Thread.sleep(3000);
+					Helper.waitLoadRecords(driver, By.cssSelector("#auditsListTableInCLoseAuditApprove > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("auditsListTableInCLoseAuditApprove"));// Document Tree approve
 																							// table
 					tableBody = table.findElement(By.tagName("tbody"));

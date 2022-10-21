@@ -12,6 +12,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import org.openqa.selenium.By;
@@ -94,6 +95,7 @@ public class AuditObservationsReview extends AMLoginDetails {
 			driver.findElement(By.cssSelector("a[href='amRevAuditFindingPage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on AuditResponse Review Menu",
 					sno, false);
+			Helper.waitLoadRecords(driver, By.cssSelector("#auditsContainerInReviewAuditFindingForm > div > div.jtable-busy-message[style='display: none;']"));
 			methodToDoAuditPlan();
 			Thread.sleep(5000);
 			document.close();
@@ -211,15 +213,11 @@ public class AuditObservationsReview extends AMLoginDetails {
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						String AMNumberSequence = driver.findElement(
-								By.xpath(".//*[@id='auditsContainerInReviewAuditFindingForm']/div/table/tbody/tr[ " + i
-										+ "]/td[3]"))
-								.getText();// documentTypeName
+						Helper.scrollElement(driver, By.xpath("//*[@id='auditsContainerInReviewAuditFindingForm']/div/table/tbody/tr[ " + i + "]/td[3]"));
+						String AMNumberSequence = driver.findElement(By.xpath("//*[@id='auditsContainerInReviewAuditFindingForm']/div/table/tbody/tr[ " + i + "]/td[3]")).getText();// documentTypeName
 						if (AMId.equalsIgnoreCase(AMNumberSequence)) {
-							driver.findElement(
-									By.xpath("//*[@id=\"auditsContainerInReviewAuditFindingForm\"]/div/table/tbody/tr[ "
-											+ i + " ]/td[3]"))
-									.click();
+							Helper.clickElement(driver, By.xpath("//*[@id=\"auditsContainerInReviewAuditFindingForm\"]/div/table/tbody/tr[ " + i + " ]/td[3]"));
+//							driver.findElement(By.xpath("//*[@id=\"auditsContainerInReviewAuditFindingForm\"]/div/table/tbody/tr[ " + i + " ]/td[3]")).click();
 							isRecordSelected = true;
 							break;
 						}
@@ -242,10 +240,10 @@ public class AuditObservationsReview extends AMLoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#auditsContainerInReviewAuditFindingForm > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#auditsContainerInReviewAuditFindingForm > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					driver.findElement(By.cssSelector("#auditsContainerInReviewAuditFindingForm > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
 					Thread.sleep(3000);
+					Helper.waitLoadRecords(driver, By.cssSelector("#auditsContainerInReviewAuditFindingForm > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("auditsContainerInReviewAuditFindingForm"));// Document Tree
 																									// approve table
 					tableBody = table.findElement(By.tagName("tbody"));

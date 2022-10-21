@@ -42,6 +42,8 @@ public class ProductRegistration extends RegistrationLoginDetails {
         todoProductRegistration();
    }
         public void todoProductRegistration() throws InterruptedException {  
+        	JavascriptExecutor jse = (JavascriptExecutor)driver;
+        	jse.executeScript("window.scrollBy(0,250)");
         driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
         Thread.sleep(10000);
         driver.findElement(By.id("productNameInRegisterProdInQms")).sendKeys(properties.getProperty("PRODUCT_NAME"));

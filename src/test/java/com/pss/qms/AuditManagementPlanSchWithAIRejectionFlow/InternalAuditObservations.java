@@ -86,6 +86,7 @@ public class InternalAuditObservations extends AMLoginDetails {
 			driver.findElement(By.cssSelector("a[href='amStartAuditPage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Enter Audit Observations Menu",
 					sno, false);
+			Helper.waitLoadRecords(driver, By.cssSelector("#auditsContainerInEnterAuditFindingsForm > div > div.jtable-busy-message[style='display: none;']"));
 			methodToDoAuditObservations();
 			Thread.sleep(3000);
 			document.close();
@@ -770,7 +771,7 @@ public class InternalAuditObservations extends AMLoginDetails {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
 						String AMNumberSequence = driver.findElement(
-								By.xpath(".//*[@id='auditsContainerInEnterAuditFindingsForm']/div/table/tbody/tr[ " + i
+								By.xpath("//*[@id='auditsContainerInEnterAuditFindingsForm']/div/table/tbody/tr[ " + i
 										+ "]/td[3]"))
 								.getText();// documentTypeName
 						if (AMId.equalsIgnoreCase(AMNumberSequence)) {
@@ -800,10 +801,9 @@ public class InternalAuditObservations extends AMLoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#auditsContainerInEnterAuditFindingsForm > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+					driver.findElement(By.cssSelector("#auditsContainerInEnterAuditFindingsForm > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
 					Thread.sleep(3000);
+					Helper.waitLoadRecords(driver, By.cssSelector("#auditsContainerInEnterAuditFindingsForm > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("auditsContainerInEnterAuditFindingsForm"));// Document Tree
 																									// approve table
 					tableBody = table.findElement(By.tagName("tbody"));

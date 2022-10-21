@@ -30,6 +30,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
 public class ApproveAuditeeResponse extends AMLoginDetails {
@@ -85,6 +86,7 @@ public class ApproveAuditeeResponse extends AMLoginDetails {
 			driver.findElement(By.cssSelector("a[href='amAuditeeResponseAppPage.do']")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click on Auditee Response Menu", sno,
 					false);
+			Helper.waitLoadRecords(driver, By.cssSelector("#auditsContainerInReviewAuditFindingAppForm > div > div.jtable-busy-message[style='display: none;']"));
 			methodToDoAuditeeResponseApprove();
 			Thread.sleep(3000);
 			document.close();
@@ -208,15 +210,11 @@ public class ApproveAuditeeResponse extends AMLoginDetails {
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						String AMNumberSequence = driver.findElement(
-								By.xpath(".//*[@id='auditsContainerInReviewAuditFindingAppForm']/div/table/tbody/tr[ "
-										+ i + "]/td[5]"))
-								.getText();// documentTypeName
+						Helper.scrollElement(driver, By.xpath("//*[@id='auditsContainerInReviewAuditFindingAppForm']/div/table/tbody/tr[ " + i + "]/td[5]"));
+						String AMNumberSequence = driver.findElement(By.xpath("//*[@id='auditsContainerInReviewAuditFindingAppForm']/div/table/tbody/tr[ " + i + "]/td[5]")).getText();// documentTypeName
 						if (AMId.equalsIgnoreCase(AMNumberSequence)) {
-							driver.findElement(By.xpath(
-									"//*[@id=\"auditsContainerInReviewAuditFindingAppForm\"]/div/table/tbody/tr[ " + i
-											+ " ]/td[5]"))
-									.click();
+							Helper.clickElement(driver, By.xpath("//*[@id=\"auditsContainerInReviewAuditFindingAppForm\"]/div/table/tbody/tr[ " + i + " ]/td[5]"));
+//							driver.findElement(By.xpath("//*[@id=\"auditsContainerInReviewAuditFindingAppForm\"]/div/table/tbody/tr[ " + i + " ]/td[5]")).click();
 							isRecordSelected = true;
 							break;
 						}
@@ -239,11 +237,11 @@ public class ApproveAuditeeResponse extends AMLoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#auditsContainerInReviewAuditFindingForm > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#auditsContainerInReviewAuditFindingAppForm > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					driver.findElement(By.cssSelector("#auditsContainerInReviewAuditFindingForm > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
 					Thread.sleep(3000);
-					table = driver.findElement(By.id("auditsContainerInEnterAuditFindingsForm"));// Document Tree
+					Helper.waitLoadRecords(driver, By.cssSelector("#auditsContainerInReviewAuditFindingAppForm > div > div.jtable-busy-message[style='display: none;']"));
+					table = driver.findElement(By.id("auditsContainerInReviewAuditFindingAppForm"));// Document Tree
 																									// approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();
