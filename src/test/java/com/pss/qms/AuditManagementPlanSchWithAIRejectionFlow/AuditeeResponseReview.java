@@ -30,6 +30,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
 public class AuditeeResponseReview extends AMLoginDetails {
@@ -127,7 +128,7 @@ public class AuditeeResponseReview extends AMLoginDetails {
 //			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 //			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
 //			sno++;
-//			Thread.sleep(3000);
+			Thread.sleep(3000);
 			driver.findElement(By.id("commentsInAmReviewAuditFindingAppForm"))
 					.sendKeys(properties.getProperty("AM_1500"));
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter The Comments", sno, false);
@@ -208,7 +209,7 @@ public class AuditeeResponseReview extends AMLoginDetails {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
 						String AuditNumberSequence = driver.findElement(
-								By.xpath(".//*[@id='auditsContainerInReviewAuditFindingAppForm']/div/table/tbody/tr[ "
+								By.xpath("//*[@id='auditsContainerInReviewAuditFindingAppForm']/div/table/tbody/tr[ "
 										+ i + "]/td[5]"))
 								.getText();// documentTypeName
 						if (AuditId.equalsIgnoreCase(AuditNumberSequence)) {
@@ -242,6 +243,7 @@ public class AuditeeResponseReview extends AMLoginDetails {
 							"#auditsContainerInReviewAuditFindingAppForm > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
 							.click();// next page in Document approve list
 					Thread.sleep(3000);
+					Helper.waitLoadRecords(driver, By.cssSelector("#auditsContainerInReviewAuditFindingAppForm > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("auditsContainerInReviewAuditFindingAppForm"));// Document Tree
 																									// approve table
 					tableBody = table.findElement(By.tagName("tbody"));

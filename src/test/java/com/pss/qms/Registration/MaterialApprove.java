@@ -94,7 +94,7 @@ public class MaterialApprove extends RegistrationLoginDetails {
                     for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
                         String MaterialNameSequence = driver.findElement(By.xpath("//*[@id=\"qmsMaterialApprovalGrid\"]/div/table/tbody/tr[ " + i + " ]/td[3]")).getText();//documentTypeName
                         if (MaterialName.equalsIgnoreCase(MaterialNameSequence)) {
-                            driver.findElement(By.xpath("//*[@id=\"qmsMaterialApprovalGrid\"]/div/table/tbody/tr[ " + i + " ]/td[9]/button")).click();
+                            driver.findElement(By.xpath("//*[@id=\"qmsMaterialApprovalGrid\"]/div/table/tbody/tr[ " + i + " ]/td[10]/button")).click();
                             isRecordSelected = true;
                             break;
                         }
@@ -105,7 +105,7 @@ public class MaterialApprove extends RegistrationLoginDetails {
                 } else {
                     String MaterialNameSequence = driver.findElement(By.xpath("//*[@id=\"qmsMaterialApprovalGrid\"]/div/table/tbody/tr/td[3]")).getText();
                     if (MaterialName.equalsIgnoreCase(MaterialNameSequence)) {
-                        driver.findElement(By.xpath("//*[@id=\"qmsMaterialApprovalGrid\"]/div/table/tbody/tr/td[9]/button")).click();
+                        driver.findElement(By.xpath("//*[@id=\"qmsMaterialApprovalGrid\"]/div/table/tbody/tr/td[10]/button")).click();
                         isRecordSelected = true;
                         break;
                     }

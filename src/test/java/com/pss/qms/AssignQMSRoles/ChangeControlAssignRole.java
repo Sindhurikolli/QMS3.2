@@ -61,7 +61,7 @@ public class ChangeControlAssignRole extends QMSLoginDetails {
         List<WebElement> allOptionstoselect = Roletoselect.getOptions();
         int jSize = allOptionstoselect.size();
         String [] arrrolestoselect= new String [jSize]; 
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         for (int j = 0; j < jSize; j++) 
         {
         	arrrolestoselect[j]=allOptionstoselect.get(j).getText();
@@ -70,12 +70,12 @@ public class ChangeControlAssignRole extends QMSLoginDetails {
         List<WebElement> allOptionsselected = Roleselected.getOptions();
         int iSize = allOptionsselected.size();
         String [] arrrolesselected= new String [iSize]; 
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         for (int i = 0; i < iSize; i++) 
         {
         	arrrolesselected[i]=allOptionsselected.get(i).getText();
         }
-        Thread.sleep(3000);
+        Thread.sleep(1000);
       if(ArrayUtils.contains( arrrolestoselect, RoleName ))
       {
     	  Roletoselect.selectByVisibleText(properties.getProperty("ChangeControlRoleName"));

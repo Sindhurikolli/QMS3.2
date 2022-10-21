@@ -324,14 +324,11 @@ public class AuditPlan extends AMLoginDetails {
 			while (noOfRecordsChecked < totalNoOfRecords) {
 				if (totalNoOfRecords > 1) {
 					for (int i = 1; i <= perPageNoOfRecordsPresent; i++) {
-						String AMNumberSequence = driver
-								.findElement(By.xpath(
-										"//*[@id=\"auditsListTableContainer\"]/div/table/tbody/tr[  " + i + " ]/td[6]"))
-								.getText();// documentTypeName
+						Helper.scrollElement(driver, By.xpath("//*[@id=\"auditsListTableContainer\"]/div/table/tbody/tr[  " + i + " ]/td[6]"));
+						String AMNumberSequence = driver.findElement(By.xpath("//*[@id=\"auditsListTableContainer\"]/div/table/tbody/tr[  " + i + " ]/td[6]")).getText();// documentTypeName
 						if (AMId.equalsIgnoreCase(AMNumberSequence)) {
-							driver.findElement(By.xpath(
-									"//*[@id=\"auditsListTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[6]"))
-									.click();
+							Helper.clickElement(driver, By.xpath("//*[@id=\"auditsListTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[6]"));
+//							driver.findElement(By.xpath("//*[@id=\"auditsListTableContainer\"]/div/table/tbody/tr[ " + i + " ]/td[6]")).click();
 							isRecordSelected = true;
 							break;
 						}
@@ -352,10 +349,10 @@ public class AuditPlan extends AMLoginDetails {
 				}
 				noOfRecordsChecked += perPageNoOfRecordsPresent;
 				if ((!isRecordSelected) && (noOfRecordsChecked < totalNoOfRecords)) {
-					driver.findElement(By.cssSelector(
-							"#auditsListTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"))
-							.click();// next page in Document approve list
+					Helper.clickElement(driver, By.cssSelector("#auditsListTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next"));
+//					driver.findElement(By.cssSelector("#auditsListTableContainer > div > div.jtable-bottom-panel > div.jtable-left-area > span.jtable-page-list > span.jtable-page-number-next")).click();// next page in Document approve list
 					Thread.sleep(5000);
+					Helper.waitLoadRecords(driver, By.cssSelector("#auditsListTableContainer > div > div.jtable-busy-message[style='display: none;']"));
 					table = driver.findElement(By.id("auditsListTableContainer"));// Document Tree approve table
 					tableBody = table.findElement(By.tagName("tbody"));
 					perPageNoOfRecordsPresent = tableBody.findElements(By.tagName("tr")).size();

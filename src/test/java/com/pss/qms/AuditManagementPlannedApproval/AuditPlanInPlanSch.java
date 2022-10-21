@@ -12,6 +12,7 @@ import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
  
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 
 import org.openqa.selenium.By;
@@ -171,6 +172,7 @@ public class AuditPlanInPlanSch extends AMLoginDetails {
 			driver.findElement(By.id("locTreeInQmsRegAuditeeUsers_2_span")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Select The Location", sno, false);
 			Thread.sleep(2000);
+			Helper.waitLoadRecords(driver, By.cssSelector("#regAuditeeUsersTableContainer > div > div.jtable-busy-message[style='display: none;']"));
 			boolean isRecordSelectedForUser = false;
 			String UserFirstName = properties.getProperty("AUDITOR_USER");
 			String UserFullName = UserFirstName;

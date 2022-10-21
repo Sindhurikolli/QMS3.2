@@ -30,6 +30,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
 public class AuditeeResponseRejectedApprove extends AMLoginDetails {
@@ -117,18 +118,24 @@ public class AuditeeResponseRejectedApprove extends AMLoginDetails {
 			Thread.sleep(3000);
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
 			sno++;
+			Helper.waitLoadRecords(driver, By.cssSelector("#checkListForAuditeeResponseTable > div > div.jtable-busy-message[style='display: none;']"));
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 			Thread.sleep(4000);
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
 			sno++;
+			Helper.waitLoadRecords(driver, By.cssSelector("#chkPointsTableInAuditeeResponseForm > div > div.jtable-busy-message[style='display: none;']"));
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 			Thread.sleep(4000);
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
 			sno++;
+			Helper.waitLoadRecords(driver, By.cssSelector("#actionItemsChkPointsTableInAuditeeResponseForm > div > div.jtable-busy-message[style='display: none;']"));
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
 			Thread.sleep(3000);
 			sno++;
+			Helper.waitLoadRecords(driver, By.cssSelector("#selectUsersForAuditObservationsReview > div > div.jtable-busy-message[style='display: none;']"));
+			Helper.waitLoadRecords(driver, By.cssSelector("#userDetailsInCreateUserGroup > div > div.jtable-busy-message[style='display: none;']"));
+			
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[3]/a")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Submit Button", sno, false);
 			Thread.sleep(2000);

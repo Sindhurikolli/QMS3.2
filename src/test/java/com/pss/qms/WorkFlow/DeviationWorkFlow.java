@@ -153,7 +153,7 @@ public class DeviationWorkFlow extends QMSLoginDetails {
         }
         }
         
-        jse.executeScript("window.scrollBy(0,300)");
+        jse.executeScript("window.scrollBy(0,600)");
         Thread.sleep(3000);
         String QualityHeadE_Codes = properties.getProperty("DEVQualityHeadE_Codes");
         String QualityHeadECodes [] =QualityHeadE_Codes.split(",");

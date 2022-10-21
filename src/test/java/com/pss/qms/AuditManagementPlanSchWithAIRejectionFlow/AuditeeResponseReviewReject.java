@@ -30,6 +30,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.AMLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
 @Listeners(com.pss.qms.Listners.TestListener.class)
 public class AuditeeResponseReviewReject extends AMLoginDetails {
@@ -118,18 +119,21 @@ public class AuditeeResponseReviewReject extends AMLoginDetails {
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
 			Thread.sleep(2000);
 			sno++;
+			Helper.waitLoadRecords(driver, By.cssSelector("#chkListsTableInReviewAuditFindingForm > div > div.jtable-busy-message[style='display: none;']"));
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
 			Thread.sleep(2000);
 			sno++;
+			Helper.waitLoadRecords(driver, By.cssSelector("#chkPointsTableInReviewAuditFindingForm > div > div.jtable-busy-message[style='display: none;']"));
 			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
 			Thread.sleep(2000);
 			sno++;
-//			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
-//			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
-//			Thread.sleep(2000);
-//			sno++;
+			Helper.waitLoadRecords(driver, By.cssSelector("#actionItemsChkPointsTableInrevAuditFindings > div > div.jtable-busy-message[style='display: none;']"));
+			driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
+			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Next Button", sno, false);
+			Thread.sleep(2000);
+			sno++;
 			driver.findElement(By.id("commentsInAmReviewAuditFindingAppForm"))
 					.sendKeys(properties.getProperty("AM_1500"));
 			document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter The Comments", sno, false);

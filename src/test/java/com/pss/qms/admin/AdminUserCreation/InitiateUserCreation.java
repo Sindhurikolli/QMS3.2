@@ -98,7 +98,7 @@ public class InitiateUserCreation extends AdminLoginDetails {
             Thread.sleep(1000);
        driver.findElement(By.id("subBtnInValidateESign")).click();
        Thread.sleep(2000);
-        driver.findElement(By.xpath(".//*[@id='modal-window']/div/div/div[3]/a")).click();
+        driver.findElement(By.xpath("//*[@id='modal-window']/div/div/div[3]/a")).click();
         Thread.sleep(2000);
         driver.findElement(By.className("username")).click();
         Thread.sleep(1000);

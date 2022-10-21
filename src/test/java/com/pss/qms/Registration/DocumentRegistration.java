@@ -39,7 +39,9 @@ public class DocumentRegistration extends RegistrationLoginDetails {
          todoDocumentRegistration();
     }
     public void todoDocumentRegistration() throws InterruptedException {   
-    	
+    	JavascriptExecutor jse = (JavascriptExecutor)driver;
+    	jse.executeScript("window.scrollBy(0,250)");
+
         driver.findElement(By.xpath("//*[@id=\"TotalContent\"]/div[3]/ul/li[2]/a")).click();
         Thread.sleep(5000);
         driver.findElement(By.id("docNameInRegDocumentAdd")).sendKeys(properties.getProperty("DOC_NAME"));
