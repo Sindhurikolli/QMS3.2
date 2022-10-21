@@ -10,6 +10,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.pss.qms.ExtentTestNGPkg.Utility;
 import com.pss.qms.login.DeviationLoginDetails;
 import com.pss.qms.util.HeaderFooterPageEvent;
+import com.pss.qms.util.Helper;
 import com.pss.qms.util.Utilities;
  
 
@@ -128,11 +129,12 @@ public class DeptReviewerReject extends DeviationLoginDetails {
             Thread.sleep(3000);
             driver.findElement(By.id("immediateCAInDeviationDeptReview")).sendKeys(properties.getProperty("Description_Of_Deviation"));
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter Additional Remedial Actions Proposed If Any",sno,false);
-            JavascriptExecutor jse1 = (JavascriptExecutor) driver;
-            WebElement element1 = driver.findElement(By.id("rejectActivityInCheck_DevReview"));
-            jse1.executeScript("arguments[0].scrollIntoView(true);", element1);
+//            JavascriptExecutor jse1 = (JavascriptExecutor) driver;
+//            WebElement element1 = driver.findElement(By.id("rejectActivityInCheck_DevReview"));
+//            jse1.executeScript("arguments[0].scrollIntoView(true);", element1);
             sno++;
             Thread.sleep(3000);
+            Helper.scrollAndClickElement(driver, By.id("devAddSuppDocs_DevReview"));
             driver.findElement(By.id("devAddSuppDocs_DevReview")).click();
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Supporting Documents",sno,false);
             sno++;
