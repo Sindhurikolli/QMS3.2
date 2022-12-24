@@ -338,7 +338,7 @@ public class MCRegister extends MCLoginDetails {
 		String MCNo =driver.findElement(By.xpath("//*[@id=\"modal-window\"]/div/div/div[2]/center")).getText();
 		String parts []= MCNo.split(":");
 		String MCNoTemp = parts[1];
-		String MCFinalNum= MCNoTemp.substring(1,16);
+		String MCFinalNum= MCNoTemp.substring(1,13);
 		System.out.println(MCFinalNum);
         PropertiesConfiguration properties = new PropertiesConfiguration("src/test/java/QMSUIProperties/MCproperties.properties");
         properties.setProperty("MC_ID", MCFinalNum);
