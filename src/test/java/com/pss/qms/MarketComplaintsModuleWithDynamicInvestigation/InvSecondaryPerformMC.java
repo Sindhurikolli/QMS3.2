@@ -192,6 +192,10 @@ public class InvSecondaryPerformMC extends MCLoginDetails {
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Select Button",sno,false);
             sno++;
             Thread.sleep(2000);
+            driver.findElement(By.id("capaShortDescInInvCapaPerformDialog")).sendKeys(properties.getProperty("CAPA_ShortDescription"));
+            document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter CAPA Short Description",sno,false);
+            sno++;
+            Thread.sleep(2000);
             driver.findElement(By.id("addCorrectiveActCktInInvCapaAddWin")).click();
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Click On Add Corrective Actions Check Box",sno,false);
             sno++;
@@ -215,8 +219,8 @@ public class InvSecondaryPerformMC extends MCLoginDetails {
             driver.findElement(By.id("paDesciptionInCADetailsJtable1")).sendKeys(properties.getProperty("MC_994"));
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter CAPA Comments",sno,false);
             sno++;
-            Select select = new Select (driver.findElement(By.id("stageName1")));
-            select.selectByIndex(1);
+//            Select select = new Select (driver.findElement(By.id("stageName1")));
+//            select.selectByIndex(1);
             
             Thread.sleep(2000);
             

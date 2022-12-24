@@ -216,9 +216,9 @@ public class InvPerformMC extends MCLoginDetails {
             driver.findElement(By.id("paDesciptionInCADetailsJtable1")).sendKeys(properties.getProperty("MC_994"));
             document = Utilities.getScreenShotAndAddInLogDoc(driver, document, "Enter CAPA Comments",sno,false);
             Thread.sleep(2000);
-            sno++;
-            Select select = new Select (driver.findElement(By.id("stageName1")));
-            select.selectByIndex(1);
+//            sno++;
+//            Select select = new Select (driver.findElement(By.id("stageName1")));
+//            select.selectByIndex(1);
             
             Thread.sleep(2000);
             driver.findElement(By.id("addBtnInInvCapaWinInPerform")).click();
